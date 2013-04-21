@@ -1,0 +1,43 @@
+---
+layout: base
+title: 归档
+comments: false
+---
+
+{% for post in site.posts  %}
+    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+    {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+    {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+    {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+  
+    {% if forloop.first %}
+      <h2 class="title">{{this_year}}-{{this_month}}</h2>
+    <section class="archive">
+      <ul>
+    {% endif %}
+  
+    <li><span>{{ post.date | date: "%Y-%B-%e" }}</span> &raquo; 
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  
+    {% if forloop.last %}
+  </ul>
+  </section>
+    {% else %}
+      {% if this_year != next_year %}
+    </ul>
+    </section>
+        <h2 class="title">{{next_year}}-{{next_month}}</h2>
+    <section class="archive">
+        <ul>
+      {% else %}    
+        {% if this_month != next_month %}
+    </ul>
+    </section>
+        <h2 class="title">{{next_year}}-{{next_month}}</h2>
+    <section class="archive">
+        <ul>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+{% endfor %}

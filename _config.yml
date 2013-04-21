@@ -1,1 +1,14 @@
-baseurl : /suyan.github.io
+pygments: true
+auto: true
+lsi: false
+permalink: /:categories/:year/:month/:day/:title.html
+paginate: 2
+author: 
+    name: 闫肃
+    email: yansu0711@gmail.com
+    link: http://yansu.org
+
+title: 紫月冰河
+subscribe_rss: /pages/atom.xml
+
+
