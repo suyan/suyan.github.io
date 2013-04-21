@@ -2,9 +2,9 @@ pygments: true
 auto: true
 lsi: false
 permalink: /:categories/:year/:month/:day/:title.html
-paginate: 2
+paginate: 8
 author: 
-    name: 闫肃
+    name: SuYan
     email: yansu0711@gmail.com
     link: http://yansu.org
 

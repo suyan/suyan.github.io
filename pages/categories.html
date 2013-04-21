@@ -3,19 +3,17 @@ layout: base
 title: 分类
 comments: false
 ---
-<section class="categories">
 <ul class="tag_box inline">
-    {% for category in site.categories %}
-        <li>
-          <a href="/pages/categories.html#{{ category[0] }}" title="{{ category[0] }}" rel="{{ category[1].size }}">
-            {{ category[0] }} <sup>({{ category[1].size }})</sup>
-          </a>
-        </li>
-    {% endfor %}
+  {% for category in site.categories %}
+    <li>
+      <a href="/pages/categories.html#{{ category[0] }}" title="{{ category[0] }}" rel="{{ category[1].size }}">
+        {{ category[0] }}
+      </a> ({{ category[1].size }})
+    </li>
+  {% endfor %}
 </ul>
-</section>
 {% for category in site.categories %} 
-  <h2 id="{{ category[0] }}">{{ category[0] }}</h2>
+  <legend id="{{ category[0] }}">{{ category[0] }}</legend>
   <ul>
     {% for post in category[1] %}
     <li><a href='{{ post.url }}'>{{post.title}}</a></li>
