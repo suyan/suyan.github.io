@@ -8,31 +8,7 @@ layout: base
     <hr>
     {{ content }}
     <hr>
-    <script type="text/javascript" id="wumiiRelatedItems"></script>
-    <script type="text/javascript">
-        var wumiiPermaLink = ""; //请用代码生成文章永久的链接
-        var wumiiTitle = ""; //请用代码生成文章标题
-        var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
-        var wumiiSitePrefix = "http://yansu.org/";
-        var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
-    </script>
-    <script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
-    <a href="http://www.wumii.com/widget/relatedItems" style="border:0;">
-        <img src="http://static.wumii.cn/images/pixel.png" alt="无觅相关文章插件，快速提升流量" style="border:0;padding:0;margin:0;" />
-    </a>
-    <!-- Duoshuo Comment BEGIN -->
-    <div class="ds-thread"></div>
-    <script type="text/javascript">
-      var duoshuoQuery = {short_name:"yansu"};
-        (function() {
-          var ds = document.createElement('script');
-          ds.type = 'text/javascript';ds.async = true;
-          ds.src = 'http://static.duoshuo.com/embed.js';
-          ds.charset = 'UTF-8';
-          (document.getElementsByTagName('head')[0] 
-          || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
-      </script>
-    <!-- Duoshuo Comment END -->
+    {% include wumi.html %}
+    {% include duoshuo.html %}
   </div>
 </div>
