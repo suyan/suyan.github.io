@@ -1,6 +1,5 @@
 pygments: true
 auto: true
-lsi: false
 permalink: /:categories/:year/:month/:day/:title.html
 paginate: 8
 author: 
