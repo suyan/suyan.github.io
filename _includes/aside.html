@@ -1,0 +1,8 @@
+<legend>分类</legend>
+{% for category in site.categories %}
+  <li><a href="/pages/categories.html#{{ category | first }}">{{ category | first }} ({{ category | last | size }})</a></li> 
+{% endfor %}
+<legend>标签</legend>
+{% for tag in site.tags %}
+  <a href="/pages/tags.html#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}({{ tag[1].size }})</a>
+{% endfor %}

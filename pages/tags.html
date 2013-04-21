@@ -1,0 +1,26 @@
+---
+layout: base
+title: 标签
+comments: false
+---
+<section class="tags">
+<ul class="tag_box inline">
+  <p>
+    <div id='tag_cloud'>
+      {% for tag in site.tags %}
+            <a href="/pages/tags.html#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }} 
+              <sup>({{ tag[1].size }})</sup>
+            </a>
+      {% endfor %}
+    </div>
+  </p>
+</ul>
+</section>
+{% for tag in site.tags %} 
+  <h2 id="{{ tag[0] }}">{{ tag[0] }}</h2>
+  <ul>
+    {% for post in tag[1] %}
+      <li><a href='{{ post.url }}'>{{post.title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
