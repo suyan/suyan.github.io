@@ -23,3 +23,11 @@ description: 因为使用SAE，所以有些项目用SVN来控制，使用时难�
     svn propset svn:ignore 'test' .
     svn update
     svn commit -m "add a ignore dir"
+
+如果想要忽略一个目录下多个文件夹的话，需要有一点点技巧，如下
+
+    svn proset svn:ignore 'test
+        test1
+        test2' .
+
+即每一个文件夹要单独另起一行
