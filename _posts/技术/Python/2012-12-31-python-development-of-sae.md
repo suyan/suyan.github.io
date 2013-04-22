@@ -6,8 +6,6 @@ tags: [Python , SAE]
 description: sae下的python开发部署和一个简单例子
 ---
 
-# sae下的python开发部署和一个简单例子
-
 >以前开发php时，一直在使用[sae](http://sae.sina.com.cn "sae")的平台和服务，非常的喜欢。现在在整openstack，所以改用python做一些东西，为了不来回切换两个语言，我决定学习学习django，方便做一些自己的东西。关于sae下python的使用，[sae官方文档](http://appstack.sinaapp.com/static/doc/release/testing/index.html "sae官方文档")写的非常全面，我这里只是记录自己的一个学习过程
 
 ## 搭建本地开发环境
@@ -214,36 +212,42 @@ description: sae下的python开发部署和一个简单例子
 
 detail.html
 
+    {% raw %}
     <h1>{{ poll.question }}</h1>
-    {\% if error_message %\}<p><strong>{\{ error_message }\}</strong></p>{\% endif %\}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     <form action="/polls/{{ poll.id }}/vote/" method="post">
-    {\% csrf_token %\}
-    {\% for choice in poll.choice_set.all %\}
+    {% csrf_token %}
+    {% for choice in poll.choice_set.all %}
         <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
         <label for="choice{{ forloop.counter }}">{{ choice.choice }}</label><br />
-    {\% endfor %\}
+    {% endfor %}
     <input type="submit" value="Vote" />
     </form>
+    {% endraw %}
 
 index.html
 
-    {\% if latest_poll_list %\}
+    {% raw %}
+    {% if latest_poll_list %}
         <ul>
         {% for poll in latest_poll_list %}
             <li><a href="/polls/{{ poll.id }}/">{{ poll.question }}</a></li>
         {% endfor %}
         </ul>
-    {\% else %\}
+    {% else %}
         <p>No polls are available.</p>
-    {\% endif %\}
+    {% endif %}
+    {% endraw %}
 
 results.html
 
+    {% raw %}
     <h1>{{ poll.question }}</h1>
     <ul>
     {% for choice in poll.choice_set.all %}
-        <li>{\{ choice.choice }\} -- {\{ choice.votes }\} vote{\{ choice.votes|pluralize }\}</li>
-    {\% endfor %\}
+        <li>{{ choice.choice }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    {% endfor %}
     </ul>
     <a href="/polls/{{ poll.id }}/">Vote again?</a>
+    {% endraw %}
 
