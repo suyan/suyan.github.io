@@ -1,3 +1,4 @@
+pygments: false
 permalink: /:categories/:year/:month/:day/:title.html
 paginate: 8
 author: 
