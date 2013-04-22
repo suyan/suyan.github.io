@@ -12,11 +12,11 @@ description: sae下的python开发部署和一个简单例子
 
 ## 搭建本地开发环境
 
-- 安装django
+安装django
 
     easy_install django
 
-- 下载安装本地开发环境
+下载安装本地开发环境
 
     git clone https://github.com/SAEPython/saepythondevguide.git
     cd dev_server
@@ -24,30 +24,32 @@ description: sae下的python开发部署和一个简单例子
 
 ## 创建python项目
 
-- 到sae.sina.com.cn下创建一个python项目
-- 进入管理面板创建版本，版本号为1
-- 使用svn下载代码
+到sae.sina.com.cn下创建一个python项目
+
+进入管理面板创建版本，版本号为1
+
+使用svn下载代码
 
     svn co https://svn.sinaapp.com/xxxxx/
 
-- 进入主目录，发现一个1的文件夹，这个就是对应的django的工程目录
+进入主目录，发现一个1的文件夹，这个就是对应的django的工程目录
 
     django-admin.py start project mysite
     mv mysite/* 1    
 
-- 在1下创建配置文件config.yaml，并写入如下内容
+在1下创建配置文件config.yaml，并写入如下内容
 
     libraries:
     - name: "django"
        version: "1.4"
     
-- 在1下创建index.wsgi，内容如下
+在1下创建index.wsgi，内容如下
 
     import sae
     from mysite import wsgi
     application = sae.create_wsgi_app(wsgi.application)    
 
-- 项目创建完毕，在1中执行dev_server.py来启动sae项目，默认localhost:8080访问
+项目创建完毕，在1中执行dev_server.py来启动sae项目，默认localhost:8080访问
 
 我在这里遇到一个问题，我是用Windows虚拟的Linux，所以我在Windows下无法通过ip:8080访问到linux。看了d>ev_server.py的代码发现这里host是写死为localhost的，所以我将代码小改动了一下
 
@@ -62,12 +64,12 @@ description: sae下的python开发部署和一个简单例子
 
 ## 实现一个简单的投票应用
 
-- 在1目录下，创建应用
+在1目录下，创建应用
 
     python manage.py startapp polls
 
 
-- 修改配置文件settings
+修改配置文件settings
 
     import os
 
@@ -120,7 +122,7 @@ description: sae下的python开发部署和一个简单例子
 
 这里的配置项主要是将SAE和本地开发环境区分开，在SAE环境下使用它们提供的变量就可以直接连接数据库了，不过记得要在SAE控制面板进行初始化
 
-- 配置主urls，即mysite下的urls
+配置主urls，即mysite下的urls
 
     from django.conf.urls import patterns, include, url
 
@@ -132,7 +134,7 @@ description: sae下的python开发部署和一个简单例子
         url(r'^polls/', include('polls.urls')),
     )
 
-- 在polls文件夹下修改urls
+在polls文件夹下修改urls
 
     from django.conf.urls import patterns, url
 
@@ -143,7 +145,7 @@ description: sae下的python开发部署和一个简单例子
         url(r'^(?P<poll_id>\d+)/vote/$', 'vote'),
     )
 
-- 在polls文件夹下创建model.py
+在polls文件夹下创建model.py
 
     from django.db import models
 
@@ -164,7 +166,7 @@ description: sae下的python开发部署和一个简单例子
 
 同步数据库，这个仅限本地，如果要在sae使用的话，需要本地生成后导入到sae上。
 
-- 在polls文件夹下创建view视图文件
+在polls文件夹下创建view视图文件
 
     from django.shortcuts import render_to_response, get_object_or_404
     from django.template import RequestContext
@@ -208,40 +210,40 @@ description: sae下的python开发部署和一个简单例子
         return render_to_response('results.html', {'poll': p})
 
 
-- 在polls下创建templates文件夹，并创建以下三个文件
+在polls下创建templates文件夹，并创建以下三个文件
 
 detail.html
 
     <h1>{{ poll.question }}</h1>
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {\% if error_message %\}<p><strong>{\{ error_message }\}</strong></p>{\% endif %\}
     <form action="/polls/{{ poll.id }}/vote/" method="post">
-    {% csrf_token %}
-    {% for choice in poll.choice_set.all %}
+    {\% csrf_token %\}
+    {\% for choice in poll.choice_set.all %\}
         <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
         <label for="choice{{ forloop.counter }}">{{ choice.choice }}</label><br />
-    {% endfor %}
+    {\% endfor %\}
     <input type="submit" value="Vote" />
     </form>
 
 index.html
 
-    {% if latest_poll_list %}
+    {\% if latest_poll_list %\}
         <ul>
         {% for poll in latest_poll_list %}
             <li><a href="/polls/{{ poll.id }}/">{{ poll.question }}</a></li>
         {% endfor %}
         </ul>
-    {% else %}
+    {\% else %\}
         <p>No polls are available.</p>
-    {% endif %}
+    {\% endif %\}
 
 results.html
 
     <h1>{{ poll.question }}</h1>
     <ul>
     {% for choice in poll.choice_set.all %}
-        <li>{{ choice.choice }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-    {% endfor %}
+        <li>{\{ choice.choice }\} -- {\{ choice.votes }\} vote{\{ choice.votes|pluralize }\}</li>
+    {\% endfor %\}
     </ul>
     <a href="/polls/{{ poll.id }}/">Vote again?</a>
 
