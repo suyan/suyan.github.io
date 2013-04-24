@@ -108,7 +108,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+/*@media (min-width: 1200px) {
   .row {
     margin-left: -30px;
     *zoom: 1;
@@ -456,7 +456,7 @@
   .row-fluid .thumbnails {
     margin-left: 0;
   }
-}
+}*/
 
 @media (min-width: 768px) and (max-width: 979px) {
   .row {
