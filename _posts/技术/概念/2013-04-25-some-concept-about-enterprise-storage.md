@@ -3,7 +3,7 @@ layout: post
 title: 几种企业的存储系统
 category: 技术
 tags: 概念
-description: 今天下午又在网上泡了一下午，把学到的一些杂乱概念总结一下
+description: 今天在看对象存储时涉及到几个企业常用的存储系统，在此大概罗列一下，以后完善
 ---
 
 ## 几种存储系统
