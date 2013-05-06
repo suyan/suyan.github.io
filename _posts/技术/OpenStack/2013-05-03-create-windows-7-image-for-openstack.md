@@ -2,7 +2,7 @@
 layout: post
 title: 给OpenStack创建Win7镜像
 category: 技术
-tags: [OpenStack]
+tags: OpenStack
 description: 上次xp镜像做测试可用，这回要折腾一个win7的镜像了
 ---
 

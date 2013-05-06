@@ -5,6 +5,7 @@ category: 技术
 tags: [OpenStack , Ceilometer]
 description: Ceilometer项目当前是做了CLI接口的，但是在文档中并没有写出来，好在ceilometerclient并不是很复杂，读一读代码就可以了解具体的使用方式了
 ---
+## 命令基本信息
 
 官方文档位置[这里](http://docs.openstack.org/developer/ceilometer/)
 
