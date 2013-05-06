@@ -1,4 +1,4 @@
-permalink: /:categories/:year/:month/:day/:title.html
+permalink: /:year/:month/:day/:title.html
 paginate: 8
 author: 
     name: SuYan
