@@ -14,8 +14,8 @@ description: 上次xp镜像做测试可用，这回要折腾一个win7的镜像�
 
 - 下载virtio驱动
     
-  wget http://alt.fedoraproject.org/pub/alt/virtio-win/latest/images/bin/virtio-win-1.1.16.vfd
-  wget http://alt.fedoraproject.org/pub/alt/virtio-win/latest/images/bin/virtio-win-0.1-52.iso
+  wget http://alt.fedoraproject.org/pub/alt/virtio-win/archives/virtio-win-0.1-59/virtio-win-0.1-59.iso
+  wget http://www.linuxwind.org/download/virtio-win-1.1.16.vfd
 
 - 启动安装程序
     
@@ -36,7 +36,7 @@ description: 上次xp镜像做测试可用，这回要折腾一个win7的镜像�
 
 - 装完以后别急，因为木有网卡驱动，使用下面方式
 
-  sudo kvm -m 1024 -cdrom virtio-win-0.1-52.iso -drive file=win7.qcow2,if=virtio,boot=on -net nic,model=virtio -boot d -nographic -net user -usb -usbdevice tablet -vnc :0
+  sudo kvm -m 1024 -cdrom virtio-win-0.1-59.iso -drive file=win7.qcow2,if=virtio,boot=on -net nic,model=virtio -boot d -nographic -net user -usb -usbdevice tablet -vnc :0
 
   进入虚拟机以后，更新网卡驱动，然后驱动从CD-ROM中搜索即可
 
