@@ -14,8 +14,8 @@ description: 以前在虚拟机里头测试，没法新建镜像，现在给笔�
 
 - 下载virtio驱动
     
-  wget http://alt.fedoraproject.org/pub/alt/virtio-win/latest/images/bin/virtio-win-1.1.16.vfd
-  wget http://alt.fedoraproject.org/pub/alt/virtio-win/latest/images/bin/virtio-win-0.1-52.iso
+  wget http://alt.fedoraproject.org/pub/alt/virtio-win/archives/virtio-win-0.1-59/virtio-win-0.1-59.iso
+  wget http://www.linuxwind.org/download/virtio-win-1.1.16.vfd
 
 - 启动安装程序
     
@@ -29,7 +29,7 @@ description: 以前在虚拟机里头测试，没法新建镜像，现在给笔�
 
 - 装完以后别急，因为木有网卡驱动，使用下面方式
 
-  sudo kvm -m 1024 -cdrom virtio-win-0.1-52.iso -drive file=windowsxp.img,if=virtio,boot=on -net nic,model=virtio -boot d -nographic -net user -usb -usbdevice tablet -vnc :0
+  sudo kvm -m 1024 -cdrom virtio-win-0.1-59.iso -drive file=windowsxp.img,if=virtio,boot=on -net nic,model=virtio -boot d -nographic -net user -usb -usbdevice tablet -vnc :0
 
   进入虚拟机以后，安装网卡驱动，然后驱动从CD-ROM中搜索即可
 
