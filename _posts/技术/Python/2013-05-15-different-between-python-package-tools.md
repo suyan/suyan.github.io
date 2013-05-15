@@ -1,10 +1,11 @@
 ---
 layout: post
-title: python包工具之间的关系(转)
+title: python包工具之间的关系
 category: 技术
 tags: Python
 description: Python打包工具之间的区别和关系，有助于在新项目中做好选择，转载自他人
 ---
+从下面部分可以大致了解一下各个工具的由来和区别，推荐[Python打包工具](http://www.ituring.com.cn/article/19090)这篇文章，来自图灵社区的一篇翻译文，很详细的解释了Python打包工具的发展。
 
 下面部分转载自:[Yang Yubo's blog](http://blog.yangyubo.com/2012/07/27/python-packaging/)
 
