@@ -32,6 +32,13 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
     export YS_CON_MYSQL_PASS=123qwe
     export ADMIN_PASSWORD=123qwe
     export ADMIN_TOKEN=ceit
+    export OS_TENANT_NAME=admin
+    export OS_USERNAME=admin
+    export OS_PASSWORD=$ADMIN_PASSWORD
+    export OS_AUTH_URL="http://${YS_CON_MANAGE_IP}:5000/v2.0/"   
+    export OS_REGION_NAME=RegionOne
+    export SERVICE_TOKEN=${AMDIN_TOKEN}
+    export SERVICE_ENDPOINT=http://${YS_CON_MANAGE_IP}:35357/v2.0/
 
 ### 网络设置
 设置网卡信息
@@ -126,8 +133,10 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
 
 导入keystone数据，如果剪切板有限制的话最好分两次粘贴
 
+第一部分：
+
     ADMIN_PASSWORD=${ADMIN_PASSWORD:-password}
-    SERVICE_PASSWORD=${SERVICE_PASSWORD:-password}
+    SERVICE_PASSWORD=${ADMIN_PASSWORD:-password}
     export SERVICE_TOKEN=$ADMIN_TOKEN
     export SERVICE_ENDPOINT="http://${YS_CON_SERVICE_ENDPOINT_IP}:35357/v2.0"
     SERVICE_TENANT_NAME=${SERVICE_TENANT_NAME:-service}
@@ -166,6 +175,7 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
     keystone --token $SERVICE_TOKEN --endpoint $SERVICE_ENDPOINT user-role-add --tenant-id $SERVICE_TENANT --user-id $SWIFT_USER --role-id $ADMIN_ROLE
     RESELLER_ROLE=$(get_id keystone --token $SERVICE_TOKEN --endpoint $SERVICE_ENDPOINT role-create --name=ResellerAdmin)
 
+第二部分：
 
     keystone --token $SERVICE_TOKEN --endpoint $SERVICE_ENDPOINT user-role-add --tenant-id $SERVICE_TENANT --user-id $NOVA_USER --role-id $RESELLER_ROLE
     QUANTUM_USER=$(get_id keystone --token $SERVICE_TOKEN --endpoint $SERVICE_ENDPOINT user-create --name=quantum --pass="$SERVICE_PASSWORD" --tenant-id $SERVICE_TENANT --email=quantum@domain.com)
@@ -180,7 +190,7 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
     EC2_ID=$(keystone --token $SERVICE_TOKEN --endpoint $SERVICE_ENDPOINT service-create --name=ec2 --type=ec2 --description='OpenStack EC2 service'| awk '/ id / { print $4 }')
     QUANTUM_ID=$(keystone --token $SERVICE_TOKEN --endpoint $SERVICE_ENDPOINT service-create --name=quantum --type=network --description='OpenStack Networking service'| awk '/ id / { print $4 }')
 
-
+第三部分：
 
     if [ "$KEYSTONE_WLAN_IP" != '' ];then
         keystone --token $SERVICE_TOKEN --endpoint $SERVICE_ENDPOINT endpoint-create --region $KEYSTONE_REGION --service-id=$KEYSTONE_ID --publicurl http://"$KEYSTONE_WLAN_IP":5000/v2.0 --adminurl http://"$KEYSTONE_WLAN_IP":35357/v2.0 --internalurl http://"$KEYSTONE_WLAN_IP":5000/v2.0
@@ -204,6 +214,8 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
     export OS_PASSWORD=$ADMIN_PASSWORD
     export OS_AUTH_URL="http://${YS_CON_MANAGE_IP}:5000/v2.0/"   
     export OS_REGION_NAME=RegionOne
+    export SERVICE_TOKEN=${AMDIN_TOKEN}
+    export SERVICE_ENDPOINT=http://${YS_CON_MANAGE_IP}:35357/v2.0/
     _EOF_
 
     echo 'source /root/export.sh' >> /root/.bashrc
