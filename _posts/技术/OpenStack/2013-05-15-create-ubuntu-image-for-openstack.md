@@ -36,7 +36,7 @@ description: 接着WinXP和Win7，接下来才做Ubuntu镜像~
 
     sudo rm -rf /etc/udev/rules.d/70-persistent-net.rules
 
-### 如果制作前使用的是raw格式，像换成qcow2格式
+### 如果制作前使用的是raw格式，想换成qcow2格式
 
     qemu-img convert -f raw -O qcow2 ./ubuntu.img ./ubuntu.qcow2
 
