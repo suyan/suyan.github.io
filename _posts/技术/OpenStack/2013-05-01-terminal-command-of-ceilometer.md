@@ -25,7 +25,7 @@ description: Ceilometer项目当前是做了CLI接口的，但是在文档中并
     OS_PASSWORD
     OS_TENANT_NAME
     OS_AUTH_URL
-    CEILOMETER_API_VERSION   //默认为1，测试不可用……，需要--ceilometer-api-version参数来控制
+    CEILOMETER_API_VERSION  
 
 常用的命令
 
@@ -37,16 +37,22 @@ description: Ceilometer项目当前是做了CLI接口的，但是在文档中并
 
 二级命令可以查看收集器搜集的数据，官方说H版本会弃用v1版本接口，所以推荐使用v2接口，相应参数及-q选项可以查看代码，再fields变量中有定义
 
-    ceilometer --ceilometer-api-version 2 meter-list   //列举所有测量值
-    ceilometer --ceilometer-api-version 2 meter-list -q resource_id=XXX  //列举某一实例测量值
+    ceilometer meter-list   //列举所有测量值
+    ceilometer meter-list -q resource_id=XXX  //列举某一实例测量值
 
-    ceilometer --ceilometer-api-version 2 sample-list -m cpu -q resource_id=XXX    //列举某一实例的cpu采样数据
+    ceilometer sample-list -m cpu -q resource_id=XXX    //列举某一实例的cpu采样数据
+    ceilometer sample-list -m cpu_util -q 'resource_id=b7fc623d-1d4a-4ac7-b96b-78c9d921fa74;timestamp>2013-05-21T03:18:20;timestamp<2013-05-21T03:30:20'
 
-    ceilometer --ceilometer-api-version 2 statistics -m cpu     //列举实例的统计数据
+    ceilometer statistics -m cpu     //列举实例的统计数据
   
-    ceilometer --ceilometer-api-version 2 resource-list  //列举所有实例列表
+    ceilometer resource-list  //列举所有实例列表
 
+常用的q内参数
 
+    resuorce_id 
+    user_id
+    project_id
+    timestamp
     
 
 
