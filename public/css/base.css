@@ -1,18 +1,40 @@
 html,
-body {height: 100%;}
-#wrap {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -60px;
+body {
+  height: 100%;
+  background: #DDDCE2 url(../img/body_bg.jpg) repeat left top;
 }
-#push,
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -100px;
+}
+#push{
+  height:100px;
+}
 #footer {
-    height: 40px;  
-    /*background-color: #f5f5f5;*/
+  height:100px;
+  background-color: #f5f5f5;
+}
+#footer .container{
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 @media (min-width: 767px) {
   .affix {
     top:10px;
   }
+  #footer {
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+}
+.title{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.title h1,h2,h3,h4,h5{
+  display:inline;
 }
