@@ -3,7 +3,7 @@ layout: post
 title: 学习Python的ABC模块
 category: Technology
 tags: Python
-keywords: [Python , ABC , module]
+keywords: Python ABC module
 description: 在学习stevedore时，需要先了解python的abc module
 ---
 
