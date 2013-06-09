@@ -290,6 +290,33 @@ setuptools是Python distutils增强版的集合，它可以帮助我们更简单
 
 如果没有使用版本控制的话，可以还是使用3中提到的包含方法
 
+#### 可扩展的框架和应用
+setuptools可以帮助你将应用变成插件模式，供别的应用使用。官网举例是一个帮助博客更改输出类型的插件，一个博客可能想要输出不同类型的文章，但是总自己写输出格式化代码太繁琐，可以借助一个已经写好的应用，在编写博客程序的时候动态调用其中的代码。
+
+通过entry_points可以定义一系列接口，供别的应用或者自己调用，例如：
+
+    setup(
+        entry_points = {'blogtool.parsers': '.rst = some_module:SomeClass'}
+    )
+
+    setup(
+        entry_points = {'blogtool.parsers': ['.rst = some_module:a_func']}
+    )
+
+    setup(
+        entry_points = """
+            [blogtool.parsers]
+            .rst = some.nested.module:SomeClass.some_classmethod [reST]
+        """,
+        extras_require = dict(reST = "Docutils>=0.3.5")
+    )
+
+上面列举了三中定义方式，即我们将我们some_module中的函数，以名字为blogtool.parsers的借口共享给别的应用。
+
+别的应用使用的方法是通过`pkg_resources.require()`来导入这些模块。
+
+另外，一个名叫[stevedore](http://stevedore.readthedocs.org/en/latest/index.html)的库将这个方式做了封装，更加方便进行应用的扩展。
+
 ### 5. 以后增加
 以上内容大部分来自于[官方文档](http://pythonhosted.org/setuptools/setuptools.html)，需要额外学习的以后再增加
 
