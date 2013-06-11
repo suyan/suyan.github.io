@@ -130,7 +130,7 @@ inspector要做的就是去获得虚拟机数据了，它可以有多重方式�
     def inspect_vnics(self, instance_name):
     def inspect_disks(self, instance_name):
 
-Libvitt的运行机制应该在之前讲Kanyun的项目里头说到了，再这里就不赘述了
+通过Libvirt获得虚拟机信息方法应该在之前讲[kanyun worker原理](/2013/01/30/introduction-of-kanyun-worker.html)的时候说到了，再这里就不赘述了
 
 ### TODO
 基本先写到这里，对于了解Compute Agent代码运行机制，对它进行二次开发也有很大帮助，再有内容以后再补充
