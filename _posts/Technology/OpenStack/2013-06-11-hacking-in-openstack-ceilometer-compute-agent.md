@@ -102,5 +102,36 @@ inspector的作用是获取虚拟机信息的，它现在只有一种实现方�
 
 我只写了摘了必要部分，`poll_and_publish`通过nova_client获得现有的所有虚拟机，然后调用`poll_and_pusblish_instances`
 
-通过pollster.get_counters获得虚拟机的数据，然后通过pipeline将数据转换和传送给publisher，由publisher发送到MQ中去
+通过pollster.get_counters获得虚拟机的数据，然后通过pipeline将数据转换和传送给publisher，由publisher发送到MQ中去。这里涉及到的pipeline和publisher单独拿出来研究，之后再写。
+
+### pollsters.py
+这个文件位于`ceilometer/ceilometer/compute`下，它是轮询虚拟机信息的主要代码所在
+
+以cpu为例说明
+
+    class CPUPollster(plugin.ComputePollster):
+        def get_counters(self, manager, instance):
+            instance_name = _instance_name(instance)
+            cpu_info = manager.inspector.inspect_cpus(instance_name)
+            yield make_counter_from_instance(instance,
+                                             name='cpu',
+                                             type=counter.TYPE_CUMULATIVE,
+                                             unit='ns',
+                                             volume=cpu_info.time,
+                                             )
+
+这里省略了大部分代码，只是给出一个Pollster的写法，它需要一个get_counters的函数，用来返回货取到的虚拟机数据。执行获取的代码来自于inspector，也就是`ceilometer/ceilometer/compute/virt/inspector.py`中的功能了
+
+### inspector.py
+inspector要做的就是去获得虚拟机数据了，它可以有多重方式，暂时ceilometer只写了基于libvirt获得的。暂时inspector可以做的内容主要有一下几个：
+
+    def inspect_instances(self):
+    def inspect_cpus(self, instance_name):
+    def inspect_vnics(self, instance_name):
+    def inspect_disks(self, instance_name):
+
+Libvitt的运行机制应该在之前讲Kanyun的项目里头说到了，再这里就不赘述了
+
+### TODO
+基本先写到这里，对于了解Compute Agent代码运行机制，对它进行二次开发也有很大帮助，再有内容以后再补充
 
