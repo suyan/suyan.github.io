@@ -12,5 +12,5 @@ title: 关于
  
 <address>
   <strong>Email</strong><br>
-  <a href="mailto:#">yansu0711@gmail.com</a>
+  <a href="mailto:yansu0711@gmail.com">yansu0711@gmail.com</a>
 </address>
