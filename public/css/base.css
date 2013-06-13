@@ -3,20 +3,15 @@ body {
   height: 100%;
   background: #DDDCE2 url(../img/body_bg.jpg) repeat left top;
 }
-#wrap {
+.body_wrap {
   min-height: 100%;
   height: auto !important;
   height: 100%;
   margin: 0 auto -100px;
 }
-#push{
-  height:100px;
-}
-#footer {
-  height:100px;
-  background-color: #f5f5f5;
-}
-#footer .container{
+.body_push{height:100px;}
+.body_footer {height:100px;background-color: #f5f5f5;}
+.body_footer .container{
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -24,17 +19,24 @@ body {
   .affix {
     top:10px;
   }
-  #footer {
+  .body_footer {
       margin-left: -20px;
       margin-right: -20px;
       padding-left: 20px;
       padding-right: 20px;
   }
 }
-.title{
-  margin-top:10px;
-  margin-bottom:10px;
+@media print {
+  .title,
+  .navbar,
+  .post_title_meta,
+  .post_foot_meta,
+  .side_nav,
+  .body_footer{
+      display:none;
+  }
 }
-.title h1,h2,h3,h4,h5{
-  display:inline;
-}
+.title{margin-top:10px;margin-bottom:10px;}
+.title h1,h2,h3,h4,h5{display:inline;}
+.content p{text-indent: 2em;}
+.content img{text-align:center;}
