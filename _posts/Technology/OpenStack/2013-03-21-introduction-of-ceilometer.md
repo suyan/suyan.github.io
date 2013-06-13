@@ -3,7 +3,7 @@ layout: post
 title: OpenStack Ceilometer项目简介
 category: Technology
 tags: [OpenStack , Ceilometer]
-description: OpenStack Ceilometer项目简介
+description: OpenStack Ceilometer项目简介，转载自alexyang的博客
 ---
 
 Ceilometer项目创建时最初的目的是实现一个能为计费系统采集数据的框架。在G版的开发中，社区已经更新了他们的目标，新目标是希望Ceilometer成为OpenStack里数据采集（监控数据、计费数据）的唯一基础设施，采集到的数据提供给监控、计费、面板等项目使用。
@@ -51,10 +51,11 @@ Compute Agent负责Compute节点的数据采集，在每一个Compute节点都�
 Ceilometer实现的Plugin框架依赖setuptools的Dynamic Discovery of Services and Plugins实现。这是Ceilometer能进行扩展的基础。Ceilometer中有四种类型的Plugin：Poller，Publisher，Notification和Transformer。
 
 Poller主要负责被Agent调用去查询数据，返回Counter类型的结果给Agent框架；
-Notification负责在MQ中监听相关topic的消息（虚拟机创建等），并把他转换成Counter类型的结果给Agent框架。
-Transformer负责转换Counter（目前在代码中还没有发现具体用li）
-Publisher负责将Agent框架中Counter类型的结果转换成消息（包括签名），并将消息发送到MQ；
-Agent的Pipeline定义了这些插件之间的数据流。Agent的Plugin框架就向一个流水线，每个Plugin就像流水线上的工人。
+
+- Notification负责在MQ中监听相关topic的消息（虚拟机创建等），并把他转换成Counter类型的结果给Agent框架。
+- Transformer负责转换Counter（目前在代码中还没有发现具体用例）
+- Publisher负责将Agent框架中Counter类型的结果转换成消息（包括签名），并将消息发送到MQ；
+- Agent的Pipeline定义了这些插件之间的数据流。Agent的Plugin框架就向一个流水线，每个Plugin就像流水线上的工人。
 
 #### Collector
 
@@ -68,4 +69,4 @@ Collector负责监听消息队列，将Publisher发布的消息（Meter Message�
 
 负责为其它项目提供数据，例如计费、面板等。
 
-[原文地址](http://alexyang.sinaapp.com/?p=300)
+[原文地址](http://www.cnblogs.com/alexyang8/archive/2013/02/18/2915981.html)

@@ -13,7 +13,7 @@ Collector顾名思义是负责数据收集的，它负责搜集来自OpenStack�
 ### PubSubHubbub
 [PubSubHubbub](https://code.google.com/p/pubsubhubbub/)是Google推出的一个基于Web-hook方式的解决方案，它其实是RSS的改进。它具体要解决的是RSS效率低和压力大的问题，有一个[Go real time with pubsubhubbub and feeds](http://www.slideshare.net/devseed/go-real-time-with-pubsubhubbub-and-feeds)讲的挺清楚
 
-[Tim](http://timyang.net/web/pubsubhubbub/)的这篇博客也讲了它的机制，如下图：
+[Tim](http://timyang.net/web/pubsubhubbub/)的这篇博客也讲了它的机制，其中有这个图：
 
 ![PubSubHubbub](/public/upload/Technology/OpenStack/pubsubhubbub.png)
 
@@ -31,6 +31,9 @@ Collector顾名思义是负责数据收集的，它负责搜集来自OpenStack�
 - Hub 中转，Collector也充当了这个角色
 
 ### Collector代码原理
+有些相思代码在之前的[OpenStack Ceilometer Compute Agent源码解读](/2013/06/11/hacking-in-openstack-ceilometer-compute-agent.html)讲过
+
+这里只写和collector有关的
 
 #### 入口函数
 Collector的核心功能在`ceilometer.collector.service:CollectorService`中，它是OpenStack的Service服务，启动以后从`initialize_service_hook()`开始运行
@@ -60,7 +63,7 @@ Collector的核心功能在`ceilometer.collector.service:CollectorService`中，
             'ceilometer.collector.' + cfg.CONF.publisher_meter.metering_topic,
         )
 
-这些代码在之前的[OpenStack Ceilometer Compute Agent源码解读](/2013/06/11/hacking-in-openstack-ceilometer-compute-agent.html)讲过，这里只说重点的，`self.notification_manager`是导入所有可用的内容的处理对象，从`setup.cfg`中可以找到
+这里只说重点的，`self.notification_manager`是导入所有可用的内容的处理对象，从`setup.cfg`中可以找到
 
     ceilometer.collector =
         instance = ceilometer.compute.notifications:Instance
@@ -83,7 +86,7 @@ Collector的核心功能在`ceilometer.collector.service:CollectorService`中，
                     exchange_name=exchange_topic.exchange,
                 )
 
-#### 回掉函数
+#### 回调函数
 
 这里`_setup_subscription()`讲每一个订阅对象都`join_consumer_pool`，即在AMQP中接收这些订阅相关topic的内容，然后指定了callback函数为`self.process_notification`
 
