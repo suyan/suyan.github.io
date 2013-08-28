@@ -4,7 +4,7 @@ title: 首页
 ---
 <div class="row">
   {% for post in paginator.posts %}
-    <div class="span9">
+    <div class="col-md-12">
       <h3><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
       <p>由作者 <a href="/pages/about.html">{{ site.author.name }}</a> 发布于 <a href='/pages/archive.html#{{ post.date | date:"%Y-%m"}}'>{{ post.date | date:"%Y年%m月%d日" }}</a> 分类: {% for category in post.category %} <a href="/pages/categories.html#{{ category }}">{{ category }}</a> {% endfor %} | 标签: {% for tag in post.tags %} <a href="/pages/tags.html#{{ tag }}">#{{ tag }}#</a> {% endfor %}</p>
       <blockquote>
@@ -13,7 +13,7 @@ title: 首页
       <hr>
     </div>
   {% endfor %}
-  <div class="span9">
+  <div class="col-md-12">
     {% include paginator.html %}
   </div>
 </div>

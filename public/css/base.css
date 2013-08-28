@@ -16,15 +16,16 @@ body {
   padding-bottom: 30px;
 }
 @media (min-width: 767px) {
-  .affix {
-    top:10px;
-  }
   .body_footer {
-      margin-left: -20px;
-      margin-right: -20px;
-      padding-left: 20px;
-      padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
+}
+@media screen and (min-width: 992px) {
+  .affix {top:10px;}
+  .aside {width: 213px;}
 }
 @media print {
   .title,
