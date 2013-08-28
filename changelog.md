@@ -1,13 +1,20 @@
 # Changelog
-## Version 0.0.3
+## TODO
+- 优化阅读体验
+- 想办法实现双语
+
+## Version 2.1
+- 升级到Bootstrap3
+
+## Version 1.2
 - 修改背景图
 - 增加页脚
 
-## Version 0.0.2
+## Version 1.1
 - 增加文章目录自动生成
 - 在首页和文章中增加affix效果
 
-## Version 0.0.1
+## Version 1.0
 - 基本功能完成
 - 增加[多说](www.duoshuo.com)插件 duoshuo.html 
 - 增加[无觅](http://www.wumii.com/widget/relatedItems)插件 wumi.html

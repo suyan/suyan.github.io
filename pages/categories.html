@@ -3,15 +3,15 @@ layout: base
 title: 分类
 comments: false
 ---
-<div class="accordion" id="accordion">
+<div class="panel-group" id="accordion">
   {% for category in site.categories %} 
-    <div class="accordion-group">
-      <div class="accordion-heading">
+    <div class="panel panel-default">
+      <div class="panel-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ category[0] }}">
           {{ category[0] }}({{ category[1].size }})
         </a>
       </div>
-      <div id="{{ category[0] }}" class="accordion-body collapse">
+      <div id="{{ category[0] }}" class="panel-collapse collapse">
         <div class="accordion-inner">
           <ul>
             {% for post in category[1] %}
