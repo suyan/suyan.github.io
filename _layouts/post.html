@@ -3,15 +3,15 @@ layout: base
 ---
 <div class="row">
   <div class="col-md-9">
-    <h2>{{ page.title }}</h2>
-    <div class="post_title_meta">
-      <p>由作者 <a href="/pages/about.html">{{ site.author.name }}</a> 发布于 <a href='/pages/archive.html#{{ page.date | date:"%Y-%m"}}'>{{ page.date | date:"%Y年%m月%d日" }}</a> 分类: {% for category in page.category %} <a href="/pages/categories.html#{{ category }}">{{ category }}</a> {% endfor %} | 标签: {% for tag in page.tags %} <a href="/pages/tags.html#{{ tag }}">#{{ tag }}#</a> {% endfor %}</p>  
+    <div class="panel panel-info">
+      <div class="panel-heading">
+      <h2>{{ page.title }}</h2>
+      <p>由作者 <a href="/pages/about.html">{{ site.author.name }}</a> 发布于 <a href='/pages/archive.html#{{ page.date | date:"%Y-%m"}}'>{{ page.date | date:"%Y年%m月%d日" }}</a> 分类: {% for category in page.category %} <a href="/pages/categories.html#{{ category }}">{{ category }}</a> {% endfor %} | 标签: {% for tag in page.tags %} <a href="/pages/tags.html#{{ tag }}">#{{ tag }}#</a> {% endfor %}</p>
+      </div>
+      <div class="panel-body content" id="content">
+        {{ content }}
+      </div>
     </div>
-    <hr>
-    <blockquote>
-      <p>{{ page.description }}</p>
-    </blockquote>
-    <div id="content" class="content">{{ content }}</div>
     <hr>
     <div class="post_foot_meta">
       {% include wumi.html %}
@@ -21,13 +21,17 @@ layout: base
   </div>
   <div class="col-md-3">
     <div class="row">
-      <div id="nav" class="side_nav aside" data-spy="affix" data-offset-top="100"></div> 
+      <div class="side_nav aside" data-spy="affix" data-offset-top="100">
+        <div class="panel panel-success">
+          <div class="panel-heading">目录</div>
+          <div class="panel-body" id="nav"></div>
+        </div>
+      </div>
     </div>  
   </div>
 </div>
 <script>
   $(function(){
-    $("#nav").append('<legend>目录</legend>')
     $("#content > h2,#content > h3,#content > h4,#content > h5,#content > h6").each(function(i) {
         var current = $(this);
         current.attr("id", "title" + i);

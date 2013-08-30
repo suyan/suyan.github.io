@@ -1,14 +1,24 @@
 <div class="row">
   <div class="aside" data-spy="affix" data-offset-top="100">
-    <legend>分类</legend>
-    {% for category in site.categories %}
-      <li><a href="/pages/categories.html#{{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})</li> 
-    {% endfor %}
-    <div id="tag_cloud">
-      <legend>标签</legend>
-      {% for tag in site.tags %}
-        <a href="/pages/tags.html#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
-      {% endfor %}    
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">分类</h2>
+      </div>
+      <div class="panel-body">
+        {% for category in site.categories %}
+          <li><a href="/pages/categories.html#{{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})</li> 
+        {% endfor %}
+      </div>
+    </div>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">标签</h2>
+      </div>
+      <div class="panel-body" id="tag_cloud">
+        {% for tag in site.tags %}
+          <a href="/pages/tags.html#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+        {% endfor %}  
+      </div>
     </div>
   </div>
 </div>
