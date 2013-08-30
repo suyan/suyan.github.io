@@ -1,8 +1,8 @@
-html,
-body {
+html,body {
   height: 100%;
   background: #DDDCE2 url(../img/body_bg.jpg) repeat left top;
 }
+body{padding-top: 70px;}
 .body_wrap {
   min-height: 100%;
   height: auto !important;
@@ -24,7 +24,7 @@ body {
   }
 }
 @media screen and (min-width: 992px) {
-  .affix {top:10px;}
+  .affix {top:70px;}
   .aside {width: 226px;}
 }
 @media print {
