@@ -25,10 +25,10 @@ body {
 }
 @media screen and (min-width: 992px) {
   .affix {top:10px;}
-  .aside {width: 213px;}
+  .aside {width: 226px;}
 }
 @media print {
-  .title,
+  .page-header,
   .navbar,
   .post_title_meta,
   .post_foot_meta,
@@ -37,7 +37,8 @@ body {
       display:none;
   }
 }
-.title{margin-top:10px;margin-bottom:10px;}
-.title h1,h2,h3,h4,h5{display:inline;}
 .content p{text-indent: 2em;}
 .content img{text-align:center;}
+.content {font-size:18px;line-height:1.8;}
+.content h2,h3{line-height: 2;}
+blockquote p{font-size:20px;}
