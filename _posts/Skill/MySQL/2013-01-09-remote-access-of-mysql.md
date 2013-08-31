@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MySQL远程访问
-category: Skill
+category: 技巧
 tags: MySQL
 description: 做开发的时候一直要ssh到服务器，然后再命令行敲各种mysql命令实在是太蛋疼了，有navicat这么好的工具干嘛不用~但是Linux默认情况下数据库是不支持远程访问，所以可以用一下方式增加可访问权限
 ---

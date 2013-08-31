@@ -1,7 +1,7 @@
 ---
 layout: post
 title: git创建远程库
-category: Skill
+category: 技巧
 tags: Git
 description: git创建远程库
 ---

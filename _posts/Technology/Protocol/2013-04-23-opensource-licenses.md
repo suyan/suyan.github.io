@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 五中常见的开源协议整理(BSD,Apache,GPL,LGPL,MIT)
-category: Technology
+category: 技术
 tags: Protocol
 description: 最近做一个项目用了很多开源的组建，项目有可能会发布，所以提前整理整理各个开源协议，有助于项目发展
 ---

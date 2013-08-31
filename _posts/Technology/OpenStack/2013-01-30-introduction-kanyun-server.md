@@ -1,7 +1,7 @@
 ---
 layout: post
 title: kanyun server服务
-category: Technology
+category: 技术
 tags: [OpenStack , Kanyun]
 description: kanyun中server服务主要运行在控制节点，用来处理来自计算节点worker的数据
 ---

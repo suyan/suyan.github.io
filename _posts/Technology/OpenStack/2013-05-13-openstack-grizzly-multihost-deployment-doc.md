@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OpenStack Grizzly Multihost部署文档
-category: Technology
+category: 技术
 tags: OpenStack
 description: OpenStack G版本的Multihost部署文档，参考了几位前辈的部署步骤，自己增加了一些变量修改，主要是希望搭建一个可用的生产环境，虽然版本比较初级，但是会逐渐完善
 ---

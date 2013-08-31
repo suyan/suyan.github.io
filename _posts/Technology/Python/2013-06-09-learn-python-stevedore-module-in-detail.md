@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 学习Python动态扩展包stevedore
-category: Technology
+category: 技术
 tags: Python
 keywords: Python,Stevedore,OpenStack
 description: 在阅读OpenStack项目Ceilometer代码时，发现其利用stevedore来实现动态扩展，故需要先学习一下stevedore机制。

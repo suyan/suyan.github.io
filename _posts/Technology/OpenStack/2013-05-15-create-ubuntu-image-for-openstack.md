@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 给OpenStack创建Ubuntu镜像
-category: Technology
+category: 技术
 tags: OpenStack
 description: 接着WinXP和Win7，接下来才做Ubuntu镜像~
 ---

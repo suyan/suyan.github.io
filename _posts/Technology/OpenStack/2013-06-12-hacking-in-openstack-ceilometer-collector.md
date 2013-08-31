@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OpenStack Ceilometer Collector代码解读
-category: Technology
+category: 技术
 tags: [OpenStack , Ceilometer]
 keywords: OpenStack,Ceilometer,Collector,Source
 description: Collector是Ceilometer非常关键的部件之一，它负责搜集采集到的数据，并将其存储到数据库中。它基于PubSubHubbub实现，和agent部件一起实现了数据采集和订阅功能

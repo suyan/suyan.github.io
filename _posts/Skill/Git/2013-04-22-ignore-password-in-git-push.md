@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 让git push命令不再需要密码
-category: Skill
+category: 技巧
 tags: Git
 description: 使用git push命令远程提交库时，总是要输入帐号和密码，这样特别麻烦，找了一个方法解决掉
 ---
