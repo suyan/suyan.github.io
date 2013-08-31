@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 部署一个ceilometer-horizon项目
-category: Technology
+category: 技术
 tags: [OpenStack , Ceilometer]
 description: 准备做一个OpenStack的监控项目，以前使用的是kanyun，但是由于kanyun放出来的代码是不完全的，不适合持续跟踪，而且不支持F版本，所以就放弃了。OpenStack项目里已经有了Ceilometer项目，作为OpenStack整个项目的监控，只是暂时还不支持horizon展示，所以需要自己写Horizon部分代码，看到有个哥们已经写了，所以就拿来部署一下。
 ---

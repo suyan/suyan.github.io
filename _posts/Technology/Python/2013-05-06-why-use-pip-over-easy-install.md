@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 为什么使用pip而不是easy_install
-category: Technology
+category: 技术
 tags: Python
 description: 在stackoverflow上有这么一个问题，在此把其中一个答案翻译下来，给有选择恐惧症的少年们一些帮助~
 ---

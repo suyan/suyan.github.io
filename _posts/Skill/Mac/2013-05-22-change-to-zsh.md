@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 从Bash切换到Zsh
-category: Skill
+category: 技巧
 tags: Mac
 description: Zsh在使用一段时间以后，确实是不错，这个过程逐渐完善吧
 ---

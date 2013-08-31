@@ -1,4 +1,4 @@
-suyan.github.io
+yansu.org
 ===============
 
 我的博客

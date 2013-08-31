@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 调试和修改OpenStack中的Horizon部分
-category: Technology
+category: 技术
 tags: [OpenStack , Horizon]
 description: 在OpenStack二次开发中，Horizon肯定是常常要修改的部分，简要说一下我自己调试和修改的方式
 ---

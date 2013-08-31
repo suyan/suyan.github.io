@@ -1,9 +1,10 @@
 permalink: /:year/:month/:day/:title.html
-paginate: 8
+paginate: 10
 author: 
-    name: SuYan
+    name: 闫肃
     email: yansu0711@gmail.com
     link: http://yansu.org
+    enlink: http://en.yansu.org
 
 title: 紫月冰河
 subscribe_rss: /pages/atom.xml
