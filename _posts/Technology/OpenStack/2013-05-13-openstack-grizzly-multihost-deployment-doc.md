@@ -1002,3 +1002,38 @@ br-ex 可能有 ip 地址，但没有网关和 DNS，需要手工配置一下，
 - ICMP -1 (ping)
 - TCP 3306 (mysql)
 - TCP 3389 (远程桌面)
+
+## 修改bug
+
+quantum里面有一个bug，这个环境重启以后nova会无法启动，参考[aass](http://blog.sina.com.cn/s/blog_6de3aa8a0101lnar.html)修改源码可以解决
+
+修改计算节点/usr/share/pyshared/nova/virt/libvirt/vif.py第360行所在函数
+
+    def plug_ovs_hybrid(self, instance, vif):
+        network, mapping = vif
+        iface_id = self.get_ovs_interfaceid(mapping)
+        br_name = self.get_br_name(mapping['vif_uuid'])
+        v1_name, v2_name = self.get_veth_pair_names(mapping['vif_uuid'])
+
+        if not linux_net.device_exists(br_name):
+            utils.execute('brctl', 'addbr', br_name, run_as_root=True)
+            utils.execute('brctl', 'setfd', br_name, 0, run_as_root=True)
+            utils.execute('brctl', 'stp', br_name, 'off', run_as_root=True)
+
+        if not linux_net.device_exists(v2_name):
+            linux_net._create_veth_pair(v1_name, v2_name)
+            utils.execute('ip', 'link', 'set', br_name, 'up', run_as_root=True)
+            try:
+                v1_tap="tap"+br_name[3:]
+                try:
+                    utils.execute('ovs-vsctl', 'del-port', br_name, v1_tap, run_as_root=True)
+                except Exception,e:
+                    pass
+                utils.execute('brctl', 'addif', br_name, v1_name, run_as_root=True)
+            except Exception,e:
+                pass
+            linux_net.create_ovs_vif_port(self.get_bridge_name(network),
+                                          v2_name, iface_id, mapping['mac'],
+                                          instance['uuid'])
+
+
