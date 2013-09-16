@@ -37,7 +37,7 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
     export OS_PASSWORD=$ADMIN_PASSWORD
     export OS_AUTH_URL="http://${YS_CON_MANAGE_IP}:5000/v2.0/"   
     export OS_REGION_NAME=RegionOne
-    export SERVICE_TOKEN=${AMDIN_TOKEN}
+    export SERVICE_TOKEN=${ADMIN_TOKEN}
     export SERVICE_ENDPOINT=http://${YS_CON_MANAGE_IP}:35357/v2.0/
 
 ### 网络设置
@@ -268,7 +268,7 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
     while read line;
     do 
     pattern=`echo $line | awk '{printf "%s %s",$1,$2}'`
-    sed -i "/$pattern/c $line" /etc/glance/glance-api.conf;
+    sed -i "/$pattern/c $line" /etc/glance/glance-registry.conf;
     done << _EOF_
     verbose = True
     debug = True
@@ -281,8 +281,8 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
     admin_password = ${ADMIN_PASSWORD}
     _EOF_
 
-    echo "config_file = /etc/glance/glance-api-paste.ini" >> /etc/glance/glance-api.conf
-    echo "flavor = keystone" >> /etc/glance/glance-api.conf
+    echo "config_file = /etc/glance/glance-registry-paste.ini" >> /etc/glance/glance-registry.conf
+    echo "flavor = keystone" >> /etc/glance/glance-registry.conf
     
 启动 glance-api 和 glance-registry 服务并同步到数据库：
 
@@ -586,7 +586,7 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
     netmask $YS_COM_MANAGE_NETMASK
 
     auto eth1
-    iface eth0 inet static
+    iface eth1 inet static
     address $YS_COM_DATA_IP
     netmask $YS_COM_DATA_NETMASK
 
@@ -676,7 +676,7 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
     netmask $YS_COM_MANAGE_NETMASK
 
     auto eth1
-    iface eth0 inet static
+    iface eth1 inet static
     address $YS_COM_DATA_IP
     netmask $YS_COM_DATA_NETMASK
 
@@ -996,4 +996,9 @@ br-ex 可能有 ip 地址，但没有网关和 DNS，需要手工配置一下，
 
     quantum floatingip-associate $put_id_floating_ip $put_id_vm_port
 
+## 开启端口
 
+- TCP 22 (ssh)
+- ICMP -1 (ping)
+- TCP 3306 (mysql)
+- TCP 3389 (远程桌面)
