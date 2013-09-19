@@ -35,7 +35,7 @@ Move to core for H
 
 ### Ceilometer架构介绍
 
-![Ceilometer架构介绍](/public/upload/技术/OpenStack/ceilometer-architecture.png)
+![Ceilometer架构介绍](/public/upload/ceilometer-architecture.png)
 
 ### Ceilometer项目主要由Agent，Collector，DataStore，API和消息队列组成。
 
