@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 部署Ceilometer到已有环境中
-category: Technology
+category: 技术
 tags: [OpenStack , Ceilometer]
 keywords: 部署,Ceilometer,OpenStack
 description: Multihost的OpenStack环境基本稳定，应该把Ceilometer也部署上去了，前后折腾了几次，总算部署完成
