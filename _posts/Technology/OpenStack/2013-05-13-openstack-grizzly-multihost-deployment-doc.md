@@ -208,13 +208,13 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
 
 导入环境变量
 
-    cat > /root/tenantrc.sh << _EOF_
+    cat > /root/export.sh << _EOF_
     export OS_TENANT_NAME=admin
     export OS_USERNAME=admin
     export OS_PASSWORD=$ADMIN_PASSWORD
     export OS_AUTH_URL="http://${YS_CON_MANAGE_IP}:5000/v2.0/"   
     export OS_REGION_NAME=RegionOne
-    export SERVICE_TOKEN=${AMDIN_TOKEN}
+    export SERVICE_TOKEN=${ADMIN_TOKEN}
     export SERVICE_ENDPOINT=http://${YS_CON_MANAGE_IP}:35357/v2.0/
     _EOF_
 
