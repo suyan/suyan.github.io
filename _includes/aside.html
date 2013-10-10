@@ -4,11 +4,11 @@
       <div class="panel-heading">
         <h2 class="panel-title">分类</h2>
       </div>
-      <div class="panel-body">
+      <ul class="list-group">
         {% for category in site.categories %}
-          <li><a href="/pages/categories.html#{{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})</li> 
+          <a class="list-group-item" href="/pages/categories.html#{{ category | first }}">{{ category | first }} <span class="badge">{{ category | last | size }}</span></a> 
         {% endfor %}
-      </div>
+      </ul>
     </div>
     <div class="panel panel-success">
       <div class="panel-heading">
