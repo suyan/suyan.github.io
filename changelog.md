@@ -1,5 +1,8 @@
 # Changelog
 ## TODO
+- 合理展示图片
+
+## Version 2.2
 - 优化阅读体验
 - 想办法实现双语
 

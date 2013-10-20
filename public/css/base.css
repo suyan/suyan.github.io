@@ -11,18 +11,7 @@ body{padding-top: 70px;}
 }
 .body_push{height:100px;}
 .body_footer {height:100px;background-color: #f5f5f5;}
-.body_footer .container{
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-@media (min-width: 767px) {
-  .body_footer {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
+.body_footer .container{padding-top: 30px;padding-bottom: 30px;}
 @media screen and (min-width: 992px) {
   .affix {top:70px;}
   .aside {width: 226px;}
@@ -42,3 +31,5 @@ body{padding-top: 70px;}
 .content {font-size:18px;line-height:1.8;}
 .content h2,h3{line-height: 2;}
 blockquote p{font-size:20px;}
+.panel-title {font-size:18px;}
+.panel-body {font-size:16px;}
