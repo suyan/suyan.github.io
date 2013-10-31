@@ -1,0 +1,59 @@
+<div class="col-md-4 aside sidebar-offcanvas">
+  <div class="row">
+    <div class="col-md-3 col-xs-3 aside1">
+      <br><br>
+      <a href="/"><img src="/public/img/avatar.jpg" class="img-rounded avatar"></a>
+      <br><br>
+      <ul class="nav nav-pills nav-stacked">
+        {% for category in site.categories %}
+          <li><a href="#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
+        {% endfor %}
+        <li><a href="#tags" data-toggle="tab">标签云</a></li>
+      </ul>
+    </div>
+    <div class="col-md-9 col-xs-9 aside2">
+      <div class="row">
+        <div class="tab-content">
+          {% for category in site.categories %} 
+            <div class="tab-pane" id="{{ category[0] }}">
+              <div class="col-md-12">
+                <br>
+                <h1>{{ category[0] }}</h1>
+              </div>
+              <div class="list-group">
+              {% for post in category[1] %}
+                <a href="{{ post.url }}" class="list-group-item pjaxtest">{{post.title}}</a>
+              {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+          <div class="tab-pane" id="tags">
+            <div class="col-md-12">
+              <br>
+              <h1>标签云</h1>
+            </div>
+            <div class="panel-group" id="accordion">
+              {% for tag in site.tags %} 
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#{{ tag[0] }}">{{ tag[0] }}</a>
+                      <span class="badge pull-right">{{ tag[1].size }}</span>
+                    </h4>
+                  </div>
+                  <div id="{{ tag[0] }}" class="panel-collapse collapse">
+                    {% for post in tag[1] %}
+                      <a  href='{{ post.url }}' class="list-group-item pjaxtest">
+                        {{post.title}}
+                      </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

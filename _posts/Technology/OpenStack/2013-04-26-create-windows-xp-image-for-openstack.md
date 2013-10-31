@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 给OpenStack创建Windows XP镜像
-category: 技术
+category: 技术技巧
 tags: OpenStack
 description: 以前在虚拟机里头测试，没法新建镜像，现在给笔记本装了个环境，做个xp镜像先
 ---

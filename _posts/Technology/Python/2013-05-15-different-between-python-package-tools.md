@@ -1,7 +1,7 @@
 ---
 layout: post
 title: python包工具之间的关系
-category: 技术
+category: 技术技巧
 tags: Python
 description: Python打包工具之间的区别和关系，有助于在新项目中做好选择，转载自他人
 ---

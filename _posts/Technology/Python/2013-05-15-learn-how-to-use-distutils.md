@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 学习使用python打包工具distutils
-category: 技术
+category: 技术技巧
 tags: Python
 description: 本来是要学习distutils2，未来这个才是主流，但是悲催的是Ubuntu12.04 上 Python2.7环境装distutils2竟然不能用，搜了半天也没看到解决办法。只好先学习distutils，以后用到Python3的时候再继续学习吧
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 在虚拟机单机部署OpenStack Grizzly
-category: 技术
+category: 技术技巧
 tags: OpenStack
 description: 安装openstack的基本组件，包括quantum、swift
 ---

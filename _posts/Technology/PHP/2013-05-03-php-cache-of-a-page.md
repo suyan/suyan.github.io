@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 页面提速之——数据缓存
-category: 技术
+category: 技术技巧
 tags: PHP
 description: 一些访问量很大的网页，尤其是网站主页，展现过程中如果数据都是现成生成，会导致一些瓶颈，使用数据缓存可以极大减少页面生成时间
 ---
