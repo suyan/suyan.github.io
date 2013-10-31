@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OpenStack Ceilometer数据存储与API源码解析
-category: 技术技巧
+category: 技术
 tags: [OpenStack , Ceilometer]
 keywords: Ceilometer,OpenStack,Source,API
 description: OpenStack Ceilometer存储默认使用MongoDB，Collector对它进行写操作，API对它进行读操作

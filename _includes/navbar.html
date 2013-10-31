@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">闫肃的个人博客</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/"><i class="icon-home icon-white"></i> 首页</a></li> 
+        <li><a href="/pages/categories.html"><i class="icon-th-large icon-white"></i> 分类</a></li> 
+        <li><a href="/pages/tags.html"><i class="icon-tags icon-white"></i> 标签</a></li> 
+        <li><a href="/pages/archive.html"><i class="icon-file icon-white"></i> 归档</a></li> 
+        <li><a href="/pages/atom.xml"><i class="icon-rss icon-white"></i> 订阅</a></li> 
+        <li><a href="/pages/about.html"><i class="icon-user icon-white"></i> 关于</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-exchange"></i> 语言<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ site.author.link }}">中文</a></li>
+            <li><a href="{{ site.author.enlink }}">English</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>  
+  </div>
+</nav>

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OpenStack Grizzly Multihost部署文档
-category: 技术技巧
+category: 技术
 tags: OpenStack
 description: OpenStack G版本的Multihost部署文档，参考了几位前辈的部署步骤，自己增加了一些变量修改，主要是希望搭建一个可用的生产环境，虽然版本比较初级，但是会逐渐完善
 ---
@@ -10,7 +10,6 @@ description: OpenStack G版本的Multihost部署文档，参考了几位前辈�
 
 ## 环境要求
 先安装1个控制节点和1个计算节点，计算节点可以动态增加，只要将IP地址递增即可
-
 <table class="table">
   <tr><td>节点类型</td><td>网卡配置</td></tr>
   <tr><td>控制节点</td><td>eth0 (172.16.0.51), eth1 (59.65.233.231)</td></tr>

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="aside" data-spy="affix" data-offset-top="0">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">分类</h2>
+      </div>
+      <ul class="list-group">
+        {% for category in site.categories %}
+          <a class="list-group-item" href="/pages/categories.html#{{ category | first }}">{{ category | first }} <span class="badge">{{ category | last | size }}</span></a> 
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">标签</h2>
+      </div>
+      <div class="panel-body" id="tag_cloud">
+        {% for tag in site.tags %}
+          <a href="/pages/tags.html#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+        {% endfor %}  
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    $.fn.tagcloud.defaults = {
+      size: {start: 14,end: 22,unit: 'px'},
+      color: {start: '#c09853',end: '#b94a48'}
+    };
+    $('#tag_cloud a').tagcloud();    
+  });
+</script>

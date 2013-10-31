@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JS中防止浏览器屏蔽window.open
-category: 技术技巧
+category: 技术
 tags: JavaScript
 description: JS中防止浏览器屏蔽window.open
 ---

@@ -4,18 +4,12 @@
   {% include header.html %}
 </head>
 <body>
-  <div class="container">
-    <div class="row row-offcanvas row-offcanvas-left">
-      {% include navside.html %}
-      <div class="col-md-8 aside3">
-        <div id="container">
-          <div id="pjax">
-            {{ content }}
-            {% include disqus.html %}
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="body_wrap">
+    {% include navbar.html %}
+    <div class="container">
+      {{ content }}
+    </div> 
+    <div class="body_push"></div>
   </div>
   {% include footer.html %}
   {% include googleanalytics.html %}
