@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OpenStack Ceilometer项目简介
-category: 技术
+category: 技术技巧
 tags: [OpenStack , Ceilometer]
 description: OpenStack Ceilometer项目简介，转载自alexyang的博客
 ---

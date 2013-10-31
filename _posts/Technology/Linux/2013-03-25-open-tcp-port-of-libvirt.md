@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linux下开启Libvirtd的tcp监控
-category: 技术
+category: 技术技巧
 tags: Linux
 description: 在开发OpenStack时，涉及到远程操作Libvirt，这个时候必须打开远程TCP端口才能正常操作
 ---

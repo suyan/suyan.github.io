@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaScript变量作用域
-category: 技术
+category: 技术技巧
 tags: JavaScript
 description: 转载学习
 ---

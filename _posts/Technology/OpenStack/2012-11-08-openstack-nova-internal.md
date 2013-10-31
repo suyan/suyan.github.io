@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OpenStack Nova内部机制
-category: 技术
+category: 技术技巧
 tags: [OpenStack , Nova]
 description: 本文经原作者同意后进行转载和翻译
 ---

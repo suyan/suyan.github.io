@@ -1,26 +1,26 @@
 ---
-layout: page
-title: 首页
+layout: post
+title: 关于
 ---
-<div class="row">
-  {% for post in paginator.posts %}
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
-        </div>
-        <div class="panel-body">
-          {{ post.description }} 
-          <br><small><a href="{{ site.url }}{{ post.url }}">继续阅读 <i class="icon-arrow-right"></i></a></small>
-        </div>
-        <div class="panel-footer">
-          由作者 <a href="/pages/about.html">{{ site.author.name }}</a> 发布于 <a href='/pages/archive.html#{{ post.date | date:"%Y-%m"}}'>{{ post.date | date:"%Y年%m月%d日" }}</a> 分类: {% for category in post.category %} <a href="/pages/categories.html#{{ category }}">{{ category }}</a> {% endfor %}  标签: {% for tag in post.tags %} <a href="/pages/tags.html#{{ tag }}">#{{ tag }}#</a> {% endfor %}
-        </div>
-      </div>
-    </div>
-  {% endfor %}
-  <div class="col-md-12">
-    {% include paginator.html %}
-  </div>
-</div>
+
+<h2>关于博客</h2>
+<hr>
+
+这个博客是基于Jekyll和Github建立的，界面基于Bootstrap实现。
+
+<h2>关于我自己</h2>
+<hr>
+<a href="http://weibo.com/yansu0711" target="_blank">
+  <i class="fa fa-weibo fa-4x"></i>
+</a>
+<a href="http://github.com/suyan" target="_blank">
+  <i class="fa fa-github fa-4x"></i>
+</a>
+<a href="/pages/atom.xml" target="_blank">
+  <i class="fa fa-rss fa-4x"></i>
+</a>
+<a href="mailto:yansu0711@gmail.com">
+  <i class="fa fa-envelope-o fa-4x"></i>
+</a>
+ 
 

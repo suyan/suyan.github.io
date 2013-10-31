@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OpenStack Horizon 中文本地化
-category: 技术
+category: 技术技巧
 tags: [OpenStack , Horizon]
 description: Horizon上的中文翻译不是非常完善，因为名词并没有官方的翻译标准，自己根据自己的实际情况翻译比较好
 ---

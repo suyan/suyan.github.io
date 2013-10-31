@@ -1,13 +1,12 @@
-<div class="body_footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-md-offset-9 text-right">
-        <div>Hosted on <a href="http://pages.github.com/">Github Pages</a></div>
-        <div>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a></div>
-      </div>
-    </div>
-  </div>
+<div class="visible-xs visible-sm" style="position:absolute;left:0px;top:0px;">
+  <button class="btn btn-success" data-toggle="offcanvas"><i class="fa fa-reorder"></i></button>
 </div>
 <script type="text/javascript" src="/public/js/bootstrap.js"></script>
+<script src="/public/js/jquery.pjax.js"></script>
 <script src="/public/js/prettify/prettify.js"></script>
-<script src="/public/js/jquery.tagcloud.js"></script>
+<script src="/public/js/base.js"></script>
+<script>
+  $(function(){
+    $('a[href="#技术技巧"]').tab('show');        
+  });
+</script>

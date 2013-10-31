@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HTML中meta标签viewpoint的作用
-category: 技术
+category: 技术技巧
 tags: HTML
 description: 在写此博客程序布局时，响应式布局一直不好使，各种调试总算找到原因在于没有写meta viewpoint标签，在此做一个总结，以免以后出问题
 ---
