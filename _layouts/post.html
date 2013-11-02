@@ -5,6 +5,7 @@ layout: base
   <div class="col-md-12 aside3-title">
     <br>
     <h2>{{ page.title }}</h2>
+    {{ page.date | date:"%Y年%m月%d日" }}
   </div>
   <div class="col-md-12 aside3-content">
     <div class="pull-right panel panel-success">
@@ -30,5 +31,6 @@ layout: base
     });
     $("pre").addClass("prettyprint linenums");
     prettyPrint();
+    $('#content img').addClass('img-thumbnail').parent('p').addClass('center');
   });
 </script>
