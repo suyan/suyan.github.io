@@ -4,7 +4,7 @@ layout: base
 <div class="row">
   <div class="col-md-12 aside3-title">
     <br>
-    <h2>{{ page.title }}</h2>
+    <h2 id="#identifier">{{ page.title }}</h2>
     {{ page.date | date:"%Y年%m月%d日" }}
   </div>
   <div class="col-md-12 aside3-content">
@@ -21,16 +21,5 @@ layout: base
     </div>
   </div>
 </div>
-<script>
-  $(function(){
-    $("#content > h2,#content > h3,#content > h4,#content > h5,#content > h6").each(function(i) {
-        var current = $(this);
-        current.attr("id", "title" + i);
-        tag = current.prop('tagName').substr(-1);
-        $("#nav").append("<div style='margin-left:"+15*(tag-1)+"px'><a id='link" + i + "' href='#title" +i + "'>" + current.html() + "</a></div>");
-    });
-    $("pre").addClass("prettyprint linenums");
-    prettyPrint();
-    $('#content img').addClass('img-thumbnail').parent('p').addClass('center');
-  });
-</script>
+<hr>
+{% include disqus.html %}
