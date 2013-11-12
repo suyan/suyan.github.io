@@ -8,8 +8,8 @@
         {% for category in site.categories %}
           <li><a href="#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
         {% endfor %}
-        <li><a href="#tags" data-toggle="tab">标签云</a></li>
-        <li><a class="pjaxlink" href="/pages/about.html">关于</a></li>
+        <li><a href="#tags" data-toggle="tab">{{ site.locals.tags }}</a></li>
+        <li><a class="pjaxlink" href="/pages/about.html">{{ site.locals.about }}</a></li>
       </ul>
     </div>
     <div class="col-md-9 col-xs-9 aside2">
@@ -31,7 +31,7 @@
           <div class="tab-pane" id="tags">
             <div class="col-md-12">
               <br>
-              <h1>标签云</h1>
+              <h1>{{ site.locals.tags }}</h1>
             </div>
             <div class="panel-group" id="accordion">
               {% for tag in site.tags %} 

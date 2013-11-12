@@ -11,6 +11,7 @@ $(document).ready(function() {
   contentEffects();
 });
 function contentEffects(){
+  //remove the asidebar
   $('.row-offcanvas').removeClass('active');
   if($("#nav")){
     $("#content > h2,#content > h3,#content > h4,#content > h5,#content > h6").each(function(i) {
