@@ -1,12 +1,15 @@
 permalink: /:year/:month/:day/:title.html
 paginate: 10
 author: 
-    name: 闫肃
-    email: yansu0711@gmail.com
-    link: http://yansu.org
-    enlink: http://en.yansu.org
-
-title: 紫月冰河
+  name: 闫肃
+  email: yansu0711@gmail.com
+  link: http://yansu.org
+  enlink: http://en.yansu.org
+title: 闫肃的博客 
+locals:
+  tags: 标签页
+  about: 关于我
+active: 技术技巧
 subscribe_rss: /pages/atom.xml
 
 
