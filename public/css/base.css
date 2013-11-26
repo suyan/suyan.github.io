@@ -63,22 +63,22 @@ body,html{
   }
   .row-offcanvas-right
   .sidebar-offcanvas {
-    right: -85%; 
+    right: -95%; 
   }
   .row-offcanvas-left
   .sidebar-offcanvas {
-    left: -85%; 
+    left: -95%; 
   }
   .row-offcanvas-right.active {
-    right: 92%; 
+    right: 95%; 
   }
   .row-offcanvas-left.active {
-    left: 92%; 
+    left: 95%; 
   }
   .sidebar-offcanvas {
     position: absolute;
     top: 0;
-    width: 85%; 
+    width: 95%; 
   }
 }
 #content {font-size:18px;line-height:1.8;}
