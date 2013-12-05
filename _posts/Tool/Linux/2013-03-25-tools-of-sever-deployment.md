@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 服务器自动化部署及运维常见工具
-category: 技术技巧
+category: 工具
 tags: Linux
 description: 服务器自动化部署时，应用适当的工具，可以大大减轻工作量
 ---

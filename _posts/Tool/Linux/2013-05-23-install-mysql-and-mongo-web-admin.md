@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 安装MySQL和MongoDB的WEB管理界面
-category: 技术技巧
+category: 工具
 tags: [Linux , MySQL , MongoDB]
 keywords: Linux,MySQL,MongoDB
 description: 在服务器上操作mysql和mongo时，还是有个界面比较直观，对自己的手好一点

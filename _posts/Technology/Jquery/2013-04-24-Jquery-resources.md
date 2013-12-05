@@ -1,7 +1,7 @@
 ---
 layout: post
 title: jQuery常用资源
-category: 技术技巧
+category: 技术
 tags: jQuery
 description: 列举自己搜集的jQuery资源，帮助快速找到需要的功能
 ---

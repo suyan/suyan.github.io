@@ -1,8 +1,8 @@
 ---
 layout: post
 title: kanyun的api-client命令
-category: 技术技巧
-tags: [OpenStack , Kanyun]
+category: 技术
+tags: OpenStack
 description: kanyun的api-client命令
 ---
 

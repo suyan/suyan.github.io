@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PHP可变变量
-category: 技术技巧
+category: 技术
 tags: PHP
 description: PHP可变变量
 ---
