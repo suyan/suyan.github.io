@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 一步一步在GitHub上搭建自己的Jekyll博客(1)--了解环境
-category: 技术技巧
+category: 工具
 tags: [Jekyll , GitHub]
 description: 搭建一个基于GitHub和Jekyll的博客，首先要做的是了解这样一个博客环境
 ---

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: OpenStack Ceilometer Compute Agent源码解读
-category: 技术技巧
-tags: [OpenStack , Ceilometer]
+category: 技术
+tags: OpenStack
 keywords: OpenStack,Ceilometer,Compute Agent,Source Code
 description: Ceilometer中的Compute Agent是和虚拟机运行最紧密的一个监控代理模块，在读Ceilometer代码时，由于有Libvirt的基础，所以看起来会相对容易些
 ---

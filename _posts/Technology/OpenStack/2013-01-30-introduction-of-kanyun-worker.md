@@ -1,8 +1,8 @@
 ---
 layout: post
 title: kanyun worker原理
-category: 技术技巧
-tags: [OpenStack , Kanyun] 
+category: 技术
+tags: OpenStack
 description: kanyun中worker运行在计算节点上，负责计算节点上虚拟机数据的采集
 ---
 

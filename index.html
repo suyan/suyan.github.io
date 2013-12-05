@@ -10,7 +10,7 @@ title: 首页
         <div class="panel panel-primary">
           <div class="panel-heading">最新技术文章</div>
           {% for post in paginator.posts %}
-            {% if post.category == "技术技巧" %}
+            {% if post.category == "技术" %}
               <a  href='{{ post.url }}' class="list-group-item pjaxlink">
                 {{post.title}}
               </a>
@@ -38,9 +38,9 @@ title: 首页
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-primary">
-          <div class="panel-heading">OpenStack Ceilometer</div>
+          <div class="panel-heading">OpenStack</div>
           {% for tag in site.tags %} 
-            {% if tag[0] == 'Ceilometer' %}
+            {% if tag[0] == 'OpenStack' %}
               {% for post in tag[1] %}
                 <a  href='{{ post.url }}' class="list-group-item pjaxlink">
                   {{post.title}}

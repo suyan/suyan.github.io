@@ -7,9 +7,9 @@ author:
   enlink: http://en.yansu.org
 title: 闫肃的博客 
 locals:
-  tags: 标签页
-  about: 关于我
-active: 技术技巧
+  tags: 标签
+  about: 关于
+active: 技术
 subscribe_rss: /pages/atom.xml
 
 

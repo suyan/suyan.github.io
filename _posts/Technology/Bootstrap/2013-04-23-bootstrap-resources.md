@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bootstrap常用资源
-category: 技术技巧
+category: 技术
 tags: Bootstrap
 description: 列举自己搜集的Bootstrap资源，给像我这样前端不太行的WEB开发者
 ---

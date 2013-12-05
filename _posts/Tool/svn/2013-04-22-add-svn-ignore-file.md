@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 给SVN控制的项目添加忽略文件/文件夹
-category: 技术技巧
+category: 工具
 tags: SVN
 description: 因为使用SAE，所以有些项目用SVN来控制，使用时难免有些临时文件生成，每次提交时都得先删除临时文件再提交，设置一下忽略目录就可以方便很多
 ---
