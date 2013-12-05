@@ -1,5 +1,5 @@
 .container {
-  max-width: 100%;
+  width: 100%;
   height:100%;
 }
 body,html{
@@ -30,11 +30,19 @@ body,html{
 .aside{
   height:100%;
 }
+.aside1_bottom{
+  width:100%;
+  position: absolute;
+  bottom:0px;
+  left:0px;
+}
+.aside1_bottom > .table{
+  margin-bottom: 0px;
+}
 .aside2{
   background-color: #fafaf6;
   height:100%;
-  border-left: 5px solid #18bc9c;
-  border-right: 5px solid #18bc9c;
+  border-right: 2px solid #18bc9c;
   overflow-y: auto;
 }
 .aside3{
@@ -53,35 +61,19 @@ body,html{
   padding-left: 30px;
   padding-right: 30px;
 }
-/*offcanvas*/
-@media screen and (max-width: 992px) {
-  .row-offcanvas {
-    position: relative;
-    -webkit-transition: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
-  }
-  .row-offcanvas-right
-  .sidebar-offcanvas {
-    right: -95%; 
-  }
-  .row-offcanvas-left
-  .sidebar-offcanvas {
-    left: -95%; 
-  }
-  .row-offcanvas-right.active {
-    right: 95%; 
-  }
-  .row-offcanvas-left.active {
-    left: 95%; 
-  }
-  .sidebar-offcanvas {
-    position: absolute;
-    top: 0;
-    width: 95%; 
-  }
-}
 #content {font-size:18px;line-height:1.8;}
 #content h2,h3{line-height: 2;}
 blockquote p{font-size:20px;}
 .center {text-align: center;}
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:hover,
+.nav-pills>li.active>a:focus{
+  color: #2a6496;
+  background-color: #fafaf6;
+}
+.opacity {
+  opacity:0.75;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=75)";
+  filter:alpha(opacity=75);
+  zoom:1
+}
