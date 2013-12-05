@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 我与工具
-category: 生活记录
+category: 技术技巧
 tags: 工具
 keywords: 工具,Tool
 description: 总喜欢折腾各种各样的工具来找到最适合自己的，最后发现好工具是不需要折腾的

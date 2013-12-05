@@ -1,11 +1,11 @@
-<div class="visible-xs visible-sm" style="position:absolute;left:0px;top:0px;">
-  <button class="btn btn-success" data-toggle="offcanvas"><i class="fa fa-reorder"></i></button>
+<div class="opacity" style="position:fixed;right:20px;top:10px;">
+  <button id="nav_btn" class="btn btn-lg"><i class="fa fa-reorder"></i></button>
 </div>
 <script type="text/javascript" src="/public/js/jquery.js"></script>
 <script type="text/javascript" src="/public/js/bootstrap.js"></script>
 <script src="/public/js/jquery.pjax.js"></script>
 <script src="/public/js/prettify/prettify.js"></script>
-<script src="/public/js/base.js"></script>
 <script>
-  $(function(){$('a[href="#{{ site.active }}"]').tab('show');});
+    $('a[href="#{{ site.active }}"]').tab('show');
 </script>
+<script src="/public/js/base.js"></script>
