@@ -11,5 +11,5 @@ locals:
   about: 关于
 active: 技术
 subscribe_rss: /pages/atom.xml
-
+markdown: redcarpet
 
