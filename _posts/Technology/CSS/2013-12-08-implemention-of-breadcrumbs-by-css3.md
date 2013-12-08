@@ -25,7 +25,6 @@ before和after分别在一个元素前和后添加内容，使用方法如下：
 border有一个特点，就是当元素内容是空的时候，border会占据内容的空间，效果如下：
 
 <p data-height="268" data-theme-id="2930" data-slug-hash="roAtK" data-user="suyan0830" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/suyan0830/pen/roAtK'>triangle border </a> by Su Yan (<a href='http://codepen.io/suyan0830'>@suyan0830</a>) on <a href='http://codepen.io'>CodePen</a></p>
-<script async src="http://codepen.io/assets/embed/ei.js"></script>
 
 那么只要让before和after都变成这个样子，利用位置定位将这两部分分别移到相应位置，然后调整border某一边是透明就好了。
 
@@ -35,4 +34,3 @@ border有一个特点，就是当元素内容是空的时候，border会占据�
 ## 最终效果
 
 <p data-height="268" data-theme-id="2930" data-slug-hash="uqHCD" data-user="suyan0830" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/suyan0830/pen/uqHCD'>breadcrumbs</a> by Su Yan (<a href='http://codepen.io/suyan0830'>@suyan0830</a>) on <a href='http://codepen.io'>CodePen</a></p>
-<script async src="http://codepen.io/assets/embed/ei.js"></script>
