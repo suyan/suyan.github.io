@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mac下用brew搭建LAMP+MongoDB开发环境
+title: Mac下用brew搭建PHP开发环境
 category: 工具
 tags: [Mac, MongoDB, PHP] 
 keywords: Brew,Mac,MongoDB,MySQL,Apache,PHP
