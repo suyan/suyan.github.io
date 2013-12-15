@@ -77,3 +77,7 @@ blockquote p{font-size:20px;}
   filter:alpha(opacity=75);
   zoom:1
 }
+.show-commend{
+  width:100%;
+  margin-bottom:40px;
+}
