@@ -1,0 +1,52 @@
+---
+layout: base
+---
+<div class="row">
+  <div class="col-md-12 aside3-title">
+    <br>
+    <h2 id="#identifier">{{ page.title }}</h2>
+    {% if page.status == 'reading' %}
+      在读...
+    {% endif %}
+    {% if page.status == 'read' %}
+      已读
+    {% endif %}
+    {% if page.status == 'unread' %}
+      未读
+    {% endif %}
+  </div>
+  <div class="col-md-12 aside3-content">
+    <!-- info -->
+    <div class="row">
+      <div class="col-md-2">
+        <img src="{{ page.cover }}" alt="cover" class="img-thumbnail" style="width:105px;height:140px">
+      </div>
+      <div class="col-md-10">
+        <table class="table">
+          <tbody>
+            <tr><td rowspan="4"></td><td>作者</td><td>{{ page.author }}</td></tr>
+            <tr><td>出版商</td><td>{{ page.publisher }}</td></tr>
+            <tr><td>语言</td><td>{{ page.language }}</td></tr>
+            <tr><td>链接</td><td><a href="{{ page.link }}" title="{{ page.link }}">{{ page.link }}</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- topic -->
+    <div class="pull-right panel panel-success">
+      <div class="panel-heading">
+        <h4 class="panel-title"><a data-toggle="collapse" data-toggle="collapse" href="#content-table">目录</a></h4>
+      </div>
+      <div id="content-table" class="panel-collapse collapse">
+        <div class="panel-body" id="nav"></div>
+      </div>
+    </div>
+    <!-- content -->
+    <div id="content">
+      {{ content }}
+    </div>
+    <hr>
+    {% include disqus.html %}
+  </div>
+</div>
+
