@@ -2,7 +2,7 @@
 layout: post
 title: 概念模型、逻辑模型、物理模型的区别
 category: 技术
-tags: 概念
+tags: Concept
 description: 浅显介绍一下三者的区别，自己一个记录
 ---
 
