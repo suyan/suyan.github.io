@@ -108,8 +108,7 @@ description:
 
 ## 自动脚本
 
-    wget -c https://raw.github.com/suyan/setup/master/pptp.sh
-    ./pptp.sh
+    wget -c https://raw2.github.com/suyan/Scripts/master/Setup/pptp.sh
 
 
 
