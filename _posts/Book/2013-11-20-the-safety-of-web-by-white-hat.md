@@ -40,6 +40,7 @@ XSS是跨站脚本攻击的简写, 英文全称是Cross Site Script. 通常指�
 
 ```php
 <?php 
+header("X-XSS-Protection: 0"); //chrome自动检查xss，用这个head将其关掉测试
 $input = $_GET['param'];
 echo "<div>$input</div>";
 ?>
@@ -49,14 +50,15 @@ echo "<div>$input</div>";
     
     http://localhost/test.php?param=<script>alert(/xss/)</script>
 
-这种XSS仅仅将用户输入的数据“反射”给浏览器, 因此想要利用这种XSS必须诱使用户去点击一个链接. 通过这种方式来诱使用户所在网页执行黑客准备好的JS代码或者脚本. 反射型XSS也叫非持久型XSS. 
+这种XSS仅仅将用.户输入的数据“反射”给浏览器, 因此想要利用这种XSS必须诱使用户去点击一个链接 通过这种方式来诱使用户所在网页执行黑客准备好的JS代码或者脚本. 反射型XSS也叫非持久型XSS. 
 
 ### 存储型XSS
 存储型XSS会把用户的数据存放在服务器端, 因此这种XSS具有较强稳定性.
 
 例如黑客将恶意JS代码写入一篇博客中, 所有浏览这篇博客的用户都将执行这些恶意代码. 存储型XSS也叫持久性XSS.
 
-### 
+### DOM Based XSS
+
 
 
 
