@@ -35,7 +35,8 @@ description:
 ## 第3章 跨站脚本攻击(XSS)
 XSS是跨站脚本攻击的简写, 英文全称是Cross Site Script. 通常指通过"HTML注入"篡改网页, 插入了恶意的脚本, 从而在用户浏览网站时, 控制用户浏览器的攻击.
 
-### 反射型XSS
+### XSS简介
+#### 反射型XSS
 在编写服务器端代码时, 如果对用户输入的参数不加过滤而直接输出, 就会出现XSS漏洞.
 
 ```php
@@ -52,16 +53,49 @@ echo "<div>$input</div>";
 
 这种XSS仅仅将用.户输入的数据“反射”给浏览器, 因此想要利用这种XSS必须诱使用户去点击一个链接 通过这种方式来诱使用户所在网页执行黑客准备好的JS代码或者脚本. 反射型XSS也叫非持久型XSS. 
 
-### 存储型XSS
+#### 存储型XSS
 存储型XSS会把用户的数据存放在服务器端, 因此这种XSS具有较强稳定性.
 
 例如黑客将恶意JS代码写入一篇博客中, 所有浏览这篇博客的用户都将执行这些恶意代码. 存储型XSS也叫持久性XSS.
 
-### DOM Based XSS
+#### DOM Based XSS
+通过修改DOM节点形成的XSS，称为DOM Based XSS。
 
+如下面例子：
 
+```html
+<script>
+function test(){
+    var str = document.getElementById('text').value;
+    document.getElementById('t').innerHTML = "<a href='" + str + "'>testLink</a>";
+}
+</script>
+<div id="t"></div>
+<input type="text" id="text" value="" />
+<input type="button" id="s" value="write" onclick="test()" />
+```
 
+这个例子在按钮按下会修改div中的内容。如果我们将输入写成
 
+    ' onclick=alert(/xss/) //
+
+那么在按钮按下以后就会形成这样一个div标签
+
+    <a href='' onclick=alert(/xss/) //'>testLink</a>
+
+这个时候生成的链接是有危害的。
+
+另外也可以闭合标签，并插入一段新的标签。这里将输入写成
+
+    '><img src=# onerror=alert(/xss2/) /><'
+
+生成的div中内容为：
+
+    <a href=''><img src=# onerror=alert(/xss2/) /><'' >testLink</a>
+
+这里直接在点击按钮时即执行alert
+
+### XSS攻击进阶
 
 
 
