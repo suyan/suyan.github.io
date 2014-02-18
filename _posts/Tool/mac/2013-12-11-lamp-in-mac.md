@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Mac下用brew搭建PHP开发环境
+title: Mac下用brew搭建PHP(LNMP/LAMP)开发环境
 category: 工具
 tags: [Mac, MongoDB, PHP] 
-keywords: Brew,Mac,MongoDB,MySQL,Apache,PHP
+keywords: Brew,Mac,MongoDB,MySQL,Apache,Nginx,PHP
 description: 
 ---
 
@@ -23,7 +23,9 @@ brew常用选项
     brew list 
     brew update xxx
 
-## Apache
+## Apache || Nginx
+
+### Apache
 Apache的话使用mac自带的基本就够了，我的系统是10.9，可以使用以下命令控制Apache
 
     sudo apachectl start
@@ -46,21 +48,108 @@ Apache的话使用mac自带的基本就够了，我的系统是10.9，可以使�
 
 这样sites目录就是网站根目录了，代码都往这个下头丢
 
+### Nginx
+要使用Nginx也比较方便，首先安装
+
+    brew install nginx
+
+启动关闭Nginx的命令如下（如果想要监听80端口，必须以管理员身份运行）
+
+    #打开 nginx
+    sudo nginx
+    #重新加载配置|重启|停止|退出 nginx
+    nginx -s reload|reopen|stop|quit
+    #测试配置是否有语法错误
+    nginx -t
+
+配置Nginx
+
+    cd /usr/local/etc/nginx/
+    mkdir conf.d
+
+修改Nginx配置文件
+
+    vim nginx.conf
+
+主要修改位置是最后的include
+
+    worker_processes  1;  
+
+    error_log       /usr/local/var/log/nginx/error.log warn;
+
+    pid        /usr/local/var/run/nginx.pid;
+
+    events {
+        worker_connections  256;
+    }
+
+    http {
+        include       mime.types;
+        default_type  application/octet-stream;
+
+        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                          '$status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" "$http_x_forwarded_for"';
+
+        access_log      /usr/local/var/log/nginx/access.log main;
+        port_in_redirect off;
+        sendfile        on; 
+        keepalive_timeout  65; 
+
+        include /usr/local/etc/nginx/conf.d/*.conf;
+    }
+
+修改自定义文件
+
+    vim ./conf.d/default.conf
+
+增加一个监听端口
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        root /Users/username/Sites/; # 该项要修改为你准备存放相关网页的路径
+
+        location / { 
+            index index.php;
+            autoindex on; 
+        }   
+
+        #proxy the php scripts to php-fpm  
+        location ~ \.php$ {
+            include /usr/local/etc/nginx/fastcgi.conf;
+            fastcgi_intercept_errors on; 
+            fastcgi_pass   127.0.0.1:9000; 
+        }   
+
+    }
+
+这个时候还不能访问php站点，因为还没有开启php-fpm。
+
+虽然mac 10.9自带了php-fpm，但是由于我们使用了最新的PHP，PHP中自带php-fpm，所以使用PHP中的php-fpm可以保证版本的一致。
+
+这里的命令在安装完下一步的php后再执行
+
+    sudo nginx
+    sudo php-fpm -D
+
 ## PHP
 PHP在mac下默认安装了，但是不好控制版本，利用brew可以再mac下安装最新版本，甚至是多个版本，我装了php5.5
 
     brew update
     brew tap homebrew/dupes
     brew tap josegonzalez/homebrew-php
-    brew install php55   
+    brew install php55 --with-fpm
 
-然后修改php的cli路径和apache使用的php模块。在.bashrc或.zshrc里头加这样一句
+然后修改php的cli路径和apache使用的php模块。在.bashrc或.zshrc里头加以下内容
 
-    export PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH" 
+    #export PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH" 
+    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 就用刚刚安装的php代替了系统默认cli的php版本。然后在`/etc/apache2/httpd.conf`下增加
 
-    LoadModule php5_module /usr/local/Cellar/php55/5.5.6/libexec/apache2/libphp5.so
+    LoadModule php5_module /usr/local/Cellar/php55/5.5.8/libexec/apache2/libphp5.so
 
 这样就对apache使用的php版本也进行了修改。
 
@@ -122,9 +211,9 @@ RockMongo是MongoDB很好用的一个web应用，安装也很容易
 ## 完成
 这样就在mac下配置好一个php开发环境了，enjoy it!
 
-
-
-
+## 参考
+1. [Hot to install nginx, PHP-fpm 5.5.6, mongo and MySql on mac with homebrew](http://www.nabito.net/hot-to-install-nginx-php-fpm-5-5-6-mongo-and-mysql-on-mac-with-homebrew/)
+2. [Mac OSX 10.9搭建nginx+mysql+php-fpm环境](http://my.oschina.net/chen0dgax/blog/190161)
 
 
 
