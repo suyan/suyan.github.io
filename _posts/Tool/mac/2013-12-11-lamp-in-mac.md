@@ -140,7 +140,8 @@ PHP在mac下默认安装了，但是不好控制版本，利用brew可以再mac�
     brew update
     brew tap homebrew/dupes
     brew tap josegonzalez/homebrew-php
-    brew install php55 --with-fpm
+    # brew install php55 --with-fpm #Nginx
+    brew install php55 #Apache
 
 然后修改php的cli路径和apache使用的php模块。在.bashrc或.zshrc里头加以下内容
 
