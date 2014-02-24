@@ -25,23 +25,17 @@
         <div class="tab-content">
           {% for category in site.categories %} 
             <div class="tab-pane" id="{{ category[0] }}">
-              <div class="col-md-12">
-                <br>
-                <h1>{{ category[0] }}</h1>
-              </div>
               <div class="list-group">
-              {% for post in category[1] %}
-                <a href="{{ post.url }}" class="list-group-item pjaxlink">{{post.title}}</a>
-              {% endfor %}
+                <h2 class="center">{{ category[0] }}</h2>
+                {% for post in category[1] %}
+                  <a href="{{ post.url }}" class="list-group-item pjaxlink">{{post.title}}</a>
+                {% endfor %}
               </div>
             </div>
           {% endfor %}
           <div class="tab-pane" id="tags">
-            <div class="col-md-12">
-              <br>
-              <h1>{{ site.locals.tags }}</h1>
-            </div>
             <div class="panel-group" id="accordion">
+              <h2 class="center">{{ site.locals.tags }}</h2>
               {% for tag in site.tags %} 
                 <div class="panel panel-info">
                   <div class="panel-heading">

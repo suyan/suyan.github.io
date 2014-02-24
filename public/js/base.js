@@ -1,23 +1,25 @@
 // offcanvas
 $(document).ready(function() {
-  $("#nav_btn").toggle(
-    function () {
+  $("#nav_btn").on('click', function(){
+    isClicked=$(this).data('clicked');
+    if (isClicked) {isClicked=false;} else {isClicked=true;}
+    $(this).data('clicked',isClicked);
+    if(isClicked){
       $('.aside').removeClass('visible-md visible-lg').addClass('hidden-md hidden-lg');
       $('.aside3').removeClass('col-md-8 col-lg-8').addClass('col-md-12 col-lg-12');
       $('.aside3-content').removeClass('col-md-12').addClass('col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1');
-    },
-    function () {
+    }else{
       $('.aside').addClass('visible-md visible-lg').removeClass('hidden-md hidden-lg')
       $('.aside3').removeClass('col-md-12 col-lg-12').addClass('col-md-8 col-lg-8');
       $('.aside3-content').removeClass('col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1').addClass('col-md-12');
     }
-  );
+  });
   $(document).pjax('.pjaxlink', '#pjax', { fragment: "#pjax", timeout: 10000 });
   $(document).on("pjax:end", function() {
       $('.aside3').scrollTop(0);
       contentEffects();
   });
-  $('.show-commend').live('click',function(){
+  $('.show-commend').on('click', 'selector', function(){
     var ds_loaded = false;
     window.disqus_shortname = $('.show-commend').attr('name');
     $.ajax({
