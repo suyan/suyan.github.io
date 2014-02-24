@@ -19,7 +19,7 @@ $(document).ready(function() {
       $('.aside3').scrollTop(0);
       contentEffects();
   });
-  $('.show-commend').on('click', 'selector', function(){
+  $('body').on('click', '.show-commend', function(){
     var ds_loaded = false;
     window.disqus_shortname = $('.show-commend').attr('name');
     $.ajax({
