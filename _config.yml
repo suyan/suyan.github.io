@@ -1,15 +1,31 @@
 permalink: /:year/:month/:day/:title.html
 paginate: 10
+markdown: redcarpet
+
+subscribe_rss: /pages/atom.xml
+
+# 作者信息
 author: 
   name: 闫肃
   email: yansu0711@gmail.com
   link: http://yansu.org
-  enlink: http://en.yansu.org
+
+# 站点title
 title: 闫肃的博客 
+
+# google analytics 设置
+ga:
+  id: UA-43667383-1
+  url: yansu.org
+
+# disqus 设置
+disqus:
+  shortname: suyan-zh
+
+# 主题设置，自动激活某个标签
+active: 技术
+
+# 中文本地化
 locals:
   tags: 标签
   about: 关于
-active: 技术
-subscribe_rss: /pages/atom.xml
-markdown: redcarpet
-

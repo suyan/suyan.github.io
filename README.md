@@ -1,19 +1,18 @@
 ### 我的博客
-[http://yansu.org](http://yansu.org)
 
-### 更新日志
-#### TODO
-- 合理展示图片
+地址：[http://yansu.org](http://yansu.org)
 
-#### 三栏布局（master分支）
-- 更新页面布局到3栏
-- 更换markdown engine到redcarpet
+### 安装说明
 
-#### 单栏布局（first-ui分支）
-- 升级到Bootstrap3
-- 增加[多说](www.duoshuo.com)插件 duoshuo.html 
-- 增加[无觅](http://www.wumii.com/widget/relatedItems)插件 wumi.html
-- 增加[谷歌分析](https://www.google.com/analytics) googleanalytics.html
-- 增加[谷歌代码高亮](https://code.google.com/p/google-code-prettify/)插件 js/prettify
-- 增加文章目录自动生成
+1. fork库到自己的github
+2. 修改名字为：`username.github.io`
+3. clone库到本地，参考`_posts`中的目录结构自己创建适合自己的文章目录结构
+4. 修改CNAME，或者删掉这个文件，使用默认域名
+5. 修改`_config.yml`配置项
+6. It's done!
+
+### 分支说明
+
+- 三栏布局（master分支）
+- 单栏布局（first-ui分支）
 

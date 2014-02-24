@@ -19,7 +19,7 @@ $(document).ready(function() {
   });
   $('.show-commend').live('click',function(){
     var ds_loaded = false;
-    window.disqus_shortname = 'suyan-zh';
+    window.disqus_shortname = $('.show-commend').attr('name');
     $.ajax({
       type: "GET",
       url: "http://" + disqus_shortname + ".disqus.com/embed.js",
