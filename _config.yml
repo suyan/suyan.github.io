@@ -1,9 +1,6 @@
 permalink: /:year/:month/:day/:title.html
 paginate: 10
 markdown: redcarpet
-url: http://yansu.org
-
-subscribe_rss: /pages/atom.xml
 
 # 作者信息
 author: 
@@ -11,8 +8,11 @@ author:
   email: yansu0711@gmail.com
   link: http://yansu.org
 
-# 站点title
+# 站点信息
 title: 闫肃的博客 
+description: 闫肃的博客
+url: http://yansu.org
+rss_url: /pages/atom.xml
 
 # google analytics 设置
 ga:
