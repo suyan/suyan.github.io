@@ -1,6 +1,7 @@
 permalink: /:year/:month/:day/:title.html
 paginate: 10
 markdown: redcarpet
+url: http://yansu.org
 
 subscribe_rss: /pages/atom.xml
 
