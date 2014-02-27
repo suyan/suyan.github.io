@@ -14,6 +14,9 @@ description: 闫肃的博客
 url: http://yansu.org
 rss_url: /pages/atom.xml
 
+# gavatar头像及Favicon
+gavatar: http://www.gravatar.com/avatar/a1e88e4184a63b9d8bf9c47cf6a0ede9
+
 # google analytics 设置
 ga:
   id: UA-43667383-1
