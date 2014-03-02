@@ -86,3 +86,11 @@ description:
 
 ### 在远程机器上运行一段脚本
     ssh user@server bash < /path/to/local/script.sh
+
+### 端口扫描
+
+    nc -z -v -n 127.0.0.1 20-100
+
+### 负载测试，30秒内向Google发起20个并发连接
+
+    siege -c20 www.google.co.uk -b -t30s

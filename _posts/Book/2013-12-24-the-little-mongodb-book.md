@@ -1,6 +1,6 @@
 ---
 layout: book
-title: The little mongodb book
+title: The Little Mongodb Book
 status: reading
 category: 读书
 tags: 
@@ -9,7 +9,7 @@ author: Karl Seguin
 publisher: github
 language: English
 link: https://github.com/karlseguin/the-little-mongodb-book/blob/master/en/mongodb.markdown
-cover: https://raw.github.com/justinyhuang/the-little-mongodb-book-cn/master/title.png
+cover: /public/upload/book/the-little-mongodb-book.png
 description: 
 ---
 
