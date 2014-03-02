@@ -9,6 +9,14 @@ description:
 
 ## 常用资源
 
+### 好文
+1. [PHP之道](http://wulijun.github.io/php-the-right-way/)
+2. [Cookie/Session机制详解](http://blog.csdn.net/fangaoxin/article/details/6952954)
+
+
+### 优秀的类库
+1. [PHP中文分词: 自动打标签功能](http://jingwentian.com/t-145)
+
 ### 判断是否为空
 ```
 +--------------+-----------+---------+-----------+---------+--------+

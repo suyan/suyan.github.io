@@ -15,7 +15,8 @@ url: http://yansu.org
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: http://www.gravatar.com/avatar/a1e88e4184a63b9d8bf9c47cf6a0ede9
+gavatar: /public/upload/gavatar/gavatar.png
+favicon: /public/upload/gavatar/favicon.png
 
 # google analytics 设置
 ga:
