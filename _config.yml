@@ -16,7 +16,7 @@ rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
 gavatar: /public/upload/gavatar/gavatar.png
-favicon: /public/upload/gavatar/favicon.png
+favicon: /public/upload/gavatar/favicon.ico
 
 # google analytics 设置
 ga:
