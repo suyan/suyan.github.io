@@ -216,7 +216,6 @@ module.exports = function(grunt) {
       app: {
         src: [
           './public/assets/bower/bootstrap/dist/css/bootstrap.css',
-          './public/assets/bower/font-awesome/css/font-awesome.css',
           './public/assets/css/base.css'
         ],
         dest: './public/assets/css/stylesheet.css'
@@ -255,7 +254,6 @@ module.exports = function(grunt) {
           './public/assets/bower/jquery/dist/jquery.js',
           './public/assets/bower/bootstrap/dist/js/bootstrap.js',
           './public/assets/bower/bootstrap/dist/css/bootstrap.css',
-          './public/assets/bower/font-awesome/css/font-awesome.css',
         ],   
         //文件变化后执行哪些任务
         tasks: ['concat:app','uglify:app','cssmin:app','copy:app'],
