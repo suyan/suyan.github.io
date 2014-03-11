@@ -28,7 +28,7 @@ Web前端开发的包管理工具，解决前端框架间的依赖关系，方�
 1. 使用Laravel可以更好的利用最新版PHP的优势，排除了一些历史问题。
 2. 利用Composer可以极大减少"轮子"的数量，优秀的包可以去[Packagist](https://packagist.org/)找到，这些包几乎都利用Github来托管，利用Github的issue和request可以辅助提高包的质量。
 3. Bower可以帮助统一管理开源前端库，如Bootstrap和jQuery等，同样这些包也在Github上托管。
-4. 利用Grunt可以将Bower安装好的库统一编译和压缩。并且支持检测变化，自动编译Less等。
+4. Grunt帮助粘合前后端的开源组件，将合并编译压缩等工作自动化。
 
 ## 安装使用
 
