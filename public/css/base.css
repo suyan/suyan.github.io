@@ -71,12 +71,7 @@ blockquote p{font-size:20px;}
   color: #2a6496;
   background-color: #fafaf6;
 }
-.opacity {
-  opacity:0.75;
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=75)";
-  filter:alpha(opacity=75);
-  zoom:1
-}
+
 .show-commend{
   width:100%;
   margin-bottom:40px;
