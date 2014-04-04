@@ -4,16 +4,16 @@ markdown: redcarpet
 
 # 作者信息
 author: 
-  name: 闫肃
-  email: yansu0711@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
-  github: http://github.com/suyan
+  name: 李阿伦
+  email: lialun@bedpotato.com
+  link: http://lialun.github.io
+  weibo: http://www.weibo.com/bedpotato
+  github: http://github.com/lialun
 
 # 站点信息
-title: 闫肃的博客 
-description: 闫肃的博客
-url: http://yansu.org
+title: 李阿伦的博客 
+description: 李阿伦的博客
+url: http://lialun.github.io
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
@@ -36,3 +36,9 @@ active: 技术
 locals:
   tags: 标签
   about: 关于
+
+#二级目录列表（其余为一级目录）
+secondary: 技术|工具
+
+# 编码
+encoding: utf-8
