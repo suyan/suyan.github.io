@@ -32,7 +32,13 @@ disqus:
 # 主题设置，自动激活某个标签
 active: 技术
 
+# 首页除了最新文章外显示分类
+cates: 
+  - Python
+  - OpenStack
+
 # 中文本地化
 locals:
   tags: 标签
   about: 关于
+  newest: 最新文章
