@@ -2,7 +2,7 @@
 layout: post
 title: 在Mac下安装使用Vagrant
 category: 工具
-tags: Mac,Vagrant
+tags: [Mac, Vagrant]
 keywords: Mac,Vagrant
 description: 
 ---
