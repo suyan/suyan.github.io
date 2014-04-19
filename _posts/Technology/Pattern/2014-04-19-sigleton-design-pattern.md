@@ -2,7 +2,7 @@
 layout: post
 title: 设计模式详解及PHP实现：单例模式
 category: 技术
-tags: Pattern
+tags: [Pattern, PHP]
 keywords: 设计模式,单例模式
 description: 
 ---
