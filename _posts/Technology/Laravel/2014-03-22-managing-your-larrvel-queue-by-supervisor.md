@@ -2,7 +2,7 @@
 layout: post
 title: 使用Supervisor来管理你的Laravel队列
 category: 技术
-tags: Laravel,PHP
+tags: [Laravel, PHP]
 keywords: Laravel,PHP,Supervisor,Queue
 description: 
 ---
