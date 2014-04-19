@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 设计模式详解及PHP实现：工厂方法模式
+title: 设计模式详解及PHP实现：单例模式
 category: 技术
 tags: Pattern
 keywords: 设计模式,单例模式
