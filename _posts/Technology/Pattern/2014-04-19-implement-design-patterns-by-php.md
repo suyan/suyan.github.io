@@ -32,34 +32,34 @@ description:
 - [工厂方法模式（Factory method pattern）](/2014/04/19/factory-method-design-pattern.html)
 - [抽象工厂模式（Abstract factory pattern）](/2014/04/19/abstract-factory-design-pattern.html)
 - [单例模式（Singleton pattern）](/2014/04/19/singleton-design-pattern.html)
-- 建造者模式（Builder pattern）
-- 原型模式（Prototype pattern）
+- [建造者模式（Builder pattern）](/2014/04/19/builder-design-pattern.html)
+- [原型模式（Prototype pattern）](/2014/04/20/prototype-design-pattern.html)
 
 ### 结构型模式（Structural pattern）
 [结构型模式](http://en.wikipedia.org/wiki/Structural_pattern)是通过定义一个简单的方法来实现和了解实体间关系，从而简化设计。
 
-- 适配器模式（Adapter pattern）
-- 桥接模式（Bridge pattern）
-- 组合模式（Aggregate pattern）
-- 装饰器模式（Decorator pattern）
-- 外观模式（Facade pattern）
-- 代理模式（Proxy pattern）
-- 享元模式（Private class data pattern）
+- [适配器模式（Adapter pattern）](/2014/04/20/adapter-design-pattern.html)
+- [桥接模式（Bridge pattern）](/2014/04/20/bridge-design-pattern.html)
+- [合成模式（Composite pattern）](/2014/04/20/composite-design-pattern.html)
+- [装饰器模式（Decorator pattern）](/2014/04/20/decorator-design-pattern.html)
+- [门面模式（Facade pattern）](/2014/04/20/facade-design-pattern.html)
+- [代理模式（Proxy pattern）](/2014/04/20/proxy-design-pattern.html)
+- [享元模式（Flyweight Pattern）](/2014/04/20/flyweight-design-pattern.html)
 
 ### 行为型模式（Behavioral pattern）
 [行为型模式](http://en.wikipedia.org/wiki/Behavioral_pattern)用来识别对象之间的常用交流模式并加以实现，使得交流变得更加灵活。
 
-- 策略模式（Strategy pattern）
-- 模板方法模式（Template method pattern）
-- 观察者模式（Observer pattern）
-- 迭代子模式（Iterator pattern）
-- 责任链模式（Chain of responsibility pattern）
-- 命令模式（Command pattern）
-- 备忘录模式（Memento pattern）
-- 状态模式（State pattern）
-- 访问者模式（Visitor pattern）
-- 中介者模式（Mediator pattern）
-- 解释器模式（Interpreter pattern）
+- [策略模式（Strategy pattern）](/2014/04/20/strategy-design-pattern.html)
+- [模板方法模式（Template method pattern）](/2014/04/20/template-method-design-pattern.html)
+- [观察者模式（Observer pattern）](/2014/04/20/observer-design-pattern.html)
+- [迭代器模式（Iterator pattern）](/2014/04/21/iterator-design-pattern.html)
+- [责任链模式（Chain of responsibility pattern）](/2014/04/21/chain-of-responsibility-design-pattern.html)
+- [命令模式（Command pattern）](/2014/04/21/command-design-pattern.html)
+- [备忘录模式（Memento pattern）](/2014/04/21/memento-design-pattern.html)
+- [状态模式（State pattern）](/2014/04/21/state-design-pattern.html)
+- [访问者模式（Visitor pattern）](/2014/04/21/visitor-design-pattern.html)
+- [中介者模式（Mediator pattern）](/2014/04/21/mediator-design-pattern.html)
+- [解释器模式（Interpreter pattern）](/2014/04/21/interpreter-design-pattern.html)
 
 ## 关系
 这里有一张各个模式关系图，可以在了解各个模式以后梳理一下
