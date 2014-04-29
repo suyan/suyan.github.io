@@ -175,6 +175,12 @@ mac不自带mysql，这里需要重新安装，方法依然很简单
 
     mysqladmin -u root password 'xxx'
 
+如果想修改mysql的配置，在`/usr/local/etc`下建立一个`my.cnf`，例如增加log
+
+    [mysqld]
+    general-log
+    general_log_file = /usr/local/var/log/mysqld.log
+
 ## MongoDB
 MongoDB可以说是最简单的一个，直接执行
 
