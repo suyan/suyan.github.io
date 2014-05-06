@@ -103,3 +103,14 @@ table tr th :first-child, table tr td :first-child {
 table tr th :last-child, table tr td :last-child {
   margin-bottom: 0; 
 }
+
+/* 清除浮动 */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
