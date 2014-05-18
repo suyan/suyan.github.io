@@ -9,7 +9,33 @@ description:
 
 ## Git常用操作
 
-### 打标签
+### 查看历史
+
+    git log --pretty=oneline filename // 一行显示
+    git show xxxx // 查看某次修改
+
+### 创建分支
+    
+    git branch develop // 只创建分支
+    git checkout -b master develop // 创建并切换到 develop 分支
+
+### 合并分支
+
+    git checkout master // 切换到主分支
+    git merge --no-ff develop // 把 develop 合并到 master 分支，no-ff 选项的作用是保留原分支记录
+    git rebase develop // 合并分支
+    git branch -d develop // 删除 develop 分支
+
+### 标签功能
+    
+    git tag // 显示所有标签
+    git tag -l 'v1.4.2.*' // 显示 1.4.2 开头标签
+    git tag v1.3 // 简单打标签   
+    git tag -a v1.2 9fceb02 // 后期加注标签
+    git tag -a v1.4 -m 'my version 1.4' // 增加标签并注释， -a 为 annotated 缩写
+    git show v1.4 // 查看某一标签详情
+    git push origin v1.5 // 分享某个标签
+    git push origin --tags // 分享所有标签
 
 ### 回滚操作
     reset --hard v0.1
