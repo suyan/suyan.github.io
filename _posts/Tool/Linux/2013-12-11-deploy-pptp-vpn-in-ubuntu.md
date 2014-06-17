@@ -4,17 +4,16 @@ title: 在ubuntu下搭建pptp vpn服务器
 category: 工具
 tags: Linux
 keywords: Linux,pptp,vpn
-description: 
----
+description: ---
 
->最近弄了digitalocean的vps，研究了一下搭建一个vpn自己用，因为有些系统代理goagent还是搞不定。但是事实证明digitalocean线路还是很不稳，基本上没啥帮助=0=
+>最近弄了digitalocean的vps，研究了一下搭建一个vpn自己用，因为有些系统代理goagent还是搞不定。但是事实证明digitalocean线路还是很不稳，基本上没啥帮助=0=s
 
 ## pptp配置
 ### 安装pptp
 用ubuntu就是安装东西快
 
-    sudu apt-get -y update
-    sudu apt-get -y install pptpd
+    sudo apt-get -y update
+    sudo apt-get -y install pptpd
 
 ### 修改配置脚本
 配置一下dns
