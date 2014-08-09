@@ -25,7 +25,7 @@ description:
 
 ### 开启远程登录
     
-    grant all privileges on 'ss'.* to root@'%' indentified by 'passoword' with grant option;
+    grant all privileges on ss.* to 'root'@'%' indentified by 'passoword' with grant option;
     // or 
     update user set Host="%" and User="root"
     // 注意%是不包含localhost的
