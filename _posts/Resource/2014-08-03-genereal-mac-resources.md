@@ -22,3 +22,7 @@ description:
 ### 设置iterm中option为alt(meta)键
 
 ![option-to-meta](http://yansu-uploads.stor.sinaapp.com/original/a7604cae82872d62bdc6122da7f38037.png)
+
+### 删除dropbox冲突文件
+
+    find . -type f -name "* conflicted *" -exec rm -f {} \;
