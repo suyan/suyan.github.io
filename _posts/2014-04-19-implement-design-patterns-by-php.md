@@ -64,7 +64,7 @@ description:
 ## 关系
 这里有一张各个模式关系图，可以在了解各个模式以后梳理一下
 
-![设计模式](/public/upload/design-patterns.jpg)
+![设计模式](http://yansu-uploads.stor.sinaapp.com/imgs/design-patterns.jpg)
 
 ## 参考
 1. [Wikipedia: Software design pattern](http://en.wikipedia.org/wiki/Software_design_pattern)

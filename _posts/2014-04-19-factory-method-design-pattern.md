@@ -30,7 +30,7 @@ description:
 - 创建对象的生命周期必须集中管理，以保证在整个程序中具有一致的行为。
 
 ## 类图
-![factory method](/public/upload/factory-method-uml.png)
+![factory method](http://yansu-uploads.stor.sinaapp.com/imgs/factory-method-uml.png)
 
 ## 实例
 

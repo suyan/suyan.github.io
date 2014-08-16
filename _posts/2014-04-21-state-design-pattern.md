@@ -23,7 +23,7 @@ description:
 
 ## 类图
 
-![state pattern](/public/upload/state-pattern-uml.jpg)
+![state pattern](http://yansu-uploads.stor.sinaapp.com/imgs/state-pattern-uml.jpg)
 
 ## 实例
 

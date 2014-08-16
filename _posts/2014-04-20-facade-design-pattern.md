@@ -33,7 +33,7 @@ description:
 
 ## 类图
 
-![facade pattern](/public/upload/facade-pattern-uml.jpg)
+![facade pattern](http://yansu-uploads.stor.sinaapp.com/imgs/facade-pattern-uml.jpg)
 
 ## 实例
 

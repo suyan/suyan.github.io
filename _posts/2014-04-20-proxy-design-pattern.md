@@ -24,7 +24,7 @@ description:
 
 ## 类图
 
-![proxy pattern](/public/upload/proxy-pattern-uml.png)
+![proxy pattern](http://yansu-uploads.stor.sinaapp.com/imgs/proxy-pattern-uml.png)
 
 ## 实例
 

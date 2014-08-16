@@ -26,7 +26,7 @@ description:
 
 ## 类图
 
-![decorator pattern](/public/upload/decorator-pattern-uml.jpg)
+![decorator pattern](http://yansu-uploads.stor.sinaapp.com/imgs/decorator-pattern-uml.jpg)
 
 ## 实例
 

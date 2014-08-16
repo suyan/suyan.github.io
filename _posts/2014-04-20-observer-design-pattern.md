@@ -27,7 +27,7 @@ description:
 
 ## 类图
 
-![observer pattern](/public/upload/observer-pattern-uml.jpg)
+![observer pattern](http://yansu-uploads.stor.sinaapp.com/imgs/observer-pattern-uml.jpg)
 
 ## 实例
 

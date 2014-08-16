@@ -28,7 +28,7 @@ description:
 
 ## 类图
 
-![flyweight pattern](/public/upload/flyweight-pattern-uml.jpg)
+![flyweight pattern](http://yansu-uploads.stor.sinaapp.com/imgs/flyweight-pattern-uml.jpg)
 
 ## 实例
 

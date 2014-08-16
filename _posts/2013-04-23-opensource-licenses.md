@@ -68,4 +68,4 @@ MIT是和BSD一样宽范的许可协议,作者只想保留版权,而无任何其
 [5]: http://www.gnu.org/copyleft/lesser.html
 [6]: http://opensource.org/licenses/mit-license.php
 [7]: http://www.ruanyifeng.com
-[8]: /public/upload/licence-different.png
+[8]: http://yansu-uploads.stor.sinaapp.com/imgs/licence-different.png

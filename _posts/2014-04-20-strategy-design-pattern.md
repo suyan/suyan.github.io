@@ -25,7 +25,7 @@ description:
 
 ## 类图
 
-![strategy pattern](/public/upload/strategy-pattern-uml.jpg)
+![strategy pattern](http://yansu-uploads.stor.sinaapp.com/imgs/strategy-pattern-uml.jpg)
 
 ## 实例
 
