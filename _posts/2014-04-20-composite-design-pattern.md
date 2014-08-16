@@ -27,11 +27,11 @@ Composite变化的是一个对象的结构和组成。
 
 ### 安全式合成模式
 
-![safe composite pattern](/public/upload/safe-composite-pattern-uml.jpg)
+![safe composite pattern](http://yansu-uploads.stor.sinaapp.com/imgs/safe-composite-pattern-uml.jpg)
 
 ### 透明式合成模式
 
-![transparent composite pattern](/public/upload/transparent-composite-pattern-uml.jpg)
+![transparent composite pattern](http://yansu-uploads.stor.sinaapp.com/imgs/transparent-composite-pattern-uml.jpg)
 
 ## 实例
 

@@ -27,7 +27,7 @@ description:
 
 ## 类图
 
-![visitor pattern](/public/upload/visitor-pattern-uml.jpg)
+![visitor pattern](http://yansu-uploads.stor.sinaapp.com/imgs/visitor-pattern-uml.jpg)
 
 ## 实例
 

@@ -30,7 +30,7 @@ description:
 
 ## 类图
 
-![command pattern](/public/upload/command-pattern-uml.jpg)
+![command pattern](http://yansu-uploads.stor.sinaapp.com/imgs/command-pattern-uml.jpg)
 
 ## 实例
 

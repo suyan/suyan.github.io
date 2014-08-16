@@ -23,7 +23,7 @@ description:
 - 当构造过程必须允许被构造的对象有不同的表示时。
 
 ## 类图
-![builder pattern](/public/upload/builder-pattern-uml.png)
+![builder pattern](http://yansu-uploads.stor.sinaapp.com/imgs/builder-pattern-uml.png)
 
 ## 实例
 

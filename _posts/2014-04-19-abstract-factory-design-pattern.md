@@ -31,7 +31,7 @@ description:
 - 提供一个产品类库，而只想显示它们的接口而不是实现时。
 
 ## 类图
-![abstract pattern](/public/upload/abstract-pattern-uml.png)
+![abstract pattern](http://yansu-uploads.stor.sinaapp.com/imgs/abstract-pattern-uml.png)
 
 ## 实例
 

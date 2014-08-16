@@ -23,7 +23,7 @@ description:
 
 ## 类图
 
-![memento pattern](/public/upload/memento-pattern-uml.jpg)
+![memento pattern](http://yansu-uploads.stor.sinaapp.com/imgs/memento-pattern-uml.jpg)
 
 ## 实例
 

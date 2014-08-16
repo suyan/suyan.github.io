@@ -37,10 +37,10 @@ description:
 ## 类图
 
 ### 类适配器
-![class adapter pattern](/public/upload/class-adapter-pattern-uml.jpg)
+![class adapter pattern](http://yansu-uploads.stor.sinaapp.com/imgs/class-adapter-pattern-uml.jpg)
 
 ### 对象适配器
-![object adapter pattern](/public/upload/object-adapter-pattern-uml.jpg)
+![object adapter pattern](http://yansu-uploads.stor.sinaapp.com/imgs/object-adapter-pattern-uml.jpg)
 
 ## 实例
 

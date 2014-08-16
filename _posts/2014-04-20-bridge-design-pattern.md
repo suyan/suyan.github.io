@@ -25,7 +25,7 @@ description:
 
 ## 类图
 
-![bridge pattern](/public/upload/bridge-pattern-uml.jpg)
+![bridge pattern](http://yansu-uploads.stor.sinaapp.com/imgs/bridge-pattern-uml.jpg)
 
 ## 实例
 

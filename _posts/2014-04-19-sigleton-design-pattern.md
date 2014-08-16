@@ -25,7 +25,7 @@ Singleton定义一个getInstance操作，允许客户访问它唯一的实例。
 - 当这个唯一实例应该是通过子类化可扩展的。并且用户应该无需更改代码就能使用一个扩展的实例时。
 
 ## 类图
-![singleton pattern](/public/upload/singleton-pattern-uml.png)
+![singleton pattern](http://yansu-uploads.stor.sinaapp.com/imgs/singleton-pattern-uml.png)
 
 ## 实例
 

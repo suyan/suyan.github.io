@@ -30,7 +30,7 @@ description:
 
 ## 类图
 
-![template method pattern](/public/upload/template-method-pattern-uml.jpg)
+![template method pattern](http://yansu-uploads.stor.sinaapp.com/imgs/template-method-pattern-uml.jpg)
 
 ## 实例
 

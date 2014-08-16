@@ -12,7 +12,7 @@ description:
 
 ## 类图
 
-![interpreter pattern](/public/upload/interpreter-pattern-uml.jpg)
+![interpreter pattern](http://yansu-uploads.stor.sinaapp.com/imgs/interpreter-pattern-uml.jpg)
 
 ## 实例
 
