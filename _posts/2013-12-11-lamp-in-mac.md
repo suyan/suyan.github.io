@@ -156,7 +156,7 @@ PHP在mac下默认安装了，但是不好控制版本，利用brew可以再mac�
 
 后面会用到mongo和mysql，所以可以直接利用下面命令安装php模块，其他模块也类似
 
-    brew install php55-mysql
+    #brew install php55-mysql #这个已经不需要再安装了
     brew install php55-mongo
 
 ## MySQL
