@@ -9,17 +9,12 @@ layout: base
   </div>
   <div class="col-md-12 aside3-content">
     <hr>
+    {% include content.html %}
     <div id="content">
       {{ content }}
     </div>
     <hr>
     {% include disqus.html %}
-  </div>
-  <!-- 目录 -->
-  <div id="content_table" style="position:fixed;right:20px;top:120px;display:none;">
-    <div class="panel panel-success">
-      <div class="panel-body" id="nav"></div>
-    </div>
   </div>
 </div>
 

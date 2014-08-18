@@ -13,10 +13,6 @@ function nav_click(is_show) {
     $('.aside3-content')
       .removeClass('col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2')
       .addClass('col-md-12');
-    /* 变化按钮 */
-    $('#nav_btn i')
-      .removeClass('fa-angle-right')
-      .addClass('fa-angle-left');
   } else {
     /* 隐藏左侧aside */
     $('.aside')
@@ -30,18 +26,14 @@ function nav_click(is_show) {
     $('.aside3-content')
       .removeClass('col-md-12')
       .addClass('col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2');
-    /* 变化按钮图标 */
-    $('#nav_btn i').removeClass('fa-angle-left').addClass('fa-angle-right');
   }
 }
 /* 控制文章章节列表按钮 */
 function content_click(is_show) {
   if (is_show) {
     $('#content_table').show();
-    $('#content_btn i').removeClass('fa-angle-down').addClass('fa-angle-up');
   } else {
     $('#content_table').hide();
-    $('#content_btn i').removeClass('fa-angle-up').addClass('fa-angle-down');
   }
 }
 
