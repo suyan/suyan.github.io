@@ -5,15 +5,15 @@ markdown: redcarpet
 # 作者信息
 author: 
   name: 闫肃
-  email: yansu0711@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
-  github: http://github.com/suyan
+  email: yyy541501@gmail.com
+  link: http://xcation.github.io/
+  weibo: http://weibo.com/idreamnet
+  github: http://github.com/xcation
 
 # 站点信息
 title: 闫肃的博客 
 description: 闫肃的博客
-url: http://yansu.org
+url: http://xcation.github.io/
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
