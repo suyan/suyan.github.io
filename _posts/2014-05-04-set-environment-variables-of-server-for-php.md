@@ -72,7 +72,38 @@ description:
         }   
     }
 
+## 为PHP脚本设置环境变量
+
+### 为当前用户临时设置
+
+临时设置只需要执行
+
+    export KEY=VALUE
+
+### 为当前用户永久设置
+
+在`~/.bashrc`（不同系统各有不同）中写
+
+### 为所有用户（不包括root）设置
+
+创建文件`/etc/profile.d/test.sh`，写入
+
+    KEY=VALUE
+
+### 为所有用户（包括root）设置
+
+在`/etc/environment`中写入
+
+    KEY=VALUE
+
+*注意，这个文件的生效时间是用户登录时，所以对于root来说，需要重启机器*
+
+### 在Supervisor中设置
+
+有的时候PHP脚本是用Supervisor来控制的，所以记得设置supervisor配置中的environment项
+
 ## 在PHP中调用服务器环境变量
+
 在PHP中有两个调用方式：
 
     $env = getenv('RUNTIME_ENVIROMENT');
