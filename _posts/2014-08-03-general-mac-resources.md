@@ -7,6 +7,18 @@ keywords: Mac
 description: 
 ---
 
+## 常用软件
+
+### Alfred
+
+#### Alfred常用Workflow
+
+- [Dash](http://kapeli.com/dash)
+- [Dict - Lookup Word](https://github.com/liberize/alfred-dict-workflow)
+- [Reminders](http://www.alfredforum.com/topic/917-reminders/)
+
+## 常用技巧
+
 ### 开启关闭dashboard
 
 关闭
