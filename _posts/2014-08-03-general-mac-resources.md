@@ -16,6 +16,8 @@ description:
 - [Dash](http://kapeli.com/dash)
 - [Dict - Lookup Word](https://github.com/liberize/alfred-dict-workflow)
 - [Reminders](http://www.alfredforum.com/topic/917-reminders/)
+- [Evernote](http://support.alfredapp.com/evernote)
+- [Notes](http://www.alfredforum.com/topic/1009-notes/)
 
 ## 常用技巧
 
