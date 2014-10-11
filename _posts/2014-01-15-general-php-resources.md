@@ -44,7 +44,15 @@ description:
 ## 常用代码
 
 ### 页面编码
+    
     header("Content-type: text/html; charset=utf-8");
 
 ### 去除数组中的键名，保留值
+    
     $array = array_values($array);
+
+## 常用命令
+
+### 修改phpunit内存限制    
+
+    phpunit -d memory_limit=512M
