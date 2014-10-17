@@ -266,7 +266,7 @@ git push
 
 代码地址戳[这里][6]
 
-[1]: /2013/04/23/step-by-step-of-jeklly-blog(1).html
+[1]: /2013/04/23/deploy-jeklly-blog.html
 [2]: http://jekyllrb.com/docs/structure/
 [3]: http://jekyllrb.com/docs/templates/
 [4]: http://docs.shopify.com/themes/liquid-basics

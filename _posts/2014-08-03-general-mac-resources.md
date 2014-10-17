@@ -54,3 +54,9 @@ description:
     # 以Desktop为例
     touch ~/Desktop/.localized
     chmod 600 ~/Desktop/.localized
+
+## 常用快捷键
+
+### Chrome
+
+- 切换用户 `Command + shift + M`
