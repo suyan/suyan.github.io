@@ -9,10 +9,14 @@ description:
 
 ## 常用资源
 
+### 常用扩展
+
+1. [phpDocumentor](http://www.phpdoc.org)
+2. [PHPUnit](https://phpunit.de)
+
 ### 好文
 1. [PHP之道](http://wulijun.github.io/php-the-right-way/)
 2. [Cookie/Session机制详解](http://blog.csdn.net/fangaoxin/article/details/6952954)
-
 
 ### 优秀的类库
 1. [PHP中文分词: 自动打标签功能](http://jingwentian.com/t-145)
@@ -40,16 +44,6 @@ description:
 | $x = 'false' | string    | false   | false     | true    | true   |
 +--------------+-----------+---------+-----------+---------+--------+
 ```
-
-## 常用代码
-
-### 页面编码
-    
-    header("Content-type: text/html; charset=utf-8");
-
-### 去除数组中的键名，保留值
-    
-    $array = array_values($array);
 
 ## 常用命令
 
