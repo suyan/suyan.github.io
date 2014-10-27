@@ -33,6 +33,16 @@ description:
     defaults write com.apple.dashboard mcx-disabled -boolean NO
     killall Dock
 
+### 开启关闭Hidpi
+开启
+
+    sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool YES
+
+关闭
+
+    sudo defaults delete /Library/Preferences/com.apple.windowserver DisplayResolutionDisabled
+
+
 ### 设置iterm中option为alt(meta)键
 
 ![option-to-meta](http://yansu-uploads.stor.sinaapp.com/imgs/set-meta-to-alt.png)

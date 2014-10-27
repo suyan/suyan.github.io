@@ -13,6 +13,7 @@ description:
 
 1. [phpDocumentor](http://www.phpdoc.org)
 2. [PHPUnit](https://phpunit.de)
+3. [Guzzle](https://github.com/guzzle/guzzle)
 
 ### 好文
 1. [PHP之道](http://wulijun.github.io/php-the-right-way/)
@@ -50,3 +51,22 @@ description:
 ### 修改phpunit内存限制    
 
     phpunit -d memory_limit=512M
+
+
+## PHPStorm 常用快捷键
+
+- Quick Command
+
+    `Command + Shift + A`
+
+- Quick File
+
+    `Command + Shift + O`
+
+- Quick Class
+
+    `Command + O`
+
+- Quick Symbol
+
+    `Command + Option + O`
