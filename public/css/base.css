@@ -30,6 +30,7 @@ body, html {
   left: 0px;
 }
 .aside1_bottom > .table {margin-bottom: 0px;}
+#content ul, ol, dl, li {margin: 0px;}
 /* 中部目录栏 */
 .aside2 {
   background-color: #fafaf6;
@@ -56,6 +57,7 @@ a:hover {text-decoration:none;}
 #content {font-size: 18px; line-height: 1.5;}
 #content p {margin: 20px 0px;}
 #content ul, ol, dl, li {margin: 10px 0px;}
+.nav > li {margin: 0px;}
 #content h2, h3 {line-height: 2;}
 #content blockquote > :first-child {margin-top: 0; }
 #content blockquote > :last-child {margin-bottom: 0;}
