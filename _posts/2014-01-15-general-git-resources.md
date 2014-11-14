@@ -4,8 +4,76 @@ title: Git 常用资源
 category: 资源
 tags: Git
 keywords: Git
-description: 
+description:
 ---
+
+# git创建远程库
+
+>git中一般使用 git init 创建的库不允许同一分支多个work tree直接提交，如果这么做有可能会出现以下问题：
+
+>remote: error: refusing to update checked out branch: refs/heads/master
+
+>要解决这个问题可以有以下四种方式
+
+## 创建共享库（推荐）
+
+    # 创建共享库(bare)
+    $ mkdir /git/repo.git && cd /git/repo.git && git init --bare
+
+    # 本地库
+    $ mkdir ~/repo && cd ~/repo && git init
+    # 创建一个文件
+    $ vi foo
+    # 增加新增文件到库管理
+    $ git add .
+    # 提交
+    $ git commit
+    # 增加共享库位置
+    $ git remote add origin file:///git/repo.git
+    # 提交更改
+    $ git push origin master
+
+## 不工作在同一库下（推荐）
+
+    # 创建库
+    $ mkdir /git/repo  && cd /git/repo && git init
+    # 创建一个文件
+    $ vi foo
+    # 增加新增文件到库管理
+    $ git add .
+    # 提交
+    $ git commit
+    # 新建一个分支
+    $ git branch test
+
+    # 本地库
+    $ git clone file:///git/repo && cd repo
+    # 切换到分支test
+    $ git checkout test
+    # 修改文件
+    $ echo "foo">foo
+    # 提交
+    $ git commit
+    # 增加远程库位置
+    $ git remote add origin flie:///git/repo
+    # 提交更改
+    $ git push origin test
+
+## 忽略冲突1
+修改远程库.git/config添加下面代码
+
+    [receive]
+        denyCurrentBranch = ignore
+
+这种方式不能直接显示在结果的work tree上，如果要显示，需要使用
+
+    git reset --hard才能看到
+
+## 忽略冲突2
+在远程库上
+
+    git config -bool core.bare true
+
 
 ## Git常用操作
 
@@ -15,7 +83,7 @@ description:
     git show xxxx // 查看某次修改
 
 ### 创建分支
-    
+
     git branch develop // 只创建分支
     git checkout -b master develop // 创建并切换到 develop 分支
 
@@ -27,10 +95,10 @@ description:
     git branch -d develop // 删除 develop 分支
 
 ### 标签功能
-    
+
     git tag // 显示所有标签
     git tag -l 'v1.4.2.*' // 显示 1.4.2 开头标签
-    git tag v1.3 // 简单打标签   
+    git tag v1.3 // 简单打标签
     git tag -a v1.2 9fceb02 // 后期加注标签
     git tag -a v1.4 -m 'my version 1.4' // 增加标签并注释， -a 为 annotated 缩写
     git show v1.4 // 查看某一标签详情
@@ -53,13 +121,13 @@ description:
     git mv <sourcefile> <destfile>
 
 ### 查看文件更新
-    git diff              查看未暂存的文件更新 
-    git diff --cached     查看已暂存文件的更新 
+    git diff              查看未暂存的文件更新
+    git diff --cached     查看已暂存文件的更新
 
 ### 克隆远程分支
     git branch -r
     git checkout origin/android
-    
+
 ## Git设置
 
 Git的全局设置在`~/.gitconfig`中，单独设置在`project/.git/config`下。
@@ -73,3 +141,71 @@ Git的全局设置在`~/.gitconfig`中，单独设置在`project/.git/config`下
     name = xxx
     email = xxx@xxx.com
 ```
+
+
+# git创建远程库
+
+>git中一般使用 git init 创建的库不允许同一分支多个work tree直接提交，如果这么做有可能会出现以下问题：
+
+>remote: error: refusing to update checked out branch: refs/heads/master
+
+>要解决这个问题可以有以下四种方式
+
+## 创建共享库（推荐）
+
+    # 创建共享库(bare)
+    $ mkdir /git/repo.git && cd /git/repo.git && git init --bare
+
+    # 本地库
+    $ mkdir ~/repo && cd ~/repo && git init
+    # 创建一个文件
+    $ vi foo
+    # 增加新增文件到库管理
+    $ git add .
+    # 提交
+    $ git commit
+    # 增加共享库位置
+    $ git remote add origin file:///git/repo.git
+    # 提交更改
+    $ git push origin master
+
+## 不工作在同一库下（推荐）
+
+    # 创建库
+    $ mkdir /git/repo  && cd /git/repo && git init
+    # 创建一个文件
+    $ vi foo
+    # 增加新增文件到库管理
+    $ git add .
+    # 提交
+    $ git commit
+    # 新建一个分支
+    $ git branch test
+
+    # 本地库
+    $ git clone file:///git/repo && cd repo
+    # 切换到分支test
+    $ git checkout test
+    # 修改文件
+    $ echo "foo">foo
+    # 提交
+    $ git commit
+    # 增加远程库位置
+    $ git remote add origin flie:///git/repo
+    # 提交更改
+    $ git push origin test
+
+## 忽略冲突1
+修改远程库.git/config添加下面代码
+
+    [receive]
+        denyCurrentBranch = ignore
+
+这种方式不能直接显示在结果的work tree上，如果要显示，需要使用
+
+    git reset --hard才能看到
+
+## 忽略冲突2
+在远程库上
+
+    git config -bool core.bare true
