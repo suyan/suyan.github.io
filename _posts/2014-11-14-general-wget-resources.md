@@ -18,6 +18,19 @@ description: wget学习笔记
     fi
     str="$(echo "$content"|grep ">\[转让\]"|sed 's#.*\(\[转让\].[^<]*\)<.*#\1#')"
     echo "$str"
+### 下载一个网站的目录
+    wget -U “Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)” -r -p -k -np -Pmydir -nc -o down.log http://www.yourdomain.com/yourdir/index.html
+
+### 下载整个网站
+    wget -U “Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)” -r -p -k -nc -o down.log http://www.yourdomain.com/index.html
+
+    -U 修改agent，伪装成IE货firefox等
+    -r 递归；对于HTTP主机，wget首先下载URL指定的文件，然后（如果该文件是一个HTML文档的话）递归下载该文件所引用（超级连接）的所有文件（递归深度由参数-l指定）。对FTP主机，该参数意味着要下载URL指定的目录中的所有文件，递归方法与HTTP主机类似。
+    -c 指定断点续传功能。实际上，wget默认具有断点续传功能，只有当你使用别的ftp工具下载了某一文件的一部分，并希望wget接着完成此工作的时候，才需要指定此参数。
+    -nc 不下载已经存在的文件
+    -np 表示不跟随链接，只下载指定目录及子目录里的东西；
+    -p 下载页面显示所需的所有文件。比如页面中包含了图片，但是图片并不在/yourdir目录中，而在/images目录下，有此参数，图片依然会被正常下载。
+    -k 修复下载文件中的绝对连接为相对连接，这样方便本地阅读。
 
 ### 其它
 
