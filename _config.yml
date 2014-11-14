@@ -9,14 +9,15 @@ kramdown:
 author:
   name: 陈良红
   email: clh021@gmail.com
-  link: http://yansu.org
+  link: http://lianghong.dongshenghuo.com
   weibo: http://weibo.com/clh021
   github: http://github.com/clh021
 
 # 站点信息
 title: 良宏良仔
 description: 良仔的个人博客
-url: http://lianghong.dongshenghuo.com
+url: http://clh021.github.io
+#url: http://lianghong.dongshenghuo.com
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
