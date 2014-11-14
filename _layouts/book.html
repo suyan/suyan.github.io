@@ -30,7 +30,7 @@ layout: base
                       <tr><td>语言</td><td>{{ book.language }}</td></tr>
                       <tr>
                         <td>链接</td><td>
-                        <a href="{{ book.link }}" title="{{ book.link }}">图书链接</a>
+                        <a href="{{ book.link }}" title="{{ book.link }}" target="_blank">图书链接</a>
                       </td></tr>
                       <tr>
                         <td>状态</td>
@@ -47,9 +47,9 @@ layout: base
                     </tbody>
                   </table>
                 </div>
-              </div>  
+              </div>
             </div>
-          </div>      
+          </div>
         </div>
       {% endfor %}
     </div>
