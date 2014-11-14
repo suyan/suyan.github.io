@@ -9,15 +9,37 @@ description:
 
 ## 常用软件
 
-### Alfred
+### 系统必备
 
-#### Alfred常用Workflow
+    sudo apt-get install -y firefox firefox-locale-zh-hans sublime-text
 
-- [Dash](http://kapeli.com/dash)
-- [Dict - Lookup Word](https://github.com/liberize/alfred-dict-workflow)
-- [Reminders](http://www.alfredforum.com/topic/917-reminders/)
-- [Evernote](http://support.alfredapp.com/evernote)
-- [Notes](http://www.alfredforum.com/topic/1009-notes/)
+### 开发必备
+
+    #安装 mysql 数据库 修改端口3306为3309
+    sudo apt-get install -y install mysql-client mysql-server
+    sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+    sed -i -e"s/^port\s*=\s*3309/port = 3309/" /etc/mysql/my.cnf #你也可以不要这一句# casper
+    git clone git://github.com/n1k0/casperjs.git
+    cd casperjs
+    ln -sf `pwd`/bin/casperjs /usr/local/bin/casperjs
+    #nodejs 和 npm 安装
+    curl -sL https://deb.nodesource.com/setup | sudo bash -
+    sudo apt-get install -y nodejs
+    #风格检查
+    sudo npm install -g jscs
+    sudo npm install -g jshint
+    sudo npm install -g coffeelint
+    #coffeelint -f ~/coffeelint.json <coffee-file>
+    sudo npm install -g csslint
+    #csslint --ignore=adjoining-classes,text-indent,import,ids --format=compact <css-file>
+
+    # 安装 docker
+    sudo apt-get update
+    sudo apt-get install docker.io
+    sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+    sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+    # 或者
+    # curl -s https://get.docker.io/ubuntu/ | sudo sh
 
 ## 常用技巧
 
@@ -53,22 +75,23 @@ description:
 
 3、将如下内容复制到xcompmgr.desktop文件，保存即可
 
-'''[Desktop Entry]
-Type=Application
-Encodeing=UTF-8
-Name="xcompmgr"
-Comment=""
-Exec="xcompmgr"
-hidden=false
-NoDisplay=false
-Terminal=false
-'''
+    [Desktop Entry]
+    Type=Application
+    Encodeing=UTF-8
+    Name="xcompmgr"
+    Comment=""
+    Exec="xcompmgr"
+    hidden=false
+    NoDisplay=false
+    Terminal=false
+
 
 
 ###搭建本地git服务(执行在共享项目的根目录)(退出命令即停止服务)
 创建本地git服务
 
     git daemon --reuseaddr --export-all --verbose --base-path=$PWD/../ $PWD
+
 测试本地git的clone
 
     git clone git://localhost/PWD.FolderName
