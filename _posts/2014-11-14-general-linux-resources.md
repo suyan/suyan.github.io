@@ -3,8 +3,8 @@ layout: post
 title: Linux 常用资源
 category: 资源
 tags: [Linux , Ubuntu , Deepin]
-keywords: Mac
-description:
+keywords: Linux
+description: Linux 常用资源[持续更新]
 ---
 
 ## 常用软件
@@ -40,6 +40,10 @@ description:
     sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
     # 或者
     # curl -s https://get.docker.io/ubuntu/ | sudo sh
+
+    # sudo docker run -i -t -p 80:80 -p 3306:3306 -p 5672:5672 -p 15672:15672 -v /media/lee/DATA/www/docker.ubuntu/run.sh:/run.sh -v /media/lee/DATA/www/docker.ubuntu/.bashrc:/root/.bashrc lianghonglamp9 /bin/bash
+    # sudo docker run -i -t -p 80:80 -p 3306:3306 -p 5672:5672 -p 15672:15672 -v /path/to/your/app:/app username/my-lamp-app -v /path/to/your/.bashrc:/root/.bashrc username/my-lamp-app /bin/bash
+    # ^C + z 可以使程序后台执行
 
 ## 常用技巧
 
