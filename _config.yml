@@ -1,4 +1,5 @@
 permalink: /:year/:month/:day/:title.html
+permalink_defaults: /404.html
 paginate: 10
 markdown: kramdown
 
