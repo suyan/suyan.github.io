@@ -20,8 +20,8 @@ url: http://lianghong.dongshenghuo.com
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: favicon.png
-favicon: favicon.png
+gavatar: /favicon.png
+favicon: /favicon.png
 
 # google analytics 设置
 ga:
