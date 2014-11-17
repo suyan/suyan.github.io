@@ -19,10 +19,10 @@ description: Discuz是国内一个比较成熟的开源论坛系统，可惜的�
 该步骤是因为源代码的写法不统一，此处替换为方便后面的一次性替换所有
 
 
-  /media/lee/DATA/www/test/discuz/source/plugin/qqconnect/install.php:166行
-  /media/lee/DATA/www/test/discuz/source/plugin/qqconnect/upgrade.php:129行
-  /media/lee/DATA/www/test/discuz/source/plugin/security/install.php:76行
-  /media/lee/DATA/www/test/discuz/source/plugin/security/upgrade.php:56行
+      /media/lee/DATA/www/test/discuz/source/plugin/qqconnect/install.php:166行
+      /media/lee/DATA/www/test/discuz/source/plugin/qqconnect/upgrade.php:129行
+      /media/lee/DATA/www/test/discuz/source/plugin/security/install.php:76行
+      /media/lee/DATA/www/test/discuz/source/plugin/security/upgrade.php:56行
 
 
 ### 全局替换语言包路径
@@ -30,16 +30,16 @@ description: Discuz是国内一个比较成熟的开源论坛系统，可惜的�
 全局查找 "'./source/language/" 替换为 "LANGUAGE_PATH.'"
 
 
-  /media/lee/DATA/www/test/Discuz/upload/source/class/optimizer/optimizer_setting.php
-  /media/lee/DATA/www/test/Discuz/upload/source/function/function_core.php
-  /media/lee/DATA/www/test/Discuz/upload/source/language/lang_admincp.php
-  /media/lee/DATA/www/test/Discuz/upload/source/module/misc/misc_mobile.php
-  /media/lee/DATA/www/test/Discuz/upload/source/plugin/manyou/Service/Server/Security.php
-  /media/lee/DATA/www/test/Discuz/upload/source/plugin/qqconnect/install.php
-  /media/lee/DATA/www/test/Discuz/upload/source/plugin/qqconnect/upgrade.php
-  /media/lee/DATA/www/test/Discuz/upload/source/plugin/security/install.php
-  /media/lee/DATA/www/test/Discuz/upload/source/plugin/security/upgrade.php
-  11 matches across 9 files
+      /media/lee/DATA/www/test/Discuz/upload/source/class/optimizer/optimizer_setting.php
+      /media/lee/DATA/www/test/Discuz/upload/source/function/function_core.php
+      /media/lee/DATA/www/test/Discuz/upload/source/language/lang_admincp.php
+      /media/lee/DATA/www/test/Discuz/upload/source/module/misc/misc_mobile.php
+      /media/lee/DATA/www/test/Discuz/upload/source/plugin/manyou/Service/Server/Security.php
+      /media/lee/DATA/www/test/Discuz/upload/source/plugin/qqconnect/install.php
+      /media/lee/DATA/www/test/Discuz/upload/source/plugin/qqconnect/upgrade.php
+      /media/lee/DATA/www/test/Discuz/upload/source/plugin/security/install.php
+      /media/lee/DATA/www/test/Discuz/upload/source/plugin/security/upgrade.php
+      11 matches across 9 files
 
 替换完毕之后保存全部
 
