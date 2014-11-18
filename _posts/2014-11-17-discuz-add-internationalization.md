@@ -68,17 +68,18 @@ description: Discuz是国内一个比较成熟的开源论坛系统，可惜的�
 
 ### 安装语言包
 
-将discuz/source/language/*下的全部文件移动到discuz/source/language/zh-CN/*即可支持国际化中文语言
-"zh-CN"来自于浏览器
-将zh-CN 复制两份，分别命名为 zh-TW,en-US
-分别翻译好下列文件及后面的对应的提示值，以查看最终语言切换的效果
+- 将discuz/source/language/*下的全部文件移动到discuz/source/language/zh-CN/*
+现在已经支持国际化中文语言("zh-CN"来自于浏览器语言编码的提取)
+- 将zh-CN 复制两份，分别命名为 zh-TW,en-US
+- 分别翻译好下列文件及后面的对应的提示值，以查看最终语言切换的效果
 
-    #discuz/source/language/zh-CN/forum/lang_template.php
-    #可以不用翻译
-    #discuz/source/language/zh-TW/forum/lang_template.php
-    welcome_new_members -> 歡迎新會員
-    #discuz/source/language/en-US/forum/lang_template.php
-    welcome_new_members -> Welcome new members
+
+      #discuz/source/language/zh-CN/forum/lang_template.php
+      #可以不用翻译
+      #discuz/source/language/zh-TW/forum/lang_template.php
+      welcome_new_members -> 歡迎新會員
+      #discuz/source/language/en-US/forum/lang_template.php
+      welcome_new_members -> Welcome new members
 
 
 ### 在页面中添加语言切换链接
@@ -104,4 +105,4 @@ discuz/template/default/common/header.htm 第64行  也是以下代码
 
     $cachefile = './data/template/'.LANGUAGE.'_'.(defined('STYLEID')
 
-即可(其中添加了 LANGUAGE )
+完成
