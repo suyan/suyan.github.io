@@ -101,7 +101,7 @@ description: Linux 常用资源[持续更新]
     git clone git://localhost/PWD.FolderName
 
 
-###删除
+###网站调试中的小技巧
 
     $ php app.php | grep "on line"
     PHP Parse error:  syntax error, unexpected '@', expecting ')' in /path/to/your/webApp/test/discuz/relanguage_old_translated/lang_admincp_msg.php on line 172
@@ -109,6 +109,8 @@ description: Linux 常用资源[持续更新]
     PHP   1. {main}() /path/to/your/webApp/app.php:0
     PHP   2. TransDiffTool\Translation\TranslationLoader->loadMessages() /path/to/your/webApp/app.php:46
     PHP   3. Symfony\Component\Translation\Loader\PhpFileLoader->load() /path/to/your/webApp/vendor/symfony/translation-extra/TransDiffTool/Translation/TranslationLoader.php:34
+
+运行过程中报出了以上错误(这不是标准输出)，几乎无法调试，索性删除掉这些文件，但是文件又很多，怎么办？下面的第一个命令就可以帮到你
 
     rm $(php app.php 2>&1 | sed -rn 's/(.*) in (.*) on(.*)/ \2/p') -v #将异常输出转到标准输出并按照匹配规则切割出指定内容(这里是文件路径)并执行删除,同时显示出删除文件的路径
     ls -AR $PWD/. | grep lang_setting #查找出当前路径下(包括子目录)中，文件名包含有 lang_setting的所有文件
