@@ -11,10 +11,16 @@ description: Linux 常用资源[持续更新]
 
 ### 系统必备
 
-    sudo apt-get install -y firefox firefox-locale-zh-hans sublime-text meld
+    sudo apt-get install -y firefox firefox-locale-zh-hans sublime-text meld gawk
 
 ### 开发必备
 
+    # 安装 docker
+    sudo apt-get install -y apparmor # aufs-tools cgroup-lite ruby
+    curl -s https://get.docker.io/ubuntu/ | sudo sh
+    # sudo docker run -i -t -p 80:80 -p 3306:3306 -p 5672:5672 -p 15672:15672 -v /media/lee/DATA/www/docker.ubuntu/run.sh:/run.sh -v /media/lee/DATA/www/docker.ubuntu/.bashrc:/root/.bashrc lianghonglamp9 /bin/bash
+    # sudo docker run -i -t -p 80:80 -p 3306:3306 -p 5672:5672 -p 15672:15672 -v /path/to/your/app:/app username/my-lamp-app -v /path/to/your/.bashrc:/root/.bashrc username/my-lamp-app /bin/bash
+    # ^C + z 可以使程序后台执行
     #安装 mysql 数据库 修改端口3306为3309
     sudo apt-get install -y install mysql-client mysql-server
     sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
@@ -33,17 +39,6 @@ description: Linux 常用资源[持续更新]
     sudo npm install -g csslint
     #csslint --ignore=adjoining-classes,text-indent,import,ids --format=compact <css-file>
 
-    # 安装 docker
-    sudo apt-get update
-    sudo apt-get install docker.io
-    sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
-    sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
-    # 或者
-    # curl -s https://get.docker.io/ubuntu/ | sudo sh
-
-    # sudo docker run -i -t -p 80:80 -p 3306:3306 -p 5672:5672 -p 15672:15672 -v /media/lee/DATA/www/docker.ubuntu/run.sh:/run.sh -v /media/lee/DATA/www/docker.ubuntu/.bashrc:/root/.bashrc lianghonglamp9 /bin/bash
-    # sudo docker run -i -t -p 80:80 -p 3306:3306 -p 5672:5672 -p 15672:15672 -v /path/to/your/app:/app username/my-lamp-app -v /path/to/your/.bashrc:/root/.bashrc username/my-lamp-app /bin/bash
-    # ^C + z 可以使程序后台执行
 
 ## 常用技巧
 
