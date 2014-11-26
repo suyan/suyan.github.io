@@ -120,7 +120,7 @@ description: Linux 常用资源[持续更新]
     #查找出当前目录下，文件名包含有lang_convert，同时路径种还包含有 relanguage 的文件，并删除
 
 
-###以下命令能将当前目录下的所有目录打包成tar.gz文件
+###将当前目录下的所有目录打包成tar.gz文件
 
     ls -F | grep '/$' | awk -F '/'  '{print $1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
     ls -F | grep '/$' | awk -F '/'  '{print strftime("%Y%m%d_%H%M%S").$1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
