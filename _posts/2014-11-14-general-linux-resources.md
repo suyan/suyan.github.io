@@ -119,3 +119,8 @@ description: Linux 常用资源[持续更新]
 
     ls -F | grep '/$' | awk -F '/'  '{print $1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
     ls -F | grep '/$' | awk -F '/'  '{print strftime("%Y%m%d_%H%M%S").$1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
+
+
+###将git目录下被批量删除的index.htm批量checkout掉
+
+    git status | grep "删除" | grep "htm" | awk '{print $2}' | xargs git checkout
