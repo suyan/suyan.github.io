@@ -121,6 +121,9 @@ description: Linux 常用资源[持续更新]
     ls -F | grep '/$' | awk -F '/'  '{print strftime("%Y%m%d_%H%M%S").$1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
 
 
-###将git目录下被批量删除的index.htm批量checkout掉
+###将git目录下的批量操作
 
+    #将git目录下被批量删除的index.htm批量checkout掉
     git status | grep "删除" | grep "htm" | awk '{print $2}' | xargs git checkout
+    #将git目录下被批量修改的php文件批量添加
+    git status | grep "修改" | grep "php" | awk '{print $2}' | xargs git add
