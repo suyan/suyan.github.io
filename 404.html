@@ -2,12 +2,20 @@
 layout: page
 title: 页面不存在
 ---
-<html>
-    <head>
-         <meta charset="UTF-8" />
-         <title>404</title>
-    </head>
-    <body>
-         <script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8"></script>
-    </body>
-</html>
+<script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8"></script>
+<script type="text/javascript">
+function countDown(secs,surl){
+ var jumpTo = document.getElementById('jumpTo');
+ jumpTo.innerHTML=secs;
+ if(--secs>0){
+     setTimeout("countDown("+secs+",'"+surl+"')",1000);
+     }
+ else{
+     location.href=surl;
+     }
+ }
+</script>
+</head>
+
+<body><span id="jumpTo">5</span>秒后自动跳转到首页
+<script type="text/javascript">countDown(5,'http://lianghong.dongshenghuo.com');</script>
