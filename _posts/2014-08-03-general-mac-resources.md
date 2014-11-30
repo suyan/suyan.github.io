@@ -19,7 +19,7 @@ description:
 - [Evernote](http://support.alfredapp.com/evernote)
 - [Notes](http://www.alfredforum.com/topic/1009-notes/)
 
-## 常用技巧
+## 常用命令
 
 ### 开启关闭dashboard
 
@@ -32,6 +32,17 @@ description:
 
     defaults write com.apple.dashboard mcx-disabled -boolean NO
     killall Dock
+
+### 剪贴板操作
+写入剪切板
+
+    echo 'test' > pbcopy 
+    cat testfile > pbcopy
+
+读取剪贴板
+
+    pbpaste > testfile
+    pbpaste | cat
 
 ### 开启关闭Hidpi
 开启
