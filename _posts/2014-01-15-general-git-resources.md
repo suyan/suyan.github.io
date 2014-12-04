@@ -209,3 +209,7 @@ Git的全局设置在`~/.gitconfig`中，单独设置在`project/.git/config`下
 在远程库上
 
     git config -bool core.bare true
+
+## 指定目录以当前状态为最新状态
+
+    git add -A path/to/your/folder

@@ -135,12 +135,34 @@ RUN 开头的指令会在创建中运行,比如安装一个软件包,在这里�
 从容器快照文件导入时可以重新指定标签等元数据信息
 
 ## 删除容器
+
     sudo docker rm -f trusting_newton
+
+## 查看容器的root用户密码
+
+    docker logs <容器名orID> 2>&1 | grep '^User: ' | tail -n1
+
+docker容器启动时的root用户的密码是随机分配的。所以，通过这种方式就可以得到redmine容器的root用户的密码了。
+
+
+## 查看容器日志
+
+    docker logs -f <容器名orID>
 
 ## 个人常用实例收藏
     sudo docker ps -a
     sudo docker rm `sudo docker ps --no-trunc -aq`
     sudo docker images
+    docker pull leehom/lamp:latest #拉取镜像
+    docker run --name redmine -p 9003:80 -p 9023:22 -d -v /var/redmine/files:/redmine/files -v /var/redmine/mysql:/var/lib/mysql sameersbn/redmine
+    #运行一个新容器，同时为它命名、端口映射、文件夹映射。以redmine镜像为例
+    docker run -i -t --name sonar -d -link mmysql:db   tpires/sonar-server sonar
+    #容器连接到mmysql容器，并将mmysql容器重命名为db。这样，sonar容器就可以使用db的相关的环境变量了。
     sudo docker run -i -t -p 80:80 -p 3306:3306 -p 5672:5672 -p 15672:15672 lianghonglamp10 /bin/bash
     sudo docker export 2850b4037110 > ubuntu.lamp.composer.rabbitmq.2014110415.tar
     sudo docker run -i -t -p 80:80 -p 3306:3306 -p 5672:5672 -p 15672:15672 -v /media/lee/DATA/www/docker.ubuntu/run.sh:/run.sh -v /media/lee/DATA/www/docker.ubuntu/.bashrc:/.bashrc lianghonglamp10 /bin/bash
+
+    #镜像迁移
+    docker save busybox-1 > /home/save.tar
+    docker load < /home/save.tar
+    sudo docker cp 7bb0e258aefe:/etc/debian_version .#拷贝容器中的一个文件到本地
