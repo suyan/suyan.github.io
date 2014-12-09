@@ -7,16 +7,15 @@ kramdown:
 
 # 作者信息
 author: 
-  name: 闫肃
-  email: suyan0830@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
-  github: http://github.com/suyan
+  name: going1000
+  email: miaorenjin@gmail.com
+  link: http://going1000.github.io
+  github: http://github.com/going1000
 
 # 站点信息
-title: 闫肃的博客 
-description: 闫肃的博客
-url: http://yansu.org
+title: going1000s blog
+description: going1000s blog
+url: http://going1000.github.io
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
