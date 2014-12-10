@@ -6,8 +6,6 @@ tags: Discuz
 description: Discuz是国内一个比较成熟的开源论坛系统，可惜的是不支持国际化语言支持
 ---
 
-## 准备工作
-
 ### 下载安装包
 
 到[官方下载](http://download.comsenz.com/DiscuzX/3.2/Discuz_X3.2_SC_UTF8.zip)最新的安装包，强烈建议使用UTF8编码包。不需要安装。
