@@ -8,9 +8,9 @@ description: Discuz是国内一个比较成熟的开源论坛系统，可惜的�
 
 ## 准备工作
 
-### 初始化部署到一个可安装运行的环境中
+### 下载安装包
 
-到[官方下载](http://download.comsenz.com/DiscuzX/3.2/Discuz_X3.2_SC_UTF8.zip)最新的安装包，强烈建议使用UTF8编码包。安装好并可以正常打开前台后台页面，然后开始下面的步骤。
+到[官方下载](http://download.comsenz.com/DiscuzX/3.2/Discuz_X3.2_SC_UTF8.zip)最新的安装包，强烈建议使用UTF8编码包。不需要安装。
 
 ### 统一替换路径
 
@@ -45,13 +45,14 @@ description: Discuz是国内一个比较成熟的开源论坛系统，可惜的�
 
 ### 修改全局配置定义语言包路径
 
-在config/config_global.php末尾加入如下代码
+在src/install/include/install_function.php的618行后添加如下代码
 
       /**
        *      [DiscuzX3.2] Language Internationalized.
        *      By clh021@gmail.com
        */
       //------------  Language Internationalized  [BEGIN] -----------
+      if(!function_exists('DectLang')) {
       function DectLang(){
           $language = explode(",", $_SERVER["HTTP_ACCEPT_LANGUAGE"]);
           array_key_exists("language", $_COOKIE) && $language = $_COOKIE['language'];
@@ -63,6 +64,7 @@ description: Discuz是国内一个比较成熟的开源论坛系统，可惜的�
       }
       define('LANGUAGE', DectLang());
       define('LANGUAGE_PATH', './source/language/'.LANGUAGE.'/');
+      }
       //------------  Language Internationalized  [END] -----------
 
 
@@ -89,7 +91,7 @@ discuz/template/default/common/header.htm 第64行  也是以下代码
     <!--{/loop}-->
     <!--{hook/global_cpnav_extra1}-->
 
-之后，添加如下代码
+之后，添加如下代码(我不擅长前端，你可以随意修改此代码来美化你的页面)
 
     <div style="float: right;position: absolute;right: 130px;">
     <a href="forum.php?language=zh-TW">繁体中文</a>
