@@ -19,17 +19,17 @@ url: http://going1000.github.io
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: http://yansu-uploads.stor.sinaapp.com/imgs/gavatar.png
-favicon: http://yansu-uploads.stor.sinaapp.com/imgs/favicon.ico
+gavatar: http://www.gravatar.com/avatar/bd3a03d87356f678c9fd1be4f767f2fc.png
+favicon: http://www.gravatar.com/avatar/bd3a03d87356f678c9fd1be4f767f2fc.png
 
 # google analytics 设置
-ga:
-  id: UA-54767140-1
-  url: yansu.org
+#ga:
+#  id: UA-54767140-1
+#  url: yansu.org
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: going1000
 
 # 主题设置，自动激活某个标签
 active: 技术
