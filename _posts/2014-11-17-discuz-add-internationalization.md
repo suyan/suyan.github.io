@@ -45,25 +45,30 @@ description: Discuz是国内一个比较成熟的开源论坛系统，可惜的�
 
 在src/install/include/install_function.php的618行后添加如下代码
 
+      $lang = <<<EOT
+
+
       /**
-       *      [DiscuzX3.2] Language Internationalized.
-       *      By clh021@gmail.com
-       */
+      *      [DiscuzX3.2] Language Internationalized.
+      *      By clh021@gmail.com
+      */
       //------------  Language Internationalized  [BEGIN] -----------
       if(!function_exists('DectLang')) {
       function DectLang(){
-          $language = explode(",", $_SERVER["HTTP_ACCEPT_LANGUAGE"]);
-          array_key_exists("language", $_COOKIE) && $language = $_COOKIE['language'];
-          array_key_exists("language", $_GET) && $language = $_GET['language'];
-          $language = $language ? $language : 'zh-CN';
-          $language = file_exists(DISCUZ_ROOT.'./source/language/'.$language) ? $language : 'zh-CN';
-          setcookie('language', $language, time() + 3600 * 24 * 365);
-          return $language;
+        $language = explode(",", $_SERVER["HTTP_ACCEPT_LANGUAGE"]);
+        array_key_exists("language", $_COOKIE) && $language = $_COOKIE['language'];
+        array_key_exists("language", $_GET) && $language = $_GET['language'];
+        $language = $language ? $language : 'zh-CN';
+        $language = file_exists(DISCUZ_ROOT.'./source/language/'.$language) ? $language : 'zh-CN';
+        setcookie('language', $language, time() + 3600 * 24 * 365);
+        return $language;
       }
       define('LANGUAGE', DectLang());
       define('LANGUAGE_PATH', './source/language/'.LANGUAGE.'/');
       }
       //------------  Language Internationalized  [END] -----------
+      EOT;
+        $content .= $lang;
 
 
 ### 安装语言包
