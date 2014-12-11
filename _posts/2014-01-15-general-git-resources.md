@@ -35,29 +35,18 @@ description:
 
 ## 不工作在同一库下（推荐）
 
-    # 创建库
-    $ mkdir /git/repo  && cd /git/repo && git init
-    # 创建一个文件
-    $ vi foo
-    # 增加新增文件到库管理
-    $ git add .
-    # 提交
-    $ git commit
-    # 新建一个分支
-    $ git branch test
+    $ mkdir /git/repo  && cd /git/repo && git init # 创建库
+    $ vi foo # 创建一个文件
+    $ git add . # 增加新增文件到库管理
+    $ git commit # 提交
+    $ git branch test # 新建一个分支
 
-    # 本地库
-    $ git clone file:///git/repo && cd repo
-    # 切换到分支test
-    $ git checkout test
-    # 修改文件
-    $ echo "foo">foo
-    # 提交
-    $ git commit
-    # 增加远程库位置
-    $ git remote add origin flie:///git/repo
-    # 提交更改
-    $ git push origin test
+    $ git clone file:///git/repo && cd repo # 本地库
+    $ git checkout test # 切换到分支test
+    $ echo "foo">foo # 修改文件
+    $ git commit # 提交
+    $ git remote add origin flie:///git/repo # 增加远程库位置
+    $ git push origin test # 提交更改
 
 ## 忽略冲突1
 修改远程库.git/config添加下面代码
@@ -114,12 +103,12 @@ description:
     git checkout -- <filename>
 
 ### 删除文件
-    git rm <filename>   直接删除文件
-    git rm --cached <filename>    删除文件暂存状态
+    git rm <filename>               #直接删除文件
+    git rm --cached <filename>      #删除文件暂存状态
 
 ### 查看文件更新
-    git diff              查看未暂存的文件更新
-    git diff --cached     查看已暂存文件的更新
+    git diff              #查看未暂存的文件更新
+    git diff --cached     #查看已暂存文件的更新
 
 ### 克隆远程分支
     git branch -r
@@ -135,7 +124,7 @@ description:
 
 ### git-svn 相关用法
 
-    git-svn clone your_svn_repository #克隆svn仓库地址
-    git add/commit #将本地修改提交到本地git库
-    git-svn rebase #获取中心svn repository的更新，建议定期使用
-    git-svn dcommit #将本地git库的修改同步到中心svn库
+    git-svn clone your_svn_repository   #克隆svn仓库地址
+    git add/commit                      #将本地修改提交到本地git库
+    git-svn rebase                      #获取中心svn repository的更新，建议定期使用
+    git-svn dcommit                     #将本地git库的修改同步到中心svn库
