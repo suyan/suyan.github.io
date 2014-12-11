@@ -125,12 +125,15 @@ description:
     git branch -r
     git checkout origin/android
 
-## 指定目录以当前状态为最新状态
+
+## Git小技巧
+
+### 指定目录以当前状态为最新状态
 
     git add -A path/to/your/folder
 
 
-## git-svn 相关用法
+### git-svn 相关用法
 
     git-svn clone your_svn_repository #克隆svn仓库地址
     git add/commit #将本地修改提交到本地git库
