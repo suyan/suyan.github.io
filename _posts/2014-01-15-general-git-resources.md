@@ -213,3 +213,11 @@ Git的全局设置在`~/.gitconfig`中，单独设置在`project/.git/config`下
 ## 指定目录以当前状态为最新状态
 
     git add -A path/to/your/folder
+
+
+## git-svn 相关用法
+
+    git-svn clone your_svn_repository #克隆svn仓库地址
+    git add/commit #将本地修改提交到本地git库
+    git-svn rebase #获取中心svn repository的更新，建议定期使用
+    git-svn dcommit #将本地git库的修改同步到中心svn库
