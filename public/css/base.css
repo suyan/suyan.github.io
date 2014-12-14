@@ -49,8 +49,7 @@ body, html {
 }
 .aside3-title {
   background-color: #ECECEC;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0px 30px 10px;
   text-align: center;
   color: black;
 }
