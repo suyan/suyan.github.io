@@ -16,7 +16,7 @@ author:
 title: going1000s blog
 description: going1000s blog
 url: http://going1000.github.io
-rss_url: /pages/atom.xml
+#rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
 gavatar: http://www.gravatar.com/avatar/bd3a03d87356f678c9fd1be4f767f2fc.png
@@ -36,8 +36,11 @@ active: 技术
 
 # 首页除了最新文章外显示分类
 cates: 
-  - Python
-  - OpenStack
+  - Technology
+
+categories:
+  
+
 
 # 中文本地化
 locals:
