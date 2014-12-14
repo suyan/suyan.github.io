@@ -1,8 +1,10 @@
 ---
 layout: post                                   
 title: git初级使用 --- 概念和命令             	   
-category: 工具                                 
-tags: Jekyll         
+category: 技术                                 
+tags: [git]
+keywords: git
+description: 
 ---
 
 # git初级使用 --- 概念和命令
