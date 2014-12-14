@@ -18,13 +18,13 @@ description:
 
 proxy 是正向代理方式，即先将你的请求发送到代理服务器，再由代理服务器向目的地发起请求。如下图
 
-![正向代理图示](images/osx_use_proxy/forward_proxy.png)
+![正向代理图示](http://going1000sblog-image.stor.sinaapp.com/forward_proxy.png)
 
 前面说的goagent便是个proxy。基本原理就是把google engine提供的服务器当做一个正向代理服务器。
 
 而vpn(virtual private network)是另外一种技术。当用户接入到vpn之后，初始的路由表会更改，根据路由表的规则自vpn的出口路由生成请求。这篇文章的目的不是介绍vpn，所以这里不深入说明，只要把它理解成一个普通的局域网就好了。
 
-![vpn](images/osx_use_proxy/vpn.png)
+![vpn](http://going1000sblog-image.stor.sinaapp.com/vpn.png)
 
 ### 正文
 昨天和一个同事聊到怎么翻墙的问题。作者和他说作者正在用某代理服务。然后他说这个代理服务不咋地啊。于是想我推荐了另外个代理服务。因为这个服务是一批人组团买的……无奈作者已经买了一年之前的服务，但是因为他们几人组团，还多出一个名额，作者就要过来试试怎么用。

@@ -66,7 +66,7 @@ commit 为 git 的操作单元。
 
 ### file 状态迁移
 
-![](images/git_usage_basic/lifecycle.png)
+![](http://going1000sblog-image.stor.sinaapp.com/lifecycle.png)
 
 ###  Merge vs Rebase 
 
@@ -76,11 +76,11 @@ merge 的缺点是 log 可能很乱。rebase的缺点是丢失了拉出，合并
 
 merge
 
-![](images/git_usage_basic/merge-p1.png)
+![](http://going1000sblog-image.stor.sinaapp.com/merge-p1.png)
 
 rebase
 
-![](images/git_usage_basic/rebase-p1.png)
+![](http://going1000sblog-image.stor.sinaapp.com/rebase-p1.png)
 
 > 拓展： fast forward => 
 > Instead of re-creating the commits in css and adding them to the history of master, Git reuses the existing snapshots and simply moves the tip of master to match the tip of css. This kind of merge is called a fast-forward merge, since Git is “fast-forwarding” through the new commits in the css branch.
