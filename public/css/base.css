@@ -1,17 +1,20 @@
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, a {
+  color: black;
+}
 /* 页面配置 */
 .container {width: 100%; height: 100%;}
 body, html {
   margin: 0px;
   height: 100%;
   overflow: hidden;
-  background-color: #1f2c39;
+  background-color: #ECECEC;
 }
 .row {height: 100%;}
 /* 导航栏 + 目录栏 */
 .aside {height: 100%;}
 /* 左侧导航栏 */
 .aside1 {
-  background-color: #1f2c39;
+  background-color: #ECECEC;
   height: 100%;
   padding-left: 0px;
   padding-right: 0px;
@@ -35,7 +38,7 @@ body, html {
 .aside2 {
   background-color: #fafaf6;
   height: 100%;
-  border-right: 2px solid #18bc9c;
+  border-right: 2px solid #CBCBCB;
   overflow-y: auto;
 }
 /* 右侧内容栏 */
@@ -45,11 +48,11 @@ body, html {
   background-color: #fafaf6;
 }
 .aside3-title {
-  background-color: #1f2c39;
+  background-color: #ECECEC;
   padding-left: 30px;
   padding-right: 30px;
   text-align: center;
-  color: #FFF;
+  color: black;
 }
 .aside3-content {padding-left: 30px;padding-right: 30px;}
 /* 文章内容排版 */
@@ -64,8 +67,29 @@ a:hover {text-decoration:none;}
 /* 其他配置 */
 .center { text-align: center;}
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
-  color: #2a6496;
+  color: black;
   background-color: #fafaf6;
 }
 /* 显示评论按钮 */
 .show-commend {width: 100%; margin-bottom: 40px;}
+
+.btn-primary {
+  background-color: black;
+  border-color: inherit;
+}
+.btn-primary:hover {
+  background-color: black;
+  border-color: inherit;
+}
+.panel-info>.panel-heading .badge {
+  color: white;
+  background-color: black;
+}
+.panel-info>.panel-heading {
+  color: inherit;
+  background-color: inherit;
+  border-color: inherit;
+}
+.panel-info {
+  border-color: inherit;
+}
