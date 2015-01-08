@@ -59,6 +59,13 @@ description:
 ### 克隆远程分支
     git branch -r
     git checkout origin/android
+
+### 修复develop上的合并错误
+
+1. 将merge前的commit创建一个分之，保留merge后代码
+2. 将develop `reset --force`到merge前，然后`push --force`
+3. 在分支中rebase develop
+4. 将分支push到服务器上重新merge
     
 ## Git设置
 
