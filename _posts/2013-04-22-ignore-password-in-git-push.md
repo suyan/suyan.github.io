@@ -10,8 +10,8 @@ description: 使用git push命令远程提交库时，总是要输入帐号和�
 
 在[这篇](https://blog.lowstz.org/posts/2011/11/23/why-git-push-require-username-password-github/)文章里提到，GitHub获得远程库时，有ssh方式和https方式。
 
-![github-https](http://yansu-uploads.stor.sinaapp.com/imgs/github-https.png)
-![github-ssh](http://yansu-uploads.stor.sinaapp.com/imgs/github-ssh.png)
+![github-https](/public/upload/github-https.png)
+![github-ssh](/public/upload/github-ssh.png)
 
 两个方式的url地址不同，认证方式也不同。使用ssh时保存密钥对以后可以不再输入帐号密码，而https却不能。所以如果想要不再输入帐号密码，一种方式就是在git clone的时候使用ssh方式，另一种方式就是去修改已有项目.git目录下的config文件中的url，如下：
 
