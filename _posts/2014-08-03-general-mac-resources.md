@@ -56,7 +56,7 @@ description:
 
 ### 设置iterm中option为alt(meta)键
 
-![option-to-meta](/public/upload/set-meta-to-alt.png)
+![option-to-meta](http://7u2ho6.com1.z0.glb.clouddn.com/set-meta-to-alt.png)
 
 ### 删除dropbox冲突文件
 
