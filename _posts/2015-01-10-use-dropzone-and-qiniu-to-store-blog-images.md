@@ -6,13 +6,14 @@ tags: Blog
 keywords: Dropzone,Qiniu,七牛,图床,博客
 description: 
 ---
+
 > 之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。
 
 ![七牛操作流](http://7u2ho6.com1.z0.glb.clouddn.com/2015-01-10-qiniu-workflow.gif)
 
 ## 设置七牛帐号
 
-> [七牛](http://www.qiniu.com)应该是国内口碑不错的一个云存储为主的公司。它的特点应该就在图片存储上，有非常方便的上传SDK和图片处理流，用来作为博客图床非常合适，而且价格不贵，还有每月免费的10G流量。
+> [七牛](http://www.qiniu.com)是国内口碑不错的一个云存储为主的公司。它的特点应该就在图片存储上，有非常方便的上传SDK和图片处理流，用来作为博客图床非常合适，而且价格不贵，每月有免费的10G流量。
 
 1. 去七牛注册帐号
 
@@ -28,7 +29,7 @@ description:
     
 ## 设置Dropzone
 
-> [Dropzone](https://aptonic.com/dropzone3/)是我很早就非常喜欢的一个软件。它通过拖拽的方式，增强了文件的处理流程。
+> [Dropzone](https://aptonic.com/dropzone3/)是我很早就非常喜欢的一个软件。它通过拖拽的方式，增强了文件的处理流程。一直懒得给它开发插件，没想到七牛的SDK如此好用，所以今天折腾了一下搞定了。
 
 1. 下载软件
 
@@ -42,15 +43,29 @@ description:
 
     下载后的是一个zip包，把这个包解压以后双击安装即可。
     
-4. 启用插件
+4. 安装Qiniu的Ruby库
+
+    ```
+    sudo gem install qiniu
+    ```
+   
+5. 启用插件
+
+    从增加列表中选择我们安装好的七牛插件。
 
     ![启用插件](http://7u2ho6.com1.z0.glb.clouddn.com/2015-01-10-use-bundle.png)
+    
+    然后填写配置：
+    
+    - server: 七牛上的空间名
+    - username: 七牛的access_key
+    - password: 七牛的secret_key    
+    - remote path(可选): 本地同步图片的目录，如果你希望本地也存一份图片，选一个地址即可
+    - root url: 七牛的公共链接根目录
     
     ![access key](http://7u2ho6.com1.z0.glb.clouddn.com/2015-01-10-qiniu-access-key.png)
 
     ![root url](http://7u2ho6.com1.z0.glb.clouddn.com/2015-01-10-qiniu-root-url.png)
-    
-    还有一个remote path的选项，这个是用来设置是否在本地同步一份图片。比如我希望在上传七牛的同时在我的Dropbox中备份一份，那么在这里填写Dropzone文件夹位置（如：/Users/user/Dropbox/xxx）即可。
 
 ## 其他建议
 
