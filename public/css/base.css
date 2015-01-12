@@ -92,3 +92,9 @@ a:hover {text-decoration:none;}
 .panel-info {
   border-color: inherit;
 }
+
+.normal_table th, .normal_table td{
+  border: solid 1px;
+  padding: 7px;
+  text-align: center;
+}
