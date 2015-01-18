@@ -1,7 +1,7 @@
 ---
 layout: post                                   
 title: 网页截图解决方案之CutyCapt         	   
-category: web snapshot                                 
+category: technology                                
 tags: [snapshot]
 keywords: snapshot
 description:
