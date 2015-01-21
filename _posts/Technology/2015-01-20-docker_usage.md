@@ -2,7 +2,7 @@
 layout: post                                   
 title: docker usage        	   
 category: technology                                
-tags: [docker]
+tags: [docker,笔记]
 keywords: dockerfile
 description:
 ---
