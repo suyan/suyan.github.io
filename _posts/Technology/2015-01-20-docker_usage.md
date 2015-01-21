@@ -3,7 +3,7 @@ layout: post
 title: docker usage        	   
 category: technology                                
 tags: [docker]
-keywords: docker
+keywords: dockerfile
 description:
 ---
 
