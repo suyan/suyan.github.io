@@ -1,7 +1,7 @@
 ---
 layout: post                                   
 title: git初级使用 --- 概念和命令             	   
-category: 技术                                 
+category: Tech
 tags: [git]
 keywords: git
 description: 
