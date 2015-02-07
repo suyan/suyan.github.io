@@ -1,20 +1,12 @@
 ---
 layout: base
 ---
-<div class="row">
-  <div class="col-md-12 aside3-title">
-    <br>
-    <h2 id="#identifier">{{ page.title }}</h2>
-    {{ page.date | date:"%Y年%m月%d日" }}
-  </div>
-  <div class="col-md-12 aside3-content">
-    {% include content.html %}
-    <hr>
-    <div id="content">
-      {{ content }}
-    </div>
-    <hr>
-    {% include disqus.html %}
-  </div>
-</div>
+
+<article id="post__content">
+  <h1 id="post__title" data-identifier="{{ page.date | date: "%Y%m%d" }}">{{ page.title }}</h1>
+  {{ content }}
+</article> <!-- end #post__content -->
+
+{% include share.html %}
+{% include disqus.html %}
 

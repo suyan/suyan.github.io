@@ -1,6 +1,7 @@
 permalink: /:year/:month/:day/:title.html
 paginate: 10
 markdown: kramdown
+highlighter: true
 
 kramdown:
   input: GFM
@@ -19,8 +20,8 @@ description: 闫肃的博客
 url: http://yansu.org
 rss_url: /pages/atom.xml
 
-# gavatar头像及Favicon
-gavatar: http://7u2ho6.com1.z0.glb.clouddn.com/gavatar.png
+# avatar头像及Favicon
+avatar: http://7u2ho6.com1.z0.glb.clouddn.com/avatar.png
 favicon: http://7u2ho6.com1.z0.glb.clouddn.com/favicon.ico
 
 # google analytics 设置
