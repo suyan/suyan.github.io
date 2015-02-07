@@ -4,12 +4,12 @@ title: 在ubuntu下搭建pptp vpn服务器
 category: 工具
 tags: Linux
 keywords: Linux,pptp,vpn
-description: 
 ---
 
 >最近弄了digitalocean的vps，研究了一下搭建一个vpn自己用，因为有些系统代理goagent还是搞不定。但是事实证明digitalocean线路还是很不稳，基本上没啥帮助=0=
 
 ## pptp配置
+
 ### 安装pptp
 用ubuntu就是安装东西快
 
@@ -108,10 +108,4 @@ description:
 
 ## 自动脚本
 
-    wget -c https://raw2.github.com/suyan/Scripts/master/Setup/pptp.sh
-
-
-
-
-
-
+    wget -c https://github.com/suyan/scripts/raw/master/Setup/pptp.sh
