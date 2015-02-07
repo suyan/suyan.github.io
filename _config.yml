@@ -1,7 +1,7 @@
 permalink: /:year/:month/:day/:title.html
 paginate: 10
 markdown: kramdown
-highlighter: true
+pygments: true
 
 kramdown:
   input: GFM
