@@ -1,40 +1,45 @@
 /* 控制导航按钮动作 */
-function nav_click(is_show) {
-  if (is_show) {
-    /* 显示左侧aside */
-    $('.aside')
-      .addClass('visible-md visible-lg')
-      .removeClass('hidden-md hidden-lg')
-    /* 调整右侧内容 */
-    $('.aside3')
-      .removeClass('col-md-12 col-lg-12')
-      .addClass('col-md-8 col-lg-8');
-    /* 调整文字内容格式 */
-    $('.aside3-content')
-      .removeClass('col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2')
-      .addClass('col-md-12');
+function nav_click() {
+  is_display = $("#nav_btn").attr('is_display');
+  console.dir($("#nav_btn").attr('is_display'));
+  if (is_display == 'true') {
+    hide_nav();
   } else {
-    /* 隐藏左侧aside */
-    $('.aside')
-      .removeClass('visible-md visible-lg')
-      .addClass('hidden-md hidden-lg');
-    /* 右侧内容最大化 */
-    $('.aside3')
-      .removeClass('col-md-8 col-lg-8')
-      .addClass('col-md-12 col-lg-12');
-    /* 修改文字排版 */
-    $('.aside3-content')
-      .removeClass('col-md-12')
-      .addClass('col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2');
+    show_nav();
   }
 }
+
+function hide_nav() {
+  /* 隐藏左侧aside */
+    $('.aside').removeClass('visible-md visible-lg').addClass('hidden-md hidden-lg');
+    /* 右侧内容最大化 */
+    $('.aside3').removeClass('col-md-8 col-lg-8').addClass('col-md-12 col-lg-12');
+    /* 修改文字排版 */
+    $('.aside3-content').removeClass('col-md-12').addClass('col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2');
+    $("#nav_btn").attr('is_display', 'false');
+    console.dir($("#nav_btn").attr('is_display'));
+}
+
+function show_nav() {
+  /* 显示左侧aside */
+    $('.aside').removeClass('hidden-md hidden-lg').addClass('visible-md visible-lg');
+    /* 调整右侧内容 */
+    $('.aside3').removeClass('col-md-12 col-lg-12').addClass('col-md-8 col-lg-8');
+    /* 调整文字内容格式 */
+    $('.aside3-content').removeClass('col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2').addClass('col-md-12');
+    $("#nav_btn").attr('is_display', 'true');
+    console.dir($("#nav_btn").attr('is_display'));
+}
+
 /* 控制文章章节列表按钮 */
-function content_click(is_show) {
+function content_click() {
+  is_show = !$(this).data('clicked');
   if (is_show) {
     $('#content_table').show();
   } else {
     $('#content_table').hide();
   }
+  $(this).data('clicked', is_show);
 }
 
 function content_effects() {
@@ -59,15 +64,11 @@ function content_effects() {
 $(document).ready(function() {
   /* 控制左侧 aside 的动作 */
   $("#nav_btn").on('click', function() {
-    isClicked = $(this).data('clicked');
-    nav_click(isClicked);
-    $(this).data('clicked', !isClicked);
+    nav_click();
   });
 
   $('body').on('click', '#content_btn' , function() {
-    isClicked = $(this).data('clicked');
-    content_click(!isClicked);
-    $(this).data('clicked', !isClicked);
+    content_click();
   });
 
   $(document).pjax('.pjaxlink', '#pjax', {
@@ -76,8 +77,9 @@ $(document).ready(function() {
   });
 
   $(document).on("pjax:end", function() {
-    if ($("body").find('.container').width() < 992)
-      $('#nav_btn').click();
+    if ($("body").find('.container').width() < 992) {
+      show_nav();
+    }
     $('.aside3').scrollTop(0);
     content_effects();
   });
