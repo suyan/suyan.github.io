@@ -26,7 +26,6 @@ var clickHandler = function(id) {
 };
 
 $('#tags__ul li').each(function(index){
-  console.dir($(this).attr('id'));
   $('#' + $(this).attr('id')).on('click', clickHandler($(this).attr('id')));
 });
 
