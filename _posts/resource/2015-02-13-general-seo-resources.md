@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SEO 资源
+title: SEO 常用资源
 category: 资源
 tags: SEO
 keywords: SEO
