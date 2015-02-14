@@ -7,24 +7,12 @@ keywords: Git
 description: 
 ---
 
-## Git常用操作
+## 历史管理
 
 ### 查看历史
 
     git log --pretty=oneline filename // 一行显示
     git show xxxx // 查看某次修改
-
-### 创建分支
-    
-    git branch develop // 只创建分支
-    git checkout -b master develop // 创建并切换到 develop 分支
-
-### 合并分支
-
-    git checkout master // 切换到主分支
-    git merge --no-ff develop // 把 develop 合并到 master 分支，no-ff 选项的作用是保留原分支记录
-    git rebase develop // 合并分支
-    git branch -d develop // 删除 develop 分支
 
 ### 标签功能
     
@@ -56,6 +44,20 @@ description:
     git diff              查看未暂存的文件更新 
     git diff --cached     查看已暂存文件的更新 
 
+## 分支管理
+
+### 创建分支
+    
+    git branch develop // 只创建分支
+    git checkout -b master develop // 创建并切换到 develop 分支
+
+### 合并分支
+
+    git checkout master // 切换到主分支
+    git merge --no-ff develop // 把 develop 合并到 master 分支，no-ff 选项的作用是保留原分支记录
+    git rebase develop // 合并分支
+    git branch -d develop // 删除 develop 分支
+
 ### 克隆远程分支
     git branch -r
     git checkout origin/android
@@ -66,6 +68,18 @@ description:
 2. 将develop `reset --force`到merge前，然后`push --force`
 3. 在分支中rebase develop
 4. 将分支push到服务器上重新merge
+
+## Submodule使用
+
+### 克隆带submodule的库
+
+    git clone --recursive https://github.com/chaconinc/MainProject
+
+### clone主库后再去clone submodule
+
+    git clone https://github.com/chaconinc/MainProject
+    git submodule init
+    git submodule update
     
 ## Git设置
 
