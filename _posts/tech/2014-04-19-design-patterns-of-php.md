@@ -63,7 +63,7 @@ keywords: 设计模式,Pattern,PHP,建造者模式,单例模式,适配器模式,
 ### 关系
 这里有一张各个模式关系图，可以在了解各个模式以后梳理一下
 
-![设计模式](http://yansu-uploads.stor.sinaapp.com/imgs/design-patterns.jpg)
+![设计模式](http://7u2ho6.com1.z0.glb.clouddn.com/tech-design-patterns.jpg)
 
 ### 参考
 1. [Wikipedia: Software design pattern](http://en.wikipedia.org/wiki/Software_design_pattern)
@@ -86,7 +86,7 @@ keywords: 设计模式,Pattern,PHP,建造者模式,单例模式,适配器模式,
 - 当构造过程必须允许被构造的对象有不同的表示时。
 
 ### 类图
-![builder pattern](http://yansu-uploads.stor.sinaapp.com/imgs/builder-pattern-uml.png)
+![builder pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-builder-pattern-uml.png)
 
 ### 实例
 
@@ -157,7 +157,7 @@ Singleton定义一个getInstance操作，允许客户访问它唯一的实例。
 - 当这个唯一实例应该是通过子类化可扩展的。并且用户应该无需更改代码就能使用一个扩展的实例时。
 
 ### 类图
-![singleton pattern](http://yansu-uploads.stor.sinaapp.com/imgs/singleton-pattern-uml.png)
+![singleton pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-singleton-pattern-uml.png)
 
 ### 实例
 
@@ -233,10 +233,10 @@ public class Singleton {
 ### 类图
 
 #### 类适配器
-![class adapter pattern](http://yansu-uploads.stor.sinaapp.com/imgs/class-adapter-pattern-uml.jpg)
+![class adapter pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-class-adapter-pattern-uml.jpg)
 
 #### 对象适配器
-![object adapter pattern](http://yansu-uploads.stor.sinaapp.com/imgs/object-adapter-pattern-uml.jpg)
+![object adapter pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-object-adapter-pattern-uml.jpg)
 
 ### 实例
 
@@ -321,7 +321,7 @@ $adapter->sampleMethod2();
 
 ### 类图
 
-![bridge pattern](http://yansu-uploads.stor.sinaapp.com/imgs/bridge-pattern-uml.jpg)
+![bridge pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-bridge-pattern-uml.jpg)
 
 ### 实例
 
@@ -392,11 +392,11 @@ Composite变化的是一个对象的结构和组成。
 
 #### 安全式合成模式
 
-![safe composite pattern](http://yansu-uploads.stor.sinaapp.com/imgs/safe-composite-pattern-uml.jpg)
+![safe composite pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-safe-composite-pattern-uml.jpg)
 
 #### 透明式合成模式
 
-![transparent composite pattern](http://yansu-uploads.stor.sinaapp.com/imgs/transparent-composite-pattern-uml.jpg)
+![transparent composite pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-transparent-composite-pattern-uml.jpg)
 
 ### 实例
 
@@ -553,7 +553,7 @@ $composite->operation();
 
 ### 类图
 
-![decorator pattern](http://yansu-uploads.stor.sinaapp.com/imgs/decorator-pattern-uml.jpg)
+![decorator pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-decorator-pattern-uml.jpg)
 
 ### 实例
 
@@ -649,7 +649,7 @@ $decoratorB->operation();
 
 ### 类图
 
-![facade pattern](http://yansu-uploads.stor.sinaapp.com/imgs/facade-pattern-uml.jpg)
+![facade pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-facade-pattern-uml.jpg)
 
 ### 实例
 
@@ -764,7 +764,7 @@ $security->activate();
 
 ### 类图
 
-![flyweight pattern](http://yansu-uploads.stor.sinaapp.com/imgs/flyweight-pattern-uml.jpg)
+![flyweight pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-flyweight-pattern-uml.jpg)
 
 ### 实例
 
@@ -854,7 +854,7 @@ $uflyweight->operation('other state A');
 
 ### 类图
 
-![observer pattern](http://yansu-uploads.stor.sinaapp.com/imgs/observer-pattern-uml.jpg)
+![observer pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-observer-pattern-uml.jpg)
 
 ### 实例
 
@@ -949,7 +949,7 @@ $subject->notifyObservers();
 - 当一个类的实例只能有几个不同状态组合中的一种时。建立相应数目的原型并克隆它们可能比每次用合适的状态手工实例化该类更方便一些
 
 ### 类图
-![prototype pattern](http://yansu-uploads.stor.sinaapp.com/imgs/prototype-pattern-uml.jpg)
+![prototype pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-prototype-pattern-uml.jpg)
 
 ### 实例
 
@@ -1008,7 +1008,7 @@ Prototype模式的最主要缺点就是每一个类必须配备一个克隆方�
 
 ### 类图
 
-![proxy pattern](http://yansu-uploads.stor.sinaapp.com/imgs/proxy-pattern-uml.png)
+![proxy pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-proxy-pattern-uml.png)
 
 ### 实例
 
@@ -1068,7 +1068,7 @@ $subject->action();
 
 ### 类图
 
-![strategy pattern](http://yansu-uploads.stor.sinaapp.com/imgs/strategy-pattern-uml.jpg)
+![strategy pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-strategy-pattern-uml.jpg)
 
 ### 实例
 
@@ -1157,7 +1157,7 @@ $context->contextInterface();
 
 ### 类图
 
-![command pattern](http://yansu-uploads.stor.sinaapp.com/imgs/command-pattern-uml.jpg)
+![command pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-command-pattern-uml.jpg)
 
 ### 实例
 
@@ -1225,7 +1225,7 @@ $invoker->action();
 
 ### 类图
 
-![interpreter pattern](http://yansu-uploads.stor.sinaapp.com/imgs/interpreter-pattern-uml.jpg)
+![interpreter pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-interpreter-pattern-uml.jpg)
 
 ### 实例
 
@@ -1416,7 +1416,7 @@ $objC2->send("to c1 from c2");
 
 ### 类图
 
-![memento pattern](http://yansu-uploads.stor.sinaapp.com/imgs/memento-pattern-uml.jpg)
+![memento pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-memento-pattern-uml.jpg)
 
 ### 实例
 
@@ -1515,7 +1515,7 @@ $org->showState();
 
 ### 类图
 
-![visitor pattern](http://yansu-uploads.stor.sinaapp.com/imgs/visitor-pattern-uml.jpg)
+![visitor pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-visitor-pattern-uml.jpg)
 
 ### 实例
 
@@ -1630,7 +1630,7 @@ $os->accept($visitor2);
 
 ### 类图
 
-![state pattern](http://yansu-uploads.stor.sinaapp.com/imgs/state-pattern-uml.jpg)
+![state pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-state-pattern-uml.jpg)
 
 ### 实例
 
@@ -1727,7 +1727,7 @@ $context->request();
 - 提供一个产品类库，而只想显示它们的接口而不是实现时。
 
 ### 类图
-![abstract pattern](http://yansu-uploads.stor.sinaapp.com/imgs/abstract-pattern-uml.png)
+![abstract pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-abstract-pattern-uml.png)
 
 ### 实例
 
@@ -1795,7 +1795,7 @@ class WinFactory implements AbstractFactory{
 - 创建对象的生命周期必须集中管理，以保证在整个程序中具有一致的行为。
 
 ### 类图
-![factory method](http://yansu-uploads.stor.sinaapp.com/imgs/factory-method-uml.png)
+![factory method](http://7u2ho6.com1.z0.glb.clouddn.com/tech-factory-method-uml.png)
 
 ### 实例
 
@@ -1866,7 +1866,7 @@ class MyButtonFactory implements ButtonFactory{
 
 ### 类图
 
-![template method pattern](http://yansu-uploads.stor.sinaapp.com/imgs/template-method-pattern-uml.jpg)
+![template method pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-template-method-pattern-uml.jpg)
 
 ### 实例
 

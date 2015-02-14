@@ -144,7 +144,7 @@ Apache将请求处理循环分为11个阶段，依次是：Post-Read-Request，U
 
 Apache处理http请求的生命周期:
 
-![Apache处理http请求的生命周期](http://7u2ho6.com1.z0.glb.clouddn.com/apache-http-handle.jpg)
+![Apache处理http请求的生命周期](http://7u2ho6.com1.z0.glb.clouddn.com/tech-apache-http-handle.jpg)
 
 1. Post-Read-Request阶段:在正常请求处理流程中，这是模块可以插入钩子的第一个阶段。对于那些想很早进入处理请求的模块来说，这个阶段可以被利用。
 2. URI Translation阶段 :  Apache在本阶段的主要工作：将请求的URL映射到本地文件系统。模块可以在这阶段插入钩子，执行自己的映射逻辑。mod_alias就是利用这个阶段工作的。
@@ -203,7 +203,7 @@ Nginx本身做的工作实际很少，当它接到一个HTTP请求时，它仅�
 
 ### Nginx架构及工作流程
 
-![Nginx架构](http://7u2ho6.com1.z0.glb.clouddn.com/nginx-architecture.png)
+![Nginx架构](http://7u2ho6.com1.z0.glb.clouddn.com/tech-nginx-architecture.png)
 
 上图是Nginx的架构，这个架构类似于Apache的Worker工作状态，Nginx的每一个Worker进程都管理着大量的线程，真正处理请求的是Worker之下的线程。
 

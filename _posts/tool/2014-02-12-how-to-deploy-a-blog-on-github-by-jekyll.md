@@ -230,7 +230,7 @@ title: 首页
 很多人感觉用Jekyll最不方便的就是插入图片了，其实我也是这么觉得的。所以只能自己去想些办法。
 
 ### 图片统一存放
-图片我都放在了`/public/upload`下，所以我在插入图片的时候只要用`![xxx](http://yansu-uploads.stor.sinaapp.com/imgs/xxx)`就可以了。
+图片我都放在了`/public/upload`下，所以我在插入图片的时候只要用`![xxx](http://7u2ho6.com1.z0.glb.clouddn.com/xxx)`就可以了。
 
 ### 方便的图片导入
 导入图片的方式是我将`upload`文件夹做了个软连接，放到mac的dock上就行了，有图片要用的时候直接往里面一拖。
@@ -238,7 +238,7 @@ title: 首页
 ### 方便的截图
 很多时候图片都是现截取的，比如用QQ的截图工具，或者系统的截图工具，但是他们截取完都存放在了`user/Pictures`里面，来回移动太累了。我这里介绍一个Mac下的一个工具——Trickster，看图
 
-![移动图片](http://yansu-uploads.stor.sinaapp.com/imgs/trickster-move-picture.png)
+![移动图片](http://7u2ho6.com1.z0.glb.clouddn.com/tech-trickster-move-picture.png)
 
 这个工具可以看到刚刚修改过的图片，而且还有一个收藏的文件夹，我每次截取完图以后，从左边往右边一拖，然后在markdown中就可以继续书写了。一点都不耗时。
 
