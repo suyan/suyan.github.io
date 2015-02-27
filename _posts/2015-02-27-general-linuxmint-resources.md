@@ -36,7 +36,7 @@ description:
     
 ### 谷歌浏览器
     
-    sudo apt install chromium-browser chromium-codecs-ffmpeg-extra webaccounts-chromium-extension unity-chromium-extension chromiumflashplugin
+    sudo apt install chromium-browser
   
 ### 多媒体解码器
 
