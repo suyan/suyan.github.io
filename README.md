@@ -1,6 +1,6 @@
 ### 我的博客
 
-地址：[http://justinding.org](http://justinding.org)
+地址：[http://JustinDing.org](http://justinding.org)
 
 ### 安装说明
 
