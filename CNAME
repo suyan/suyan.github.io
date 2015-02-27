@@ -1,1 +1,5 @@
-justinding.org
+dig www.justinding.org +nostats +nocomments +nocmd
+# ;www.justinding.org.                     IN      A
+# www.justinding.org.              3592    IN      CNAME   justinding.github.io.
+# justinding.github.io.           43192   IN      CNAME   github.map.fastly.net.
+# github.map.fastly.net.        22      IN      A       199.27.76.133
