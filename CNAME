@@ -1,4 +1,1 @@
-dig justinding.org +nostats +nocomments +nocmd
-;justinding.org
-justinding.org.   73  IN  A 192.30.252.153
-www.justinding.org.   73  IN  A 192.30.252.154
+justinding.org
