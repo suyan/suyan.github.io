@@ -17,19 +17,15 @@ description:
 
 ## 选择理由
 
-- Linux Mint是安全，稳定，有效并且日益易于操作的系统，有着优秀的设计。
-
 - Linux Mint是功能全面，清爽大方，操作简单，轻巧高效的操作系统。插件、软件最完善，兼容性最好，细节处理最好。
 
-- Windows都比linux冗余庞大，分散注意力的软件多繁多，不利于专注高效学习和生活，特殊需求可通过虚拟机完成
+- Windows都比linux冗余庞大，分散注意力的软件繁多，不利于专注高效学习和生活，特殊需求可通过虚拟机完成
 
 - Deepin汉化完善，面向普通小白用户，专注于娱乐需求，却又不能尽如人意，经常内部错误。
 
 - ubuntu较为优秀，但占用资源日甚，专注于平板和智能手机市场。
 
-- fredora 没有用过，据说也不错，资源占用也低，稳定性也不错，没有选择仅仅因为熟悉了debian系操作不想再增加学习成本。
-
-- centos 等 类似 frdora原因。
+- fredora,centos 没有用做桌面过，据说也不错，资源占用也低，稳定性也不错，没有选择仅仅因为熟悉了debian系操作不想再增加学习成本。
 
 ## 常用软件
 
@@ -53,4 +49,8 @@ description:
     
 ### 下载支持，类IDM
 
-    sudo apt-get install uget aria2
+    sudo apt install uget aria2
+
+### 远程连接
+
+    sudo apt install remmina
