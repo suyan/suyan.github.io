@@ -9,11 +9,7 @@ description:
 
 ## 官方资源
 
-- [官方首页](http://linuxmint.com)
-- [官方下载](http://www.linuxmint.com/download.php)
-- [官方论坛](http://forums.linuxmint.com)
-- [官方博客](http://blog.linuxmint.com)
-- [相关资源](http://www.mintos.org)
+  [官方首页](http://linuxmint.com) [官方下载](http://www.linuxmint.com/download.php) [官方论坛](http://forums.linuxmint.com) [官方博客](http://blog.linuxmint.com) [相关资源](http://www.mintos.org)
 
 ## 选择理由
 
@@ -37,6 +33,10 @@ description:
 ### 谷歌浏览器
     
     sudo apt install chromium-browser
+    
+### 浏览器Flash支持
+
+    sudo apt install pepperflashplugin-nonfree
   
 ### 多媒体解码器
 
