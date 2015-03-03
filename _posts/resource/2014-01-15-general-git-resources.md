@@ -43,6 +43,11 @@ description:
 ### 查看文件更新
     git diff              查看未暂存的文件更新 
     git diff --cached     查看已暂存文件的更新 
+    
+### 暂存和恢复当前staging
+
+    git stash
+    git stash apply
 
 ## 分支管理
 
@@ -68,6 +73,11 @@ description:
 2. 将develop `reset --force`到merge前，然后`push --force`
 3. 在分支中rebase develop
 4. 将分支push到服务器上重新merge
+
+### 强制更新到远程分支最新版本
+
+    git reset --hard origin/master
+    git submodule update --remote -f
 
 ## Submodule使用
 

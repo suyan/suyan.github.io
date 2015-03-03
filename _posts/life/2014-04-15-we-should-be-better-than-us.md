@@ -2,7 +2,7 @@
 layout: post
 title: 我们得比自己更努力
 category: 生活
-tags: 
+tags: Essay
 keywords: 
 description: 
 ---
