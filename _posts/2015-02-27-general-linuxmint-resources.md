@@ -58,4 +58,9 @@ description:
 
     sudo apt install sublime-text 
 
-  [含中文输入补丁的包](http://packages.linuxdeepin.com/deepin/pool/non-free/s/sublime-text/)
+  多语言输入补丁
+    
+    cd ~/.config/sublime-text-2/Packages
+    git clone https://github.com/xgenvn/InputHelper.git
+  
+  sublime，在输入界面按下 Ctrl + Shift + Z , 会弹出一个小框
