@@ -50,6 +50,7 @@ Pull Request评论用Markdown写成，所以你可以嵌入图片和表情符号
 
 
 原文链接：[http://guides.github.com/overviews/flow/][1]
+
 [1]: http://guides.github.com/overviews/flow/
 [2]: https://help.github.com/articles/closing-issues-via-commit-messages
 

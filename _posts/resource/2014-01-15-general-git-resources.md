@@ -100,6 +100,13 @@ Git的全局设置在`~/.gitconfig`中，单独设置在`project/.git/config`下
 ### 设置 commit 的用户和邮箱
 
 ```
+git config user.name "xx"
+git config user.email.com "xx@xx.com"
+```
+
+or
+
+```
 [user]
     name = xxx
     email = xxx@xxx.com
