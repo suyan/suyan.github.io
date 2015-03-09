@@ -58,4 +58,4 @@ description:
 
     sudo apt install sublime-text 
 
-    [含中文输入补丁的包](http://packages.linuxdeepin.com/deepin/pool/non-free/s/sublime-text/)
+  [含中文输入补丁的包](http://packages.linuxdeepin.com/deepin/pool/non-free/s/sublime-text/)
