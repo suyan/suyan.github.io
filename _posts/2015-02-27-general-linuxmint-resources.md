@@ -13,7 +13,7 @@ description:
 
 ## 选择理由
 
-- Linux Mint是功能全面，清爽大方，操作简单，轻巧高效的操作系统。插件、软件最完善，兼容性最好，细节处理最好。
+- Linux Mint是功能全面，清爽大方，操作简单，轻巧高效的操作系统。插件、软件最完善，兼容性好，细节处理最好。
 
 - Windows都比linux冗余庞大，分散注意力的软件繁多，不利于专注高效学习和生活，特殊需求可通过拟机完成
 
@@ -57,4 +57,5 @@ description:
 ### 最好用的文本编辑器
 
     sudo apt install sublime-text 
-#[含中文输入补丁的包](http://packages.linuxdeepin.com/deepin/pool/non-free/s/sublime-text/)
+
+  #[含中文输入补丁的包](http://packages.linuxdeepin.com/deepin/pool/non-free/s/sublime-text/)
