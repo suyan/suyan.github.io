@@ -53,3 +53,7 @@ description:
 ### 远程连接
 
     sudo apt install remmina
+  
+### 最好用的文本编辑器
+
+    sudo apt install sublime-text #[中文输入法补丁](http://packages.linuxdeepin.com/deepin/pool/non-free/s/sublime-text/)
