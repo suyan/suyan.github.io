@@ -7,21 +7,21 @@ kramdown:
 
 # 作者信息
 author: 
-  name: 闫肃
-  email: suyan0830@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
-  github: http://github.com/suyan
+  name: Sky
+  email: contact@cokehost.com
+  link: http://skyx.me
+  weibo: http://weibo.com/940107123
+  github: http://github.com/cnskyhsu
 
 # 站点信息
-title: 闫肃的博客 
-description: 闫肃的博客
-url: http://yansu.org
+title: SkyX 
+description: 大道至简，知易行难。
+url: http://skyx.me
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: http://7u2ho6.com1.z0.glb.clouddn.com/gavatar.png
-favicon: http://7u2ho6.com1.z0.glb.clouddn.com/favicon.ico
+gavatar: 
+favicon: 
 
 # google analytics 设置
 ga:
@@ -30,7 +30,7 @@ ga:
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: cnskyhsu
 
 # 主题设置，自动激活某个标签
 active: 技术
