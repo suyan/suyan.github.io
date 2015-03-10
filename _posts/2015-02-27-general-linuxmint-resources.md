@@ -75,4 +75,5 @@ description:
 ### 安装虚拟机
 
     sudo apt-get install virtualbox
-    sudo sed -i 's/vboxusers:x:124:/vboxusers:x:124:chenlianghong/g' /etc/group
+    sudo sed -i 's/vboxusers:x:124:/vboxusers:x:124:chenlianghong/g' /etc/group #更多功能权限设置
+    #把chenlianghong换成你的名字或者界面操作把自己加入到vboxusers组
