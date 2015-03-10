@@ -64,3 +64,15 @@ description:
     git clone https://github.com/xgenvn/InputHelper.git
   
   sublime，在输入界面按下 Ctrl + Shift + Z , 会弹出一个小框
+
+### Pidgin的QQ插件，省资源，仅聊天功能
+
+    sudo add-apt-repository ppa:lainme/pidgin-lwqq
+    sudo apt-get update
+    sudo apt-get install pidgin-lwqq
+    sudo apt-get install pidgin #如果没有安装的话
+    
+### 安装虚拟机
+
+    sudo apt-get install virtualbox
+    sudo sed -i 's/vboxusers:x:124:/vboxusers:x:124:chenlianghong/g' /etc/group
