@@ -120,7 +120,7 @@ description:
 ### 指定目录以当前状态为最新状态
 
     git add -A path/to/your/folder
-
+    git config --global core.quotepath false #解决文件名是中文显示为编码的问题
 
 ### git-svn 相关用法
 
