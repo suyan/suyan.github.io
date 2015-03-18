@@ -117,13 +117,8 @@ description:
 
 ## Git小技巧
 
-### 指定目录以当前状态为最新状态
-
-    git add -A path/to/your/folder
+    git add -A path/to/your/folder   #指定目录以当前状态为最新状态
     git config --global core.quotepath false #解决文件名是中文显示为编码的问题
-
-### git-svn 相关用法
-
     git-svn clone your_svn_repository   #克隆svn仓库地址
     git add/commit                      #将本地修改提交到本地git库
     git-svn rebase                      #获取中心svn repository的更新，建议定期使用
