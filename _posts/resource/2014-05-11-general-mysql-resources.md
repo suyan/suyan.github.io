@@ -34,6 +34,7 @@ description:
 ### 创建用户
     
     CREATE USER 'test'@'localhost' IDENTIFIED BY 'password';
+    grant all privileges on *.* to test@'localhost' identified by 'test';
     
 ### 创建表
     
