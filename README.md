@@ -1,6 +1,6 @@
 ### 我的博客
 
-地址：[http://luoqiangboy.github.io](http://yansu.org)
+地址：[http://luoqiangboy.github.io](http://luoqiangboy.github.io)
 
 ### 安装说明
 
