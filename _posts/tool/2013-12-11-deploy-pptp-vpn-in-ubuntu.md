@@ -53,7 +53,7 @@ keywords: Linux,pptp,vpn
 
 还有ip
 
-    cat >/etc/pptpd.conf <<END
+    cat > /etc/pptpd.conf <<END
     option /etc/ppp/options.pptpd
     logwtmp
     localip 192.168.2.1
@@ -109,3 +109,13 @@ keywords: Linux,pptp,vpn
 ## 自动脚本
 
     wget -c https://github.com/suyan/scripts/raw/master/Setup/pptp.sh
+
+## 问题
+
+### logwtmp.so 版本问题
+
+如果链接中断，并且出现下面问题：
+
+    Plugin /usr/lib/pptpd/pptpd-logwtmp.so is for pppd version 2.4.5, this is 2.4.6
+
+在 `/etc/pptpd.conf` 文件中把 `logwtmp` 删掉就好了。
