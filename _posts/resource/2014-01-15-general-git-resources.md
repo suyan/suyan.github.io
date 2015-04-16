@@ -74,8 +74,11 @@ git diff --cached # 查看已暂存文件的更新
 ### 暂存和恢复当前staging
 
 ```bash
-git stash
-git stash apply
+git stash # 暂存当前分支的修改
+git stash apply # 恢复最近一次暂存
+git stash list # 查看暂存内容
+git stash apply stash@{2} # 指定恢复某次暂存内容
+git stash drop stash@{0} # 删除某次暂存内容
 ```
 
 ### 修改 commit 历史纪录
