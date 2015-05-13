@@ -53,6 +53,14 @@ description:
 
     sudo defaults delete /Library/Preferences/com.apple.windowserver DisplayResolutionDisabled
 
+### 修改Dock隐藏和出现时间
+
+```bash
+defaults write com.apple.dock autohide-delay -int 0
+defaults write com.apple.dock autohide-time-modifier -float 0.4
+killall Dock
+```
+
 
 ### 设置iterm中option为alt(meta)键
 
