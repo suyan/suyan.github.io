@@ -77,3 +77,13 @@ description:
     sudo apt-get install virtualbox-nonfree
     sudo sed -i 's/vboxusers:x:124:/vboxusers:x:124:chenlianghong/g' /etc/group #更多功能权限设置
     #把chenlianghong换成你的名字或者界面操作把自己加入到vboxusers组
+    
+### 安装docker
+
+    sudo apt-get install -y apparmor curl php5-cli && curl -s https://get.docker.io/ubuntu/ | sudo sh
+    
+### system config
+
+    sudo sed -i 's/\/home\/chenlianghong:\/bin\/zsh/\/home\/chenlianghong:\/bin\/bash/g' /etc/passwd #maybe
+    sudo apt install firefox-locale-zh-hans #firefox language
+    
