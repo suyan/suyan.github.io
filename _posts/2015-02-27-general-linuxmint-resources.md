@@ -80,7 +80,7 @@ description:
     
 ### 安装docker
 
-    sudo apt-get install -y apparmor curl php5-cli && curl -s https://get.docker.io/ubuntu/ | sudo sh
+    sudo apt-get install -y apparmor curl && curl -s https://get.docker.io/ubuntu/ | sudo sh
     
 ### system config
 
