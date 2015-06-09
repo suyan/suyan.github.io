@@ -54,7 +54,7 @@ keywords: 加州,生活,California
 
 ## 恶魔岛 (Alcatraz Island)
 
-从渔人码头上船，可以绕恶魔岛一圈。恶魔岛以前是关政治罪犯的地方，孤立在海中央，非常男越狱，不过据说有人挖了地道到了对岸。
+从渔人码头上船，可以绕恶魔岛一圈。恶魔岛以前是关政治罪犯的地方，孤立在海中央，非常难越狱，不过据说有人挖了地道到了对岸。
 
 ![alcatraz island](http://7u2ho6.com1.z0.glb.clouddn.com/life-alcatraz-island.jpg)
 

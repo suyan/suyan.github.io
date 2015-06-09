@@ -168,3 +168,11 @@ git config user.email "xx@xx.com"
 ```bash
 git config --list
 ```
+
+### 设置git终端颜色
+
+```bash
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto
+```
