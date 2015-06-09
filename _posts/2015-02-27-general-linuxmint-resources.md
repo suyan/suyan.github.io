@@ -87,3 +87,7 @@ description:
     sudo sed -i 's/\/home\/chenlianghong:\/bin\/zsh/\/home\/chenlianghong:\/bin\/bash/g' /etc/passwd #maybe
     sudo apt install firefox-locale-zh-hans #firefox language
     
+### 系统还原点
+
+    #linux 下需要借助软件
+    sudo apt-get install backintime-common backintime-gnome
