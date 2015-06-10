@@ -82,6 +82,10 @@ description:
 
     sudo apt-get install -y apparmor curl && curl -s https://get.docker.io/ubuntu/ | sudo sh
     
+### 安装jdk
+
+    sudo apt-get install default-jdk
+    
 ### 系统设置
 
     sudo sed -i 's/\/home\/chenlianghong:\/bin\/zsh/\/home\/chenlianghong:\/bin\/bash/g' /etc/passwd #maybe
