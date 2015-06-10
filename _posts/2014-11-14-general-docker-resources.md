@@ -9,7 +9,7 @@ description: Docker 学习笔记
 
 ## 安装docker
 
-    sudo apt-get install -y apparmor curl php5-cli && curl -s https://get.docker.io/ubuntu/ | sudo sh
+    sudo apt-get install -y curl && curl -s https://get.docker.io/ubuntu/ | sudo sh #apparmor
     
 ## 常用命令示例
 
@@ -46,3 +46,7 @@ description: Docker 学习笔记
     docker exec -it [container-id] bash # other tty
     sudo docker cp 7bb0e258aefe:/etc/debian_version .#拷贝容器中的一个文件到本地
     sudo docker run --rm -i -t -p 80:80 -p 3306:3306 -v ~/WORK/home.chenlianghong:/home/chenlianghong -v ~/WORK/app:/app -v ~/WORK/mysqldb:/var/lib/mysql -e MYSQL_PASS="admin" leehom/lamp
+    
+    docker run --name monodb -d tutum/monodb && \
+    docker run --name rabbitmq -p 5672:5672 -p 15672:15672 -e RABBITMQ_PASS="rabbitmqpassword" -d tutum/rabbitmq && docker run -i -t -p 80:80 -p 3306:3306 -v /Users:/app -v /Users/home.chenlianghong:/home/chenlianghong -v /Users/mysqldb:/var/lib/mysql -e MYSQL_PASS="admin" --name wetrip --link redis:redis --link rabbitmq:rabbitmq leehom/lamp
+    docker start redis && docker start rabbitmq && docker start wetrip && docker exec -it wetrip bash
