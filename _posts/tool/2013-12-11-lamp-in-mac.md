@@ -23,7 +23,7 @@ brew常用选项
     brew list 
     brew update xxx
 
-## Apache || Nginx
+## Apache || Nginx (只需要装一个)
 
 ### Apache
 Apache的话使用mac自带的基本就够了，我的系统是10.9，可以使用以下命令控制Apache
@@ -32,11 +32,11 @@ Apache的话使用mac自带的基本就够了，我的系统是10.9，可以使�
     sudo apachectl restart
     sudo apachectl stop
 
-唯一要改的是主目录，mac默认在home下有个sites（站点）目录，访问路径是
+唯一要改的是主目录，mac默认在home下有个`Sites`（站点）目录，访问路径是
 
     http://localhost/~user_name
 
-这样很不适合做开发用，修改`/etc/apache2/httpd.conf`内容
+这样不太容易访问，修改`/etc/apache2/httpd.conf`内容
 
     DocumentRoot "/Users/username/Sites"
     <Directory />
@@ -46,7 +46,59 @@ Apache的话使用mac自带的基本就够了，我的系统是10.9，可以使�
         Allow from all
     </Directory>
 
-这样sites目录就是网站根目录了，代码都往这个下头丢
+这样`Sites`目录就是网站根目录了，通过`http://localhost`就可以访问了。
+
+#### 常用命令
+
+```bash
+sudo apachectl start # 启动apache
+sudo apachectl stop # 关闭apache
+sudo apachectl restart # 重启apache
+```
+
+#### 设置vhost
+设置vhost可以很方便的进行站点调试，尤其是对于需要在根目录运行的站点。推荐 [VirtualHostX](https://clickontyler.com/virtualhostx/).
+
+设置方法是：
+
+```bash
+sudo vi /etc/apache2/extra/httpd-vhosts.conf
+```
+
+然后输入：
+
+```bash
+<Directory "/pash/to/site">
+    Allow From All
+    AllowOverride All
+    Options +Indexes
+</Directory>
+<VirtualHost *:80>
+       ServerName "site.test"
+       DocumentRoot "/path/to/site"
+</VirtualHost>
+```
+
+这么设置会有个问题，默认的`http://localhost`会被转到这儿来，所以专门再设置一下`localhost`的host就好了。
+
+```bash
+<VirtualHost *:80>
+    ServerName localhost
+    DocumentRoot /path/to/root
+</VirtualHost>
+```
+
+然后把host文件改一下，把刚刚设置的`ServerName`改到本地就好了。
+
+```bash
+sudo vi /etc/hosts
+```
+
+写入：
+
+```bash
+127.0.0.1 site.test
+```
 
 ### Nginx
 要使用Nginx也比较方便，首先安装
