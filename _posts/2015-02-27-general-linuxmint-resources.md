@@ -27,7 +27,7 @@ description:
 
   [搜狗输入法](http://pinyin.sogou.com/linux/?r=pinyin) [谷歌浏览器](http://pan.baidu.com/s/1o6zemRS)
 
-### 在线软件安装
+## 在线软件安装
 
     sudo apt install remmina #远程管理工具
     sudo apt install sublime-text #文本编辑器
