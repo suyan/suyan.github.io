@@ -32,8 +32,8 @@ description:
     sudo apt install remmina #远程管理工具
     sudo apt install sublime-text #文本编辑器
     sudo add-apt-repository ppa:lainme/pidgin-lwqq && sudo apt-get update && sudo apt-get install pidgin-lwqq #QQ
-    sudo apt-get install virtualbox-nonfree
+    sudo apt install virtualbox-nonfree
     sudo sed -i 's/vboxusers:x:124:/vboxusers:x:124:chenlianghong/g' /etc/group #权限设置,把chenlianghong换成你的名字
-    sudo apt-get install -y curl && curl -s https://get.docker.io/ubuntu/ | sudo sh #安装docker
+    sudo apt install -y curl && curl -s https://get.docker.io/ubuntu/ | sudo sh #安装docker
     #sudo sed -i 's/\/home\/chenlianghong:\/bin\/zsh/\/home\/chenlianghong:\/bin\/bash/g' /etc/passwd #baddeepin
-    sudo apt-get install backintime-common backintime-gnome #建立系统还原点
+    sudo apt install backintime-common backintime-gnome #建立系统还原点
