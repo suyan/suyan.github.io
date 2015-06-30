@@ -41,3 +41,4 @@ description:
     sudo apt install sublime-text #文本编辑器
     sudo apt install -y curl && curl -s https://get.docker.io/ubuntu/ | sudo sh #安装docker
     sudo apt install git git-svn gitk meld #版本控制工具 和 文件对比工具
+    sudo apt-get install default-jdk #安装部分软件phpstrom,netbeans等需要
