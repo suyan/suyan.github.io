@@ -15,6 +15,18 @@ description:
 
 - 服务器主流操作系统
 - 省资料，反应快
+- 原生自带的输入法特别好用，一点不输windows搜狗
+- 稳定
+- 也许有一天你会发现最好用的桌面系统原来TM的是centos
+
+## 安装
+
+  这个过于简单，我这里就不多说了，我使用的是centos7.1。另外由于个人喜好，我这里选择了gnome的桌面环境（个人对比了KDE，感觉gnome才是centos原生推荐桌面，适配更好）。两点注意：安装的时候记得开启BIOS中的硬件虚拟(模拟)的选项；如果仍然出现黑屏，就在启动项 quite 后加上 acpi=off 的参数。至此，我这里已经完全安装成功了。
+
+  关于代理
+  
+    yum install pptp pptp-setup #安装pptp
+    pptpsetup --create test --server ip地址 --username test --password test --start
 
 ## 开发环境搭建
 
