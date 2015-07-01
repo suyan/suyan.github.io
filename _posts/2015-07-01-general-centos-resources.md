@@ -9,7 +9,7 @@ description:
 
 ## 官方资源
 
-  [官方首页](http://www.centos.org) [官方下载](http://www.centos.org/download) [中文论坛](http://cncentos.com/forum.php)
+  [官方首页](http://www.centos.org) [官方下载](http://www.centos.org/download) [中文论坛](http://cncentos.com/forum.php) [我的软件共享](http://pan.baidu.com/s/1eQzuFGQ)
 
 ## 选择理由
 
