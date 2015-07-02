@@ -32,7 +32,7 @@ description:
     sudo add-apt-repository ppa:lainme/pidgin-lwqq && sudo apt-get update && sudo apt-get install pidgin-lwqq #QQ
     sudo apt install virtualbox-nonfree
     sudo sed -i 's/vboxusers:x:124:/vboxusers:x:124:chenlianghong/g' /etc/group #权限设置,把chenlianghong换成你的名字
-    #sudo sed -i 's/\/home\/chenlianghong:\/bin\/zsh/\/home\/chenlianghong:\/bin\/bash/g' /etc/passwd #baddeepin
+    sudo apt install terminator #下载一个好用的终端
     sudo apt install backintime-common backintime-gnome #建立系统还原点
     
 ## 开发软件安装
