@@ -42,3 +42,13 @@ description:
     sudo apt install -y curl && curl -s https://get.docker.io/ubuntu/ | sudo sh #安装docker
     sudo apt install git git-svn gitk meld #版本控制工具 和 文件对比工具
     sudo apt-get install default-jdk #安装部分软件phpstrom,netbeans等需要
+
+## 网络环境
+
+    #为了避免电信莫名其妙的弹窗以及不可达地址弹出广告页等情况
+    sudo vim /etc/resolv.conf
+    #加入如下代码
+    nameserver 223.5.5.5 #百度
+    nameserver 223.6.6.6 #百度备用
+    nameserver 180.76.76.76 #阿里
+    nameserver 114.114.114.114 #114
