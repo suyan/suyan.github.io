@@ -38,12 +38,16 @@ Apache的话使用mac自带的基本就够了，我的系统是10.9，可以使�
 
 这样不太容易访问，修改`/etc/apache2/httpd.conf`内容
 
-    DocumentRoot "/Users/username/Sites"
-    <Directory />
+    DocumentRoot /Users/username/Sites
+    <Directory /Users/username/Sites>
         Options Indexes MultiViews
-        AllowOverride All
-        Order allow,deny
-        Allow from all
+        # apache 2.2
+        # AllowOverride All
+        # Order allow,deny
+        # Allow from 127.0.0.1
+
+        # apache 2.4
+        Require local
     </Directory>
 
 这样`Sites`目录就是网站根目录了，通过`http://localhost`就可以访问了。

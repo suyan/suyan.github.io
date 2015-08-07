@@ -13,6 +13,7 @@ description: 准备做一个OpenStack的监控项目，以前使用的是kanyun�
 下面是他原来的代码
 
     git clone https://github.com/yuanotes/ceilometer-horizon.git
+
 ## 安装必须的包
 他用了导出pdf的python库，所以先得装一下
 
