@@ -270,6 +270,13 @@ RockMongo是MongoDB很好用的一个web应用，安装也很容易
 - 解压到~/Sites/rockmongo下
 - 运行http://localhost/rockmongo即可
 
+## 把 site 放在 Dropbox 文件夹下
+
+```
+ln -s ~/Dropbox/sitename ~/Sites/sitename
+chmod a+rw ~/Dropbox
+chmod a+rw ~/Dropbox/sitename
+```
 
 ## 完成
 这样就在mac下配置好一个php开发环境了，enjoy it!
