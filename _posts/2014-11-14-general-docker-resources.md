@@ -50,3 +50,9 @@ description: Docker 学习笔记
     docker run --name monodb -d tutum/monodb && \
     docker run --name rabbitmq -p 5672:5672 -p 15672:15672 -e RABBITMQ_PASS="rabbitmqpassword" -d tutum/rabbitmq && docker run -i -t -p 80:80 -p 3306:3306 -v /Users:/app -v /Users/home.chenlianghong:/home/chenlianghong -v /Users/mysqldb:/var/lib/mysql -e MYSQL_PASS="admin" --name wetrip --link redis:redis --link rabbitmq:rabbitmq leehom/lamp
     docker start redis && docker start rabbitmq && docker start wetrip && docker exec -it wetrip bash
+    
+    //boot2docker 可以共享的目录如下
+    Users 挂载到 /Users
+    /Users 挂载到 /Users
+    c/Users 挂载到 /c/Users
+    /c/Users 挂载到 /c/Users
