@@ -31,8 +31,9 @@ description:
 
 ## 开发软件包
 
-    yum install git git-svn gitk docker #安装好必备开发工具
-    service docker start #启动docker
+    sudo yum install git git-svn gitk docker #安装好必备开发工具
+    sudo service docker start #启动docker
+    sudo chkconfig docker on #配置docker开机启动
     yum search meld #查找相关软件包
     yum remove meld #卸载指定软件包
 
