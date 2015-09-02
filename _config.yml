@@ -1,6 +1,6 @@
 permalink: /:year/:month/:day/:title.html
 markdown: kramdown
-pygments: true
+highlighter: true
 
 kramdown:
   input: GFM
@@ -31,3 +31,9 @@ ga:
 # disqus 设置
 disqus:
   shortname: suyan-zh
+
+# 如果你建立的是项目主页
+# (http://yourusername.github.io/repository-name)
+# 需要在这里设置 baseurl, like this: "/repository-name"
+baseurl: 
+    ""
