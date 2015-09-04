@@ -48,6 +48,8 @@ Alfred的输入框模式是单调的文本输入，这意味着最好的模式�
 	![](http://going1000sblog-image.stor.sinaapp.com/Dash_Workflow_1.png)
 
 	![](http://going1000sblog-image.stor.sinaapp.com/Dash_Workflow_2.png)
+	
+	[download](http://going1000sblog-image.stor.sinaapp.com/Dash.alfredworkflow)
 
 2. Encode / Decode by Will Farrell
 
@@ -58,6 +60,8 @@ Alfred的输入框模式是单调的文本输入，这意味着最好的模式�
 	![](http://going1000sblog-image.stor.sinaapp.com/Encode_Workflow_2.png)
 
 	![](http://going1000sblog-image.stor.sinaapp.com/Encode_Workflow_3.png)
+	
+	[download](http://going1000sblog-image.stor.sinaapp.com/Encode_Decode_v1.8.0.alfredworkflow)
 
 3. Open with Sublime Text 2 by Franz Heidi
 
@@ -66,6 +70,8 @@ Alfred的输入框模式是单调的文本输入，这意味着最好的模式�
 	![](http://going1000sblog-image.stor.sinaapp.com/Sublime_Workflow_1.png)
 
 	![](http://going1000sblog-image.stor.sinaapp.com/Sublime_Workflow_2.png)
+	
+	[download](http://going1000sblog-image.stor.sinaapp.com/Open_with_Sublime_Text_2.alfredworkflow)
 
 4. Terminal Finder by LeEnno
 
@@ -76,6 +82,8 @@ Alfred的输入框模式是单调的文本输入，这意味着最好的模式�
 	![](http://going1000sblog-image.stor.sinaapp.com/Terminal_Finder_Workflow_2.png)
 
 	![](http://going1000sblog-image.stor.sinaapp.com/Terminal_Finder_Workflow_3.png)
+	
+	[download](http://going1000sblog-image.stor.sinaapp.com/Terminal_Finder_v1.6.0.alfredworkflow)
 
 5. Timestamp by g1k
 
@@ -87,6 +95,8 @@ Alfred的输入框模式是单调的文本输入，这意味着最好的模式�
 
 	![](http://going1000sblog-image.stor.sinaapp.com/Timestamp_Workflow_3.png)
 
+	[download](http://going1000sblog-image.stor.sinaapp.com/timestamp.alfredworkflow)
+
 6. Youdao Translate by Wenson Smith
 
 	有道翻译的workflow，使用起来会比自带的字典更加好。
@@ -94,3 +104,5 @@ Alfred的输入框模式是单调的文本输入，这意味着最好的模式�
 	![](http://going1000sblog-image.stor.sinaapp.com/Youdao_Workflow_1.png)
 
 	![](http://going1000sblog-image.stor.sinaapp.com/Youdao_Workflow_2.png)
+
+	[download](http://going1000sblog-image.stor.sinaapp.com/Youdao_Translate.alfredworkflow)
