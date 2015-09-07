@@ -3,7 +3,7 @@
     <a href="/index.html" id="avatar" style="background-image:url({{ site.avatar }})"></a>
 
     <ul id="tags__ul">
-      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+      <li id="pl__all" class="tags__li tags-btn active">全部</li>
       {% for category in site.categories %} 
         <li id="{{ category[0] }}" class="tags__li tags-btn">{{ category[0] }}</li>
       {% endfor %}
