@@ -220,7 +220,7 @@ void merge_sort(vector<int> &nums, int b, int e, vector<int> &temp)
 2. 将大于基准数的移到右边，小于的移到左边
 3. 递归的对子数组重复执行1，2，直到整个数组有序
 
-```C++
+```CPP
 void quick_sort(vector<int> &nums, int b, int e, vector<int> &temp)
 {
     int m = (b + e) / 2;
@@ -246,9 +246,9 @@ void quick_sort(vector<int> &nums, int b, int e, vector<int> &temp)
 }
 ```
 
-解法2:不需要辅助空间
+解法2: 不需要辅助空间
 
-```C++
+```CPP
 void quick_sort(vector<int> &nums, int b, int e)
 {
     if (b < e - 1) {
