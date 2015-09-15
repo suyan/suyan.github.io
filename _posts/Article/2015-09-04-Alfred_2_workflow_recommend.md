@@ -27,7 +27,7 @@ Powerpack是使得Alfred脱颖而出的功能。
 
 Powerpack不是免费的，需要额外支付费用，也是Alfred主要盈利方式。
 
-## 是么是 Workflow ?
+## 什么是 Workflow ?
 
 每个pack都是一个workflow。或者说，workflow是pack的实体。
 
