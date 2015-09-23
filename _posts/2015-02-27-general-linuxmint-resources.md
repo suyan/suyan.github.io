@@ -42,9 +42,9 @@ description:
     sudo apt install -y curl && curl -sSL https://get.docker.com/ | sudo sh #安装docker
     sudo apt install git git-svn gitk meld #版本控制工具 和 文件对比工具
     sudo apt-get install default-jdk #安装部分软件phpstrom,netbeans等需要
-    #curl -L https://github.com/docker/compose/releases/download/VERSION_NUM/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-    #chmod +x /usr/local/bin/docker-compose
-    #docker-compose --version
+    curl -L https://github.com/docker/compose/releases/download/VERSION_NUM/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+    docker-compose --version
 
 ## 网络环境
 
