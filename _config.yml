@@ -1,4 +1,4 @@
-permalink: /:year/:month/:day/:title.html
+﻿permalink: /:year/:month/:day/:title.html
 markdown: kramdown
 pygments: true
 
@@ -10,18 +10,18 @@ author:
   name: 欧阳欣
   email: gufengoyx@qq.com
   link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
+  weibo: http://weibo.com/p/1005055713346149
   github: http://github.com/RogerMonkey
 
 # 站点信息
 title: 欧阳欣的博客 
 description: 欧阳欣的博客
-url: http://yansu.org
+url: http://ouyang.xin
 rss_url: /pages/atom.xml
 
 # avatar头像及Favicon
-avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+avatar: http://ww4.sinaimg.cn/mw690/006eECkljw8ewjl4zjli3j30sg0j7n1z.jpg
+favicon: http://ww4.sinaimg.cn/mw690/006eECkljw8ewjl4zjli3j30sg0j7n1z.jpg
 
 # google analytics 设置
 ga:
@@ -30,4 +30,4 @@ ga:
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: Roger
