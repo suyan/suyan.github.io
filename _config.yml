@@ -9,14 +9,14 @@ kramdown:
 author: 
   name: 欧阳欣
   email: gufengoyx@qq.com
-  link: http://ouyang.xin
+  link: http://www.ouyang.xin
   weibo: http://weibo.com/p/1005055713346149
   github: http://github.com/RogerMonkey
 
 # 站点信息
 title: 欧阳欣的博客 
 description: 欧阳欣的博客
-url: http://ouyang.xin
+url: http://www.ouyang.xin
 rss_url: /pages/atom.xml
 
 # avatar头像及Favicon
