@@ -26,6 +26,7 @@ description:
 ## 常用软件安装包
 
   [搜狗输入法](http://pinyin.sogou.com/linux/?r=pinyin) [谷歌浏览器](http://www.google.cn/chrome/browser/desktop/index.html)
+  [火狐浏览器](https://ftp.mozilla.org/pub/firefox/releases/latest/linux-x86_64/zh-CN/) 
 
 ## 在线软件安装
 
