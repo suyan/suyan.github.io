@@ -59,3 +59,9 @@ description:
 ## 修改锁屏背景
 
     /usr/share/backgrounds/linuxmint/default_background.jpg #软连接为你的图片即可
+
+## 无法满足我的需求
+
+    1、我希望使用的软件都是绿色版本，chrome，sublime
+    2、我希望不要有广告打扰，不要有隐私窃取，让我安心的用我花钱买的电脑就好
+    3、系统不要太卡，我的电脑长期保持高温不利于我还想多用几年
