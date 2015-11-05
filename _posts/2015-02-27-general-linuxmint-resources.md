@@ -25,8 +25,7 @@ description:
 
 ## 常用软件安装包
 
-  [搜狗输入法](http://pinyin.sogou.com/linux/?r=pinyin) [谷歌浏览器](http://www.google.cn/chrome/browser/desktop/index.html)
-  [火狐浏览器](https://ftp.mozilla.org/pub/firefox/releases/latest/linux-x86_64/zh-CN/) [Chromium浏览器](https://download-chromium.appspot.com/) [Chromium浏览器](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html)
+  [搜狗输入法](http://pinyin.sogou.com/linux/?r=pinyin) [谷歌浏览器](http://www.google.cn/chrome/browser/desktop/index.html) [火狐浏览器](https://ftp.mozilla.org/pub/firefox/releases/latest/linux-x86_64/zh-CN/)  [Chromium浏览器](https://download-chromium.appspot.com/)*
 
 ## 在线软件安装
 
@@ -56,3 +55,7 @@ description:
     nameserver 223.6.6.6 #百度备用
     nameserver 180.76.76.76 #阿里
     nameserver 114.114.114.114 #114
+
+## 修改锁屏背景
+
+    /usr/share/backgrounds/linuxmint/default_background.jpg #软连接为你的图片即可
