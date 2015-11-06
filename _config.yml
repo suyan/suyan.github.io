@@ -7,16 +7,16 @@ kramdown:
 
 # 作者信息
 author: 
-  name: 闫肃
-  email: suyan0830@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
-  github: http://github.com/suyan
+  name: 欧阳欣
+  email: gufengoyx@qq.com
+  link: http://RogerMonkey.github.io
+  weibo: http://weibo.com/p/1005055713346149
+  github: http://github.com/RogerMonkey
 
 # 站点信息
-title: 闫肃的博客 
-description: 闫肃的博客
-url: http://yansu.org
+title: 欧阳欣的博客 
+description: 欧阳欣的博客
+url: http://RogerMonkey.github.io
 rss_url: /pages/atom.xml
 
 # avatar头像及Favicon
