@@ -7,23 +7,34 @@ keywords: NodeJs
 description: 
 ---
 
-## 安装
+# 安装
 
-### 安装nvm
+## 安装nvm
+
     #为了方便管理这里推荐使用nvm来安装nodejs。
     git clone <a href="https://github.com/creationix/nvm.git" target="_blank" rel="nofollow">https://github.com/creationix/nvm.git</a> ~/.nvm
+
 ### 启用nvm
+
     $ source ~/.nvm/nvm.sh
+
 ### 安装最新nodejs，当前是0.11.13
+
     $ nvm install v0.11.13
     $ nvm use v0.11.13
     #把 $HOME/.nvm/current 目录添加到环境变量 PATH 中去
+
 ### 正常使用
+
     $ node --version
     v0.11.13
+
 ### 安装jshint用于js错误检查
+
     npm install jshint -g
+
 ### 保存下面的代码到~/.jshintrc
+
     {
       <span class="hljs-string">"asi"</span>      : <span class="hljs-literal">true</span>,
       <span class="hljs-string">"boss"</span>     : <span class="hljs-literal">true</span>,
@@ -44,9 +55,13 @@ description:
       <span class="hljs-string">"indent"</span>   : <span class="hljs-number">2</span>,
       <span class="hljs-string">"predef"</span>   : [<span class="hljs-string">"avalon"</span>]
     }
+
 ### 安装jscs用于js代码风格检查
+
     npm install jscs -g
+
 ### 保存下面的代码到~/.jscsrc
+
     {
       "disallowEmptyBlocks": true,
       "disallowKeywords": ["with"],
@@ -86,14 +101,18 @@ description:
       "validateLineBreaks": "LF",
       "validateQuoteMarks": "'"
     }
-##  使用
-### 创建一个 demo.js
+
+#  使用
+## 创建一个 demo.js
+
     var a = 1;
     b=2;
     if(true){
     };
     fun1()
+
 ### 检查结果：
+
     $ jshint demo.js
     demo.js: line 4, col 2, Unnecessary semicolon.
     demo.js: line 2, col 1, 'b' is not defined.
