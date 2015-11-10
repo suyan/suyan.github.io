@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 我的天哪！昨天刚刚发工资充了五十块今天就
+title: 昨天刚发工资充了五十块今天就
 category: 生活
 tags: 生活
 keywords: 生活
