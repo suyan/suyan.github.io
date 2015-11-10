@@ -1,7 +1,7 @@
 permalink: /:year/:month/:day/:title.html
 permalink_defaults: /404.html
-paginate: 10
 markdown: kramdown
+pygments: true
 
 kramdown:
   input: GFM
@@ -33,18 +33,3 @@ ga:
 # disqus 设置
 disqus:
   shortname: lianghong
-
-# 主题设置，自动激活某个标签
-active: 技术
-
-# 首页除了最新文章外显示分类
-cates:
-  - Linux
-
-# 中文本地化
-locals:
-  tags: 标签
-  about: 关于
-  newest: 最新文章
-  archive: 归档
-  content: 目录
