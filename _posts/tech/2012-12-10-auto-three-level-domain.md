@@ -6,7 +6,8 @@ tags: 三级域名
 description:
 ---
 
-···<?php
+```
+<?php
 $root_url  = 'uping';
 $path      = substr($_SERVER['SERVER_NAME'], 0, strpos($_SERVER['SERVER_NAME'], '.'));
 $url_list  = array(
@@ -45,4 +46,4 @@ if ($root_url != $path) {
         echo ('<br /><a href="' . $val . '">' . $key . '</a>');
     }
 }
-···
+```

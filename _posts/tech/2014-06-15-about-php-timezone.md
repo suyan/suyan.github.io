@@ -6,7 +6,7 @@ tags: timezone
 description:
 ---
 
-···
+```
 $timezones = array(  
     '-12'=>'Pacific/Kwajalein',  
     '-11'=>'Pacific/Samoa',  
@@ -44,4 +44,4 @@ var_dump($date);
 echo('<hr />'.$date->format('Y-m-d H:i:sP'));
 $date->setTimezone(new \DateTimeZone($timezones['10']));
 echo('<hr />'.$date->format('Y-m-d H:i:sP'));
-···
+```
