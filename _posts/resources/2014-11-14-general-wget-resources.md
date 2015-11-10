@@ -18,10 +18,13 @@ description: wget学习笔记
     fi
     str="$(echo "$content"|grep ">\[转让\]"|sed 's#.*\(\[转让\].[^<]*\)<.*#\1#')"
     echo "$str"
+
 ### 下载一个网站的目录
+
     wget -U “Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)” -r -p -k -np -Pmydir -nc -o down.log http://www.yourdomain.com/yourdir/index.html
 
 ### 下载整个网站
+
     wget -U “Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)” -r -p -k -nc -o down.log http://www.yourdomain.com/index.html
 
     -U 修改agent，伪装成IE货firefox等
@@ -43,8 +46,8 @@ description: wget学习笔记
     wget -r -e robots=off -k -np -N http://blog.somedomain.com/manual/shell -o manual.wget.log
 
 ## WGET 手册
-用法： wget [选项]... [URL]...
-长选项所必须的参数在使用短选项时也是必须的。
+    用法： wget [选项]... [URL]...
+    长选项所必须的参数在使用短选项时也是必须的。
 ### 启动：
       -V,  --version           显示 Wget 的版本信息并退出。
       -h,  --help              打印此帮助。
