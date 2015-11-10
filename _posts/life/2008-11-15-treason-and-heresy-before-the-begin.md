@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 困难还没开始，我就大逆不道了……汗！！！
+title: 困难还没开始，我就大逆不道了……
 category: 生活
 tags: 生活
 keywords: 生活
