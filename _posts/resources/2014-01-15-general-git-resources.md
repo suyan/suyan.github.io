@@ -19,7 +19,6 @@ description:
 
     # 创建共享库(bare)
     $ mkdir /git/repo.git && cd /git/repo.git && git init --bare
-
     # 本地库
     $ mkdir ~/repo && cd ~/repo && git init
     # 创建一个文件
@@ -40,7 +39,6 @@ description:
     $ git add . # 增加新增文件到库管理
     $ git commit # 提交
     $ git branch test # 新建一个分支
-
     $ git clone file:///git/repo && cd repo # 本地库
     $ git checkout test # 切换到分支test
     $ echo "foo">foo # 修改文件
@@ -95,25 +93,34 @@ description:
     git push origin --tags // 分享所有标签
 
 ### 回滚操作
+
     reset --hard v0.1
     reflog
     reset --hard v0.2
 
 ### 取消某个文件的修改
+
     git checkout -- <filename>
 
 ### 删除文件
+
     git rm <filename>               #直接删除文件
     git rm --cached <filename>      #删除文件暂存状态
 
 ### 查看文件更新
+
     git diff              #查看未暂存的文件更新
     git diff --cached     #查看已暂存文件的更新
 
 ### 克隆远程分支
+
     git branch -r
     git checkout origin/android
 
+### 只更新指定文件
+
+    git fetch                                   #更新本地库(但没更新工作拷贝)
+    git checkout origin/master -- path/to/file  #用本地库来更新单个的工作拷贝文件
 
 ## Git小技巧
 
