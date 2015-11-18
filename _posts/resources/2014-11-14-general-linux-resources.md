@@ -137,11 +137,13 @@ description: Linux 常用资源[持续更新]
 
     #删除修改时间在30天之前的所有文件
     #find . -type f -mtime +30 -mtime -3600 -exec rm {} 
-    查找guest用户的以avi或者rm结尾的文件并删除掉
+    #查找guest用户的以avi或者rm结尾的文件并删除掉
     #find . -name ‘*.avi’ -o -name ‘*.rm’ -user ‘guest’ -exec rm {} 
-    查找的不以java和xml结尾,并7天没有使用的文件删除掉
+    #查找的不以java和xml结尾,并7天没有使用的文件删除掉
     #find . ! -name *.java ! -name ‘*.xml’ -atime +7 -exec rm {} 
     #find . -type f -size +10M"
+    #根据文件名按要求筛选出结果并删除
+    #ls | grep "TEST" | grep ".mp4" | xargs rm
 
 ###备份网站和数据库
 
