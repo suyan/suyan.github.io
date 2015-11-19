@@ -39,6 +39,7 @@ description:
             AllowOverride None
             Order deny,allow
             Allow from all
+            DirectoryIndex index.php index.html default.php
         </Directory>
     </VirtualHost>
 

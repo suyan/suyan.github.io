@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 亲测软件破解集合
+title: 亲测Linux软件破解集合
 category: 工具
 tags: 软件破解
 keywords: 软件破解
