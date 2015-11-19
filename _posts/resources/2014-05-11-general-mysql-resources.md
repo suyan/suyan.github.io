@@ -30,6 +30,9 @@ description:
     update user set Host="%" and User="root"
     // 注意%是不包含localhost的
     flush privileges;
+    //主意开启3306端口
+    //vi /etc/sysconfig/iptables 中添加
+    //-A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT
     
 ### 创建用户
     
