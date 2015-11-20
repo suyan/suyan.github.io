@@ -37,8 +37,10 @@ description:
         <Directory \WebRoot\domain>
             Options FollowSymLinks
             AllowOverride None
-            Order deny,allow
-            Allow from all
+            <filesmatch "\.(html|htm|css|js|jpg|gif|jpeg|png)$">
+                Order deny,allow
+                Allow from all
+            </filesmatch>
             DirectoryIndex index.php index.html default.php
         </Directory>
     </VirtualHost>
