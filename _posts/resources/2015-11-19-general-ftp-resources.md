@@ -43,5 +43,5 @@ description:
     sudo chmod a-w /home/ftp
     sudo mkdir /home/ftp/data
 
-### 更多
-请参考[Vsftpd](http://wiki.ubuntu.org.cn/Vsftpd)
+### 参考资料
+[Vsftpd](http://wiki.ubuntu.org.cn/Vsftpd)
