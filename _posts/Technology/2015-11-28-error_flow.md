@@ -1,7 +1,7 @@
 ---
 layout: post                                   
 title: 错误处理
-category: error flow                                 
+category: tech                                
 tags: [error flow]
 keywords: error flow
 description:  
