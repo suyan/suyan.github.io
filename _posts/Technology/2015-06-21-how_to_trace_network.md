@@ -1,7 +1,7 @@
 ---
 layout: post                                   
 title: 怎么样追踪网络状态
-category: network                                 
+category: tech                                 
 tags: [network]
 keywords: network
 description:  
