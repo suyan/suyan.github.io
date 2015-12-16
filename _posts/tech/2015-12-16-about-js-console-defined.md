@@ -19,7 +19,7 @@ description: 关于js中console.log显示的defined提示，你有觉得困惑�
 
 ### 分析原因
 
-    In the console you can type a name of a variable (for example try typing window) and it prints info about it. When you run any void function (like console.log) from the console, it also prints out info about the return value, undefined in this case.
+In the console you can type a name of a variable (for example try typing window) and it prints info about it. When you run any void function (like console.log) from the console, it also prints out info about the return value, undefined in this case.
 
 ### 示例说明
 
