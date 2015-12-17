@@ -5,14 +5,14 @@
 </head>
 <body>
 
-<div ng-app="test1" ng-init="quantity=1;price=5">
+<div ng-app="" ng-init="quantity=1;price=5">
 <h2>价格计算器</h2>
 数量： <input type="number"  ng-model="quantity">
 价格： <input type="number" ng-model="price">
 <p><b>总价：</b> {{ quantity * price }}</p>
 </div>
 
-<div ng-app="test2" ng-init="points=[1,15,19,2,40]">
+<div ng-app="" ng-init="points=[1,15,19,2,40]">
 <p>第三个值为 {{ points[2] }}</p>
 <p>第三个值为 <span ng-bind="points[2]"></span></p>
 </div>
