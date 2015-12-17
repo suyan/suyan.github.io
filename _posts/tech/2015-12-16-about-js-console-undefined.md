@@ -33,6 +33,7 @@ In the console you can type a name of a variable (for example try typing window)
     }
     -----------------------------------
     undefined
+    -----------------------------------
     tt()
     -----------------------------------
     123                        VM1879:3
