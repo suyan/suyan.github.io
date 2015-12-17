@@ -12,35 +12,6 @@
     <p><b>总价：</b> {{ quantity * price }}</p>
     </div>
 
-    <div ng-app="test2" ng-init="points=[1,15,19,2,40]">
-    <p>第三个值为 {{ points[2] }}</p>
-    <p>第三个值为 <span ng-bind="points[2]"></span></p>
-    </div>
-
-	<div ng-app="test3" ng-controller="myCtrl">
-    姓: <input type="text" ng-model="firstName"><br>
-    名: <input type="text" ng-model="lastName"><br>
-    <br>
-    姓名: {{firstName + " " + lastName}}
-    </div>
-    <script>
-    var app = angular.module('test3', []);
-    app.controller('myCtrl', function($scope) {
-        $scope.firstName = "John";
-        $scope.lastName = "Doe";
-    });
-    </script>
-
-
-
-	<div ng-app="test4" ng-controller="namesCtrl">
-	<ul>
-	  <li ng-repeat="x in names">
-	    {{ x.name + ', ' + x.country }}
-	  </li>
-	</ul>
-	</div>
-	<script src="1.test4.js"></script>
 
 <script src="http://apps.bdimg.com/libs/angular.js/1.3.9/angular.min.js"></script>
 </body>
