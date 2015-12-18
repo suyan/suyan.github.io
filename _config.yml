@@ -7,16 +7,16 @@ kramdown:
 
 # 作者信息
 author: 
-  name: 闫肃
-  email: suyan0830@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
-  github: http://github.com/suyan
+  name: Eric Zhou
+  email: neochau@qq.com
+  link: http://bettercalleric.lofter.com
+  weibo: http://weibo.com/u/2706451481?is_all=1
+  github: http://github.com/dejavuzhou
 
 # 站点信息
-title: 闫肃的博客 
-description: 闫肃的博客
-url: http://yansu.org
+title: Eric Zhou's blog 
+description: awesomeness & legendery
+url: http://bettercalleric.lofter.com
 rss_url: /pages/atom.xml
 
 # avatar头像及Favicon
