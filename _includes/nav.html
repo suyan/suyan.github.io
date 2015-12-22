@@ -32,6 +32,25 @@
       {% for category in site.categories %} 
         <li id="{{ category[0] }}" class="tags__li tags-btn">{{ category[0] }}</li>
       {% endfor %}
+      <li class="tags__li tags-btn">标签
+          {% for tag in site.tags %} 
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#{{ tag[0] }}">{{ tag[0}}</a>
+                  <span class="badge pull-right">{{ tag[1].size }}</span>
+                </h4>
+              </div>
+              <div id="{{ tag[0] }}" class="panel-collapse collapse">
+                {% for post in tag[1] %}
+                  <a  href='{{ post.url }}' class="list-group-item pjaxlink">
+                    {{post.title}}
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+      </li>
     </ul>
   </nav> <!-- end #tags -->
 
