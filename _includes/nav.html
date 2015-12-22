@@ -1,6 +1,31 @@
 <aside id="sidebar">
   <nav id="tags">
-    <a href="/index.html" id="avatar" style="background-image:url({{ site.avatar }})"></a>
+    <a id="sidebar-avatar" href="{{ "/" | prepend: site.baseurl }}">
+      <img id="sidebar-avatar-img" alt="{{ site.tittle }}" src="{{ "/assets/img/avatar.jpg" | prepend: site.avatar }}"/>
+    </a>
+    <div id="sidebar-social">
+      <a href="{{ "/pages/rss.xml" | prepend: site.baseurl }}" class="sidebar-social-icon feed"></a>
+      <a href="mailto:{{ site.author.email }}" class="sidebar-social-icon email"></a>
+      {% if site.twitter %}
+        <a href="https://twitter.com/{{ site.twitter }}" class="sidebar-social-icon twitter" target="_blank"></a>
+      {% endif %}
+
+      {% if site.weibo %}
+        <a href="http://www.weibo.com/{{ site.weibo }}" class="sidebar-social-icon weibo" target="_blank"></a>
+      {% endif %}
+
+      {% if site.github %}
+        <a href="https://github.com/{{ site.github }}" class="sidebar-social-icon github" target="_blank"></a>
+      {% endif %}
+
+      {% if site.codepen %}
+        <a href="http://codepen.io/{{ site.codepen }}" class="sidebar-social-icon codepen" target="_blank"></a>
+      {% endif %}
+
+      {% if site.dribbble %}
+        <a href="https://dribbble.com/{{ site.dribbble }}" class="sidebar-social-icon dribbble" target="_blank"></a>
+      {% endif %}
+    </div>
 
     <ul id="tags__ul">
       <li id="pl__all" class="tags__li tags-btn active">全部</li>
@@ -8,11 +33,6 @@
         <li id="{{ category[0] }}" class="tags__li tags-btn">{{ category[0] }}</li>
       {% endfor %}
     </ul>
-
-    <div id="tags__bottom">
-      <a href="mailto:{{ site.author.email }}" id="icon-email" class="tags-btn fontello"></a>
-      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello"></a>
-    </div>
   </nav> <!-- end #tags -->
 
   <div id="posts-list">

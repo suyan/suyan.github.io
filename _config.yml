@@ -6,13 +6,17 @@ pygments: true
 kramdown:
   input: GFM
 
+# Social account
+
 # 作者信息
 author:
   name: 陈良红
   email: clh021@gmail.com
-  link: http://lianghong.dongshenghuo.com
-  weibo: http://weibo.com/clh021
-  github: http://github.com/clh021
+  link:http://lianghong.dongshenghuo.com
+  weibo:clh021
+  github:clh021
+  codepen:clh021
+# dribbble: username
 
 # 站点信息
 title: 良宏良仔
