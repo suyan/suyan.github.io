@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 关于js中console.log显示的undefined提示
+title: 关于js中console.log的undefined提示
 category: 技术
 tags: js,console,undefined
 description: 关于js中console.log显示的undefined提示，你有觉得困惑过吗？这里有详解
