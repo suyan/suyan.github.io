@@ -4,9 +4,14 @@ layout: base
 
 <article id="post__content">
   <h1 id="post__title" data-identifier="{{ page.date | date: "%Y%m%d" }}">{{ page.title }}</h1>
+  <div class="post-meta">
+    <span class="post-meta-span date">{{ page.date | date:"%Y %B %d" }}</span>
+    {% if page.tags.size > 0 %}
+    <span class="post-meta-span tag">{{ page.tags | join: ',' }}</span>
+    {% endif %}
+  </div>
   {{ content }}
 </article> <!-- end #post__content -->
 
 {% include share.html %}
 {% include disqus.html %}
-
