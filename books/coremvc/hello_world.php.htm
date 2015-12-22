@@ -1,0 +1,230 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<br>
+<h3>CoreMVC写“Hello World”的九种方法</h3>
+<ul style="line-height:30px">
+<li>第一种：<a href="#section1">最简单的 Hello World</a></li>
+<li>第二种：<a href="#section2">次简单的 Hello World</a></li>
+<li>第三种：<a href="#section3">面向对象的 Hello World</a></li>
+<li>第四种：<a href="#section4">作为模块能被其他程序引用的 Hello World</a></li>
+<li>第五种：<a href="#section5">使用CoreMVC模块方式的 Hello World</a></li>
+<li>第六种：<a href="#section6">使用CoreMVC单入口方式的 Hello World</a></li>
+<li>第七种：<a href="#section7">使用CoreMVC配置和模板的 Hello World</a></li>
+<li>第八种：<a href="#section8">使用CoreMVC数据模型的 Hello World</a></li>
+<li>第九种：<a href="#section9">使用CoreMVC继承核心模块的 Hello World</a></li>
+</ul>
+<h4><a name="section1">第一种：最简单的 Hello World</a></h4>
+<fieldset>
+<legend>hello_world.php <a href="hello_world.php-1.htm" tppabs="http://coremvc.php5u.com/hello_world/1/hello_world.php.htm">访问</a> <a href="hello_world.php-id=1" tppabs="http://coremvc.php5u.com/hello_world.php-id=1">下载</a></legend>
+<code><span style="color: #000000">
+Hello&nbsp;World!</span>
+</code></fieldset>
+<br>
+<h4><a name="section2">第二种：次简单的 Hello World</a></h4>
+<fieldset>
+<legend>hello_world.php <a href="hello_world.php-2.htm" tppabs="http://coremvc.php5u.com/hello_world/2/hello_world.php.htm">访问</a> <a href="hello_world.php-id=2" tppabs="http://coremvc.php5u.com/hello_world.php-id=2">下载</a></legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;World!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<h4><a name="section3">第三种：面向对象的 Hello World</a></h4>
+<fieldset>
+<legend>hello_world.php <a href="hello_world.php-3.htm" tppabs="http://coremvc.php5u.com/hello_world/3/hello_world.php.htm">访问</a> <a href="hello_world.php-id=3" tppabs="http://coremvc.php5u.com/hello_world.php-id=3">下载</a></legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">hello_world&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;World!'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">hello_world</span><span style="color: #007700">::</span><span style="color: #0000BB">main</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<h4><a name="section4">第四种：作为模块能被其他程序引用的 Hello World</a> <a href="hello_world.php-id=4" tppabs="http://coremvc.php5u.com/hello_world.php-id=4">下载</a></h4>
+<fieldset>
+<legend>hello_world.php <a href="hello_world.php-4.htm" tppabs="http://coremvc.php5u.com/hello_world/4/hello_world.php.htm">访问</a></legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">hello_world&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;World!'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">hello&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;CoreMVC!'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">debug_backtrace</span><span style="color: #007700">()&nbsp;or&nbsp;</span><span style="color: #0000BB">hello_world</span><span style="color: #007700">::</span><span style="color: #0000BB">main</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>index.php <a href="index.php-4.htm" tppabs="http://coremvc.php5u.com/hello_world/4/index.php.htm">访问</a></legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'hello_world.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">hello_world</span><span style="color: #007700">::</span><span style="color: #0000BB">hello</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<font color="red">访问</font> <i>http://www.coremvc.cn/hello_world/5/hello_world.php</i> 会自动执行 hello_world::main()。<br>
+<font color="red">引用</font> <i>require_once 'hello_world.php';</i> 不会自动执行 hello_world::main()。<br>
+<br>
+<h4><a name="#section5">第五种：使用CoreMVC模块方式的 Hello World</a> <a href="hello_world.php-id=5" tppabs="http://coremvc.php5u.com/hello_world.php-id=5">下载</a></h4>
+<fieldset>
+<legend>hello_world.php <a href="hello_world.php-5.htm" tppabs="http://coremvc.php5u.com/hello_world/5/hello_world.php.htm">访问</a> <a href="hello_world.php-do=hello.htm" tppabs="http://coremvc.php5u.com/hello_world/5/hello_world.php-do=hello.htm">访问2</a></legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;导入(import)<br />&nbsp;*/<br /></span><span style="color: #0000BB">class_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'core'</span><span style="color: #007700">)&nbsp;or&nbsp;require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;定义(define)<br />&nbsp;*/<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">hello_world&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;World!'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">hello&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;CoreMVC!'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />}<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #0000BB">hello_world</span><span style="color: #007700">::</span><span style="color: #0000BB">stub</span><span style="color: #007700">()&nbsp;and&nbsp;</span><span style="color: #0000BB">hello_world</span><span style="color: #007700">::</span><span style="color: #0000BB">main</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>.htaccess</legend>
+<code><span style="color: #000000">
+SetEnv&nbsp;core_config&nbsp;1<br />SetEnv&nbsp;core_config_framework_enable&nbsp;1<br /></span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>core.php</legend>
+核心模块，内容略
+</fieldset>
+<br>
+模块三段式(IDE)：<font color="red">导入</font>、<font color="red">定义</font>、<font color="red">执行</font><br>
+<br>
+<h4><a name="section6">第六种：使用CoreMVC单入口方式的 Hello World</a> <a href="hello_world.php-id=6" tppabs="http://coremvc.php5u.com/hello_world.php-id=6">下载</a></h4>
+<fieldset>
+<legend>index.php <a href="index.php-5.htm" tppabs="http://coremvc.php5u.com/hello_world/6/index.php.htm">访问</a> <a href="index.php-go=hello_world&do=hello.htm" tppabs="http://coremvc.php5u.com/hello_world/6/index.php-go=hello_world&do=hello.htm">访问2</a></legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;导入(import)<br />&nbsp;*/<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_path'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'modules'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_module'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'[go]|hello_world!(self)'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_action'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'[do]|index'</span><span style="color: #007700">,<br />));<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">main</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>modules/hello_world.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;导入(import)<br />&nbsp;*/<br /></span><span style="color: #0000BB">class_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'core'</span><span style="color: #007700">)&nbsp;or&nbsp;require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;定义(define)<br />&nbsp;*/<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">hello_world&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;World!'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">hello&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;CoreMVC!'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />}<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #0000BB">hello_world</span><span style="color: #007700">::</span><span style="color: #0000BB">stub</span><span style="color: #007700">()&nbsp;and&nbsp;</span><span style="color: #0000BB">hello_world</span><span style="color: #007700">::</span><span style="color: #0000BB">main</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>core.php</legend>
+核心模块，内容略
+</fieldset>
+<br>
+<h4><a name="section7">第七种：使用CoreMVC配置和模板的 Hello World</a> <a href="hello_world.php-id=7" tppabs="http://coremvc.php5u.com/hello_world.php-id=7">下载</a></h4>
+<fieldset>
+<legend>index.php <a href="index.php-6.htm" tppabs="http://coremvc.php5u.com/hello_world/7/index.php.htm">访问</a> <a href="index.php-go=hello_world&do=hello-1.htm" tppabs="http://coremvc.php5u.com/hello_world/7/index.php-go=hello_world&do=hello.htm">访问2</a> </legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;导入(import)<br />&nbsp;*/<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>config.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_path'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'modules'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_module'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'[go]|hello_world!(self)'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_action'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'[do]|index'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'template_path'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'templates'</span><span style="color: #007700">,<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>modules/hello_world.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;定义(define)<br />&nbsp;*/<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">hello_world&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'World'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view</span><span style="color: #007700">(</span><span style="color: #DD0000">'hello_world.tpl'</span><span style="color: #007700">,</span><span style="color: #0000BB">compact</span><span style="color: #007700">(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">hello&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'CoreMVC'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view</span><span style="color: #007700">(</span><span style="color: #DD0000">'hello_world.tpl'</span><span style="color: #007700">,</span><span style="color: #0000BB">compact</span><span style="color: #007700">(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>templates/hello_world.tpl</legend>
+<code><span style="color: #000000">
+Hello&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;</span>!</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>core.php</legend>
+核心模块，内容略
+</fieldset>
+文件三类型(MCT)：<font color="red">模块</font>、<font color="red">配置</font>、<font color="red">模板</font><br>
+<br>
+<h4><a name="section8">第八种：使用CoreMVC数据模型的 Hello World</a> <a href="hello_world.php-id=8" tppabs="http://coremvc.php5u.com/hello_world.php-id=8">下载</a></h4>
+<fieldset>
+<legend>index.php <a href="index.php-7.htm" tppabs="http://coremvc.php5u.com/hello_world/8/index.php.htm">访问</a> <a href="index.php-go=hello_world&do=hello-2.htm" tppabs="http://coremvc.php5u.com/hello_world/8/index.php-go=hello_world&do=hello.htm">访问2</a></legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;导入(import)<br />&nbsp;*/<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">main</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>config.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_path'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'modules'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_module'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'[go]|hello_world!(self)'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_action'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'[do]|index'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'template_path'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'templates'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'connect_username'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'******'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'connect_password'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'******'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'connect_dbname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'******'</span><span style="color: #007700">,<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</fieldset>
+<br>
+<fieldset>
+<legend>modules/hello_world.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;定义(define)<br />&nbsp;*/<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">hello_world&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$detail&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$detail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$detail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">select</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view</span><span style="color: #007700">(</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">.</span><span style="color: #DD0000">'.tpl'</span><span style="color: #007700">,</span><span style="color: #0000BB">compact</span><span style="color: #007700">(</span><span style="color: #DD0000">'detail'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">hello&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$detail&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">selects</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'name&nbsp;LIKE&nbsp;?'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'%MVC'</span><span style="color: #007700">),</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'class'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">null</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view</span><span style="color: #007700">(</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">.</span><span style="color: #DD0000">'.tpl'</span><span style="color: #007700">,</span><span style="color: #0000BB">compact</span><span style="color: #007700">(</span><span style="color: #DD0000">'detail'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>templates/hello_world.tpl</legend>
+<code><span style="color: #000000">
+Hello&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$detail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;</span>!</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>core.php</legend>
+核心模块，内容略
+</fieldset>
+<br>
+框架三步曲(MVC)：<font color="red">模型</font>、<font color="red">视图</font>、<font color="red">控制</font><br>
+<br>
+<h4><a name="section9">第九种：使用CoreMVC继承核心模块的 Hello World</a> <a href="hello_world.php-id=9" tppabs="http://coremvc.php5u.com/hello_world.php-id=9">下载</a></h4>
+<fieldset>
+<legend>index.php <a href="index.php-8.htm" tppabs="http://coremvc.php5u.com/hello_world/9/index.php.htm">访问</a> <a href="index.php-go=hello_world&do=hello-3.htm" tppabs="http://coremvc.php5u.com/hello_world/9/index.php-go=hello_world&do=hello.htm">访问2</a></legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;导入(import)<br />&nbsp;*/<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'CoreMVC.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #0000BB">CoreMVC</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">CoreMVC</span><span style="color: #007700">::</span><span style="color: #0000BB">main</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>config.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_path'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'modules'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_module'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'[go]|hello_world!(self)'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'framework_action'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'[do]|index'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'template_path'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'templates'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'connect_username'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'******'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'connect_password'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'******'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'connect_dbname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'******'</span><span style="color: #007700">,<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</fieldset>
+<br>
+<fieldset>
+<legend>modules/hello_world.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;定义(define)<br />&nbsp;*/<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">hello_world&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">CoreMVC&nbsp;</span><span style="color: #007700">{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$detail&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$detail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$detail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">select</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view</span><span style="color: #007700">(</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">.</span><span style="color: #DD0000">'.tpl'</span><span style="color: #007700">,</span><span style="color: #0000BB">compact</span><span style="color: #007700">(</span><span style="color: #DD0000">'detail'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">hello&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$detail&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">selects</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'name&nbsp;LIKE&nbsp;?'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'%MVC'</span><span style="color: #007700">),</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'class'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">null</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view</span><span style="color: #007700">(</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">.</span><span style="color: #DD0000">'.tpl'</span><span style="color: #007700">,</span><span style="color: #0000BB">compact</span><span style="color: #007700">(</span><span style="color: #DD0000">'detail'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>templates/hello_world.tpl</legend>
+<code><span style="color: #000000">
+Hello&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$detail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;</span>!</span>
+</code></fieldset>
+<br>
+<fieldset>
+<legend>core.php</legend>
+核心模块，内容略
+</fieldset>
+<br>
+<fieldset>
+<legend>CoreMVC.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">class_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'CoreMVC'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;</span><span style="color: #0000BB">CoreMVC&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{}&nbsp;</span><span style="color: #FF8000">//PHP&nbsp;5.2使用<br />&nbsp;&nbsp;&nbsp;&nbsp;//class_alias('core','CoreMVC');&nbsp;//PHP&nbsp;5.3使用<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

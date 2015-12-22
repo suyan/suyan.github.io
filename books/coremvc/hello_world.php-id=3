@@ -1,0 +1,8 @@
+<?php
+class hello_world {
+	public static function main () {
+		echo 'Hello World!';
+	}
+}
+hello_world::main();
+?>

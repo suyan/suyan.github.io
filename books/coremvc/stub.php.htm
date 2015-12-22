@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::stub</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::stub — 存根函数，判断访问还是引用并设置自动载入功能<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+bool <b>core::stub</b> ( [ mixed $autoload_enable = null [, string $autoload_path = null [, string $autoload_extensions = null [, bool $autoload_prepend = null ] ] ] ] )<br>
+<hr>
+该方法用于判断访问还是引用，还可以设置自动载入类的功能，。
+</blockquote>
+◎参数
+<blockquote>
+<i>autoload_enable</i>
+<blockquote>是否要自动载入，首先判断如果是是字符串则会当作自动载入函数，否则会用默认的自动载入函数。自动载入函数不能是数组，但可以在配置里配置。该值对应的配置会在初始化阶段加载自动载入</blockquote>
+<i>autoload_path</i>
+<blockquote>自动载入的路径。该值有对应的配置。
+<ul>
+<li>“@”开头的文件路径一定会以核心文件所在的目录为基准。</li>
+<li>其他的的文件路径会以当前的目录为基准。</li>
+</ul>
+</blockquote>
+<i>autoload_extensions</i>
+<blockquote>自动载入时判断的文件后缀名，多个可以用逗号分隔开来。默认是“.inc,.php”。该值有对应的配置。</blockquote>
+<i>autoload_prepend</i>
+<blockquote>是否将自动载入路径和自动载入函数置前。PHP 5.3以下自动载入函数置前无效。该值有对应的配置。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+返回是访问还是引用，访问返回true，引用返回false。
+</blockquote>
+◎修改日志
+<blockquote>
+<pre>
+版本	描述<br>
+1.2	配置里的自动载入在初始化阶段完成。
+1.1	新增自定义的自动载入函数。
+</pre>
+</blockquote>
+◎例子
+<blockquote>
+<b>使用存根函数的方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />sample</span><span style="color: #007700">::</span><span style="color: #0000BB">stub&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'@'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//使用核心类所在的路径<br /></span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">stub&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">)&nbsp;and&nbsp;</span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//在直接访问sample模块时手动设置启用自动载入功能<br /></span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">stub&nbsp;</span><span style="color: #007700">()&nbsp;and&nbsp;</span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//只有直接访问sample模块时才执行入口函数（通常写法）<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

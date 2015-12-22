@@ -1,0 +1,140 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::updates</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::updates — 修改数据库中符合条件的数据<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+int <b>core::updates</b> ( [ mixed $table = null [, mixed $set = null [, mixed $where = null [, mixed $other = null [, string $class = null ] ] ] ] ] )<br>
+<hr>
+int <b>core::updates</b> ( string $sql , array $param , true [, mixed $other = null [, string $class = null ] ] )<br>
+<hr>
+该方法可以根据条件修改数据库中的数据。
+</blockquote>
+◎参数
+<blockquote>
+<i>table</i>
+<blockquote>表名参数拼装后会跟在UPDATE之后，可以是字符串，也可以是数组。
+<pre>
+┌───────────────────────┬───────────────────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│UPDATE 前缀+类名　　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│'table1'　　　　　　　　　　　　　　　　　　　│UPDATE table1 　　　　　　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array('table1') 　　　　　　　　　　　　　　　│UPDATE table1 　　　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array('t1'=>'table1') 　　　　　　　　　　　　│UPDATE table1 AS t1 　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(array('LOW_PRIORITY','IGNORE'),'table1')│UPDATE LOW_PRIORITY IGNORE table1 　　　　　　│
+└───────────────────────┴───────────────────────┘
+</pre>
+</blockquote>
+<i>set</i>
+<blockquote>设置参数拼装后会跟在SET语句之后，可以是字符串，也可以是数组或二维关联数组。触发条件是赋值参数为空值。
+<pre>
+┌───────────────────────┬───────────────────────┬───────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│　　占位参数数组值　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│'c1=md5(c2)'　　　　　　　　　　　　　　　　　│SET c1=md5(c2)　　　　　　　　　　　　　　　　│　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━┥
+│array('c1=DEFAULT','c2=DEFAULT')　　　　　　　│SET c1=DEFAULT,c2=DEFAULT 　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1'=>'s1','c2'=>array('s2','s3'))　　　│SET c1=?,c2=CONCAT_WS(',',?,?)　　　　　　　　│array('s1','s2','s3') │
+└───────────────────────┴───────────────────────┴───────────┘
+</pre>
+</blockquote>
+<i>where</i>
+<blockquote>条件参数拼装后会跟在WHERE之后，可以是字符串，也可以是无限层的混合数组，具体方法如下。
+<pre>
+┌───────────────────────┬───────────────────────┬───────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│　　占位参数数组值　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│'c1=1 AND c2>=c3' 　　　　　　　　　　　　　　│WHERE c1=1 AND c2>=c3 　　　　　　　　　　　　│　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━┥
+│array('c1=1','c2>=c3')　　　　　　　　　　　　│WHERE c1=1 AND c2>=c3 　　　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array(array('c1=1','c2>=c3'),'c4=1')　　　　　│WHERE (c1=1 OR c2>=c3) AND c4=1 　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array(array(array('c1=1','c2>=c3'),'c4=1')) 　│WHERE (c1=1 AND c2>=c3 OR c4=1) 　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1'=>'s1','c2'=>array('s2','s3'))　　　│WHERE c1=? AND c2 IN (?,?)　　　　　　　　　　│array('s1','s2','s3') │
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1 LIKE ?'=>'%s%') 　　　　　　　　　　│WHERE c1 LIKE ? 　　　　　　　　　　　　　　　│array('%s%')　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1 BETWEEN ? AND ?'=>array(100,200)) 　│WHERE c1 BETWEEN ? AND ?　　　　　　　　　　　│array(100,200)　　　　│
+└───────────────────────┴───────────────────────┴───────────┘
+</pre>
+</blockquote>
+<i>other</i>
+<blockquote>其他参数拼装后会跟在整个SQL语句之后，可以是字符串，也可以是数组或二维混合数组。该参数可以接受page下标的分页指令。
+<pre>
+┌───────────────────────┬───────────────────────┬───────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│　　占位参数数组值　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│'ORDER BY c1 DESC'　　　　　　　　　　　　　　│ORDER BY c1 DESC　　　　　　　　　　　　　　　│　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━┥
+│array('ORDER BY'=>'c1','LIMIT'=>array(1,5)) 　│ORDER BY ?,LIMIT ?,?　　　　　　　　　　　　　│array('c1',1,5) 　　　│
+└───────────────────────┴───────────────────────┴───────────┘
+</pre>
+</blockquote>
+<i>class</i>
+<blockquote>当表名为空值时会以该类名加前缀作为表名，当该值还为空时PHP 5.3会取延迟绑定的类名加前缀作为表名。</blockquote>
+<i>sql</i>
+<blockquote>修改的SQL语句，支持问号形式的占位符。</blockquote>
+<i>param</i>
+<blockquote>配合SQL语句和占位符对应的参数数组。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+返回成功修改的条数。
+</blockquote>
+◎修改日志
+<blockquote>
+<pre>
+版本	描述<br>
+1.1	从该版本起支持SQL语句和参数的写法。
+</pre>
+</blockquote>
+◎例子
+<blockquote>
+<b>修改数据的使用方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;修改记录。&nbsp;<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">updates</span><span style="color: #007700">(</span><span style="color: #DD0000">'pre_test'</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//返回成功修改的个数<br /><br />//&nbsp;直接使用SQL语句修改记录。&nbsp;<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">updates</span><span style="color: #007700">(</span><span style="color: #DD0000">'UPDATE&nbsp;pre_test&nbsp;SET&nbsp;name=?&nbsp;WHERE&nbsp;id=?)'</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">),</span><span style="color: #0000BB">true</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//返回成功修改的个数<br /><br />//&nbsp;修改排序的一条记录。&nbsp;<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">updates</span><span style="color: #007700">(</span><span style="color: #DD0000">'pre_test'</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'c'</span><span style="color: #007700">),array(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),array(</span><span style="color: #DD0000">'ORDER&nbsp;BY&nbsp;id'</span><span style="color: #007700">,</span><span style="color: #DD0000">'LIMIT&nbsp;1'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//返回成功修改的个数<br /><br />//&nbsp;使用类名修改记录。&nbsp;<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">updates</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">),</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'test'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//使用前缀+类名作为表名，返回成功修改的个数<br /><br />//&nbsp;使用类名修改记录。&nbsp;<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">test&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{&nbsp;}<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">::</span><span style="color: #0000BB">updates</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">"name='a'"</span><span style="color: #007700">),array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//使用前缀+类名作为表名（PHP&nbsp;5.3以上有效），返回成功修改的个数<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

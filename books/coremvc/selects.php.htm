@@ -1,0 +1,211 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::selects</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::selects — 根据条件从数据库中查询数据<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+mixed <b>core::selects</b> ( [ mixed $field = null [, mixed $table = null [, mixed $where = null [, mixed $other = null [, mixed $struct = null ] ] ] ] ] )<br>
+<hr>
+mixed <b>core::selects</b> ( string $sql , array $param , true [, mixed $other = null [, mixed $struct = null ] ] )<br>
+<hr>
+该方法可以根据条件选择数据，可以根据最后一个参数定义返回结果的形式。该方法也提供直接通过SQL语句和参数选择数据。
+</blockquote>
+◎参数
+<blockquote>
+<i>field</i>
+<blockquote>字段参数拼装后会跟在SELECT之后，可以是字符串，也可以是数组或二维混合数组。
+<pre>
+┌───────────────────────┬───────────────────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│SELECT *　　　　　　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│'column1,column2' 　　　　　　　　　　　　　　│SELECT column1,column2　　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array('column1','column2')　　　　　　　　　　│SELECT column1,column2　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(null,true,false)　　　　　　　　　　　　│SELECT NULL,1,0 　　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(array('DISTINCT'),'column1')　　　　　　│SELECT DISTINCT column1 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array('c1'=>'column1','c2'=>column2') 　　　　│SELECT column1 AS c1,column2 AS c2　　　　　　│
+└───────────────────────┴───────────────────────┘
+</pre>
+</blockquote>
+<i>table</i>
+<blockquote>表名参数拼装后会跟在FROM之后，可以是字符串，也可以是数组，和字段的格式除默认值以外基本一样。
+<pre>
+┌───────────────────────┬───────────────────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│'table1,table2' 　　　　　　　　　　　　　　　│FROM table1,table2　　　　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array('table1','table2')　　　　　　　　　　　│FROM table1,table2　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array('table1 INNER JOIN table2 USING (id)')　│FROM table1 INNER JOIN table2 USING (id)　　　│
+├───────────────────────┼───────────────────────┤
+│array('t1'=>'table1','t2'=>'table2')　　　　　│FROM table1 AS t1,table2 AS t2　　　　　　　　│
+└───────────────────────┴───────────────────────┘
+</pre>
+</blockquote>
+<i>where</i>
+<blockquote>条件参数拼装后会跟在WHERE之后，可以是字符串，也可以是无限层的混合数组，具体方法如下。
+<pre>
+┌───────────────────────┬───────────────────────┬───────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│　　占位参数数组值　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│'c1=1 AND c2>=c3' 　　　　　　　　　　　　　　│WHERE c1=1 AND c2>=c3 　　　　　　　　　　　　│　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━┥
+│array('c1=1','c2>=c3')　　　　　　　　　　　　│WHERE c1=1 AND c2>=c3 　　　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array(array('c1=1','c2>=c3'),'c4=1')　　　　　│WHERE (c1=1 OR c2>=c3) AND c4=1 　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array(array(array('c1=1','c2>=c3'),'c4=1')) 　│WHERE (c1=1 AND c2>=c3 OR c4=1) 　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1'=>'s1','c2'=>array('s2','s3'))　　　│WHERE c1=? AND c2 IN (?,?)　　　　　　　　　　│array('s1','s2','s3') │
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1 LIKE ?'=>'%s%') 　　　　　　　　　　│WHERE c1 LIKE ? 　　　　　　　　　　　　　　　│array('%s%')　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1 BETWEEN ? AND ?'=>array(100,200)) 　│WHERE c1 BETWEEN ? AND ?　　　　　　　　　　　│array(100,200)　　　　│
+└───────────────────────┴───────────────────────┴───────────┘
+</pre>
+</blockquote>
+<i>other</i>
+<blockquote>其他参数拼装后会跟在整个SQL语句之后，可以是字符串，也可以是数组或二维混合数组。该参数可以接受page下标的分页指令。
+<pre>
+┌───────────────────────┬───────────────────────┬───────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│　　占位参数数组值　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│'ORDER BY c1 DESC'　　　　　　　　　　　　　　│ORDER BY c1 DESC　　　　　　　　　　　　　　　│　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━┥
+│array('GROUP BY c1','HAVING COUNT(c2)>=0')　　│GROUP BY c1 HAVING COUNT(c2)>=0 　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('ORDER BY'=>'c1','LIMIT'=>array(1,5)) 　│ORDER BY ?,LIMIT ?,?　　　　　　　　　　　　　│array('c1',1,5) 　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('page'=>&$page) 　　　　　　　　　　　　│SELECT SQL_CALC_FOUND_ROWS ... LIMIT 20,10　　│　　　　　　　　　　　│
+└───────────────────────┴───────────────────────┴───────────┘
+</pre>
+注意：分页符合<a href="cpp.php.htm" tppabs="http://coremvc.php5u.com/protocol/cpp.php.htm">CPP.PSTC协议标准</a>，SQL语句的结果根据驱动有所不同，上面的表格只显示mysql的合成结果。<br>
+上面的例子$page = array ('page'=>3,'size'=>10)，没有相应下标的$page = array ('page'=>1,'size'=>1,'count'=>null,'total'=>null);<br>
+如果count下标的值不为空值则运行后会得到总条数，而total下标的值运行后会自动计算得到总页数。<br>
+</blockquote>
+<i>struct</i>
+<blockquote>这个结构参数定义返回结果的形式。根据需要可以返回值、数组、对象数组或多维数组，返回数组的下标可以是自增也可以是某个字段的值。
+<pre>
+┌───────────────────────┬───────────────────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　返回的结果　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│空值＝array(null, 'class'=>null)　　　　　　　│对象数组＝array(new static|self, ……)　　　　│
+├───────────────────────┼───────────────────────┤
+│文本＝array(null, 'class'=>文本)　　　　　　　│对象数组＝array(new 文本, ……) 　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│对象＝array(null, 'clone'=>对象)　　　　　　　│对象数组＝array(clone 对象, ……) 　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array(……, 空值, ……, 结构) 　　　　　　　　│$return ...[]...＝值　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 整数, ……, 结构) 　　　　　　　　│$return ...[对象[整数]]...＝值　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 文本, ……, 结构) 　　　　　　　　│$return ...[对象[文本]]...＝值　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array(……, 空值)＝array(……, 'class'=>null) │$return ...＝new static|self　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 整数)＝array(……, 'column'=>整数)│$return ...＝数组[整数] 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 文本)＝array(……, 'column'=>文本)│$return ...＝数组[文本] 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 对象)＝array(……, 'clone'=>对象) │$return ...＝clone 对象 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 数组)＝array(……, 'array'=>数组) │$return ...＝数组 　　　　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array(……, 'assoc'=>null)　　　　　　　　　　│$return ...＝array('属性'=>'值', ……)　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'both'=>null) 　　　　　　　　　　│$return ...＝array('属性'=>'值','值', ……) 　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'num'=>null)　　　　　　　　　　　│$return ...＝array('值', ……)　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'array'=>数组)　　　　　　　　　　│$return ...＝数组 　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'column'=>整数) 　　　　　　　　　│$return ...＝数组[整数] 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'column'=>文本) 　　　　　　　　　│$return ...＝数组[文本] 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'class'=>空值)　　　　　　　　　　│$return ...＝new static|self　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'class'=>文本)　　　　　　　　　　│$return ...＝new 文本|static|self 　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'class|classtype'=>文本)　　　　　│$return ...＝new 首个字段|文本|static|self　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'clone'=>对象)　　　　　　　　　　│$return ...＝clone 对象 　　　　　　　　　　　│
+└───────────────────────┴───────────────────────┘
+</pre>
+注1：空值专指null或空串，整数专指非负数整，文本专指非空字符串，static|self表示在PHP 5.3下为静态延时绑定类名，在PHP 5.2下为当前核心模块类名。<br>
+注2：最后一个值的下标可以用粘附“|table=文本”来指定表名，如：'class|table=test'=>null表示如果表名参数为空值的话则使用该表名加前缀。未粘附表名的则取类名为作粘附表名。<br>
+</blockquote>
+<i>sql</i>
+<blockquote>查询的SQL语句，支持问号形式的占位符。</blockquote>
+<i>param</i>
+<blockquote>配合SQL语句和占位符对应的参数数组。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+根据结构参数返回相应的值，失败时返回false。
+</blockquote>
+◎修改日志
+<blockquote>
+<pre>
+版本	描述<br>
+1.1	结构参数最后一个值的下标不作为字段名，而变成了标识类型。从该版本起支持SQL语句和参数的写法。
+</pre>
+</blockquote>
+◎例子
+<blockquote>
+<b>前四个参数组合使用</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'user'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;*&nbsp;FROM&nbsp;user，返回全部记录的core对象数组<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">,</span><span style="color: #DD0000">'name'</span><span style="color: #007700">,</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'status'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;id,name&nbsp;FROM&nbsp;user&nbsp;WHERE&nbsp;status=1，返回符合条件的记录的core对象数组<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'ORDER&nbsp;BY&nbsp;id&nbsp;DESC'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;*&nbsp;FROM&nbsp;user&nbsp;ORDER&nbsp;BY&nbsp;id&nbsp;DESC，返回排过序的全部记录的core对象数组<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'user.name,task.task_id'</span><span style="color: #007700">,</span><span style="color: #DD0000">'user&nbsp;LEFT&nbsp;OUTER&nbsp;JOIN&nbsp;task&nbsp;USING&nbsp;(user_id)'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;user.name,task.task_id&nbsp;FROM&nbsp;user&nbsp;LEFT&nbsp;OUTER&nbsp;JOIN&nbsp;task&nbsp;USING&nbsp;(user_id)，返回符合条件的记录的core对象数组<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;FROM&nbsp;user&nbsp;WHERE&nbsp;status=?'</span><span style="color: #007700">,array(</span><span style="color: #0000BB">1</span><span style="color: #007700">),</span><span style="color: #0000BB">true</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;*&nbsp;FROM&nbsp;user&nbsp;WHERE&nbsp;status=1，返回符合条件的记录的core对象数组<br /><br /></span><span style="color: #0000BB">$page&nbsp;</span><span style="color: #007700">=&nbsp;array&nbsp;(</span><span style="color: #DD0000">'page'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'size'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">10</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'ORDER&nbsp;BY&nbsp;id'</span><span style="color: #007700">,</span><span style="color: #DD0000">'page'</span><span style="color: #007700">=&gt;&amp;</span><span style="color: #0000BB">$page</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;SQL_CALC_FOUND_ROWS&nbsp;*&nbsp;FROM&nbsp;user&nbsp;ORDER&nbsp;BY&nbsp;id，返回排过序的全部记录的core对象数组<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$page</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//此时$page有count和total两个值，直接传给符合CPP.PSTC分页模板即可。<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+<blockquote>
+<b>最后一个参数使用方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'class'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'core'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;*&nbsp;FROM&nbsp;user，返回单条记录的core对象<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'user_id'</span><span style="color: #007700">,</span><span style="color: #DD0000">'class'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'core'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;*&nbsp;FROM&nbsp;user，返回以user_id为下标的全部记录的core对象数组<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'user_id'</span><span style="color: #007700">,</span><span style="color: #DD0000">'column'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'name'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;*&nbsp;FROM&nbsp;user，返回以user_id为下标的name为值的数组<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'COUNT(*)'</span><span style="color: #007700">,</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'column'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'COUNT(*)'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;COUNT(*)&nbsp;FROM&nbsp;user，返回单个值<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">selects&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'class|table=user'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'sample'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//SELECT&nbsp;*&nbsp;FROM&nbsp;user，返回全部记录的sample对象数组<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

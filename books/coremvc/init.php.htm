@@ -1,0 +1,118 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::init</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::init — 初始化配置<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+array <b>core::init</b> ( [ array $config = null [, mixed &$variable = null ] ] )<br>
+<hr>
+array <b>core::init</b> ( string $filename [, mixed &$variable = null ] )<br>
+<hr>
+mixed <b>core::init</b> ( string $attribute [, mixed &$variable = null ] )<br>
+<hr>
+array <b>core::init</b> ( bool $clear [, mixed &$variable = null ] )<br>
+<hr>
+该方法可以通过关联数组配置，可以通过导入文件配置，可以清空配置，在配置的同时触发相应的函数。该方法提供通过属性名称取得属性值。该方法还可以针对某个变量进行配置，而不仅限于核心模块。
+</blockquote>
+◎参数
+<blockquote>
+<i>config</i>
+<blockquote>当前要配置的关联数组，数组下标为属性名称，数组值为属性值。如果传入的是空值也会重新初始化。</blockquote>
+<i>filename</i>
+<blockquote>当前要导入的配置文件。文件名必须以“.php”和“.ini”结尾，否则被视为属性名称。</blockquote>
+<i>attribute</i>
+<blockquote>要取得属性值的属性名称，如果该属性名称不存在则返回空串。</blockquote>
+<i>variable</i>
+<blockquote>当前需要配置的变量，默认是核心模块。</blockquote>
+<i>clear</i>
+<blockquote>是否要完全清空当前配置，如果是则清空为空数组，如果否则完全不变，并且不会触发相应的函数。此参数多用于框架和调试。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+如果传入属性名称则返回属性值，未找到时返回空串。其他情况下都会返回配置数组。
+</blockquote>
+◎修改日志
+<blockquote>
+<pre>
+版本	描述<br>
+1.2	将第二个参数修改为传址变量，可对此变量进行初始化。
+1.1	新增 $class_name 参数，$level 改为1-5级并且正数取值负数赋值。
+</pre>
+</blockquote>
+◎例子
+<blockquote>
+<b>配置核心模块的各种方法</b><br>
+<br>
+《index.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//在核心模块里修改静态变量<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//清空核心模块配置。<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//原封不动返回当前配置信息。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'autoload_enable'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">true</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//配置某个属性，并且立即生效。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.php'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//导入配置文件（返回数组形式），会和之前的配置叠加。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.ini'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//导入配置文件（ini格式的），会和之前的配置叠加。<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'autoload_enable'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//显示1，这是取单个属性值<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'autoload_path'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//未设置的属性值会返回空串<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+<br>
+《config.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+<br>
+《config.ini》<br>
+<code><span style="color: #000000">
+autoload_enable&nbsp;=&nbsp;true</span>
+</code><br>
+</blockquote>
+<blockquote>
+<b>使用第二个参数的方法</b><br>
+<br>
+《index.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$value&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//$value此时为空数组。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//$value此时为空数组。<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//原封不动返回$value值<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'autoload_enable'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">true</span><span style="color: #007700">),</span><span style="color: #0000BB">$value</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//为$value配置某个属性。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.php'</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//导入配置文件（返回数组形式），会和之前的配置叠加。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.ini'</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//导入配置文件（ini格式的），会和之前的配置叠加。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'autoload_enable'</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//显示1，这是取单个属性值<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #DD0000">'autoload_path'</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//未设置的属性值会返回空串<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+<br>
+《config.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'autoload_enable'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+<br>
+《config.ini》<br>
+<code><span style="color: #000000">
+autoload_enable&nbsp;=&nbsp;true</span>
+</code><br>
+</blockquote>
+<blockquote>
+<b>模块继承核心模块的初始化方法</b><br>
+<br>
+《index.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br />class&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;配置文件或配置数组<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">private&nbsp;static&nbsp;&nbsp;=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;初始化函数(继承)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #0000BB">$config&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">$variable&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$variable&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$config</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$config</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$config</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$variable</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />}<br /><br /></span><span style="color: #0000BB">index</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//虽然和核心模块的调用方法一样，但初始化的是index模块的配置。<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

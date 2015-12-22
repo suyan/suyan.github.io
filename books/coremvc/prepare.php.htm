@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::prepare</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::prepare — 准备和拼装SQL语句<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+mixed <b>core::prepare</b> ( string $sql [, array $param = null [, bool $format = null [, bool $debug = null [, string $output = null [, array $extra = null ] ] ] ] ] )<br>
+<hr>
+mixed <b>core::prepare</b> ( string $flag [, array $array = null [, bool $format = null [, bool $debug = null [, string $output = null [, array $extra = null ] ] ] ] ] )<br>
+<hr>
+该方法可以准备和拼装SQL语句，同时支持数据库调试功能。
+</blockquote>
+◎参数
+<blockquote>
+<i>sql</i>
+<blockquote>要执行的SQL语句，支持问号形式的占位符。</blockquote>
+<i>param</i>
+<blockquote>配合SQL语句和占位符对应的参数数组。</blockquote>
+<i>format</i>
+<blockquote>是否需要返回格式化的SQL语句，如果是则将参数数组填充到占位符中去，返回的是完整的SQL语句。</blockquote>
+<i>debug</i>
+<blockquote>是否要调试数据库，如果是则会打印SQL语句，包括参数等。</blockquote>
+<i>output</i>
+<blockquote>调试时要写入的文件，默认是页面上显示而不写入文件。</blockquote>
+<i>extra</i>
+<blockquote>调试时需要输出的其他变量，包括错误编号、错误信息等。</blockquote>
+<i>flag</i>
+<blockquote>合成SQL语句的标识，包括“selects”、“mysql_inserts”等。</blockquote>
+<i>array</i>
+<blockquote>合成SQL语句时传入的数组参数，当标识和数据库静态方法相对应，该参数为四个参数的数组。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+如果格式化参数为真，则返回SQL字符串。默认或为假是返回由SQL语句和参数组成的数组。
+</blockquote>
+◎例子
+<blockquote>
+<b>准备语句的使用方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;获得SQL语句和参数<br /></span><span style="color: #007700">list(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">,</span><span style="color: #0000BB">$param</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'selects'</span><span style="color: #007700">,array(</span><span style="color: #0000BB">$field</span><span style="color: #007700">,</span><span style="color: #0000BB">$table</span><span style="color: #007700">,</span><span style="color: #0000BB">$where</span><span style="color: #007700">,</span><span style="color: #0000BB">$other</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;获得不带参数的SQL语句<br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'selects'</span><span style="color: #007700">,array(</span><span style="color: #0000BB">$field</span><span style="color: #007700">,</span><span style="color: #0000BB">$table</span><span style="color: #007700">,</span><span style="color: #0000BB">$where</span><span style="color: #007700">,</span><span style="color: #0000BB">$other</span><span style="color: #007700">),</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;获得子句<br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'field'</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'col1'</span><span style="color: #007700">,</span><span style="color: #DD0000">'col2'</span><span style="color: #007700">),</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;调试SQL语句<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;?,?'</span><span style="color: #007700">,array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//页面显示SQL语句<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;?,?'</span><span style="color: #007700">,array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #DD0000">'db.log'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//将SQL语句写入文件<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;?,?'</span><span style="color: #007700">,array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'errno'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">mysql_errno</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">),</span><span style="color: #DD0000">'error'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">)));&nbsp;</span><span style="color: #FF8000">//同时显示错误信息<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

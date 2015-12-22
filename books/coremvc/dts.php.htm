@@ -1,0 +1,134 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<br>
+<xmp>
+DTS: 开发人员模板规范(Developers Template Specification)
+修改时间：2010-07-19
+
+1 介绍
+在开发阶段开发很少有美工能提供模板供开发人员直接嵌套的，因此开发人员必须自己制作模板并实现数据显示逻辑。开发人员模板规范的目的是为了让开发人员减少制作模板的时间而把精力放在数据嵌套上，但同时制作出来的模板效果简约直观。
+
+2 定义
+
+2.1 HTML标签全部小写（理由：开发人员无需关心和来回切换大小写）。
+
+2.2 标签一般自然换行和顶格写，只有在需要分清层次时用制表符缩进（理由：突出必要的层次关系以方便嵌套模板）。
+
+2.3 尽量避免写css和关系不大的标签属性（理由：将美观留给设计和美工去做，开发人员一般面对源代码）。
+
+2.4 如果在<head>里没有动态数据则不写<html><head><body>这些标签直接写内容，如果在<head>里有动态数据则要写全<html><head><body>标签，如：
+<html>
+<head>
+<title>标题数据</title>
+</head>
+<body>
+内容数据
+</body>
+</html>
+
+2.5 在使用<br>标签时连一起的几个<br>不要起一写，应该每行末尾写一个<br>（理由：开发人员查看源代码时就能了解换行关系），如：
+内容数据<br>
+<br>
+<br>
+
+2.6 列表页建议使用<table border="1">带表格线，用<thead><tbody>区分块，用<th><td>区分数据，用缩进突出层次关系（理由：源代码清晰界面相对简洁），如：
+<table border="1">
+<thead>
+	<tr>
+		<th>...</th>
+		<th>...</th>
+	<tr>
+</thead>
+<tbody>
+	<?php foreach(...): ?>	<tr>
+		<td>...</td>
+	</tr>
+	<?php endforeach; ?></tbody>
+</table>
+
+2.7 表单页建议使用<fieldset><legent>简单封装输入框等，名称可用全角空格调整对齐（理由：在不增大工作量的情况下让界面更简洁明了），如：
+<form>
+<fieldset>
+<legend>表单标题</legend>
+用户名：<input type="text" name="username" value=""><br>
+密　码：<input type="password" name="password"><br>
+</fieldset>
+</form>
+
+2.8 单选框和多选框可用<label>简单封装（理由：在不增大工作量的情况下让界面更简洁明了），如：
+<label><input type="radio" name="a" value="a"> a</label>
+<label><input type="radio" name="a" value="b"> b</label>
+
+2.9 图片可用文字描述，以下两种方式均可，如：
+[商品图片]
+<img alt="商品图片">
+
+2.10 标题使用<h1>..<h6>等标签，可适，如：
+<h1>内容发布平台</h1>
+
+2.11 颜色可以用<font color="">属性，一般用red、green、gray、navy等简单明确的颜色值
+
+2.12 动态内容用<p>或<div>标签，静态的内容一般用<br>即可，如：
+<p>内容</p>
+
+2.13 分段可单独一行使用<hr>来表示。
+
+2.14 竖形菜单可用<ul><li>等标签表示，为标明层次可缩进，如：
+<ul>
+	<li><a href="dts.php-do=login.htm" tppabs="http://coremvc.php5u.com/protocol/dts.php-do=login.htm">登录</a></li>
+	<li><a href="dts.php-do=login.htm" tppabs="http://coremvc.php5u.com/protocol/dts.php-do=login.htm">注册</a></li>
+</ul>
+
+2.15 横形的菜单可用·来给示前导图示，如：
+·<a href="dts.php-do=login.htm" tppabs="http://coremvc.php5u.com/protocol/dts.php-do=login.htm">登录</a>
+·<a href="dts.php-do=login.htm" tppabs="http://coremvc.php5u.com/protocol/dts.php-do=login.htm">注册</a>
+
+2.16 缩进的区块可用<blockquote>来表示，多层的还可以使用缩进，如：
+<blockquote>
+	<blockquote>
+	内容
+	</blockquote>
+</blockquote>
+
+2.17 代码部份可以使用<pre>或<xmp>标签。
+
+2.18 适度使用空行以便于让分段更清晰，同时减少缩进的使用，如：
+<body>
+
+<table>
+...
+</table>
+
+</body>
+
+2.19 公用页面尽量提取出来，使用时导入，如：
+<?php include 'page.php'; ?>
+
+3 建议
+1.该规范只是建议性质的，并不一定要完全按照规范来，只要能给您带来一定的帮助就可以了。
+2.希望您提出保贵的意见和建议以便于不断完善该规范。
+</xmp>
+<br>
+
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

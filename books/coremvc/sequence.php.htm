@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::sequence</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::sequence — 使用特定的表生成自增序列<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+int <b>core::sequence</b> ( [ string $tablename = 'sequence' [, int $start_index = 1 ] ] )<br>
+<hr>
+该方法可以指定特定的表生成自增序列，序列表不存在时会自动创建。
+</blockquote>
+◎参数
+<blockquote>
+<i>tablename</i>
+<blockquote>生成自增序列的特定表的表名，会自动加上前缀，默认是sequence加前缀。相同的表名每次取自增值都会累加。</blockquote>
+<i>start_index</i>
+<blockquote>指定最小从哪个数字开始自增，默认是1。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+返回整型的自增序列。
+</blockquote>
+◎例子
+<blockquote>
+<b>使用自增序列的方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;使用默认自增序列的情况。&nbsp;<br /></span><span style="color: #0000BB">$seq&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">sequence</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;使用多个独立的自增序列的情况。&nbsp;<br /></span><span style="color: #0000BB">$user_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">sequence</span><span style="color: #007700">(</span><span style="color: #DD0000">'sequence_user'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$role_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">sequence</span><span style="color: #007700">(</span><span style="color: #DD0000">'sequence_role'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;使用特定开始值的自增序列的情况。&nbsp;<br /></span><span style="color: #0000BB">$type_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">sequence</span><span style="color: #007700">(</span><span style="color: #DD0000">'sequence_type'</span><span style="color: #007700">,</span><span style="color: #0000BB">10000</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::update</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::update — 根据实例修改数据库中的数据<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+bool <b>core::update</b> ( [ string $tablename = '' [, int $primary_index = 0 ] ] )<br>
+<hr>
+bool <b>core::update</b> ( string $tablename , string $primary_name )<br>
+<hr>
+该方法可以设置主键并根据实例修改数据库的一条记录，该方法必须是通过实例调用的。需要注意的是该方法只会修改实例中除主键外所有成员字段，修改后成员不会变化。
+</blockquote>
+◎参数
+<blockquote>
+<i>tablename</i>
+<blockquote>要修改记录的完整表名，系统不粘附前缀。如果是使用默认参数空串则表名为继承类的类名加上前缀，但如果此时是直接从核心类调用则返回false。无论是默认的还是带表名参数的，系统都会根据设置的前缀替换规则进行替换。</blockquote>
+<i>primary_index</i>
+<blockquote>主键位置。0表示第1个字段是主键，1表示第2个字段是主键，以此类推。当不使用主键而直接交由系统修改一条记录时，该参数可以设置为-1。</blockquote>
+<i>primary_name</i>
+<blockquote>主键名称。和primary_index一样，如果主键名称不存在则视为不使用主键而直接交由系统修改一条记录。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+当从核心类实例调用并且表名为空串时返回false。其他情况下修改成功返回true，修改失败返回false。
+</blockquote>
+◎例子
+<blockquote>
+<b>在继承类中的使用</b><br>
+<br>
+《user.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">user&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;final&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">modify&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">struct&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">update&nbsp;</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'修改成功'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'修改失败'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">__CLASS__&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'/'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">__FUNCTION__&nbsp;</span><span style="color: #DD0000">'.tpl'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">compact&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'message'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+<blockquote>
+<b>指定表名和主键字段</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$user&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'张三'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">update&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'pre_user'</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//直接修改pre_user表中的一条记录，不使用主键。<br /><br /></span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'李四'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">update&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'pre_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'user_id'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//以id=1为主键条件修改pre_user表中相应的一条记录。<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::path</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::path — 得到带配置路径的最终文件路径<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+string <b>core::path</b> ( string $filename [, string $filetype = null ] )<br>
+<hr>
+该方法可以根据文件类型或相应配置得到最终的文件路径。
+</blockquote>
+◎参数
+<blockquote>
+<i>filename</i>
+<blockquote>文件路径。以下关于是文件路径的详细说明<br>
+<ul>
+<li>无论是否有相应路径配置，“@”开头的文件路径一定会以核心文件所在的目录为基准。</li>
+<li>无论是否有相应路径配置，“/”、“\”、“./”、“.\”开头的文件路径一定会以该目录为基准。</li>
+<li>其他的的文件路径会以相应路径配置为基准。</li>
+</ul>
+</blockquote>
+<i>filetype</i>
+<blockquote>现在有特殊的三种类型“extension”、“config”、“template”，分别根据相应配置生成最后的路径。<br>
+<ul>
+<li>“@”开头的配置指定相对于核心文件所在的目录。</li>
+<li>如果未指定路径，则“extension”相对于核心文件所在的目录下的核心文件名目录，其他的对于文件名没有基准路径。</li>
+<li>如果该值为空值，则文件路径根据自己的规则生成最终路径。</li>
+</ul>
+</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+返回最终的文件路径。
+</blockquote>
+◎例子
+<blockquote>
+<b>使用路径的几种方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//直接导入扩展目录里的Zend.php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">path&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'Zend.php'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'extension'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//在模板里导入其他的模板<br /></span><span style="color: #007700">require&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">path&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'head.tpl'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'template'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//初始化配置路径所在的配置文件<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">(require&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">path&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.php'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'config'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

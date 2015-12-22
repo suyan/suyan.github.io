@@ -1,0 +1,114 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::structs</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::structs — 传入二维数组返回特定结构的对象数组<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+mixed <b>core::structs</b> ( [ array $array = null [, mixed $struct = null ] ] )<br>
+<hr>
+该方法可以把二维数组转化成相应的对象数组，可以根据第二个参数定义返回结果的形式。
+</blockquote>
+◎参数
+<blockquote>
+<i>array</i>
+<blockquote>这个参数既可以是二维数组，也可以是对象数组。如果传入的是空值或对象则会转化成空值或对象的数组。
+</blockquote>
+<i>struct</i>
+<blockquote>这个结构参数定义返回结果的形式。根据需要可以返回值、数组、对象数组或多维数组，返回数组的下标可以是自增也可以是某个成员的值。
+<pre>
+┌───────────────────────┬───────────────────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　返回的结果　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│空值＝array(null, 'class'=>null)　　　　　　　│对象数组＝array(new static|self, ……)　　　　│
+├───────────────────────┼───────────────────────┤
+│文本＝array(null, 'class'=>文本)　　　　　　　│对象数组＝array(new 文本, ……) 　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│对象＝array(null, 'clone'=>对象)　　　　　　　│对象数组＝array(clone 对象, ……) 　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array(……, 空值, ……, 结构) 　　　　　　　　│$return ...[]...＝值　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 整数, ……, 结构) 　　　　　　　　│$return ...[对象[整数]]...＝值　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 文本, ……, 结构) 　　　　　　　　│$return ...[对象[文本]]...＝值　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array(……, 空值)＝array(……, 'class'=>null) │$return ...＝new static|self　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 整数)＝array(……, 'column'=>整数)│$return ...＝数组[整数] 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 文本)＝array(……, 'column'=>文本)│$return ...＝数组[文本] 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 对象)＝array(……, 'clone'=>对象) │$return ...＝clone 对象 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 数组)＝array(……, 'array'=>数组) │$return ...＝数组 　　　　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array(……, 'assoc'=>null)　　　　　　　　　　│$return ...＝array('属性'=>'值', ……)　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'both'=>null) 　　　　　　　　　　│$return ...＝array('属性'=>'值','值', ……) 　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'num'=>null)　　　　　　　　　　　│$return ...＝array('值', ……)　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'array'=>数组)　　　　　　　　　　│$return ...＝数组 　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'column'=>整数) 　　　　　　　　　│$return ...＝数组[整数] 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'column'=>文本) 　　　　　　　　　│$return ...＝数组[文本] 　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'class'=>空值)　　　　　　　　　　│$return ...＝new static|self　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'class'=>文本)　　　　　　　　　　│$return ...＝new 文本|static|self 　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'class|classtype'=>文本)　　　　　│$return ...＝new 首个成员|文本|static|self　　│
+├───────────────────────┼───────────────────────┤
+│array(……, 'clone'=>对象)　　　　　　　　　　│$return ...＝clone 对象 　　　　　　　　　　　│
+└───────────────────────┴───────────────────────┘
+</pre>
+注：空值专指null或空串，整数专指非负数整，文本专指非空字符串，static|self表示在PHP 5.3下为静态延时绑定类名，在PHP 5.2下为当前核心模块类名。<br>
+</blockquote>
+◎返回值
+<blockquote>
+根据结构参数返回相应的值，参数不正确时返回空值。
+</blockquote>
+◎修改日志
+<blockquote>
+<pre>
+版本	描述<br>
+1.1	结构参数最后一个值的下标不作为成员名，而变成了标识类型。
+</pre>
+</blockquote>
+◎例子
+<blockquote>
+<b>最后一个参数使用方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$users&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">struct&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'user'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//返回user的对象数组<br /><br /></span><span style="color: #0000BB">$users&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">struct&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">,&nbsp;array&nbsp;(</span><span style="color: #DD0000">'user_id'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'user'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//返回以user_id为下标的对象数组<br /><br /></span><span style="color: #0000BB">$name_array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">struct&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">,&nbsp;array&nbsp;(</span><span style="color: #DD0000">'user_id'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'column'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'name'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//返回以user_id为下标的单个成员name的数组<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

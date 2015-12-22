@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::execute</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::execute — 执行SQL语句<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+mixed <b>core::execute</b> ( string $sql [, array $param = null [, mixed &$ref = null ] ] )<br>
+<hr>
+该方法可以执行SQL语句，并返回结果集，同时传址参数返回自增值、影响记录数等相关数据。
+</blockquote>
+◎参数
+<blockquote>
+<i>sql</i>
+<blockquote>要执行的SQL语句，支持问号形式的占位符。</blockquote>
+<i>param</i>
+<blockquote>配合SQL语句和占位符对应的参数数组。</blockquote>
+<i>ref</i>
+<blockquote>如果传入一个变量，则返回一个数组，下标包括'insert_id','affected_rows','num_fields','num_rows'，注意'insert_id'是字符串类型，其他是整型。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+返回结果集，根据数据库类型的不同和执行SQL语句的不同而所不同。
+</blockquote>
+◎例子
+<blockquote>
+<b>执行语句的使用方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;执行SQL语句&nbsp;<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #DD0000">'SET&nbsp;NAMES&nbsp;GBK'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;执行带参数的SQL语句&nbsp;<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;FROM&nbsp;test&nbsp;WHERE&nbsp;id=?'</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;执行SQL语句，并返回执行信息&nbsp;<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;FROM&nbsp;test'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ref</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">'查询总数：'</span><span style="color: #007700">.</span><span style="color: #0000BB">$ref</span><span style="color: #007700">[</span><span style="color: #DD0000">'num_rows'</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;执行带参数的SQL语句，并返回执行信息&nbsp;<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;FROM&nbsp;test&nbsp;WHERE&nbsp;name&nbsp;LIKE&nbsp;?'</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">'test%'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$ref</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">'查询总数：'</span><span style="color: #007700">.</span><span style="color: #0000BB">$ref</span><span style="color: #007700">[</span><span style="color: #DD0000">'num_rows'</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;执行带参数的SQL语句，同时使用附加参数（仅针对PDO）&nbsp;<br /></span><span style="color: #0000BB">$ref&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_CURSOR&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">CURSOR_FWDONLY</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">execute</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;FROM&nbsp;test&nbsp;WHERE&nbsp;name=:name'</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'test'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$ref</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

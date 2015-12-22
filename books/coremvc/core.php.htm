@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<br>
+<h3>核心模块的API方法手册</h3>
+<b>《core.php》</b><br>
+<pre>
+class core {
+	
+	/*
+	 * 控制方法（静态调用）
+	 */
+	
+	<a href="init.php.htm" tppabs="http://coremvc.php5u.com/api/core/init.php.htm">public static function init()</a> {} // 初始化函数（可继承）
+	
+	<a href="stub.php.htm" tppabs="http://coremvc.php5u.com/api/core/stub.php.htm">public static function stub()</a> {} // 存根函数（可继承）
+	
+	<a href="main.php.htm" tppabs="http://coremvc.php5u.com/api/core/main.php.htm">public static function main()</a> {} // 入口函数（可继承）
+	
+	<a href="path.php.htm" tppabs="http://coremvc.php5u.com/api/core/path.php.htm">public static function path()</a> {} // 路径函数
+	
+	
+	/*
+	 * 视图方法（静态调用）
+	 */
+	
+	<a href="view.php.htm" tppabs="http://coremvc.php5u.com/api/core/view.php.htm">public static function view()</a> {} // 视图函数（可继承）
+	
+	
+	/*
+	 * 模型方法
+	 */
+	
+	// 第一组（静态调用）
+	<a href="connect.php.htm" tppabs="http://coremvc.php5u.com/api/core/connect.php.htm">public static function connect()</a> {} // 数据库连接
+	
+	<a href="execute.php.htm" tppabs="http://coremvc.php5u.com/api/core/execute.php.htm">public static function execute()</a> {} // 执行SQL语句
+	
+	<a href="prepare.php.htm" tppabs="http://coremvc.php5u.com/api/core/prepare.php.htm">public static function prepare()</a> {} // 准备SQL语句
+	
+	<a href="sequence.php.htm" tppabs="http://coremvc.php5u.com/api/core/sequence.php.htm">public static function sequence()</a> {} // 生成自增序列（可继承）
+
+	// 第二组（静态调用）
+	<a href="structs.php.htm" tppabs="http://coremvc.php5u.com/api/core/structs.php.htm">public static function structs()</a> {} // 静态构造函数（可继承）
+	
+	<a href="selects.php.htm" tppabs="http://coremvc.php5u.com/api/core/selects.php.htm">public static function selects()</a> {} // 静态选择函数（可继承）
+	
+	<a href="inserts.php.htm" tppabs="http://coremvc.php5u.com/api/core/inserts.php.htm">public static function inserts()</a> {} // 静态插入函数（可继承）
+	
+	<a href="updates.php.htm" tppabs="http://coremvc.php5u.com/api/core/updates.php.htm">public static function updates()</a> {} // 静态修改函数（可继承）
+	
+	<a href="deletes.php.htm" tppabs="http://coremvc.php5u.com/api/core/deletes.php.htm">public static function deletes()</a> {} // 静态删除函数（可继承）
+	
+	<a href="replaces.php.htm" tppabs="http://coremvc.php5u.com/api/core/replaces.php.htm">public static function replaces()</a> {} // 静态更新函数（可继承）
+	
+	// 第三组（实例调用）
+	<a href="struct.php.htm" tppabs="http://coremvc.php5u.com/api/core/struct.php.htm">public function struct()</a> {} // 实例构造函数（可继承）
+	
+	<a href="select.php.htm" tppabs="http://coremvc.php5u.com/api/core/select.php.htm">public function select()</a> {} // 实例选择函数（可继承）
+	
+	<a href="insert.php.htm" tppabs="http://coremvc.php5u.com/api/core/insert.php.htm">public function insert()</a> {} // 实例插入函数（可继承）
+	
+	<a href="update.php.htm" tppabs="http://coremvc.php5u.com/api/core/update.php.htm">public function update()</a> {} // 实例修改函数（可继承）
+	
+	<a href="delete.php.htm" tppabs="http://coremvc.php5u.com/api/core/delete.php.htm">public function delete()</a> {} // 实例删除函数（可继承）
+	
+	<a href="replace.php.htm" tppabs="http://coremvc.php5u.com/api/core/replace.php.htm">public function replace()</a> {} // 实例更新函数（可继承）
+
+}
+</pre>
+<br>
+
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

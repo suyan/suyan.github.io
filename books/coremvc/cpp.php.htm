@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<br>
+<pre>
+CPP: 通用分页协议(Common Pagination Protocol)
+
+修改时间：20090915
+
+
+1 介绍
+
+WEB程序有不少数据列表分页形态。通常由于列表分页在设计上有很多不同，很难将分页独立成一个通用的模块。但不可否认分页确实有很多相似点，如果能将分页通用的部份整理出来形成一个约定，那么用户开发的分页模块不仅仅在项目上通用，在不同的项目中只要修改样式也能做到通用。通用分页协议就是尽最大的限度将分页模块规范化，实现通用。
+
+
+2 定义
+
+通用分页协议分“协议”和“规范”两部份，这两部份用小数点连接。目前协议只有“CPP”这一个。
+如：CPP.PS[TC]，CPP表示协议，PS[TC]表示规范。
+
+规范各字母的含义
+P = page    页码，整数，建议默认值为1。
+S = size    每页条数，整数，建议默认值为1。
+T = total   页数，整数，建议默认值为0。
+C = count   条数，整数，建议默认值为0。
+U = url     URL的连接地址，字符串"?"或"index.php"等，建议默认为"?"（待讨论）
+K = key     URL的页码参数名称，字符串"page"或"p"等，建议默认为"page"。（待讨论）
+A = and     URL的参数连接符，字符串"&"或"&amp;"等，建议默认为"&"。（待讨论）
+Q = query   URL的参数数组，数组$_GET或$_POST等，建议默认为$_GET。（待讨论）
+M = method  提交方式，字符串"GET"或"POST"等，建议默认为"GET"。（待讨论）
+
+规范字母组合的含义
+规范中不在[]里的字母表示必要，在[]里的字母表示可选，不存在的字线表示忽略。
+
+
+3 语言
+
+PHP下用关联数组表示，比如：CPP.PSTC
+array('page'=>1, 'size'=>10, 'total'=>2, 'count'=>12);
+
+Javascript下用json来表示，比如：CPP.PSTC
+{"page":1,"size":10,"total":2,"count":12}
+
+
+4 建议
+
+1.规范中无论必要的还是可选的，建议都定义默认值。用户不传值过来时使用默认值，甚至用户传过来的CPP数组也可以是空的。
+2.分页模板最上部要写明使用了那个规范，比如“CPP.PSTC”，这样用户可以判断是否与程序匹配。
+3.规范中的可选项一般用于兼容的分页表现，比如“CPP.PS[TC]”，当用户传入TC时，显示的分页的样式和不传入TC时可能不同。
+</pre>
+<br>
+
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

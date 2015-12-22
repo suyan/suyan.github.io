@@ -1,0 +1,150 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::inserts</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::inserts — 将数据一次插入到数据库中去<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+int <b>core::inserts</b> ( [ mixed $table = null [, mixed $column = null [, mixed $value = null [, mixed $other = null [, string $class = null ] ] ] ] ] )<br>
+<hr>
+int <b>core::inserts</b> ( mixed $table , array $set [, null [, mixed $other = null [, string $class = null ] ] ] )<br>
+<hr>
+int <b>core::inserts</b> ( string $sql , array $param , true [, mixed $other = null [, string $class = null ] ] )<br>
+<hr>
+该方法可以将数据插入到数据库中去，可以插入一条记录，也可以插入多条记录。
+</blockquote>
+◎参数
+<blockquote>
+<i>table</i>
+<blockquote>表名参数拼装后会跟在INSERT之后，可以是字符串，也可以是数组。
+<pre>
+┌───────────────────────┬───────────────────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│INSERT 前缀+类名　　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│'table1'　　　　　　　　　　　　　　　　　　　│INSERT table1 　　　　　　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array('table1') 　　　　　　　　　　　　　　　│INSERT table1 　　　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array('t1'=>'table1') 　　　　　　　　　　　　│INSERT table1 AS t1 　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│array(array('DELAYED','IGNORE'),'table1') 　　│INSERT DELAYED IGNORE table1　　　　　　　　　│
+└───────────────────────┴───────────────────────┘
+</pre>
+</blockquote>
+<i>column</i>
+<blockquote>字段参数拼装后会跟在表名之后，可以是字符串，默认时为空。
+<pre>
+┌───────────────────────┬───────────────────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　　　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┤
+│'column1,column2' 　　　　　　　　　　　　　　│(column1,column2) 　　　　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┥
+│array('column1','column2')　　　　　　　　　　│(column1,column2) 　　　　　　　　　　　　　　│
+└───────────────────────┴───────────────────────┘
+</pre>
+</blockquote>
+<i>value</i>
+<blockquote>赋值参数拼装后会跟在VALUE之后，可以是字符串，也可以是数级或二维数组。注意该参数可以是插入一条记录也可以插入多条记录。
+<pre>
+┌───────────────────────┬───────────────────────┬───────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│　　占位参数数组值　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│'null,100,ABS(-1)'　　　　　　　　　　　　　　│VALUES (null,100,ABS(-1)) 　　　　　　　　　　│　　　　　　　　　　　│
+┝━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━┥
+│array(null,true,false,100,'ABS(-1)')　　　　　│VALUES (NULL,1,0,100,ABS(-1)) 　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1'=>null,'c2'=>'s1')　　　　　　　　　│VALUES (?,?)　　　　　　　　　　　　　　　　　│array(NULL,'s1')　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1'=>array('s1','s2')) 　　　　　　　　│VALUES CONCAT_WS(',',?,?) 　　　　　　　　　　│array('s1','s2')　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1'=>'s1','c2'=>array('s2','s3'))　　　│VALUES (?,CONCAT_WS(',',?,?)) 　　　　　　　　│array('s1','s2','s3') │
+├───────────────────────┼───────────────────────┼───────────┤
+│array(array('1','2'),array('3','4'))　　　　　│VALUES (1,2),(3,4)　　　　　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array(array('c1'=>'s1'),array('c2'=>'s2'))　　│VALUES (?),(?)　　　　　　　　　　　　　　　　│array('s1','s2')　　　│
+└───────────────────────┴───────────────────────┴───────────┘
+</pre>
+</blockquote>
+<i>other</i>
+<blockquote>其他参数拼装后会跟在整个SQL语句之后，这里一般是字符串。
+<pre>
+┌───────────────────────┬───────────────────────┬───────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│　　占位参数数组值　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│null　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　　　　　　　　　　　　　│　　　　　　　　　　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│'SELECT c1,c2 FROM table1'　　　　　　　　　　│SELECT c1,c2 FROM table1　　　　　　　　　　　│　　　　　　　　　　　│
+└───────────────────────┴───────────────────────┴───────────┘
+</pre>
+</blockquote>
+<i>set</i>
+<blockquote>设置参数拼装后会跟在SET语句之后，这里只能是关联数组。触发条件是赋值参数为空值。
+<pre>
+┌───────────────────────┬───────────────────────┬───────────┐
+│　　　　　　　　参数类型　　　　　　　　　　　│　　　　　　　SQL语句的结果 　　　　　　　　　│　　占位参数数组值　　│
+├───────────────────────┼───────────────────────┼───────────┤
+│array('c1'=>'s1','c2'=>array('s2','s3'))　　　│SET c1=?,c2=CONCAT_WS(',',?,?)　　　　　　　　│array('s1','s2','s3') │
+└───────────────────────┴───────────────────────┴───────────┘
+</pre>
+</blockquote>
+<i>class</i>
+<blockquote>当表名为空值时会以该类名加前缀作为表名，当该值还为空时PHP 5.3会取延迟绑定的类名加前缀作为表名。</blockquote>
+<i>sql</i>
+<blockquote>插入的SQL语句，支持问号形式的占位符。</blockquote>
+<i>param</i>
+<blockquote>配合SQL语句和占位符对应的参数数组。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+返回成功插入的条数。
+</blockquote>
+◎修改日志
+<blockquote>
+<pre>
+版本	描述<br>
+1.1	从该版本起支持SQL语句和参数的写法。
+</pre>
+</blockquote>
+◎例子
+<blockquote>
+<b>插入数据的使用方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;插入一条记录。&nbsp;<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">inserts</span><span style="color: #007700">(</span><span style="color: #DD0000">'pre_test'</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//返回成功插入的个数<br /><br />//&nbsp;直接使用SQL语句插入一条记录。&nbsp;<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">inserts</span><span style="color: #007700">(</span><span style="color: #DD0000">'INSERT&nbsp;INTO&nbsp;pre_test&nbsp;(id,name)&nbsp;VALUES&nbsp;(?,?)'</span><span style="color: #007700">,array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),</span><span style="color: #0000BB">true</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//返回成功插入的个数<br /><br />//&nbsp;从其他表选择插入多条记录。&nbsp;<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">inserts</span><span style="color: #007700">(</span><span style="color: #DD0000">'pre_test'</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">,</span><span style="color: #DD0000">'name'</span><span style="color: #007700">),</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'SELECT&nbsp;id,name&nbsp;FROM&nbsp;pre_test2'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//返回成功插入的个数<br /><br />//&nbsp;插入多条记录。&nbsp;<br /></span><span style="color: #0000BB">$arr&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'b'</span><span style="color: #007700">),<br />);<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">inserts</span><span style="color: #007700">(</span><span style="color: #DD0000">'pre_test'</span><span style="color: #007700">,</span><span style="color: #DD0000">'id,name'</span><span style="color: #007700">,</span><span style="color: #0000BB">$arr</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//返回成功插入的个数<br /><br />//&nbsp;插入需计算的记录。&nbsp;<br /></span><span style="color: #0000BB">$arr&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">"md5('a')"</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #DD0000">"md5('b')"</span><span style="color: #007700">),<br />);<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">inserts</span><span style="color: #007700">(</span><span style="color: #DD0000">'pre_test'</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">,</span><span style="color: #DD0000">'name'</span><span style="color: #007700">),</span><span style="color: #0000BB">$arr</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//返回成功插入的个数<br /><br />//&nbsp;使用类名插入记录。&nbsp;<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">inserts</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'test'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//使用前缀+类名作为表名，返回成功插入的个数<br /><br />//&nbsp;使用类名插入记录。&nbsp;<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">test&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{&nbsp;}<br /></span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">::</span><span style="color: #0000BB">inserts</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//使用前缀+类名作为表名（PHP&nbsp;5.3以上有效），返回成功插入的个数<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

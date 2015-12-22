@@ -1,0 +1,146 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::main</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::main — 入口函数<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+bool <b>core::main</b> ( [ mixed $framework_enable = null [, string $framework_require = null [, string $framework_module = null [, string $framework_action = null [, string $framework_parameter = null ] ] ] ] ] )<br>
+<hr>
+该方法可以根据框架配置自动执行相应的模块方法。该方法也有隐藏页面的功能。该方法除和参数对应的配置外，还有一个隐藏的配置属性framework_function，表示第一次访问main调用的方法名称。
+</blockquote>
+◎参数
+<blockquote>
+<i>framework_enable</i>
+<blockquote>是否要启用框架功能，如果不启用则直接进入页面隐藏功能。该方法可以是布尔值，也可以是用逗号分隔的字符串的组合，如“final,return”。
+<ul>
+<li>final : 只有定义为final方法的动作才会被框架调用，默认无论是否final都可调用。</li>
+<li>static : 只有定义为静态方法的动作才会被框架调用，static和object都没有时默认静态和动态方法都可以调用。</li>
+<li>object : 只有定义为动态方法的动作才会被框架调用，static和object都没有时默认静态和动态方法都可以调用。</li>
+<li>require : 返回由$framework_require定义的文件规则得到的文件名，找不到则返回false。require、module、action、parameter可以组合用返回按顺序的数组</li>
+<li>module : 返回由$freamework_module定义的模块规则模块名，找不到则返回false。require、module、action、parameter可以组合用返回按顺序的数组</li>
+<li>action : 返回由$freamework_action定义的动作规则动作名，找不到则返回false。require、module、action、parameter可以组合用返回按顺序的数组</li>
+<li>parameter : 返回由$freamework_parameter定义的以逗号分隔的参数，返回参数的数组。require、module、action、parameter可以组合用返回按顺序的数组</li>
+<li>return : 当框架调用成功时不返回布尔值，而是返回调用方法的返回值</li>
+<li>manual : 当框架调用失败时不隐藏页面，而是返回布尔值</li>
+</ul>
+</blockquote>
+<i>framework_require</i>
+<blockquote>模块文件的规则，只有符合规则的才继续进行。默认值是空值，即默认不用验证该规则。找到文件时会require_once进来。
+<ul>
+<li>[xxx] : 出现该项时会用$_GET的下标来替换，如找不到则为空串。</li>
+<li>{xxx} : 出现该项时会用$_POST的下标来替换，如找不到则为空串。</li>
+<li>(self) : 出现该项时会用核心类类名来替换。</li>
+<li>(static) : 出现该项时会用调用类类名来替换，如PHP 5.3以下的版本则返回空串。</li>
+<li>[get:xxx] : 出现该项时会用$_GET的顺序值或下标来替换，1表示第1个，找不到返回空串。get时值不改变大小写，Get时值仅头字母大写，gET时值仅头字母小写，GET时值全大写，geT时值全小写。</li>
+<li>[post:xxx] : 出现该项时会用$_POST的顺序值或下标来替换，1表示第1个，找不到返回空串。post时值不改变大小写，Post时值仅头字母大写，pOST时值仅头字母小写，POST时值全大写，posT时值全小写。</li>
+<li>[query:xxx] : 出现该项时会找$_SERVER ['QUERY_STRING']以&分隔的顺序值，1表示第1个，0表示整个QUERY，找不到返回空串</li>
+<li>[path:xxx] : 出现该项时会找$_SERVER ['PATH_INFO']以/分隔的顺序值，1表示第1个，0表示整个PATH_INFO，找不到返回空串</li>
+<li>[file:xxx] : 出现该项时会找调用本方法的文件名以路径分隔符分隔的顺序值，1表示不带后缀的文件名，2表示目录名，3表示上级目录名，0表示后缀名，找不到返回空串</li>
+<li>| : 该项的前后表示或的关系，该项会加到或数组中去。</li>
+<li>& : 该项的前后表示且的关系，之前的或数组用且来验证，可以使用通配符“*”。</li>
+<li>! : 该项的前后表示非的关系，之前的或数组用非来验证，可以使用通配符“*”。</li>
+</ul>
+</blockquote>
+<i>framework_module</i>
+<blockquote>模块类名的规则，只有符合规则的才继续进行。默认值是(static)!(self)，即PHP5.3找调用类名找不到找调用的文件名，但不能是核心模块类名。
+<ul>
+<li>[xxx] : 出现该项时会用$_GET的下标来替换，如找不到则为空串。</li>
+<li>{xxx} : 出现该项时会用$_POST的下标来替换，如找不到则为空串。</li>
+<li>(self) : 出现该项时会用核心类类名来替换。</li>
+<li>(static) : 出现该项时会用调用类类名来替换，如PHP 5.3以下的版本则返回空串。</li>
+<li>[get:xxx] : 出现该项时会用$_GET的顺序值或下标来替换，1表示第1个，找不到返回空串。get时值不改变大小写，Get时值仅头字母大写，gET时值仅头字母小写，GET时值全大写，geT时值全小写。</li>
+<li>[post:xxx] : 出现该项时会用$_POST的顺序值或下标来替换，1表示第1个，找不到返回空串。post时值不改变大小写，Post时值仅头字母大写，pOST时值仅头字母小写，POST时值全大写，posT时值全小写。</li>
+<li>[query:xxx] : 出现该项时会找$_SERVER ['QUERY_STRING']以&分隔的顺序值，1表示第1个，0表示整个QUERY，找不到返回空串</li>
+<li>[path:xxx] : 出现该项时会找$_SERVER ['PATH_INFO']以/分隔的顺序值，1表示第1个，0表示整个PATH_INFO，找不到返回空串</li>
+<li>[file:xxx] : 出现该项时会找调用本方法的文件名以路径分隔符分隔的顺序值，1表示不带后缀的文件名，2表示目录名，3表示上级目录名，0表示后缀名，找不到返回空串</li>
+<li>| : 该项的前后表示或的关系，该项会加到或数组中去。</li>
+<li>& : 该项的前后表示且的关系，之前的或数组用且来验证，可以使用通配符“*”。</li>
+<li>! : 该项的前后表示非的关系，之前的或数组用非来验证，可以使用通配符“*”。</li>
+</ul>
+</blockquote>
+<i>framework_action</i>
+<blockquote>动作方法名的规则，只有符合规则的才继续进行。默认值是[get:1]|index，即取第一个$_GET参数值或者index，但不能是核心模块类名。
+<ul>
+<li>[xxx] : 出现该项时会用$_GET的下标来替换，如找不到则为空串。</li>
+<li>{xxx} : 出现该项时会用$_POST的下标来替换，如找不到则为空串。</li>
+<li>(self) : 出现该项时会用核心类类名来替换。</li>
+<li>(static) : 出现该项时会用调用类类名来替换，如PHP 5.3以下的版本则返回空串。</li>
+<li>[get:xxx] : 出现该项时会用$_GET的顺序值或下标来替换，1表示第1个，找不到返回空串。get时值不改变大小写，Get时值仅头字母大写，gET时值仅头字母小写，GET时值全大写，geT时值全小写。</li>
+<li>[post:xxx] : 出现该项时会用$_POST的顺序值或下标来替换，1表示第1个，找不到返回空串。post时值不改变大小写，Post时值仅头字母大写，pOST时值仅头字母小写，POST时值全大写，posT时值全小写。</li>
+<li>[query:xxx] : 出现该项时会找$_SERVER ['QUERY_STRING']以&分隔的顺序值，1表示第1个，0表示整个QUERY，找不到返回空串</li>
+<li>[path:xxx] : 出现该项时会找$_SERVER ['PATH_INFO']以/分隔的顺序值，1表示第1个，0表示整个PATH_INFO，找不到返回空串</li>
+<li>[file:xxx] : 出现该项时会找调用本方法的文件名以路径分隔符分隔的顺序值，1表示不带后缀的文件名，2表示目录名，3表示上级目录名，0表示后缀名，找不到返回空串</li>
+<li>| : 该项的前后表示或的关系，该项会加到或数组中去，可以使用“::”表示特定的类名。</li>
+<li>& : 该项的前后表示且的关系，之前的或数组用且来验证，可以使用通配符“*”，可以使用“::”表示特定的类名。</li>
+<li>! : 该项的前后表示非的关系，之前的或数组用非来验证，可以使用通配符“*”，可以使用“::”表示特定的类名。</li>
+</ul>
+</blockquote>
+<i>framework_parameter</i>
+<blockquote>参数的规则，只有符合规则的才继续进行。该值默认是无参数，当该值是字符串时表示一个参数，数组时表示相应个数的参数。方法有几个参数位就传递几个参数。
+<ul>
+<li>[xxx] : 出现该项时会用$_GET的下标来替换，如找不到则为空串。</li>
+<li>{xxx} : 出现该项时会用$_POST的下标来替换，如找不到则为空串。</li>
+<li>(self) : 出现该项时会用核心类类名来替换。</li>
+<li>(static) : 出现该项时会用调用类类名来替换，如PHP 5.3以下的版本则返回空串。</li>
+<li>[get:xxx] : 出现该项时会用$_GET的顺序值或下标来替换，1表示第1个，找不到返回空串。get时值不改变大小写，Get时值仅头字母大写，gET时值仅头字母小写，GET时值全大写，geT时值全小写。</li>
+<li>[post:xxx] : 出现该项时会用$_POST的顺序值或下标来替换，1表示第1个，找不到返回空串。post时值不改变大小写，Post时值仅头字母大写，pOST时值仅头字母小写，POST时值全大写，posT时值全小写。</li>
+<li>[query:xxx] : 出现该项时会找$_SERVER ['QUERY_STRING']以&分隔的顺序值，1表示第1个，0表示整个QUERY，找不到返回空串</li>
+<li>[path:xxx] : 出现该项时会找$_SERVER ['PATH_INFO']以/分隔的顺序值，1表示第1个，0表示整个PATH_INFO，找不到返回空串</li>
+<li>[file:xxx] : 出现该项时会找调用本方法的文件名以路径分隔符分隔的顺序值，1表示不带后缀的文件名，2表示目录名，3表示上级目录名，0表示后缀名，找不到返回空串</li>
+<li>| : 该项的前后表示或的关系，该项会加到或数组中去，参数用逗号分隔。</li>
+<li>& : 该项的前后表示且的关系，用且的方式验证类名和方法名，可以使用通配符“*”，可以使用“::”表示特定的类名和方法名。</li>
+<li>! : 该项的前后表示非的关系，用非的方式验证类名和方法名，可以使用通配符“*”，可以使用“::”表示特定的类名和方法名。</li>
+</ul>
+</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+如果framework_enable的话require、module、action、parameter返回单个值或数组。如果framework_enable有return的话，调用成功时返回调用方法的返回值。其他返回布尔值，true表示调用框架成功，false表示调用框架失败。
+</blockquote>
+◎修改日志
+<blockquote>
+<pre>
+版本	描述<br>
+1.3	framework_enable增加了static属性，static和object都没有时默认静态和动态方法都可以调用。
+1.3	require、module、action、parameter可以随意组合使用，返回按顺序的数组，未通过的值返回false。
+1.3	原来条件统一成“|”、“&”、“!”，并且取消先后限制条件会从左到右判断，“&”和“!”后面可以带有“*”作为通配符。
+1.3	模块和动作修改了默认值。参数由原来的可以为数组改成统一使用字符串表示。
+</pre>
+</blockquote>
+◎例子
+<blockquote>
+<b>使用方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />sample</span><span style="color: #007700">::</span><span style="color: #0000BB">stub&nbsp;</span><span style="color: #007700">()&nbsp;and&nbsp;</span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'[action]Action'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//只有直接访问sample模块时使用自定义框架<br /></span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">stub&nbsp;</span><span style="color: #007700">()&nbsp;and&nbsp;</span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'final'</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'[go]|index'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//框架只访问final的方法，默认动作为index方法<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

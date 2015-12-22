@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::struct</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::struct — 通过对象或数组构造实例和返回实例的数组或成员<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+array <b>core::struct</b> ( array $array )<br>
+<hr>
+array <b>core::struct</b> ( object $object )<br>
+<hr>
+mixed <b>core::struct</b> ( int $index )<br>
+<hr>
+mixed <b>core::struct</b> ( string $name )<br>
+<hr>
+array <b>core::struct</b> ()<br>
+<hr>
+该方法可以根据数组或对象改变实例相应的成员，该方法还可以返回实例对应的数组或某个成员的值。
+</blockquote>
+◎参数
+<blockquote>
+<i>array</i>
+<blockquote>要赋值给对象各成员值的数组，该参数只会增加而不会减少实例的成员。返回的是赋值以后的对象所对应的数组。</blockquote>
+<i>object</i>
+<blockquote>要赋值给对象各成员值的对象，该参数只会增加而不会减少实例的成员。返回的是赋值以后的对象所对应的数组。</blockquote>
+<i>index</i>
+<blockquote>成员的位置。0表示第1个成员，1表示第2个成员，以此类推。超出范围时返回空值。</blockquote>
+<i>name</i>
+<blockquote>成员的名称。不存在该成员名时返回空值。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+除了整型参数和字符串型参数返回成员的值，其他的都返回实例所对应的数组。
+</blockquote>
+◎例子
+<blockquote>
+<b>指定表名和主键字段</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$user&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">struct&nbsp;</span><span style="color: #007700">(array&nbsp;(</span><span style="color: #DD0000">'user_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'name'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'张三'</span><span style="color: #007700">));<br /><br />echo&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">struct&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">struct&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$user2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">struct&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$user</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$user2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">struct&nbsp;</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

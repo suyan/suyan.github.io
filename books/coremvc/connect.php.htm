@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::connect</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::connect — 数据库连接<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+handle <b>core::connect</b> ( array $args [, array &$ref = null ] )<br>
+<hr>
+handle <b>core::connect</b> ( bool $connect [, array &$ref = null ] )<br>
+<hr>
+handle <b>core::connect</b> ( string $filename [, array &$ref = null ] )<br>
+<hr>
+mixed <b>core::connect</b> ( string $attribute [, array &$ref = null ] )<br>
+<hr>
+handle <b>core::connect</b> ( int $current [, array &$ref = null ] )<br>
+<hr>
+array <b>core::connect</b> ( [ null [, array &$ref = null ] ] )<br>
+<hr>
+该方法可以设置数据库参数，可以连接或断开数据库，也可以支持多数据库并自由选择。相关数据库方法会自动连接数据库，但该方法可以返回数据库句柄以便于手工操作数据库。
+</blockquote>
+◎参数
+<blockquote>
+<i>args</i>
+<blockquote>设置当前连接的数据库参数数组，非设置项不会替换已有的。</blockquote>
+<i>connect</i>
+<blockquote>是否连接数据库，如果是则连接数据库，如果否则断开数据库。</blockquote>
+<i>filename</i>
+<blockquote>当前连接的要导入的配置文件。文件名必须以“.php”结尾。</blockquote>
+<i>attribute</i>
+<blockquote>要取得属性值的属性名称，如果该属性名称不存在则返回空串。</blockquote>
+<i>current</i>
+<blockquote>要选择的当前数据库连接的编号，只能是非负整数，初始默认的是0。</blockquote>
+<i>ref</i>
+<blockquote>当前连接的配置信息数组。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+如果传入属性名称则返回属性值，未找到时返回空串。如果没有参数则返回所有数据库信息。其他情况下都会返回数据库连接句柄，未连接时返回空值。
+</blockquote>
+◎修改日志
+<blockquote>
+<pre>
+版本	描述<br>
+1.2	修改了部份参数及返回值，增加了配置文件参数和属性参数。
+1.3	删除了以“.ini”结尾的配置文件，增加了sql_format参数及环境变量设置方法。
+</pre>
+</blockquote>
+◎例子
+<blockquote>
+<b>连接数据库的各种方法</b><br>
+<br>
+《index.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">connect</span><span style="color: #007700">());&nbsp;</span><span style="color: #FF8000">//显示所有的数据库信息，包括不同连接的参数及连接句柄等。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.php'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//导入数据库配置文件，仅对当前连接有效。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">$ref</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//连接数据库，并在第二参数处返回配置信息，并返回连接句柄。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">connect</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'debug_enable'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">true</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//设置数据库参数。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">connect</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'sql_format'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">true</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//设置整合SQL参数以方便调试SQL语句。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'connect_provider'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//取数据库配置属性。<br /><br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//断开数据库，同时相应的配置信息也清空。<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+<br>
+《config.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'connect_username'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'root'</span><span style="color: #007700">,<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+<br>
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

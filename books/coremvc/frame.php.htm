@@ -1,0 +1,331 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<br>
+<h3>CoreMVC的框架结构</h3>
+<ul>
+<li><a href="#section1">CoreMVC模块驱动开发</a></li>
+<li><a href="#section2">CoreMVC的框架结构图</a></li>
+<li><a href="#section3">CoreMVC的三段式写法</a></li>
+<li>CoreMVC的目录风格
+	<ul>
+	<li>模块访问方式
+		<ul>
+		<li><a href="#m">“m”风格</a> —— 独立模块（module）</li>
+		<li><a href="#cm">“cm”风格</a> —— 应用模块（core + module）</li>
+		<li><a href="#chm">“chm”风格</a> —— 带配置应用模块（core + .htaccess + module）<font color="red">推荐</font></li>
+		<li><a href="#ccm">“ccm”风格</a> —— 带配置应用模块（core + config + module）</li>
+		<li><a href="#cchm">“cchm”风格</a> —— 带配置应用模块（core + config + .htaccess + module）</li>
+		</ul>
+	</li>
+	<li>单入口访问方式
+		<ul>
+		<li><a href="#icc-mt">“icc-mt”风格</a> —— 带配置单入口程序（index + config + core + modules/ + templates/）<font color="red">推荐</font></li>
+		<li><a href="#idc-mt">“idc-mt”风格</a> —— 带配置单入口程序（index + define + core + modules/ + templates/）</li>
+		<li><a href="#ch-mt">“ch-mt”风格</a> —— 隐式单入口程序（core + .htaccess + modules/ + templates/）</li>
+		<li><a href="#i-mt">“i-mt”风格</a> —— 显式单入口程序（index(core) + modules/ + templates/）</li>
+		</ul>
+	</li>
+	</ul>
+</li>
+<li><a href="#section4">CoreMVC核心模块方法分类</a></li>
+<li><a href="#section5">CoreMVC核心模块变化应用</a></li>
+</ul>
+<br>
+<h4><a name="section1">CoreMVC模块驱动开发</a></h4>
+<pre>
+　┌────┐　　┌────┐
+┌┤设计模块├──┤开发模块├┐
+│└────┘　　└────┘│
+│　　　　　　　　　　　　　　│
+└─────重构模块─────┘
+
+设计模块：将需求转化为模块，模块之间保持低耦合度，确定模块要实现的功能。
+
+开发模块：在模块内实现所需的功能，保持功能之间的逻辑关系，厘清模块之间的调用关系。
+
+重构模块：根据需求和用途继续优化模块结构，以达到重用和扩展效果，并提高运行效率。
+
+
+●　模块的设计原则
+
+需求用途：根据需求和用途分成几个独立的模块。
+
+耦合程度：模块和模块之间的耦合度尽可能疏松。
+
+重用程度：重用度高的部份可以设计成单独模块。
+
+模块大小：大小适宜同时兼顾开发运行管理效率。
+
+
+●　模块的开发原则
+
+易于设计：模块之间能体现泛化、包含、扩展的关系。
+
+易于开发：尽量用PHP内部函数，减少模块间的调用。
+
+易于测试：代码符合使用单元测试的功能。
+
+易于部署：模块可以很方便的组合，可快速部署和部署多个。
+</pre>
+<br>
+<h4><a name="section2">CoreMVC的框架结构图</a></h4>
+<pre>
+文件三类型：模块　　配置　　模板───┐
+　(MCT) 　　Module　Config　Template　│
+　　　　　　│　　　　　　　　　　　　│
+　　　　　　├───┬───┐　　　　│
+　　　　　　│　　　│　　　│　　　　│
+模块三段式：导入　　定义　　执行　　　│
+　(IDE) 　　Import　Define　Execute 　│
+　　　　　　　　　　│　　　　　　　　│
+　　　　　　┌───┼───┐　　　　│
+　　　　　　│　　　│　　　│　　　　│
+框架三步曲：模型　　视图　　控制　　　│
+　(MVC) 　　Model 　View　　Controler │
+　　　　　　　　　　│　　　　　　　　│
+　　　　　　　　　　└────────┘
+
+
+〖模块的分类和关系〗
+
+┌──────┐　┌────┐
+│　应用模块　├─┤　　　　│
+│┌────┐│　│独立模块│
+││核心模块├┼─┤　　　　│
+│└────┘│　└────┘
+└──────┘
+
+●　应用模块：直接针对业务应用的模块，在CoreMVC里通常继承核心模块后使用。
+
+●　核心模块：用于建立核心框架的模块，在CoreMVC里核心模块可以继承后扩展。
+
+●　独立模块：常用类库相对独立的模块，在CoreMVC里可被应用或核心模块调用。
+
+┌──────┐
+│　应用模块　│
+│┌────┐│　┌────┐
+││访问模块├┼─┤用户访问│
+│└────┘│　└────┘
+│┌────┐│　┌────┐
+││引用模块├┼─┤其他模块│
+│└────┘│　└────┘
+└──────┘
+
+●　应用模块：CoreMVC的应用模块把访问模块和引用模块合二为一了，既支持用户直接访问，也支持其他模块导入调用。
+
+●　访问模块：用户直接通过浏览器或命令行访问模块，其他框架一般把这部份做成Controller。
+
+●　引用模块：其他模块导入该模块并调用其方法属性，其他框架一般把这部份做成Model。
+
+
+〖各种配置文件〗
+
+●　httpd.conf：Apache配置文件，使用SetEnv设置环境变量。其他的IIS和Nginx也可以通过设置环境变量来配置。
+
+●　.htaccess：在Apache下可以使用此文件进行URL重写和使用SetEnv设置环境变量。在未找到core_config环境变量时，
+    其他的IIS和Nginx也会默认读取当前的此文件作为配置。该方法适合模块访问的方式。
+
+●　config.php：使用PHP返回配置数组值来配置，该方法适合单入口方式，因为需要主动载入。
+
+●　config.ini：使用ini形式的配置文件来配置，该方法适合单入口方式，因为需要主动载入。
+
+●　index.php：直接在单入口程序里写配置，该方法不适合在不同环境下部署的场合。
+
+●　core.php：直接修改核心文件来配置，该方法不适合需要更新核心模块的场合。
+</pre>
+<br>
+<h4><a name="section3">CoreMVC的三段式写法</a></h4>
+<fieldset>
+<legend>sample.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;导入(import)<br />&nbsp;*/<br /></span><span style="color: #0000BB">class_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'core'</span><span style="color: #007700">)&nbsp;or&nbsp;require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;定义(define)<br />&nbsp;*/<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">sample&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;在此定义模块方法和属性&nbsp;*/<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">stub&nbsp;</span><span style="color: #007700">()&nbsp;and&nbsp;</span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+以上是CoreMVC模块标准的三段式写法，使用这样的写法可以保证使用模块方式访问和使用单入口方式访问都无需修改模块程序。<br>
+<br>
+<fieldset>
+<legend>index.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;导入(import)<br />&nbsp;*/<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">init&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'config.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+以上是CoreMVC单入口程序的标准写法，该写法使用配置文件的方式，而单入口程序不会经常修改。<br>
+<br>
+<fieldset>
+<legend>sample.php</legend>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;导入(import)<br />&nbsp;*/<br /></span><span style="color: #0000BB">class_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'core'</span><span style="color: #007700">)&nbsp;or&nbsp;require_once&nbsp;</span><span style="color: #DD0000">'core.php'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;定义(define)<br />&nbsp;*/<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">sample&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;为以下配置时该方法可以被用户直接访问<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;framework_enable=final<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;framework_enable=true<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">final&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;为以下配置时该方法可以被用户直接访问<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;framework_enable=true<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;为以下配置时该方法可以被用户直接访问<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;framework_enable=final,object<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;framework_enable=object<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">final&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;为以下配置时该方法可以被用户直接访问<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;framework_enable=object<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />}<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;执行(execute)<br />&nbsp;*/<br /></span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">stub&nbsp;</span><span style="color: #007700">()&nbsp;and&nbsp;</span><span style="color: #0000BB">sample</span><span style="color: #007700">::</span><span style="color: #0000BB">main&nbsp;</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></fieldset>
+<br>
+以上是CoreMVC模块方法是否能被直接访问，和配置相关。<br>
+<br>
+<br>
+<h4>CoreMVC的目录风格</h4>
+<h5><a name="m">第一种：“m”风格</a></h5>
+目录结构：
+<pre>
+<font color="blue">[module].php</font>	独立模块
+<font color="green">[module]\</font>		模块目录（可省略）
+</pre>
+模块程序秉承CoreMVC思想或由核心文件直接修改而成，通常这是为了方便作为独立模块使用，更可将模块目录中的配置和模板也一并写到模块程序里去从而省掉模块目录。<br>
+<br>
+<h5><a name="cm">第二种：“cm”风格</a></h5>
+目录结构：
+<pre>
+<font color="blue">core.php</font>		核心模块
+<font color="blue">[module].php</font>	模块程序
+<font color="green">[module]\</font>		模块目录（可省略）
+</pre>
+模块程序是标准的三段式结构：导入、定义、执行。用户直接访问的是模块文件，在核心文件里直接写配置参数。<br>
+<br>
+<h5><a name="chm">第三种：“chm”风格</a>（推荐）</h5>
+目录结构：
+<pre>
+<font color="blue">core.php</font>		核心模块
+<font color="blue">.htaccess</font>		Apache配置文件
+<font color="blue">[module].php</font>	模块程序
+<font color="green">[module]\</font>		模块目录（可省略）
+</pre>
+模块程序是标准的三段式结构：导入、定义、执行。用户直接访问的是模块文件，核心文件不变，在Apache配置文件里写配置参数。<br>
+<br>
+<h5><a name="ccm">第四种：“ccm”风格</a></h5>
+目录结构：
+<pre>
+<font color="blue">core.php</font>		核心模块
+<font color="blue">config.php</font>	配置文件
+<font color="blue">[module].php</font>	模块程序
+<font color="green">[module]\</font>		模块目录（可省略）
+</pre>
+模块程序是标准的三段式结构：导入、定义、执行。用户直接访问的是模块文件，在核心文件里写配置文件所在的位置，在配置文件里写配置。<br>
+<br>
+<h5><a name="cchm">第五种：“cchm”风格</a></h5>
+目录结构：
+<pre>
+<font color="blue">core.php</font>		核心模块
+<font color="blue">config.php</font>	配置文件
+<font color="blue">.htaccess</font>		Apache配置文件
+<font color="blue">[module].php</font>	模块程序
+<font color="green">[module]\</font>		模块目录（可省略）
+</pre>
+模块程序是标准的三段式结构：导入、定义、执行。用户直接访问的是模块文件，核心文件不变，在Apache配置文件里写配置文件位置，在配置文件里写配置。<br>
+<br>
+<h5><a name="icc-mt">第六种：“icc-mt”风格（推荐）、“ic[c]-m[t][c]”风格</a></h5>
+目录结构：
+<pre>
+<font color="blue">index.php</font>			入口程序
+<font color="blue">core.php</font>			核心模块
+<font color="green">config.php</font>		配置文件（可省略）
+<font color="blue">modules\[module].php</font>	模块文件
+<font color="green">templates\[module]\</font>	模板目录（可省略）
+<font color="green">configs\[module]\</font>		配置目录（可省略）
+</pre>
+首页文件作为单入口可兼职配置文件或导入另外的配置文件。核心文件不需要修改。此时模块程序只需保留三段式中的“定义”部份即可。<br>
+<br>
+<h5><a name="idc-mt">第七种：“idc-mt”风格、“idc-m[t][c]”风格</a></h5>
+目录结构：
+<pre>
+<font color="blue">index.php</font>			入口程序
+<font color="blue">define.php</font>		配置文件
+<font color="blue">core.php</font>			核心模块
+<font color="blue">modules\[module].php</font>	模块文件
+<font color="green">templates\[module]\</font>	模板目录（可省略）
+<font color="green">configs\[module]\</font>		配置目录（可省略）
+</pre>
+首页文件作为单入口程序和一般配置，而配置文件里仅定义和环境有关的参数。核心文件不需要修改。此时模块程序只需保留三段式中的“定义”部份即可。<br>
+<br>
+<h5><a name="ch-mt">第八种：“ch-mt”风格、“c[c]h-m[t][c]”风格</a></h5>
+目录结构：
+<pre>
+<font color="blue">core.php</font>			核心模块
+<font color="green">config.php</font>		配置文件（可省略）
+<font color="blue">.htaccess</font>			Apache配置文件
+<font color="blue">modules\[module].php</font>	模块文件
+<font color="green">templates\[module]\</font>	模板目录（可省略）
+<font color="green">configs\[module]\</font>		配置目录（可省略）
+</pre>
+Apache配置文件写重定向到核心程序，在核心文件或Apache配置文件里写配置或写配置文件所在的位置。此时模块程序只需保留三段式中的“定义”部份即可。<br>
+<br>
+<h5><a name="i-mt">第九种：“i-mt”风格、“i[c]-m[t][c]”风格</a></h5>
+目录结构：
+<pre>
+<font color="blue">index.php</font>			核心模块
+<font color="green">config.php</font>		配置文件（可省略）
+<font color="blue">modules\[module].php</font>	模块文件
+<font color="green">templates\[module]\</font>	模板目录（可省略）
+<font color="green">configs\[module]\</font>		配置目录（可省略）
+</pre>
+将核心模块改名为首页名称，在核心文件里直接写配置或写配置文件所在的位置。此时模块程序只需保留三段式中的“定义”部份即可。<br>
+<br>
+<br>
+<h4><a name="section4">CoreMVC核心模块方法分类</a></h4>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">core&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;控制方法（静态调用）<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;初始化函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">stub</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;存根函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">main</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;入口函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">path</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;路径函数<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;/*<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;视图方法（静态调用）<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">view</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;视图函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;/*<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;模型方法<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;第一组（静态调用）<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">connect</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;数据库连接<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">execute</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;执行SQL语句<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;准备SQL语句<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">sequence</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;生成自增序列（可继承）<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;第二组（静态调用）<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">structs</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;静态构造函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">selects</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;静态选择函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">inserts</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;静态插入函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">updates</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;静态修改函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">deletes</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;静态删除函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">replaces</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;静态更新函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;第三组（实例调用）<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">struct</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;实例构造函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">select</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;实例选择函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">insert</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;实例插入函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">update</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;实例修改函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">delete</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;实例删除函数（可继承）<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">replace</span><span style="color: #007700">()&nbsp;{}&nbsp;</span><span style="color: #FF8000">//&nbsp;实例更新函数（可继承）<br /><br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+<br>
+<h4><a name="section5">CoreMVC核心模块变化应用</a></h4>
+<ul>
+<li>core.php
+	<ul>
+	<li>改动
+		<ul>
+		<li>改文件名
+			<ul>
+			<li>改类名 —— <font color="red">独立模块</font></li>
+			<li>不改类名 —— <font color="red">显式入口程序</font></li>
+			</ul>
+		</li>
+		<li>不改文件名
+			<ul>
+			<li>改方法 —— <font color="red">固定扩充核心模块</font></li>
+			<li>改配置 —— <font color="red">隐式入口程序、免配置文件</font></li>
+			</ul>
+		</li>
+		</ul>
+	</li>
+	<li>不改动
+		<ul>
+		<li>桥接
+			<ul>
+			<li>继承 —— <font color="red">灵活扩充核心模块</font></li>
+			<li>导入 —— <font color="red">配置文件</font></li>
+			</ul>
+		</li>
+		<li>直接
+			<ul>
+			<li>继承 —— <font color="red">应用模块</font></li>
+			<li>导入 —— <font color="red">单入口程序</font></li>
+			</ul>
+		</li>
+		</ul>
+	</li>
+	</ul>
+</li>
+</ul>
+<br>
+
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

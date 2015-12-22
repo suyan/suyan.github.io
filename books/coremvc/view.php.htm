@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<h4>core::view</h4>
+(CoreMVC 1.0)<br>
+<br>
+core::view — 显示指定的模板<br>
+<br>
+<hr>
+<br>
+◎描述
+<blockquote>
+string <b>core::view</b> ( string $_view_file [, array $_view_vars = null [, string $_view_type = null [, bool $_view_show = null ] ] ] )<br>
+<hr>
+string <b>core::view</b> ( [ array $_view_global = null ] )<br>
+<hr>
+该方法可以根据条件显示不同类型的模板。
+</blockquote>
+◎参数
+<blockquote>
+<i>_view_file</i>
+<blockquote>模板文件，通常指定相对目录即可，这样可以不改变程序的情况下调整模板路径。以下是模板文件路径的说明<br>
+<ul>
+<li>无论是否设置了模板路径，“@”开头的模板文件一定会以核心文件所在的目录为基准。</li>
+<li>无论是否设置了模板路径，“/”、“\”、“./”、“.\”开头的模板文件一定会以该目录为基准。</li>
+<li>其他的的模板文件所在的路径会以模板路径配置为基准。</li>
+</ul>
+</blockquote>
+<i>_view_vars</i>
+<blockquote>传入模板变量的关联数组，数组的下标在模板里会变成变量名，数组值会变成模板里的变量值。<br>
+</blockquote>
+<i>_view_type</i>
+<blockquote>模板类型。系统自带的类型有两种，“include”和“string”，前者是原生模板，后者是使用字符串的方式但可以使用变量。
+目前扩展支持的其他模板类型有“smarty2”、“smarty3”、“smarty2zip”，这些需要相应的扩展文件，其中“smarty2zip”有自动下载smarty包的功能。默认值是使用模板类型的配置，如果没有配置则使用原生模板。
+</blockquote>
+<i>_view_show</i>
+<blockquote>是否显示，逻辑值。默认为显示，否则只返回页面而不显示。</blockquote>
+<i>_view_global</i>
+<blockquote>设置视图全局变量，并返回当前的视图全局变量。</blockquote>
+</blockquote>
+◎返回值
+<blockquote>
+返回输出的模板字符串。
+</blockquote>
+◎修改日志
+<blockquote>
+<pre>
+版本	描述<br>
+1.3	增加了视图全局变量_view_global参数。
+</pre>
+</blockquote>
+◎例子
+<blockquote>
+<b>使用模板的几种方法</b><br>
+<br>
+《test.php》<br>
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;在类中通常的使用方法<br /></span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">__CLASS__&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'/'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">__FUNCTION__&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'.tpl'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">compact&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'var1'</span><span style="color: #007700">,</span><span style="color: #DD0000">'var2'</span><span style="color: #007700">));<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;多个模板一起用<br /></span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'common/head.tpl'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">compact&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'online'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">__CLASS__&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'/'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">__FUNCTION__&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'.tpl'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">compact&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'var1'</span><span style="color: #007700">,</span><span style="color: #DD0000">'var2'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">view&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'common/foot.tpl'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">compact&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'online'</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;使用特殊的模板。&nbsp;<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">view&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'sample.html'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$param_array</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'smarty'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;使用返回的方式处理<br /></span><span style="color: #0000BB">$content&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">view&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'sample.tpl'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$param_array</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$content</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;使用视图全局变量<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">view&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$global</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">core</span><span style="color: #007700">::</span><span style="color: #0000BB">view&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'sample.html'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code><br>
+</blockquote>
+
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>

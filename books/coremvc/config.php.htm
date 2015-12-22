@@ -1,0 +1,140 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=GBK">
+<title>CoreMVC PHP开源框架</title>
+</head>
+<body>
+
+<a href="index.php.htm" tppabs="http://coremvc.php5u.com/index.php.htm"><img src="logo.gif" tppabs="http://coremvc.php5u.com/images/logo.gif" border="0" alt="CoreMVC"></a>　
+·<a href="index.php-1.htm" tppabs="http://coremvc.php5u.com/download/index.php.htm">下载</a>
+·<a href="index.php-2.htm" tppabs="http://coremvc.php5u.com/docs/index.php.htm">文档</a>
+·<a href="index.php-3.htm" tppabs="http://coremvc.php5u.com/modules/index.php.htm">模块</a> |
+·<a href="hello_world.php.htm" tppabs="http://coremvc.php5u.com/hello_world.php.htm">Hello World</a>
+·<a href="frame.php.htm" tppabs="http://coremvc.php5u.com/frame.php.htm">框架结构</a>
+<hr>
+<div style="margin-left:100px">
+<br>
+<h3>核心模块的配置手册</h3>
+<b>《core.php》</b><br>
+<pre>
+class core {
+	
+	/*
+	 * 配置文件
+	 *
+	 * 1.文件名必须以.php或.ini结尾。
+	 * 2.以.php结尾的配置文件返回的应该是和配置信息相关的数组。
+	 * 3.以@开头则表示与核心类在同一目录，如：@config.php。
+	 * 4.配置文件是最先被载入的，然后是环境变量里的，最后是程序手动载入的。
+	 */
+	private static $config' = '';
+
+}
+
+class core {
+
+	/*
+	 * 配置数组
+	 *
+	 * 1.如果属性不定义或者定义成null都将被认为是默认值空串。
+	 * 2.以下属性是核心模块可能会用到的，但不限于这些属性，其他模块的某些属性也可以在这里定义。
+	 * 3.该配置数组如果在环境变量里重新定义则会覆盖。
+	 * 4.以下参数都是从CoreMVC 1.0开始
+	 */
+	private static $config = array(
+
+		'autoload_enable' => '', //自动载入开关
+
+		'autoload_path' => '', //自动载入路径
+
+		'autoload_extensions' => '', //自动载入后缀
+
+		'autoload_prepend' => '', //自动载入顺序，CoreMVC 1.1开始支持
+
+		'framework_enable' => '', //框架控制开关
+
+		'framework_function' => '', //框架控制的托管函数，CoreMVC 1.2开始支持
+
+		'framework_require' => '', //框架控制的包含文件
+
+		'framework_module' => '', //框架控制的模块参数
+
+		'framework_action' => '', //框架控制的动作参数
+
+		'framework_parameter' => '', //框架控制的传参参数，CoreMVC 1.1开始支持
+
+		'hide_info' => '', //隐藏程序时的提示信息，CoreMVC 1.2开始支持
+
+		'hide_info_cli' => '', //隐藏程序时CLI下的提示信息，CoreMVC 1.2开始支持
+
+		'hide_info_web' => '', //隐藏程序时WBE下的提示信息，CoreMVC 1.2开始支持
+
+		'extension_enable' => '', //扩展类库开关
+
+		'extension_path' => '', //扩展模块路径
+
+		'extension_prepend' => '', //扩展路径顺序
+
+		'config_path' => '', //配置文件路径
+
+		'template_path' => '', //视图模板路径
+
+		'template_search' => '', //视图模板路径标识符，CoreMVC 1.1开始支持
+
+		'template_replace' => '', //视图模板路径替换值，CoreMVC 1.1开始支持
+
+		'template_type' => '', //视图模板类型
+
+		<strike>'template_show' => '', //视图是否显示，CoreMVC 1.2开始去除</strike>
+
+		'connect_provider' => '', //数据库提供类型
+
+		'connect_dsn' => '', //数据库连接字符串
+
+		'connect_type' => '', //数据库连接类型
+
+		'connect_server' => '', //数据库连接服务器
+
+		'connect_username' => '', //数据库连接帐号
+
+		'connect_password' => '', //数据库连接密码
+
+		'connect_new_link' => '', //数据库连接新连接参数
+
+		'connect_client_flags' => '', //数据库连接客户端参数
+
+		'connect_dbname' => '', //数据库连接初始数据库
+
+		'connect_charset' => '', //数据库连接编码
+
+		'connect_port' => '', //数据库连接端口号
+
+		'connect_socket' => '', //数据库连接socket值
+
+		'connect_driver_options' => '', //数据库连接选项值
+
+		'prefix_search' => '', //表名前缀标识符
+
+		'prefix_replace' => '', //表名前缀替换值
+
+		'debug_enable' => '', //数据库调试开关，CoreMVC 1.1开始支持
+
+		'debug_file' => '', //数据库调试文件，CoreMVC 1.1开始支持
+
+		<b>'sql_format' => '', //是否强制参数转SQL，CoreMVC 1.3开始支持</b>
+
+	);
+
+}
+</pre>
+<br>
+
+
+
+</div>
+<hr>
+<br>
+CoreMVC是PHP的一款小巧精致的MVC框架，遵循New BSD协议发布。
+
+</body>
+</html>
