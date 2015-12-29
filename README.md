@@ -1,7 +1,7 @@
 ### 我的博客
 
-地址：[http://yansu.org](http://yansu.org)
-
+地址：[dejavuzhou](http://dejavuzhou.github.io)
+Date:description all OK
 ### 安装说明
 
 1. fork库到自己的github
@@ -16,3 +16,8 @@
 - 三栏布局（master分支，基于[3-Jekyll](https://github.com/P233/3-Jekyll)）
 - 三栏布局 (bootstrap-based分支，基于Bootstrap)
 - 单栏布局（first-ui分支，基于Bootstrap）
+####我的第一个md文件编辑
+*awesome
+*legendery
+*great
+*cool
