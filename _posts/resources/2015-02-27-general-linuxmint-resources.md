@@ -38,7 +38,7 @@ description:
 ## 开发软件安装
 
     sudo apt install remmina #远程管理工具
-    sudo apt install docker.io #安装docker
+    sudo apt install -y curl && curl -sSL https://get.docker.com/ | sudo sh #安装docker
     sudo apt install git git-svn gitk meld #版本控制工具 和 文件对比工具
     sudo apt-get install default-jdk #安装部分软件phpstrom,netbeans等需要,linuxmint自带了
 
