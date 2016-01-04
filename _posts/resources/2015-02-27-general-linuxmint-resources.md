@@ -31,7 +31,7 @@ description:
 
     sudo add-apt-repository ppa:lainme/pidgin-lwqq && sudo apt-get update && sudo apt-get install pidgin-lwqq #QQ
     sudo apt install virtualbox-nonfree
-    sudo sed -i 's/vboxusers:x:124:/vboxusers:x:124:chenlianghong/g' /etc/group #权限设置,把chenlianghong换成你的名字
+    sudo usermod -aG vboxusers lee #把自己加入虚拟机用户用户组
     sudo apt install terminator #下载一个好用的终端
     sudo apt install backintime-common backintime-gnome #建立系统还原点
     
@@ -39,6 +39,7 @@ description:
 
     sudo apt install remmina #远程管理工具
     sudo apt install -y curl && curl -sSL https://get.docker.com/ | sudo sh #安装docker
+    sudo usermod -aG docker lee #把自己加入 docker用户组
     sudo apt install git git-svn gitk meld #版本控制工具 和 文件对比工具
     sudo apt-get install default-jdk #安装部分软件phpstrom,netbeans等需要,linuxmint自带了
 
