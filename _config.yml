@@ -12,7 +12,7 @@ kramdown:
 author:
   name: 陈良红
   email: clh021@gmail.com
-  link:http://lianghong.dongshenghuo.com
+  link:lianghong.dongshenghuo.com
   weibo:clh021
   github:clh021
   codepen:clh021
@@ -22,7 +22,7 @@ author:
 title: 良宏良仔
 description: 良仔的个人博客
 #url:  http://clh021.github.io
-url: http://lianghong.dongshenghuo.com
+url: lianghong.dongshenghuo.com
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
