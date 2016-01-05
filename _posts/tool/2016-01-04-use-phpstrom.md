@@ -44,10 +44,11 @@ description:
 
     “File”-“Add to Favorites” 项目收藏夹
     “File”-“File Encoding” 文件编码
-    汉化可以无形中帮你省掉很多事情 看 [这里](https://github.com/clh021/PhpStorm-Chinese) 
+    汉化可以无形中帮你省掉很多事情 看 https://github.com/clh021/PhpStorm-Chinese
     浮动和固定工具窗 pinned and docked mode
+    如何浮动工具窗口 左下角状态栏按钮
 
 # TODO
 
     如何使用terminal方便的连接远程主机
-    如何浮动工具窗口
+    
