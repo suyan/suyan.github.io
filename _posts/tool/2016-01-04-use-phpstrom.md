@@ -47,6 +47,7 @@ description:
     汉化可以无形中帮你省掉很多事情 看 https://github.com/clh021/PhpStorm-Chinese
     浮动和固定工具窗 pinned and docked mode
     如何浮动工具窗口 左下角状态栏按钮
+    显示行号 “File”-“Settings”-“Editor”(编辑器)-(通用)-(外观)-(显示行号 等)
 
 # TODO
 
