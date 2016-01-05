@@ -49,8 +49,11 @@ description:
     如何浮动工具窗口 左下角状态栏按钮
     显示行号 “File”-“Settings”-“Editor”(编辑器)-(通用)-(外观)-(显示行号 等)
     查找替换 ctrl + r
+    使用 Tools -> start ssh session -> 可以很方便的开启远程主机的命令终端
+    使用 C:\Program Files (x86)\Git\bin\sh.exe -login -i 即可方便的在phpstorm中使用好用的gitbash终端
 
 # TODO
 
-    如何使用terminal方便的连接远程主机
+    如何连接docker并调试
+    如何连接远程主机并调试
     
