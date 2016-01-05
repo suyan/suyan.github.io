@@ -48,6 +48,7 @@ description:
     浮动和固定工具窗 pinned and docked mode
     如何浮动工具窗口 左下角状态栏按钮
     显示行号 “File”-“Settings”-“Editor”(编辑器)-(通用)-(外观)-(显示行号 等)
+    查找替换 ctrl + r
 
 # TODO
 
