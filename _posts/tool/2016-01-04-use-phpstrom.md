@@ -49,4 +49,5 @@ description:
 
 # TODO
 
-    如何
+    如何使用terminal方便的连接远程主机
+    如何浮动工具窗口
