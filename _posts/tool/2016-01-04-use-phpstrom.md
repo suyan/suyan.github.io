@@ -51,6 +51,8 @@ description:
     查找替换 ctrl + r
     使用 Tools -> start ssh session -> 可以很方便的开启远程主机的命令终端
     使用 C:\Program Files (x86)\Git\bin\sh.exe -login -i 即可方便的在phpstorm中使用好用的gitbash终端
+    alt+7 可以查看类的函数列表 alt+1 可以查看文件列表
+    代码提示   底部面板的信息提示 Disable Power Save Mode 点击即可关闭
 
 # TODO
 
