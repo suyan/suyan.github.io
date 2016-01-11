@@ -317,8 +317,6 @@ void max_heapify(vector<int> &nums, int beg, int end)
             num[child] = temp;
             curr = child;
             child = 2 * curr + 1;
-        } else {
-            break;
         }
     }
 }
