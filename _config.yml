@@ -9,14 +9,14 @@ kramdown:
 author: 
   name: 杨帆
   email: victory04@163.com
-  link: http://yangfan.github.io
+  link: http://fanyang91.github.io
   weibo: http://weibo.com/976256458
-  github: https://github.com/Alria
+  github: https://github.com/fanyang91
 
 # 站点信息
 title: 杨帆的博客 
 description: 杨帆的博客
-url: http://yangfan.github.io
+url: http://fanyang91.github.io
 rss_url: /pages/atom.xml
 
 # avatar头像及Favicon
