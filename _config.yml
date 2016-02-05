@@ -1,6 +1,6 @@
 permalink: /:year/:month/:day/:title.html
 markdown: kramdown
-pygments: true
+highlighter: rouge
 
 kramdown:
   input: GFM
