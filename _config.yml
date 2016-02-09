@@ -7,16 +7,16 @@ kramdown:
 
 # 作者信息
 author: 
-  name: 闫肃
-  email: suyan0830@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
-  github: http://github.com/suyan
+  name: 杨帆
+  email: victory04@163.com
+  link: https://fanyang91.github.io
+  weibo: http://weibo.com/976256458
+  github: https://github.com/fanyang91
 
 # 站点信息
-title: 闫肃的博客 
-description: 闫肃的博客
-url: http://yansu.org
+title: 杨帆的博客 
+description: 杨帆的博客
+url: http://fanyang91.github.io
 rss_url: /pages/atom.xml
 
 # avatar头像及Favicon
