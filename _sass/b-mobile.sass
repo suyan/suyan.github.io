@@ -1,0 +1,45 @@
+
+@media screen and (max-width: $breakpoint-mobile)
+  #sidebar
+    left: -100%
+    width: 100%
+    overflow: auto
+    -webkit-overflow-scrolling: touch
+    transition: transform .25s $time-function
+    &-left, &-right
+      float: none
+      width: 100%
+      height: auto
+    &-avatar
+      margin: 20px auto 15px
+    &-tags
+      display: none
+
+  .sidebar-social-icon
+    margin: 0 2px
+    font-size: 26px
+
+  #search
+    &-box
+      height: 52px
+      &:before
+        line-height: 52px
+    &-input
+      padding-top: 10px
+      padding-bottom: 10px
+      line-height: 32px
+
+  .post
+    padding-top: 20px
+    font-size: 16px
+    line-height: 1.5
+    p, ul, ol
+      margin-bottom: 24px
+
+  #menu
+    top: 0
+    right: 0
+    border-radius: 0 0 0 2px
+
+  #not-found
+    font-size: 16px

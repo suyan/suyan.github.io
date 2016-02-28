@@ -1,0 +1,14 @@
+
+@media screen and (max-width: $breakpoint-hide-sidebar)
+  #sidebar
+    left: -$sidebar-width
+    &.open
+      transform: translateX(100%)
+
+  #main
+    width: 100%
+  #menu
+    display: block
+  .container
+    max-width: $post-width-at-1-column
+    width: 100%

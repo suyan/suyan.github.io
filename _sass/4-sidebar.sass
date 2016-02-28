@@ -1,0 +1,184 @@
+
+// Sidebar Layout
+
+#sidebar
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  z-index: 20
+  width: $sidebar-width
+  overflow: hidden
+  transition: left .35s $time-function, transform .35s $time-function
+  user-select: none
+  &-left
+    float: left
+    width: $sidebar-left-width
+    height: 100%
+    background: $sidebar-left-bg
+  &-right
+    float: left
+    width: $sidebar-right-width
+    height: 100%
+    background: $sidebar-right-bg
+
+
+// Sidebar Left
+
+#sidebar-avatar
+  display: block
+  width: $avatar-size
+  margin: 4vh auto 1.5vh
+  border: $avatar-border-size solid $avatar-border-color
+  border-radius: 50%
+  overflow: hidden
+  &-img
+    display: block
+    width: 100%
+
+
+#sidebar-social
+  padding: 0 $social-icon-outer-padding 3vh
+  text-align: center
+
+.sidebar-social-icon
+  display: inline-block
+  margin: 0 $social-icon-margin
+  font-size: $social-icon-size
+  text-decoration: none
+  color: $social-icon-color
+  outline: none
+  transition: color .15s linear
+  &:hover
+    color: $social-icon-hover-color
+
+  &:before
+    @extend %icon
+
+  &.feed:before
+    @extend %icon-feed
+  &.email:before
+    @extend %icon-mail
+  &.twitter:before
+    @extend %icon-twitter
+  &.weibo:before
+    @extend %icon-weibo
+  &.github:before
+    @extend %icon-github
+  &.codepen:before
+    @extend %icon-codepen
+  &.dribbble:before
+    @extend %icon-dribbble
+
+
+#sidebar-tags
+  margin: 0
+  padding: 0
+  list-style: none
+  border-top: 1px solid $tag-border-color
+
+
+.sidebar-tag
+  font-size: $tag-font-size
+  line-height: $tag-height
+  text-align: center
+  color: $tag-color
+  border-bottom: 1px solid $tag-border-color
+  transition: color .15s linear, box-shadow .3s $time-function
+  cursor: pointer
+  &:hover
+    color: $tag-hover-color
+    box-shadow: inset 6px 0 0 $toc-bg
+  &.active
+    color: $tag-active-color
+    box-shadow: inset $sidebar-left-width 0 0 $toc-bg
+
+
+// Sidebar Right
+
+#search-box
+  position: relative
+  height: $search-box-height
+  margin-bottom: 1px
+  &:before
+    @extend %icon
+    @extend %icon-search
+    position: absolute
+    top: 0
+    right: 15px
+    z-index: -1
+    font-size: 24px
+    line-height: $search-box-height
+    color: $search-box-placeholder
+
+
+#search-input
+  width: 100%
+  height: 100%
+  padding: 20px 45px 20px 15px
+  font-size: $search-box-font-size
+  line-height: $search-box-height - 20px * 2
+  color: $search-box-color
+  background: $search-box-bg
+  border: none
+  border-radius: 0
+  outline: none
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  &::-webkit-input-placeholder
+    color: $search-box-placeholder
+  &::-moz-placeholder
+    color: $search-box-placeholder
+    opacity: 1
+  &:-moz-placeholder
+    color: $search-box-placeholder
+    opacity: 1
+  &:-ms-input-placeholder
+    color: $search-box-placeholder
+
+
+#toc
+  height: calc(100% - #{$search-box-height + 1})
+  padding-top: 15px
+  background: $toc-bg
+  overflow-y: auto
+  -webkit-overflow-scrolling: touch
+  &:after
+    content: ""
+    float: left
+    clear: both
+    width: 100%
+    height: 10px
+  &::-webkit-scrollbar
+    width: $toc-scrollbar-width
+  &::-webkit-scrollbar-thumb
+    background: $toc-scrollbar-color
+
+.toc-link
+  position: relative
+  float: left
+  clear: both
+  margin: 5px 0
+  padding: 0 15px 0 32px
+  font-size: $toc-font-size
+  line-height: $toc-line-height
+  white-space: nowrap
+  text-decoration: none
+  text-overflow: ellipsis
+  color: $toc-color
+  overflow: hidden
+  outline: none
+  &:before
+    position: absolute
+    top: 2px
+    left: 12px
+    z-index: 1
+    @extend %icon
+    @extend %icon-bullet
+    font-size: $toc-bullet-size
+    color: $toc-bullet-unread
+    transition: transform .15s linear
+  &:visited:before
+    color: $toc-bullet-read
+  &:hover:before
+    animation: joggle .6s linear
