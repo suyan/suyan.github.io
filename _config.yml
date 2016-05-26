@@ -1,10 +1,10 @@
 # Site settings
-title: 闫肃的个人博客
-email: suyan0830@gmail.com
+title: Winterfell
+email: ray050899@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  闫肃的博客
+  Winterfell
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yansu.org" # the base hostname & protocol for your site
+url: "http://ruixmizzou.com" # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
 
 # Sidebar filter
@@ -12,9 +12,9 @@ rss_url: /pages/feed.xml
 filter: 'category'
 
 # Social account
-twitter: masonsuyan
+twitter:
 # weibo:    ID
-github: suyan
+github: ray2928
 # codepen:  username
 # dribbble: username
 
@@ -24,12 +24,12 @@ favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: ray2928
 
 # google analytics 设置
 ga:
   id: UA-54767140-1
-  url: yansu.org
+  url: ruixmizzou.com
 
 # Build settings
 permalink: /:year/:month/:day/:title.html
