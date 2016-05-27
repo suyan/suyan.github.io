@@ -1,8 +1,8 @@
 # Site settings
-title: Winterfell
+title: Peace of Mind
 email: ray050899@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Winterfell
+  Peace of Mind
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://ruixmizzou.com" # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
@@ -28,7 +28,7 @@ disqus:
 
 # google analytics 设置
 ga:
-  id: UA-54767140-1
+  id: #google-analytics id
   url: ruixmizzou.com
 
 # Build settings

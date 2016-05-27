@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PHP操作Session的原理及提升安全性时的一个问题
-category: 技术
+category: Technologies
 tags: PHP
 description: PHP操作Session的原理及提升安全性时的一个问题
 ---
@@ -35,7 +35,7 @@ description: PHP操作Session的原理及提升安全性时的一个问题
     Cookie:
     Response Header:
     Set-Cookie: PHPSESSID=sastrf9cikeij6meoe3055brq3; path=/
- 
+
 
 为了说明问题，我只取要用到的信息，从请求头可以看到，这个时候客户端没有给服务端传Cookie内容。而返回的头信息中，服务端指明了set-cookie要设置一个PHPSESSID的内容，保存在”/”目录下。
 
@@ -47,7 +47,7 @@ description: PHP操作Session的原理及提升安全性时的一个问题
     Cookie:PHPSESSID=sastrf9cikeij6meoe3055brq3
     Response Header:
     Set-Cookie:
- 
+
 
 这一次结果显示服务器端没有再要求写Cookie，而客户端主动上传了上次获得的PHPSESSID值，也就是这种机制，使服务端”认识”了客户端。只要服务端没有要求再次写session，则以后的交互将一直以此session_id作为客户端的身份标志。
 
@@ -98,5 +98,5 @@ description: PHP操作Session的原理及提升安全性时的一个问题
             echo ‘New Session id:’.session_id().‘<br>’;
     setcookie(session_name(),session_id(),0,‘/’,‘testdomain’);//手动更新session_id
     ?>
-    
+
 这样一来就可以每次交互更新session_id了……虽然有些复杂，但是经测试可行。
