@@ -3,3 +3,5 @@ _drafts/
 .DS_Store
 .idea/
 .sass-cache
+Gemfile
+Gemfile.lock
