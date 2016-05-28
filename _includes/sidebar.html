@@ -25,9 +25,31 @@
   </div>
 
   <div id="sidebar-right">
+    <!--
     <div id="search-box">
       <input id="search-input" type="text" placeholder="Search" />
     </div>
+    -->
+    <!-- Html Elements for Search -->
+    <div id="search-box">
+      <input type="text" id="search-input" placeholder="search...">
+      <ul id="results-container"></ul>
+    </div>
+
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="{{ site.baseurl }}/bower_components/simple-jekyll-search/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '{{ site.baseurl }}/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
 
     <nav id="toc">
       {% if site.filter == 'category' %}
