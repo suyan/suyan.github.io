@@ -100,6 +100,7 @@
   position: relative
   height: $search-box-height
   margin-bottom: 1px
+  display: inline-block
   &:before
     @extend %icon
     @extend %icon-search
@@ -136,6 +137,11 @@
   &:-ms-input-placeholder
     color: $search-box-placeholder
 
+#results-container
+  font-size: $search-box-font-size - 3
+
+#results-search
+  margin-bottom: 15px
 
 #toc
   height: calc(100% - #{$search-box-height + 1})
