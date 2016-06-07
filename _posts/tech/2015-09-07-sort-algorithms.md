@@ -18,7 +18,7 @@ keywords: 算法,排序,Sort,Algorithm
 2. 执行比较和交换，直到到达数组的最后一个元素
 3. 重复执行1和2，直到执行n次，也就是n个最大元素都排到了最后
 
-```CPP
+```c++
 void bubble_sort(vector<int> &nums)
 {
     for (int i = 0; i < nums.size() - 1; i++) { // times
@@ -35,7 +35,7 @@ void bubble_sort(vector<int> &nums)
 
 交换的那一步可以不借助temp，方法是
 
-```CPP
+```c++
 nums[j] += nums[j + 1];
 nums[j + 1] = num[j] - nums[j + 1];
 nums[j] -= num[j + 1];
@@ -55,7 +55,7 @@ nums[j] -= num[j + 1];
 2. 对x之前的数都执行1步骤，直到前面的数字都有序
 3. 选择有序部分后一个数字，插入到前面有序部分，直到没有数字可选择
 
-```CPP
+```c++
 void insert_sort(vector<int> &nums)
 {
     for (int i = 1; i < nums.size(); i++) { // position
@@ -83,7 +83,7 @@ void insert_sort(vector<int> &nums)
 1. 从左开始，选择后面元素中最小值，和最左元素交换
 2. 从当前已交换位置往后执行，直到最后一个元素
 
-```CPP
+```c++
 void selection_sort(vector<int> &nums)
 {
     for (int i = 0; i < nums.size(); i++) { // position
@@ -142,7 +142,7 @@ void selection_sort(vector<int> &nums)
 3. 步长除以2后继续12两步，直到步长最后变成1
 
 
-```CPP
+```c++
 void shell_sort(vector<int> &nums)
 {
     for (int gap = nums.size() >> 1; gap > 0; gap >>= 1) { // times
@@ -173,7 +173,7 @@ void shell_sort(vector<int> &nums)
 1. 把当前数组分化成n个单位为1的子数组，然后两两比较合并成单位为2的n/2个子数组
 2. 继续进行这个过程，按照2的倍数进行子数组的比较合并，直到最终数组有序
 
-```CPP
+```c++
 void merge_array(vector<int> &nums, int b, int m, int e, vector<int> &temp)
 {
     int lb = b, rb = m, tb = b;
@@ -220,7 +220,7 @@ void merge_sort(vector<int> &nums, int b, int e, vector<int> &temp)
 2. 将大于基准数的移到右边，小于的移到左边
 3. 递归的对子数组重复执行1，2，直到整个数组有序
 
-```CPP
+```c++
 void quick_sort(vector<int> &nums, int b, int e, vector<int> &temp)
 {
     int m = (b + e) / 2;
@@ -248,7 +248,7 @@ void quick_sort(vector<int> &nums, int b, int e, vector<int> &temp)
 
 解法2: 不需要辅助空间
 
-```CPP
+```c++
 void quick_sort(vector<int> &nums, int b, int e)
 {
     if (b < e - 1) {
@@ -287,7 +287,7 @@ void quick_sort(vector<int> &nums, int b, int e)
 2. 最大堆调整（Max Heapify）：调整最大堆即将根节点移除后重新整理堆。整理方法为将根节点和最后一个节点交换，然后把堆看做n-1长度，将当前根节点逐步移动到其应该在的位置。
 3. 堆排序（HeapSort）：重复执行2，直到所有根节点都已移除。
 
-```CPP
+```c++
 void heap_sort(vector<int> &nums)
 {
     int n = nums.size();
