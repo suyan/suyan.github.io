@@ -100,6 +100,7 @@
   position: relative
   height: $search-box-height
   margin-bottom: 1px
+  display: inline-block
   &:before
     @extend %icon
     @extend %icon-search
@@ -118,7 +119,7 @@
   padding: 20px 45px 20px 15px
   font-size: $search-box-font-size
   line-height: $search-box-height - 20px * 2
-  color: $search-box-color
+  color: #1D1212
   background: $search-box-bg
   border: none
   border-radius: 0
@@ -135,6 +136,13 @@
     opacity: 1
   &:-ms-input-placeholder
     color: $search-box-placeholder
+
+#results-container
+  font-size: $search-box-font-size - 3
+
+#results-search
+  margin-bottom: 15px
+
 
 
 #toc

@@ -1,10 +1,10 @@
 # Site settings
-title: 闫肃的个人博客
-email: suyan0830@gmail.com
+title: Peace of Mind
+email: ray050899@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  闫肃的博客
+  Peace of Mind
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yansu.org" # the base hostname & protocol for your site
+url: "http://ruixmizzou.com" # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
 author: Su Yan
 twitter:
@@ -15,24 +15,24 @@ twitter:
 filter: 'category'
 
 # Social account
-twitter: masonsuyan
+twitter:
 # weibo:    ID
-github: suyan
+github: ray2928
 # codepen:  username
 # dribbble: username
 
 # avatar头像及Favicon
-avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+avatar: https://www.gravatar.com/avatar/8d8b0c9229031c71143ca42027d81249
+favicon: https://www.gravatar.com/avatar/8d8b0c9229031c71143ca42027d81249
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: ray2928
 
 # google analytics 设置
 ga:
-  id: UA-54767140-1
-  url: yansu.org
+  id: #google-analytics id
+  url: ruixmizzou.com
 
 # Build settings
 permalink: /:year/:month/:day/:title.html
