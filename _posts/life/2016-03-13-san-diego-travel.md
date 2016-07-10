@@ -1,6 +1,6 @@
 ---
 layout: post
-title: San Diego 之旅
+title: San Diego 自驾游
 category: 生活
 tags: essay
 keywords: 加州,圣地亚哥,生活,California,San Diego
