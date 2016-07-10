@@ -6,7 +6,6 @@ tags: Essay
 keywords: Zipcar,Rent,Car
 ---
 
-
 > 在洛杉矶这个“大饼”中生活，没有车真的是各种艰难。2月初把驾照考过了，接下来就考虑买车或者租车。买车算了算不是很划算，而且对车也不太懂，就考虑先租车。
 
 > 在 [USC Transportation](http://transnet.usc.edu/index.php/getting-around/) 上排名最靠前的两个公司是 Enterprise 和 Zipcar。前者是传统的租车公司，后者稍微不一样一点。我还没有在 Enterprise 上租过车，所以先说说 Zipcar.
@@ -59,3 +58,4 @@ Zipcar 租的车带了加油卡，就在司机座位上面。虽然看起来比�
 ### 1. 逾期罚款
 
 租车的时候宁可多不可少，因为逾期惩罚是非常重的，应该是一个小时50刀左右。
+

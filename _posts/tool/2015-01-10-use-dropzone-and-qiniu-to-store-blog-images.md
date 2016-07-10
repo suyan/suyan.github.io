@@ -7,11 +7,6 @@ keywords: Dropzone,Qiniu,七牛,图床,博客
 description: 
 ---
 
-> 2015.12.20更新
-> - 此次更新用Python替代了Ruby，不需要再自己安装qiniu的ruby包，我已经集成在bundle里面
-> - 增加了一个pngpaste在包里，这样直接点击action会把剪切板内的图片上传 (已测试系统截图，QQ截图以及Monosnap)，原来的点击打开七牛官网功能在剪切版没有图片时生效
-> - 增加了图片重名检查
-
 > 之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。
 
 ![七牛操作流](http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-workflow.gif)
