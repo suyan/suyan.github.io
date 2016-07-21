@@ -1,23 +1,23 @@
 # Site settings
-title: 闫肃的个人博客
-email: suyan0830@gmail.com
+title: 克比的个人博客
+email: hanyuajianke@163.com
 description: > # this means to ignore newlines until "baseurl:"
-  闫肃的博客
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yansu.org" # the base hostname & protocol for your site
+  克比的博客
+baseurl: "blog" # the subpath of your site, e.g. /blog/
+url: "https://kobyle.github.io" # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
-author: Su Yan
+author: kebi
 twitter:
-  username: masonsuyan
+  username: hanyuajianke
 
 # Sidebar filter
 # Choose 'tag' or 'category' as filter in sidebar.
 filter: 'category'
 
 # Social account
-twitter: masonsuyan
+twitter: hanyuajianke
 # weibo:    ID
-github: suyan
+github: kebi
 # codepen:  username
 # dribbble: username
 
@@ -27,12 +27,12 @@ favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: kebi-zh
 
 # google analytics 设置
 ga:
   id: UA-54767140-1
-  url: yansu.org
+  url: blog.kebi.com
 
 # Build settings
 permalink: /:year/:month/:day/:title.html
