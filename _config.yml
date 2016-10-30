@@ -1,8 +1,8 @@
 # Site settings
-title: "Su Yan's Blog"
+title: 闫肃的博客
 email: suyan0830@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  "Su Yan's Tech Blog"
+  闫肃的博客
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yansu.org" # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
@@ -27,7 +27,7 @@ favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
 # disqus config
 disqus:
-  shortname: suyan-en
+  shortname: suyan-zh
 
 # google analytics config
 ga:
