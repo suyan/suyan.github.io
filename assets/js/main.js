@@ -49,11 +49,10 @@ $(function() {
       afterPjax();
       NProgress.done();
       main.scrollTop(0).addClass('fadeIn');
-      menu.add(sidebar).removeClass('open');
-      {% if site.google_analytics %}
-      ga('set', 'location', window.location.href);
-      ga('send', 'pageview');
-      {% endif %}
+      // only remove open in small screen
+      if($(window).width() <= 1024) {
+        menu.add(sidebar).add(main).removeClass('open');
+      }
     }
   });
 
@@ -73,7 +72,7 @@ $(function() {
 
   // Menu
   menu.on('click', function() {
-    $(this).add(sidebar).toggleClass('open');
+    $(this).add(sidebar).add(menu).add(main).toggleClass('open');
   });
 
 });

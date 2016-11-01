@@ -5,9 +5,10 @@
   position: absolute
   top: 0
   bottom: 0
-  left: 0
+  left: -$sidebar-width
   z-index: 20
   width: $sidebar-width
+  background-color: $sidebar-bg
   overflow: hidden
   transition: left .35s $time-function, transform .35s $time-function
   user-select: none
@@ -21,6 +22,8 @@
     width: $sidebar-right-width
     height: 100%
     background: $sidebar-right-bg
+  &.open
+    transform: translateX(100%)
 
 
 // Sidebar Left

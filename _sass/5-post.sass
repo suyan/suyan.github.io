@@ -1,13 +1,15 @@
 
 #main
   float: right
-  width: calc(100% - #{$sidebar-width})
+  width: 100%
   height: 100%
   overflow: auto
   -webkit-overflow-scrolling: touch
   transition: width .35s $time-function
   // &.fadeIn
   //   animation: fadeIn .6s $time-function
+  &.open
+    width: calc(100% - #{$sidebar-width})
 
 .container
   max-width: $post-max-width
