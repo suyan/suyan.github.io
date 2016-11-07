@@ -18,7 +18,9 @@ keywords: 信用卡,生活，美国
 但是信用卡类型非常多，几乎每家银行都提供了非常多的信用卡类型，选哪个作为日常使用的呢？以下我只介绍我自己的开的卡和选择原因。
 
 ## 不需要SSN卡
+
 ### Citibank
+
 #### Citi ThankYou Preferred for College Students
 
 ![](http://7u2ho6.com1.z0.glb.clouddn.com/life-citi-thankyou-card.jpg)
@@ -30,6 +32,7 @@ keywords: 信用卡,生活，美国
 这个卡我的开卡额度是1000刀，每半年可以申请提升一次。它的积分兑换大概是略小于1%，但是对于刚开始来说够用，然后我使用积分的方式是在Amazon上买东西。
 
 ## 需要SSN卡
+
 ### Discover
 
 ![](http://7u2ho6.com1.z0.glb.clouddn.com/life-discover-it.jpg)
