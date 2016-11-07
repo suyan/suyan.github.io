@@ -8,7 +8,7 @@ keywords: 加州,生活,California,Olympic National Park
 
 > Olympic National Park 是美国10大国家公园之一，体验过以后真的感觉，要雪山有雪山，要湖水有湖水，要雨林有雨林，几乎囊括了大部分客观上的户外景观。
 
-<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1K4IccR4RPigSMmKdjA2LLlJ5JYA" width="640" height="480"></iframe>
+<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1K4IccR4RPigSMmKdjA2LLlJ5JYA" width="100%" height="480"></iframe>
 
 ## Nourish Sequim
 

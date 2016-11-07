@@ -8,7 +8,7 @@ keywords: 加州,生活,California
 
 > 来美3个月了，终于迎来第一个小假期。由于时间有限，还没有车，所以选择了跟团先粗略了解一下加州。
 
-<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1FadF4B2t3FgsHtqGSb507bNdeaA" width="640" height="480"></iframe>
+<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1FadF4B2t3FgsHtqGSb507bNdeaA" width="100%" height="480"></iframe>
 
 ## 丹麦村 (Solvang)
 
