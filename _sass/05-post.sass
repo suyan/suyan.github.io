@@ -45,15 +45,15 @@ h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6
       margin-right: 1em
       &.date:before
         @extend %icon
-        @extend %icon-date
+        @extend %icon-clock
         margin-right: .2em
       &.tag:before
         @extend %icon
-        @extend %icon-tag
+        @extend %icon-price-tags
         margin-right: .2em
       &.comment:before
         @extend %icon
-        @extend %icon-comment
+        @extend %icon-bubble
         margin-right: .2em
 
   a
@@ -83,7 +83,7 @@ h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6
     font-style: italic
     &:before
       @extend %icon
-      @extend %icon-quote
+      @extend %icon-quotes-left
       position: absolute
       top: 0
       left: -1.5em
@@ -145,11 +145,11 @@ h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6
     &:before
       @extend %icon
     &.twitter:before
-      @extend %icon-twitter-share
+      @extend %icon-twitter
     &.evernote:before
       @extend %icon-evernote
     &.weibo:before
-      @extend %icon-weibo
+      @extend %icon-sina-weibo
 
 
 // comment

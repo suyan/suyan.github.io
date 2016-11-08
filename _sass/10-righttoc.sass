@@ -1,0 +1,95 @@
+
+#right-toc-menu
+  display: block
+  position: fixed
+  top: $menu-top + 43px
+  right: $menu-right
+  z-index: 30
+  width: 42px
+  height: 42px
+  padding: 0
+  background: transparent
+  border: none
+  border-radius: 2px
+  outline: none
+  overflow: hidden
+  cursor: pointer
+  &-icons
+    display: block
+    width: 200%
+    height: 42px
+    margin-left: -100%
+    font-size: 24px
+    line-height: 42px
+    color: #fff
+    background: $sidebar-bg
+    overflow: hidden
+    @extend %icon
+    &:before
+      @extend %icon-list
+      float: left
+      width: 50%
+    &:after
+      @extend %icon-list
+      float: left
+      width: 50%
+
+#post-toc
+  width: 260px
+  height: 100%
+  padding-top: 30px
+  position: fixed
+  top: $menu-top + 85px
+  bottom: 0
+  right: -260px
+  z-index: 98
+  background: transparentize(#fafafa, 0.1)
+  border-top: 1px solid #e5e8ec
+  border-left: 1px solid #e5e8ec
+  border-radius: 10px 0 0 0
+  display: block
+  overflow-y: scroll
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  -o-user-select: none
+  user-select: none
+  transition: transform .35s $time-function
+  &.open
+    transform: translateX(-100%)
+
+#post-toc-title
+  padding: 0 0 5px 11px
+  color: #2C353D
+  font-size: 1em
+  display: block
+
+#post-toc-ul
+  margin: 0
+  padding: 0 10px 20px 15px
+  line-height: 1.6
+
+.post-toc-li
+  color: #7D8B99
+  white-space: nowrap
+  text-overflow: ellipsis
+  display: block
+  overflow: hidden
+  > a
+    color: inherit
+    text-decoration: none
+  > a:hover
+    color: #2EB695
+
+.post-toc-h1
+  font-size: 1em
+  list-style: none
+
+.post-toc-h2
+  font-size: .95em
+
+.post-toc-h3
+  margin-left: 12px
+  font-size: .9em
+  & + .post-toc-h2
+    padding-top: .25em

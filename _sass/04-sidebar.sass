@@ -59,19 +59,15 @@
     @extend %icon
 
   &.feed:before
-    @extend %icon-feed
+    @extend %icon-rss
   &.email:before
-    @extend %icon-mail
+    @extend %icon-envelop
   &.twitter:before
     @extend %icon-twitter
   &.weibo:before
-    @extend %icon-weibo
+    @extend %icon-sina-weibo
   &.github:before
     @extend %icon-github
-  &.codepen:before
-    @extend %icon-codepen
-  &.dribbble:before
-    @extend %icon-dribbble
 
 
 #sidebar-tags
@@ -177,7 +173,7 @@
     left: 12px
     z-index: 1
     @extend %icon
-    @extend %icon-bullet
+    @extend %icon-chevron-right
     font-size: $toc-bullet-size
     color: $toc-bullet-unread
     transition: transform .15s linear
