@@ -114,6 +114,7 @@ $(function() {
     $(this).add(sidebar).add(menu).add(main).toggleClass('open');
   });
 
+  // right toc
   righttoc.on('click', function() {
     $('#post-toc').toggleClass('open');
   });
