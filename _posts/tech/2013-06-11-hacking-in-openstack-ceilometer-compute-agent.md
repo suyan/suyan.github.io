@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OpenStack Ceilometer Compute Agent源码解读
+title: OpenStack Ceilometer Agent源码解读
 category: 技术
 tags: OpenStack
 keywords: OpenStack,Ceilometer,Compute Agent,Source Code

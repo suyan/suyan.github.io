@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 为PHP设置服务器(Apache/Nginx)环境变量
+title: 设置PHP服务器Apache和Nginx环境变量
 category: 技术
 tags: [PHP, Nginx, Apache]
 keywords: PHP,Apache,Nginx,环境变量,服务器

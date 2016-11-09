@@ -3,11 +3,11 @@ layout: null
 ---
 
 $(function() {
-  var toc      = $('.toc-link'),
-      sidebar  = $('#sidebar'),
-      main     = $('#main'),
-      menu     = $('#menu'),
-      righttoc = $('#right-toc-menu'),
+  var toc     = $('.toc-link'),
+      sidebar = $('#sidebar'),
+      main    = $('#main'),
+      menu    = $('#menu'),
+      posttoc = $('#post-toc-menu'),
       x1, y1;
 
   // run this function after pjax load.
@@ -115,7 +115,7 @@ $(function() {
   });
 
   // right toc
-  righttoc.on('click', function() {
+  posttoc.on('click', function() {
     $('#post-toc').toggleClass('open');
   });
 

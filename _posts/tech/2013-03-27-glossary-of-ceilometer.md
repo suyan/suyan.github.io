@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OpenStack监控项目Ceilometer的一些术语
+title: OpenStack Ceilometer的一些术语
 category: 技术
 tags: OpenStack
 description: 在研究Ceilometer项目时，首先应该了解各个术语

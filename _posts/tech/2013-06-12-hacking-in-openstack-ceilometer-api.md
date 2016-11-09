@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OpenStack Ceilometer数据存储与API源码解析
+title: OpenStack Ceilometer数据与API源码详解
 category: 技术
 tags: OpenStack
 keywords: Ceilometer,OpenStack,Source,API

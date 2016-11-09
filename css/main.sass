@@ -5,15 +5,11 @@
 
 
 // # Breakpoints
-
 $breakpoint-hide-sidebar: 1024px
 $breakpoint-mobile: 767px
 
-
 // # Font
-
 $font: 'Open Sans', 'Hiragino Sans GB', sans-serif
-
 
 // # Sidebar Background Gradient
 $gradient-start: #C2E987
@@ -25,35 +21,30 @@ $sidebar-left-bg: #474d57
 $sidebar-right-bg: #f7f7f7
 
 // # Sidebar Left
-$sidebar-left-width: 140px
+$sidebar-left-width: 120px
 
 // Avatar
-$avatar-size: 100px
+$avatar-size: 90px
 $avatar-border-size: 4px
 $avatar-border-color: rgba(255, 255, 255, .75)
 
 // Social icons
 $social-icon-outer-padding: 10px
-
-$social-icon-size: 22px
+$social-icon-size: 18px
 $social-icon-margin: 1px
-
 $social-icon-color: rgba(255, 255, 255, .6)
 $social-icon-hover-color: #FFF
 
 // Tags
 $tag-height: 40px
 $tag-font-size: 17px
-
 $tag-color: rgba(255, 255, 255, .7)
 $tag-hover-color: rgba(255, 255, 255, .85)
 $tag-active-color: #000000
-
 $tag-border-color: rgba(255, 255, 255, 1)
 
-
 // # Sidebar Right
-$sidebar-right-width: 340px
+$sidebar-right-width: 360px
 
 // Search
 $search-box-height: 64px
@@ -73,7 +64,6 @@ $toc-line-height: 22px
 $toc-bullet-size: 18px
 $toc-bullet-unread: $gradient-end
 $toc-bullet-read: $toc-color
-
 
 // # Sidebar width
 $sidebar-width: $sidebar-left-width + $sidebar-right-width
@@ -126,8 +116,15 @@ $footer-line-height: 20px
 
 $menu-top: 20px
 $menu-right: 30px
+$menu-size: 42px
 
-
+// # post toc
+$post-toc-width: 200px
+$post-toc-bg: #fafafa
+$post-toc-border-color: #e5e8ec
+$post-toc-title-color: #2C353D
+$post-toc-li-color: #7D8B99
+$post-toc-hover-color: #2EB695
 
 // # Customise webkit scrollbar
 
@@ -137,20 +134,13 @@ $toc-scrollbar-color: $gradient-end
 $code-scrollbar-height: 7px
 $code-scrollbar-color: $post-meta-color
 
-
-
 // # NProgerss
 
 $nprogress-height: 3px
 $nprogress-color: red
 
-
-
 // # Time function
-
 $time-function: cubic-bezier(0.770, 0.000, 0.175, 1.000)
-
-
 
 // @import
 
@@ -163,6 +153,6 @@ $time-function: cubic-bezier(0.770, 0.000, 0.175, 1.000)
 @import '07-nprogress'
 @import '08-code'
 @import '09-page'
-@import '10-righttoc'
+@import '10-posttoc'
 @import 'a-smallscreen'
 @import 'b-mobile'

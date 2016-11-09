@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mac下用brew搭建PHP(LNMP/LAMP)开发环境
+title: Mac下用brew搭建LNMP和LAMP开发环境
 category: 工具
 tags: [Mac, MongoDB, PHP] 
 keywords: Brew,Mac,MongoDB,MySQL,Apache,Nginx,PHP
@@ -23,7 +23,9 @@ brew常用选项
     brew list 
     brew update xxx
 
-## Apache || Nginx (只需要装一个)
+## Apache 或 Nginx
+
+> 两者只需要安装一个
 
 ### Apache
 Apache的话使用mac自带的基本就够了，我的系统是10.9，可以使用以下命令控制Apache
