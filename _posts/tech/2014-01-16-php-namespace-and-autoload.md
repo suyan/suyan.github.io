@@ -72,7 +72,7 @@ PHP从5.3版本开始引入了命名空间，之后许多现有PHP类库以及�
     echo test;      //输出Btest
     
     // namespace关键字代表当前命名空间
-    echo namespace/test;
+    echo namespace\test;
     ?>
 
 首先要注意的是命名空间只起申明作用，也就是在使用了命名空间的时候依然得把这个命名空间申明的那个文件包含进来。在使用中可以通过`__NAMESPACE__`来查看当前命名空间。
