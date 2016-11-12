@@ -11,6 +11,7 @@ author: Su Yan
 # Sidebar filter
 # Choose 'tag' or 'category' as filter in sidebar.
 filter: 'category'
+recent_num: 20
 
 # Social account
 twitter: masonsuyan
