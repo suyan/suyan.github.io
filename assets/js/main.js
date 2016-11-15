@@ -54,7 +54,7 @@ $(function() {
       main.scroll(function(){
         var nScrollHight = $(this)[0].scrollHeight;
         var nScrollTop = $(this)[0].scrollTop;
-        if(!ds_loaded && nScrollTop + main.height() >= nScrollHight) {
+        if(!ds_loaded && nScrollTop + main.height() >= nScrollHight - 100) {
           $.ajax({
             type: 'GET',
             url: 'http://' + disqus_shortname + '.disqus.com/embed.js',
@@ -99,10 +99,10 @@ $(function() {
   // Tags Filter
   $('#sidebar-tags').on('click', '.sidebar-tag', function() {
     var filter = $(this).data('filter');
+    toc.hide();
     if (filter === 'recent') {
       toc.slice(0, {{ site.recent_num }}).fadeIn(350);
     } else {
-      toc.hide();
       $('.toc-link[data-tags~=' + filter + ']').fadeIn(350);
     }
     $(this).addClass('active').siblings().removeClass('active');
