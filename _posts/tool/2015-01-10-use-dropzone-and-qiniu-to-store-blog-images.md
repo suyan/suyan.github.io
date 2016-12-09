@@ -37,7 +37,8 @@ description:
     
 2. 安装Qiniu插件
 
-    我把这个插件放到了[Github](https://github.com/suyan/scripts/tree/master/Dropzone%20Action)上，戳[这里](https://github.com/suyan/scripts/blob/master/Dropzone%20Action/Qiniu.dzbundle.zip?raw=true)下载。
+    <del>我把这个插件放到了[Github](https://github.com/suyan/scripts/tree/master/Dropzone%20Action)上，戳[这里](https://github.com/suyan/scripts/blob/master/Dropzone%20Action/Qiniu.dzbundle.zip?raw=true)下载。</del>
+    这个插件已经上传到了官方网站的非官方插件处，可以直接戳[这里](https://aptonic.com/actions/install.php?bundle_name=Qiniu)下载。
     
 3. 安装插件
 
