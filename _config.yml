@@ -1,6 +1,6 @@
 # Site settings
 title: 丁世昌的博客
-email: scdingwork@informatik.uni-goettingen.de
+email: shichang.ding@informatik.uni-goettingen.de
 description: > # this means to ignore newlines until "baseurl:"
   丁世昌的博客
 baseurl: "" # the subpath of your site, e.g. /blog/
