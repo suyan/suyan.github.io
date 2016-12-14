@@ -7,15 +7,15 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yansu.org" # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
 author: Su Yan
-#twitter:
-  #username: masonsuyan
+twitter:
+  username: masonsuyan
 
 # Sidebar filter
 # Choose 'tag' or 'category' as filter in sidebar.
 filter: 'category'
 
 # Social account
-#twitter: ID
+twitter: masonsuyan
 # weibo:    ID
 github: luoyuchen
 # codepen:  username
