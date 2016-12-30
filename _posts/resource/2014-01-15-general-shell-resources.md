@@ -115,3 +115,8 @@ description:
 ### 负载测试，30秒内向Google发起20个并发连接
 
     siege -c20 www.google.co.uk -b -t30s
+
+### 封禁一个ip的访问
+
+    iptables -I INPUT -s 211.1.0.0 -j DROP
+
