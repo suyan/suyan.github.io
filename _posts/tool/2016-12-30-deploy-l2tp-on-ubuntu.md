@@ -141,7 +141,7 @@ ipsec verify
 
 结果应该如下
 
-```Bash
+```bash
 Checking if IPsec got installed and started correctly:
 
 Version check and ipsec on-path                   	[OK]
