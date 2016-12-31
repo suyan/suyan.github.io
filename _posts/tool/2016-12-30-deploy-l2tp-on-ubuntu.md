@@ -201,15 +201,15 @@ require-mschap-v2
 ms-dns 8.8.8.8
 ms-dns 8.8.4.4
 auth
-mtu 1200
+mtu 1000
 mru 1000
 crtscts
 hide-password
 modem
 name l2tpd
 proxyarp
-lcp-echo-interval 30
-lcp-echo-failure 4
+lcp-echo-interval 0
+lcp-echo-failure 0
 EOF
 ```
 
@@ -232,7 +232,7 @@ service ipsec restart
 /etc/init.d/xl2tpd restart
 ```
 
-## 本地端
+## 客户端
 
 ### Mac
 
