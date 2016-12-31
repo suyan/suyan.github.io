@@ -14,7 +14,7 @@ keywords: 科学上网,工具,VPN,L2TP
 
 如果不像自己配置，这里有一键脚本，非常方便。[setup-simple-ipsec-l2tp-vpn](https://github.com/philpl/setup-simple-ipsec-l2tp-vpn).
 
-```Bash
+```bash
 wget https://raw.github.com/philpl/setup-simple-ipsec-l2tp-vpn/master/setup.sh
 sudo sh setup.sh
 ```
@@ -23,7 +23,7 @@ sudo sh setup.sh
 
 ### 安装必备软件
 
-```Bash
+```bash
 apt-get update
 apt install software-properties-common
 add-apt-repository ppa:openswan/ppa
@@ -35,7 +35,7 @@ apt-get install openswan xl2tpd ppp lsof
 
 #### 更新IP转发
 
-```Bash
+```bash
 echo "net.ipv4.ip_forward = 1" |  tee -a /etc/sysctl.conf
 echo "net.ipv4.conf.all.accept_redirects = 0" |  tee -a /etc/sysctl.conf
 echo "net.ipv4.conf.all.send_redirects = 0" |  tee -a /etc/sysctl.conf
@@ -48,7 +48,7 @@ for vpn in /proc/sys/net/ipv4/conf/*; do echo 0 > $vpn/accept_redirects; echo 0 
 
 #### 设置IP table
 
-```Bash
+```bash
 MYIP=`/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"`
 iptables -t nat -A POSTROUTING -j SNAT --to-source $MYIP -o eth0
 ```
@@ -56,7 +56,7 @@ iptables -t nat -A POSTROUTING -j SNAT --to-source $MYIP -o eth0
 ### 配置IPSEC
 
 #### IPSEC 基本设置
-```Bash
+```bash
 MYIP=`/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"`
 
 cat >/etc/ipsec.conf<<EOF
@@ -123,7 +123,7 @@ EOF
 
 下面的 sharedpassword 可以改，但是得自己记住，因为之后连接的时候会用到。
 
-```Bash
+```bash
 MYIP=`/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"`
 
 cat >/etc/ipsec.secrets<<EOF
@@ -135,7 +135,7 @@ service ipsec restart
 
 #### 验证IPSEC
 
-```Bash
+```bash
 ipsec verify
 ```
 
@@ -169,7 +169,7 @@ Checking 'iptables' command                       	[OK]
 
 ### 配置xl2tpd
 
-```Bash
+```bash
 cat >/etc/xl2tpd/xl2tpd.conf<<EOF
 [global]
 ipsec saref = yes
@@ -195,7 +195,7 @@ EOF
 
 #### 基本设置
 
-```Bash
+```bash
 cat >/etc/ppp/options.xl2tpd<<EOF
 require-mschap-v2
 ms-dns 8.8.8.8
@@ -217,7 +217,7 @@ EOF
 
 记得更改账户名和密码 client 和 secret，用来连接vpn的时候使用
 
-```Bash
+```bash
 cat >/etc/ppp/chap-secrets<<EOF
 # Secrets for authentication using CHAP
 # client       server  secret       IP addresses
@@ -227,7 +227,7 @@ EOF
 
 ### 重启服务
 
-```Bash
+```bash
 service ipsec restart
 /etc/init.d/xl2tpd restart
 ```
