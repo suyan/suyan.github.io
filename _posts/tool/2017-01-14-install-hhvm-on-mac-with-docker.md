@@ -67,6 +67,12 @@ phpinfo();
 docker run --name=hhvm -v $(pwd):/var/www/public -d -p 80:80 yourname/hhvm-proxygen
 ```
 
-我绑定了80端口，所以直接打开 `http://localhost` 就可以测试了。
+我绑定了80端口，所以直接打开 `http://localhost` 就可以测试了。想看 log 的话可以执行
+
+```bash
+docker logs hhvm
+```
+
+
 
 
