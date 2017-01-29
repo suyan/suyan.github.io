@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 论文精读(Attention-Based BLST)
+title: 论文精读(Attention-Based BLST):
 category: 论文4
 tags: paper
 description: Attention-Based Bidirectional Long Short-Term Memory  Classification 的代码实现

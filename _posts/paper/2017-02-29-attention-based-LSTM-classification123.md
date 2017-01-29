@@ -1,5 +1,5 @@
 ---
-layout: post
+layout:post
 title: 论文精读(Attention-Based BLST)
 category: 论文4
 tags: paper
