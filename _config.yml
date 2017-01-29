@@ -4,7 +4,7 @@ email: zhaokangkang0572@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   赵康康的博客
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: https://zhaokangkang.github.io/ # the base hostname & protocol for your site
+url: https://zhaokangkang0572.github.io/zhaokangkang.github.io # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
 author: Su Yan
 
