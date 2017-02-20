@@ -41,7 +41,7 @@ touch webpack.config.js
 
 写入以下内容
 
-```
+```javascript
 const path = require('path');
 
 // Html webpack plugin setting
@@ -106,7 +106,7 @@ import "./App.css";
 
 另外在写 react 应用时，也可以直接使用内敛样式，例如
 
-```
+```javascript
 import React from 'react';
 
 var style = {
@@ -147,7 +147,7 @@ touch .babelrc
 
 写入内容
 
-```
+```json
 {
     "presets":[
         "es2015", "react"
@@ -190,7 +190,7 @@ yarn add react react-dom
 
 在 index.html 中写入
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -206,18 +206,26 @@ yarn add react react-dom
 
 在 index.js 中写入
 
-```
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.js';
+import { Router, Route, hashHistory } from 'react-router';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  (<Router history={hashHistory}>
+    <Route path="/" component={App}/>
+    <Route path="/about" component={App} />
+  </Router>),
+  document.getElementById('root')
+);
+
 ```
 
 
 在 App.js 中写入
 
-```
+```javascript
 import React from 'react';
 
 export default class App extends React.Component {
@@ -230,18 +238,26 @@ export default class App extends React.Component {
 }
 ```
 
-## 5. 启动 React
+## 5. 设置 React-Router
+
+想要完成页面跳转以及一些复杂的多页面操作，可以使用 React-Router 来支持
+
+```
+yarn add react-router
+```
+
+使用例子可以看上面index.js内容
+
+## 6. 启动 React
 
 修改package.json，加入scripts
 
-```
-...
+```json
 "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --progress --colors"
     
   },
-...
 ```
 
 build 方法会把网站打包一下，然后放到之前定义好的目录里面。start 可以直接开启开发模式，并且开启预览
@@ -250,7 +266,7 @@ build 方法会把网站打包一下，然后放到之前定义好的目录里�
 yarn start
 ```
 
-## 6. start kit
+## 7. start kit
 
 这些配置不需要每次都跑一次，我自己的放在 [Github](https://github.com/suyan/react-start-kit) 上。下载下来运行
 
