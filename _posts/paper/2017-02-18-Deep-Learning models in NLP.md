@@ -79,8 +79,10 @@ Given a movie review, the model attempts to predict whether it is positive or ne
 > LSTM layer: capture features from sentence embeddings.
 > Attention layer: merge word-level features from each time step.
 > Output layer: merge information from all time step by using Sigmoid from sentimen classification.
-![](../../graph/AttentionBasedLSTM_detal.png)
-![](../../graph/AttentionBasedLSTM-Overview.png)
+
+![](https://github.com/ZhaoKangkang0572/zhaokangkang0572.github.io/blob/master/graph/AttentionBasedLSTM-Overview.png)
+![](https://github.com/ZhaoKangkang0572/zhaokangkang0572.github.io/blob/master/graph/AttentionBasedLSTM_detal.png)
+
 the weight vector;
 # problem
 the biggest problem i faced is that how to map word into appropiate vector.
