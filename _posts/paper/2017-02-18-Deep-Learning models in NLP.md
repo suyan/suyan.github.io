@@ -80,8 +80,8 @@ Given a movie review, the model attempts to predict whether it is positive or ne
 > Attention layer: merge word-level features from each time step.
 > Output layer: merge information from all time step by using Sigmoid from sentimen classification.
 
-![](https://github.com/ZhaoKangkang0572/zhaokangkang0572.github.io/blob/master/graph/AttentionBasedLSTM-Overview.png)
-![](https://github.com/ZhaoKangkang0572/zhaokangkang0572.github.io/blob/master/graph/AttentionBasedLSTM_detal.png)
+![](../../graph/AttentionBasedLSTM-Overview.png)
+![](../../graph/AttentionBasedLSTM_detal.png)
 
 the weight vector;
 # problem
