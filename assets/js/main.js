@@ -121,4 +121,14 @@ $(function() {
     $('#post-toc').toggleClass('open');
   });
 
+  // Search
+  $('#search-input').on('input', function(e){
+    var blogs = $(".toc-link").filter(function() {
+      var reg = new RegExp($('#search-input').val(), "i");
+      return reg.test($(this).text());
+    });
+    toc.hide();
+    blogs.fadeIn(350);
+  });
+
 });
