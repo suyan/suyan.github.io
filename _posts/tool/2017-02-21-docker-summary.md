@@ -297,6 +297,20 @@ COPY ./package.json /usr/src/app
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
+这个命令可以在启动时被覆盖。另外它也可以为 ENTRYPOINT 提供参数。
+
+> CMD 理论上只能执行一次，如果想要执行两个命令，需要使用 `&` 来连接两个命令，或者使用一个bash文件。更为高级一点的方法是用supervisor来管理
+
+### ENTRYPOINT
+
+ENTRYPOINT 和 CMD 有一部分重复工作，但是 ENTRYPOINT 可以让容器像软件一样执行。例如
+
+```
+ENTRYPOINT /bin/echo
+```
+
+在容器启动时，之后增加的内容都属于这个命令的参数。
+
 ### ENV
 
 设置环境变量。
@@ -305,11 +319,13 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ### ARG
 
-构建参数，在容器启动后不会存在
+构建参数，在容器启动后不会存在。
 
 ### VOLUME
 
-定义匿名卷，以免用户忘了挂载volumn，导致大量写入
+定义匿名卷，以免用户忘了挂载volumn，导致大量写入。这个 Volume 在容器启动前可以添加内容，但是并不是实际操作用户挂载的内容。在用户挂载完 volume 后，原来写在这里的内容会被复制到用户挂载的目录。
+
+> 注意：在 VOLUME 命令之后对这个目录的所有操作，将被忽略。
 
 ### EXPOSE
 
@@ -321,7 +337,7 @@ EXPOSE 22 80
 
 ### WORKDIR
 
-指定工作目录。
+指定工作目录。不仅是当前 docker 中的目录，同时也是运行容器时刚刚登录以后的目录。
 
 ### USER
 
@@ -431,3 +447,5 @@ volumes:
 ### Mysql 挂载 volume 后启动时显示无权限
 
 设置mysql的启动模式 `privileged:true`
+
+
