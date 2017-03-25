@@ -1,12 +1,12 @@
 # Site settings
-title: 闫肃的博客
-email: suyan0830@gmail.com
+title: doing blog
+email: doingduxuan@163.com
 description: > # this means to ignore newlines until "baseurl:"
-  闫肃的博客
+  doing blog
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: http://yansu.org # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
-author: Su Yan
+author: doing
 
 # Sidebar filter
 # Choose 'tag' or 'category' as filter in sidebar.
