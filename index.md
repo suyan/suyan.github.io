@@ -7,7 +7,7 @@ layout: post
 通过碎片化知识整理，加强基本功。坚持不能让blog成为收藏夹。
 ## What blog
 python，virtualization，linux 是目前最想要提升的方面。    
-为了写好blog，github，jerkll，markdown，也需要尽快熟悉。
+为了写好blog，github，jekyll，markdown，也需要尽快熟悉。
 ## How blog
 希望借助blog这个工具，可以使我在成为IT大牛的道路上越走越远，不跑偏。  
 感谢 *Yan Su*大神的blog模板，本模板copy自[https://github.com/suyan/suyan.github.io](https://github.com/suyan/suyan.github.io)。   
