@@ -4,7 +4,7 @@ email: doingduxuan@163.com
 description: > # this means to ignore newlines until "baseurl:"
   doing blog
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: http://yansu.org # the base hostname & protocol for your site
+url: http://doing.cool # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
 author: doing
 
@@ -16,7 +16,7 @@ recent_num: 20
 # Social account
 twitter: masonsuyan
 weibo: suyan0830
-github: suyan
+github: doingdd
 instagram: suyan0830
 linkedin: suyan0830
 
