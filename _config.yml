@@ -31,8 +31,7 @@ disqus:
 # google analytics config
 ga:
   id: UA-54767140-1
-  url: yansu.org
-
+  url: doing.cool
 # Build settings
 permalink: /:year/:month/:day/:title.html
 markdown: kramdown
