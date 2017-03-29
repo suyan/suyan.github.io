@@ -1,6 +1,8 @@
+---
 layout: post
 title: Linux 基础命令
 category: Linux
+---
 #Basic linux cmd
 
 ##ls 
