@@ -3,7 +3,7 @@ layout: post
 title: Linux 基础命令
 category: Linux
 ---
-#Basic linux cmd
+# Basic linux cmd
 
 ##ls 
 查看某一个目录的完整属性，而不是显示目录里面的文件属性：
