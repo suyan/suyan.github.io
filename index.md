@@ -1,18 +1,14 @@
 ---
-title: Why Blog
+title: 写在起点
 layout: post
 ---
-
-## 对博客的理解
-
-我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。
-
-通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。
-
-分类有助于我们对信息的隔离，例如我把自己的记录分成这几类：技术、工具、资源、生活、读书和旅游。这是我生活重中最重要的几个类别，我希望把自己的一些心得和尝试写在相应分类中。
-
-## 博客平台
-
-这个博客通过 [Jekyll](http://jekyllrb.com/) 生成，部署在 [Github](https://pages.github.com)，主题基于 [3-Jekyll](https://github.com/P233/3-Jekyll) 修改生成，非常感谢 [Peiwen Lu](https://github.com/P233) 开发出这么漂亮的主题。
-
-我博客的源码托管在[Github](https://github.com/suyan/suyan.github.io)上，如果有任何改进意见，欢迎讨论。
+## Why blog
+一直以来有记笔记的习惯，电脑里的word文档洋洋洒洒，也乱七八糟。看了几篇blog种种好处的文章，决定把之前的和以后的笔记放在我的blog。  
+通过碎片化知识整理，加强基本功。坚持不能让blog成为收藏夹。
+## What blog
+python，virtualization，linux 是目前最想要提升的方面。    
+为了写好blog，github，jekyll，markdown，也需要尽快熟悉。
+## How blog
+希望借助blog这个工具，可以使我在成为IT大牛的道路上越走越远，不跑偏。  
+感谢 *Yan Su*大神的blog模板，本模板copy自[https://github.com/suyan/suyan.github.io](https://github.com/suyan/suyan.github.io)。   
+感谢知乎。
