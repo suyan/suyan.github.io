@@ -5,13 +5,13 @@ category: Linux
 ---
 
 
-##ls 
+## ls 
 查看某一个目录的完整属性，而不是显示目录里面的文件属性：
 $ ls -dl <目录名>
 
 Pasted from <https://www.shiyanlou.com/courses/1/labs/3/document>  
 
-##添加用户sudo组
+## 添加用户sudo组
 这里我用 shiyanlou 用户执行 sudo 命令将 lilei 添加到 sudo 用户组，让它也可以使用 sudo 命令获得 root 权限  
 `sudo adduser lilei`   
 `$ su - root`   
@@ -20,11 +20,11 @@ Pasted from <https://www.shiyanlou.com/courses/1/labs/3/document>
 `$ groups lilei`  
 然后你再切换回 lilei 用户，现在就可以使用 sudo 获取 root 权限了。
 
-##mkdir
+## mkdir
 使用 -p 参数，同时创建父目录（如果不存在该父目录），如下我们同时创建一个多级目录（这在有时候安装软件，配置安装路径时非常有用）：
 `$ mkdir -p father/son/grandson`
 
-##批量修改文件名
+## 批量修改文件名
 使用通配符批量创建 5 个文件   
 `$ touch file{1..5}.txt`   
 `# 批量将这 5 个后缀为 .txt 的文本文件重命名为以 .c 为后缀的文件`  
@@ -32,11 +32,11 @@ Pasted from <https://www.shiyanlou.com/courses/1/labs/3/document>
 `#批量将这 5 个文件，文件名改为大写`  
 `$ rename 'y/a-z/A-Z/' *.c`  
 
-##变量删除
+## 变量删除
 可以使用unset命令删除一个环境变量：  
 `$ unset temp`
 
-##如何让环境变量立即生效
+## 如何让环境变量立即生效
 在上面我们在 Shell 中修改了一个配置脚本文件之后（比如 zsh 的配置文件 home 目录下的.zshrc），每次都要退出终端重新打开甚至重启主机之后其才能生效，很是麻烦，我们可以使用source命令来让其立即生效，如：  
 `$ source .zshrc`
 source命令还有一个别名就是.，注意与表示当前路径的那个点区分开，虽然形式一样，但作用和使用方式一样，上面的命令如果替换成.的方式就该是   
@@ -45,7 +45,7 @@ source命令还有一个别名就是.，注意与表示当前路径的那个点�
 
 Pasted from <https://www.shiyanlou.com/courses/1/labs/60/document> 
 
-##tar
+## tar
 只查看不解包文件-t参数：  
 `$ tar -tf shiyanlou.tar`
 
@@ -65,7 +65,7 @@ Pasted from <https://www.shiyanlou.com/courses/1/labs/60/document>
 `*.tar.xz	-J`  
 `*tar.bz2	-j`
 
-##dd
+## dd
 我们先来试试用dd命令从标准输入读入用户输入到标准输出或者一个文件：  
 1. 输出到文件  
 `$ dd of=test bs=10 count=1  # 或者 dd if=/dev/stdin of=test bs=10 count=1`    
