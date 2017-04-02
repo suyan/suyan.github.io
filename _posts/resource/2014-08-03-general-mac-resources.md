@@ -52,6 +52,11 @@ description:
 关闭
 
     sudo defaults delete /Library/Preferences/com.apple.windowserver DisplayResolutionDisabled
+### Finder 标题栏显示完整路径
+
+```
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+```
 
 ### 修改Dock隐藏和出现时间
 
