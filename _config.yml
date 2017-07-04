@@ -14,19 +14,19 @@ filter: 'category'
 recent_num: 20
 
 # Social account
-twitter: masonsuyan
-weibo: suyan0830
-github: suyan
-instagram: suyan0830
-linkedin: suyan0830
+twitter: jimmybinbin
+weibo: Dear-BBge
+github: BBge
+instagram: e.g.bbge
+linkedin: 彬彬-赵-707420141
 
 # avatar and Favicon
 avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+favicon: http://osk9qlok9.bkt.clouddn.com/fat-Di.jpg
 
 # disqus config
 disqus:
-  shortname: suyan-zh
+  shortname: BBge
 
 # google analytics config
 ga:
