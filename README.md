@@ -1,6 +1,6 @@
 ### 我的博客
 
-地址：[http://bbge.gihub.io](http://bbge.github.io)
+地址：[http://bbge.org](http://bbge.org)
 
 ### 安装说明
 
