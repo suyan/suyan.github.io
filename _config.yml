@@ -14,11 +14,9 @@ filter: 'category'
 recent_num: 20
 
 # Social account
-twitter: zyl550
-weibo: 438301550
+# 社交账号
 github: zyl550
-instagram: zyl550
-linkedin: zyl550
+QQ: 438301550
 
 # avatar and Favicon
 avatar: http://7jprjk.com1.z0.glb.clouddn.com/site-avatar.png
