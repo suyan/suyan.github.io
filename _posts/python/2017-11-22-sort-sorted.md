@@ -1,3 +1,12 @@
+---
+layout: post
+title: Python里的sort和sorted
+category: Python
+tags: Python, sort, sorted
+keywords: Python, sort, sorted
+---
+
+
 在学到几个列表操作函数的时候，一直把sort和sorted傻傻分不清。。
 
  sorted(list_name)
