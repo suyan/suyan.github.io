@@ -69,7 +69,6 @@ $(function() {
   };
   afterPjax();
 
-
   // NProgress
   NProgress.configure({ showSpinner: false });
 
@@ -94,7 +93,6 @@ $(function() {
       }
     }
   });
-
 
   // Tags Filter
   $('#sidebar-tags').on('click', '.sidebar-tag', function() {
