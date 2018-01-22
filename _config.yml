@@ -20,8 +20,8 @@ github: lyk7539511
 instagram: 
 linkedin: 
 
-# avatar and Favicon
-avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
+# avatar and Favicon    #http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
+avatar: /home/liu/lyk7539511.github.io/assets/icon/favicon.ico
 favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
 # disqus config
