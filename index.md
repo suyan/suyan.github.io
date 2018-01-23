@@ -3,13 +3,11 @@ title: Doc
 layout: post
 ---
 
-## 关于我
+## About Me
 
 本人目前是一个在校大学生，垃圾二本，喜欢一些技术类的东西，也喜欢开源。
 
 邮箱：852486850@qq.com/lyk1652@gmail.com
-
-
 
 ## 博客平台
 
