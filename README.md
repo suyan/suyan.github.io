@@ -1,6 +1,6 @@
 ### 我的博客
 
-地址：[https://y888.github.io]()
+http://y888.github.io
 
 ### 安装说明
 
