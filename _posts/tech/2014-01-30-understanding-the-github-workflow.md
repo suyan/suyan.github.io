@@ -3,13 +3,13 @@ layout: post
 title: 了解GitHub工作流【译】
 category: 技术
 tags: Git
-keywords: Git,Workflow,工作流,GitHub 
-description: 
+keywords: Git,Workflow,工作流,GitHub
+description:
 ---
 
 > GitHub流是一个轻量级，基于分支的工作流，它使得小组和项目的部署变得标准化。这个向导解释了GitHub流是如何&为什么工作的。
 
-![github-flow](http://7u2ho6.com1.z0.glb.clouddn.com/tech-github-flow.png)
+![github-flow](http://imgs.yansu.org/tech-github-flow.png)
 
 ## 创建一个分支
 当你工作在一个项目中，你可能会在任何时间产生不同的想法和特性计划--这些都是准备完成的，或者其他不准备完成的。分支的存在可以帮助你管理工作流。

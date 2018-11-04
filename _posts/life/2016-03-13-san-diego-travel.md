@@ -12,41 +12,41 @@ keywords: 加州,圣地亚哥,生活,California,San Diego
 
 ## Carlsbad Flower Fields
 
-![Carlsbad Flower Fields](http://7u2ho6.com1.z0.glb.clouddn.com/life-carlsbad-flower-fields.png)
+![Carlsbad Flower Fields](http://imgs.yansu.org/life-carlsbad-flower-fields.png)
 
 ## University of California San Diego
 
-![University of San Diego](http://7u2ho6.com1.z0.glb.clouddn.com/life-university-of-san-diego.png)
+![University of San Diego](http://imgs.yansu.org/life-university-of-san-diego.png)
 
 ## San Diego Temple
 
-![San Diego Temple](http://7u2ho6.com1.z0.glb.clouddn.com/life-san-diego-temple.png)
+![San Diego Temple](http://imgs.yansu.org/life-san-diego-temple.png)
 
 ## La Jolla Cove
 
-![La Jolla Cove](http://7u2ho6.com1.z0.glb.clouddn.com/life-la-jolla-cove.png)
+![La Jolla Cove](http://imgs.yansu.org/life-la-jolla-cove.png)
 
 ## SeaWorld
 
-![SeaWorld](http://7u2ho6.com1.z0.glb.clouddn.com/life-seaworld-san-diego.png)
+![SeaWorld](http://imgs.yansu.org/life-seaworld-san-diego.png)
 
 ## USS Midway Museum
 
-![USS Midway Museum](http://7u2ho6.com1.z0.glb.clouddn.com/life-uss-midway-museum.png)
+![USS Midway Museum](http://imgs.yansu.org/life-uss-midway-museum.png)
 
-![Cute girl](http://7u2ho6.com1.z0.glb.clouddn.com/life-cute-girl.png)
+![Cute girl](http://imgs.yansu.org/life-cute-girl.png)
 
 ## Sunset Cliffs Park
 
-![Sunset Cliffs Park](http://7u2ho6.com1.z0.glb.clouddn.com/life-sunset-cliffs-park.png)
+![Sunset Cliffs Park](http://imgs.yansu.org/life-sunset-cliffs-park.png)
 
 ## Old Town
 
-![Old Town](http://7u2ho6.com1.z0.glb.clouddn.com/life-old-town.png)
+![Old Town](http://imgs.yansu.org/life-old-town.png)
 
 ## Potato Chip Rock
 
-![Potato Chip Rock](http://7u2ho6.com1.z0.glb.clouddn.com/life-potato-chip-rock.png)
+![Potato Chip Rock](http://imgs.yansu.org/life-potato-chip-rock.png)
 
 ## 美食严重推荐
 

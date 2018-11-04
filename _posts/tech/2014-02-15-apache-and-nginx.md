@@ -4,7 +4,7 @@ title: 从运行原理及使用场景看Apache和Nginx
 category: 技术
 tags: [Apache,Nginx]
 keywords: Apache,Nginx,原理,运行,场景
-description: 
+description:
 ---
 
 > 用正确的工具，做正确的事情。
@@ -12,11 +12,11 @@ description:
 __本文只作为了解Apache和Nginx知识的一个梳理，想详细了解的请阅读文末参考链接中的博文。__
 
 ## Web服务器
-Web服务器也称为WWW(WORLD WIDE WEB)服务器，主要功能是提供网上信息浏览服务。 
+Web服务器也称为WWW(WORLD WIDE WEB)服务器，主要功能是提供网上信息浏览服务。
 
-- 应用层使用HTTP协议。 
-- HTML文档格式。 
-- 浏览器统一资源定位器(URL)。 
+- 应用层使用HTTP协议。
+- HTML文档格式。
+- 浏览器统一资源定位器(URL)。
 
 Web服务器常常以B/S（Browser/Server）方式提供服务。浏览器和服务器的交互方式如下：
 
@@ -114,11 +114,11 @@ MPM（Multi -Processing Modules，多重处理模块）是Apache的核心组件�
 这个过程可以通过下图来深入了解：
 
 ```
-       +--------+      
-       |  开始   |      
-       +----+---+         
+       +--------+
+       |  开始   |
+       +----+---+
             |
- +----------v------------+   解析主配置文件http.conf中配置信息， 
+ +----------v------------+   解析主配置文件http.conf中配置信息，
  |     解析配置文件        |   像LoadModule, AddType
  +----------+------------+   等指令被加载至内存
             |
@@ -144,7 +144,7 @@ Apache将请求处理循环分为11个阶段，依次是：Post-Read-Request，U
 
 Apache处理http请求的生命周期:
 
-![Apache处理http请求的生命周期](http://7u2ho6.com1.z0.glb.clouddn.com/tech-apache-http-handle.jpg)
+![Apache处理http请求的生命周期](http://imgs.yansu.org/tech-apache-http-handle.jpg)
 
 1. Post-Read-Request阶段:在正常请求处理流程中，这是模块可以插入钩子的第一个阶段。对于那些想很早进入处理请求的模块来说，这个阶段可以被利用。
 2. URI Translation阶段 :  Apache在本阶段的主要工作：将请求的URL映射到本地文件系统。模块可以在这阶段插入钩子，执行自己的映射逻辑。mod_alias就是利用这个阶段工作的。
@@ -203,7 +203,7 @@ Nginx本身做的工作实际很少，当它接到一个HTTP请求时，它仅�
 
 ### Nginx架构及工作流程
 
-![Nginx架构](http://7u2ho6.com1.z0.glb.clouddn.com/tech-nginx-architecture.png)
+![Nginx架构](http://imgs.yansu.org/tech-nginx-architecture.png)
 
 上图是Nginx的架构，这个架构类似于Apache的Worker工作状态，Nginx的每一个Worker进程都管理着大量的线程，真正处理请求的是Worker之下的线程。
 
@@ -253,7 +253,7 @@ Nginx和Apache一样，都是HTTP服务器软件，在功能实现上都采用�
 
 - 轻量级，同样起web 服务，比apache 占用更少的内存及资源
 - 静态处理，Nginx 静态处理性能比 Apache 高 3倍以上
-- 抗并发，nginx 处理请求是异步非阻塞的，而apache则是阻塞型的，在高并发下nginx 能保持低资源低消耗高性能。在Apache+PHP（prefork）模式下，如果PHP处理慢或者前端压力很大的情况下，很容易出现Apache进程数飙升，从而拒绝服务的现象。 
+- 抗并发，nginx 处理请求是异步非阻塞的，而apache则是阻塞型的，在高并发下nginx 能保持低资源低消耗高性能。在Apache+PHP（prefork）模式下，如果PHP处理慢或者前端压力很大的情况下，很容易出现Apache进程数飙升，从而拒绝服务的现象。
 - 高度模块化的设计，编写模块相对简单
 - 社区活跃，各种高性能模块出品迅速啊
 
@@ -263,7 +263,7 @@ Nginx和Apache一样，都是HTTP服务器软件，在功能实现上都采用�
 - 模块超多，基本想到的都可以找到
 - 少bug，nginx的bug相对较多
 - 超稳定
-- Apache对PHP支持比较简单，Nginx需要配合其他后端用 
+- Apache对PHP支持比较简单，Nginx需要配合其他后端用
 
 ### 选择Nginx的优势所在
 

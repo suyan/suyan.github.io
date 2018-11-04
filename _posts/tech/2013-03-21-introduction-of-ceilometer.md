@@ -18,7 +18,7 @@ In the 0.1 (folsom) release its goal was just to deliver a unique point of conta
 **代码地址：** https://github.com/openstack/ceilometer
 **文档地址：** http://docs.openstack.org/developer/ceilometer/
 
- 
+
 
 ### 社区现状
 
@@ -35,7 +35,7 @@ Move to core for H
 
 ### Ceilometer架构介绍
 
-![Ceilometer架构介绍](http://7u2ho6.com1.z0.glb.clouddn.com/tech-ceilometer-architecture.png)
+![Ceilometer架构介绍](http://imgs.yansu.org/tech-ceilometer-architecture.png)
 
 ### Ceilometer项目主要由Agent，Collector，DataStore，API和消息队列组成。
 

@@ -12,13 +12,13 @@ description: 今天在看对象存储时涉及到几个企业常用的存储系�
 
 DAS是企业最早采用的在线型存储堆，基本原理即终端和服务器构成LAN，由服务器进行存储，终端连接外网，保证了存储的安全性。但是在多个服务器之间共享存储就显得非常复杂。
 
-![DAS](http://7u2ho6.com1.z0.glb.clouddn.com/tech-das.jpg)
+![DAS](http://imgs.yansu.org/tech-das.jpg)
 
 ### [网络附加存储(Network Attached Storage,NAS)](http://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E5%84%B2%E5%AD%98%E8%A8%AD%E5%82%99)
 
 NAS和DAS不同的地方是把存储服务器直接连接到网络中去，可以提供不同网络对其进行存储。
 
-![NAS](http://7u2ho6.com1.z0.glb.clouddn.com/tech-nas.jpg)
+![NAS](http://imgs.yansu.org/tech-nas.jpg)
 
 参考
 
@@ -31,4 +31,4 @@ NAS和DAS不同的地方是把存储服务器直接连接到网络中去，可�
 
 SAN是将许多存储装置
 
-![SAN](http://7u2ho6.com1.z0.glb.clouddn.com/tech-san.gif)
+![SAN](http://imgs.yansu.org/tech-san.gif)

@@ -4,7 +4,7 @@ title: Mac 常用资源
 category: 资源
 tags: Mac
 keywords: Mac
-description: 
+description:
 ---
 
 ## 常用软件
@@ -36,7 +36,7 @@ description:
 ### 剪贴板操作
 写入剪切板
 
-    echo 'test' > pbcopy 
+    echo 'test' > pbcopy
     cat testfile > pbcopy
 
 读取剪贴板
@@ -69,7 +69,7 @@ killall Dock
 
 ### 设置iterm中option为alt(meta)键
 
-![option-to-meta](http://7u2ho6.com1.z0.glb.clouddn.com/resource-set-meta-to-alt.png)
+![option-to-meta](http://imgs.yansu.org/resource-set-meta-to-alt.png)
 
 ### 删除dropbox冲突文件
 

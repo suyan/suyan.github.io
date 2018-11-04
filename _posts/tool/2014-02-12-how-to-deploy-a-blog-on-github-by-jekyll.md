@@ -4,12 +4,12 @@ title: 在Github上搭建Jekyll博客和创建主题
 category: 工具
 tags: Jekyll
 keywords: Jekyll,Github
-description: 
+description:
 ---
 
 > 之前本来想展开写的，后来发现Jekyll官网的教程已经非常完善了就没有多写，所以只有[这篇][1]。
 > 但是过了这么久，发现很多人还是不清楚怎么搭建，所以这里打算详细写一下，并且把自己对图片的解决方案以及主题的创建步骤也一并写下。
-> 
+>
 > 本篇主要谈如何搭建，不再讲为什么用它们。
 
 __说明：本篇用到的代码中，为了防止解析冲突，一律多了`\`这个来防止被误解析__
@@ -238,7 +238,7 @@ title: 首页
 ### 方便的截图
 很多时候图片都是现截取的，比如用QQ的截图工具，或者系统的截图工具，但是他们截取完都存放在了`user/Pictures`里面，来回移动太累了。我这里介绍一个Mac下的一个工具——Trickster，看图
 
-![移动图片](http://7u2ho6.com1.z0.glb.clouddn.com/tech-trickster-move-picture.png)
+![移动图片](http://imgs.yansu.org/tech-trickster-move-picture.png)
 
 这个工具可以看到刚刚修改过的图片，而且还有一个收藏的文件夹，我每次截取完图以后，从左边往右边一拖，然后在markdown中就可以继续书写了。一点都不耗时。
 

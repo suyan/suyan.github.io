@@ -63,7 +63,7 @@ keywords: 设计模式,Pattern,PHP,建造者模式,单例模式,适配器模式,
 ### 关系
 这里有一张各个模式关系图，可以在了解各个模式以后梳理一下
 
-![设计模式](http://7u2ho6.com1.z0.glb.clouddn.com/tech-design-patterns.jpg)
+![设计模式](http://imgs.yansu.org/tech-design-patterns.jpg)
 
 ### 参考
 1. [Wikipedia: Software design pattern](http://en.wikipedia.org/wiki/Software_design_pattern)
@@ -86,7 +86,7 @@ keywords: 设计模式,Pattern,PHP,建造者模式,单例模式,适配器模式,
 - 当构造过程必须允许被构造的对象有不同的表示时。
 
 ### 类图
-![builder pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-builder-pattern-uml.png)
+![builder pattern](http://imgs.yansu.org/tech-builder-pattern-uml.png)
 
 ### 实例
 
@@ -94,33 +94,33 @@ keywords: 设计模式,Pattern,PHP,建造者模式,单例模式,适配器模式,
 <?php
 
 class Product { // 产品本身
-    private $_parts; 
-    public function __construct() { $this->_parts = array(); } 
+    private $_parts;
+    public function __construct() { $this->_parts = array(); }
     public function add($part) { return array_push($this->_parts, $part); }
 }
- 
+
 abstract class Builder { // 建造者抽象类
     public abstract function buildPart1();
     public abstract function buildPart2();
     public abstract function getResult();
 }
- 
+
 class ConcreteBuilder extends Builder { // 具体建造者
     private $_product;
     public function __construct() { $this->_product = new Product(); }
-    public function buildPart1() { $this->_product->add("Part1"); } 
+    public function buildPart1() { $this->_product->add("Part1"); }
     public function buildPart2() { $this->_product->add("Part2"); }
     public function getResult() { return $this->_product; }
 }
- 
-class Director { 
+
+class Director {
     public function __construct(Builder $builder) {
         $builder->buildPart1();
         $builder->buildPart2();
     }
 }
 
-// client 
+// client
 $buidler = new ConcreteBuilder();
 $director = new Director($buidler);
 $product = $buidler->getResult();
@@ -157,16 +157,16 @@ Singleton定义一个getInstance操作，允许客户访问它唯一的实例。
 - 当这个唯一实例应该是通过子类化可扩展的。并且用户应该无需更改代码就能使用一个扩展的实例时。
 
 ### 类图
-![singleton pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-singleton-pattern-uml.png)
+![singleton pattern](http://imgs.yansu.org/tech-singleton-pattern-uml.png)
 
 ### 实例
 
 ```php
-<?php 
+<?php
 public class Singleton {
     private static $_instance = NULL;
 
-    // 私有构造方法 
+    // 私有构造方法
     private function __construct() {}
 
     public static function getInstance() {
@@ -233,10 +233,10 @@ public class Singleton {
 ### 类图
 
 #### 类适配器
-![class adapter pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-class-adapter-pattern-uml.jpg)
+![class adapter pattern](http://imgs.yansu.org/tech-class-adapter-pattern-uml.jpg)
 
 #### 对象适配器
-![object adapter pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-object-adapter-pattern-uml.jpg)
+![object adapter pattern](http://imgs.yansu.org/tech-object-adapter-pattern-uml.jpg)
 
 ### 实例
 
@@ -249,19 +249,19 @@ interface Target {
     public function sampleMethod1();
     public function sampleMethod2();
 }
- 
+
 class Adaptee { // 源角色
     public function sampleMethod1() {}
 }
- 
+
 class Adapter extends Adaptee implements Target { // 适配后角色
-    public function sampleMethod2() {} 
+    public function sampleMethod2() {}
 }
- 
+
 // client
 $adapter = new Adapter();
 $adapter->sampleMethod1();
-$adapter->sampleMethod2(); 
+$adapter->sampleMethod2();
 
 ?>
 ```
@@ -275,22 +275,22 @@ interface Target {
     public function sampleMethod1();
     public function sampleMethod2();
 }
- 
+
 class Adaptee {
     public function sampleMethod1() {}
 }
- 
+
 class Adapter implements Target {
     private $_adaptee;
     public function __construct(Adaptee $adaptee) {
         $this->_adaptee = $adaptee;
     }
- 
+
     public function sampleMethod1() { $this->_adaptee->sampleMethod1(); }
- 
+
     public function sampleMethod2() {}
 }
- 
+
 $adaptee = new Adaptee();
 $adapter = new Adapter($adaptee);
 $adapter->sampleMethod1();
@@ -321,38 +321,38 @@ $adapter->sampleMethod2();
 
 ### 类图
 
-![bridge pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-bridge-pattern-uml.jpg)
+![bridge pattern](http://imgs.yansu.org/tech-bridge-pattern-uml.jpg)
 
 ### 实例
 
 ```php
 <?php
-abstract class Abstraction { // 抽象化角色，抽象化给出的定义，并保存一个对实现化对象的引用。    
+abstract class Abstraction { // 抽象化角色，抽象化给出的定义，并保存一个对实现化对象的引用。
     protected $imp; // 对实现化对象的引用
     public function operation() {
         $this->imp->operationImp();
     }
 }
- 
+
 class RefinedAbstraction extends Abstraction { // 修正抽象化角色, 扩展抽象化角色，改变和修正父类对抽象化的定义。
      public function __construct(Implementor $imp) {
         $this->imp = $imp;
     }
     public function operation() { $this->imp->operationImp(); }
 }
- 
+
 abstract class Implementor { // 实现化角色, 给出实现化角色的接口，但不给出具体的实现。
     abstract public function operationImp();
 }
- 
+
 class ConcreteImplementorA extends Implementor { // 具体化角色A
     public function operationImp() {}
 }
- 
+
 class ConcreteImplementorB extends Implementor { // 具体化角色B
     public function operationImp() {}
 }
- 
+
 // client
 $abstraction = new RefinedAbstraction(new ConcreteImplementorA());
 $abstraction->operation();
@@ -392,11 +392,11 @@ Composite变化的是一个对象的结构和组成。
 
 #### 安全式合成模式
 
-![safe composite pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-safe-composite-pattern-uml.jpg)
+![safe composite pattern](http://imgs.yansu.org/tech-safe-composite-pattern-uml.jpg)
 
 #### 透明式合成模式
 
-![transparent composite pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-transparent-composite-pattern-uml.jpg)
+![transparent composite pattern](http://imgs.yansu.org/tech-transparent-composite-pattern-uml.jpg)
 
 ### 实例
 
@@ -410,7 +410,7 @@ interface Component {
     public function getComposite(); //返回自己的实例
     public function operation();
 }
- 
+
 class Composite implements Component { // 树枝组件角色
     private $_composites;
     public function __construct() { $this->_composites = array(); }
@@ -420,31 +420,31 @@ class Composite implements Component { // 树枝组件角色
             $composite->operation();
         }
      }
- 
+
     public function add(Component $component) {  //聚集管理方法 添加一个子对象
         $this->_composites[] = $component;
     }
- 
+
     public function remove(Component $component) { // 聚集管理方法 删除一个子对象
         foreach ($this->_composites as $key => $row) {
             if ($component == $row) { unset($this->_composites[$key]); return TRUE; }
-        } 
+        }
         return FALSE;
     }
 
     public function getChild() { // 聚集管理方法 返回所有的子对象
        return $this->_composites;
     }
- 
+
 }
- 
+
 class Leaf implements Component {
-    private $_name; 
+    private $_name;
     public function __construct($name) { $this->_name = $name; }
     public function operation() {}
     public function getComposite() {return null;}
 }
- 
+
 // client
 $leaf1 = new Leaf('first');
 $leaf2 = new Leaf('second');
@@ -471,10 +471,10 @@ interface Component { // 抽象组件角色
     public function remove(Component $component); // 聚集管理方法 删除一个子对象
     public function getChild(); // 聚集管理方法 返回所有的子对象
 }
- 
+
 class Composite implements Component { // 树枝组件角色
     private $_composites;
-    public function __construct() { $this->_composites = array(); } 
+    public function __construct() { $this->_composites = array(); }
     public function getComposite() { return $this; }
     public function operation() { // 示例方法，调用各个子对象的operation方法
         foreach ($this->_composites as $composite) {
@@ -487,15 +487,15 @@ class Composite implements Component { // 树枝组件角色
     public function remove(Component $component) { // 聚集管理方法 删除一个子对象
         foreach ($this->_composites as $key => $row) {
             if ($component == $row) { unset($this->_composites[$key]); return TRUE; }
-        } 
+        }
         return FALSE;
     }
     public function getChild() { // 聚集管理方法 返回所有的子对象
        return $this->_composites;
     }
- 
+
 }
- 
+
 class Leaf implements Component {
     private $_name;
     public function __construct($name) {$this->_name = $name;}
@@ -505,8 +505,8 @@ class Leaf implements Component {
     public function remove(Component $component) { return FALSE; }
     public function getChild() { return null; }
 }
- 
-// client 
+
+// client
 $leaf1 = new Leaf('first');
 $leaf2 = new Leaf('second');
 
@@ -553,7 +553,7 @@ $composite->operation();
 
 ### 类图
 
-![decorator pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-decorator-pattern-uml.jpg)
+![decorator pattern](http://imgs.yansu.org/tech-decorator-pattern-uml.jpg)
 
 ### 实例
 
@@ -562,8 +562,8 @@ $composite->operation();
 interface Component {
     public function operation();
 }
- 
-abstract class Decorator implements Component{ // 装饰角色 
+
+abstract class Decorator implements Component{ // 装饰角色
     protected  $_component;
     public function __construct(Component $component) {
         $this->_component = $component;
@@ -572,11 +572,11 @@ abstract class Decorator implements Component{ // 装饰角色
         $this->_component->operation();
     }
 }
- 
+
 class ConcreteDecoratorA extends Decorator { // 具体装饰类A
     public function __construct(Component $component) {
         parent::__construct($component);
-    } 
+    }
     public function operation() {
         parent::operation();    //  调用装饰类的操作
         $this->addedOperationA();   //  新增加的操作
@@ -587,18 +587,18 @@ class ConcreteDecoratorA extends Decorator { // 具体装饰类A
 class ConcreteDecoratorB extends Decorator { // 具体装饰类B
     public function __construct(Component $component) {
         parent::__construct($component);
-    } 
+    }
     public function operation() {
         parent::operation();
         $this->addedOperationB();
     }
     public function addedOperationB() {}
 }
- 
-class ConcreteComponent implements Component{ 
-    public function operation() {} 
+
+class ConcreteComponent implements Component{
+    public function operation() {}
 }
- 
+
 // clients
 $component = new ConcreteComponent();
 $decoratorA = new ConcreteDecoratorA($component);
@@ -649,7 +649,7 @@ $decoratorB->operation();
 
 ### 类图
 
-![facade pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-facade-pattern-uml.jpg)
+![facade pattern](http://imgs.yansu.org/tech-facade-pattern-uml.jpg)
 
 ### 实例
 
@@ -660,71 +660,71 @@ class Camera {
     public function turnOff() {}
     public function rotate($degrees) {}
 }
- 
+
 class Light {
     public function turnOn() {}
     public function turnOff() {}
     public function changeBulb() {}
 }
- 
+
 class Sensor {
     public function activate() {}
     public function deactivate() {}
     public function trigger() {}
 }
- 
+
 class Alarm {
     public function activate() {}
     public function deactivate() {}
     public function ring() {}
     public function stopRing() {}
 }
- 
+
 class SecurityFacade {
     private $_camera1, $_camera2;
     private $_light1, $_light2, $_light3;
     private $_sensor;
     private $_alarm;
- 
+
     public function __construct() {
         $this->_camera1 = new Camera();
         $this->_camera2 = new Camera();
- 
+
         $this->_light1 = new Light();
         $this->_light2 = new Light();
         $this->_light3 = new Light();
- 
+
         $this->_sensor = new Sensor();
         $this->_alarm = new Alarm();
     }
- 
+
     public function activate() {
         $this->_camera1->turnOn();
         $this->_camera2->turnOn();
- 
+
         $this->_light1->turnOn();
         $this->_light2->turnOn();
         $this->_light3->turnOn();
- 
+
         $this->_sensor->activate();
         $this->_alarm->activate();
     }
- 
+
     public  function deactivate() {
         $this->_camera1->turnOff();
         $this->_camera2->turnOff();
- 
+
         $this->_light1->turnOff();
         $this->_light2->turnOff();
         $this->_light3->turnOff();
- 
+
         $this->_sensor->deactivate();
         $this->_alarm->deactivate();
     }
 }
- 
- 
-//client 
+
+
+//client
 $security = new SecurityFacade();
 $security->activate();
 ?>
@@ -764,7 +764,7 @@ $security->activate();
 
 ### 类图
 
-![flyweight pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-flyweight-pattern-uml.jpg)
+![flyweight pattern](http://imgs.yansu.org/tech-flyweight-pattern-uml.jpg)
 
 ### 实例
 
@@ -773,15 +773,15 @@ $security->activate();
 abstract class Flyweight { // 抽象享元角色
     abstract public function operation($state);
 }
- 
+
 class ConcreteFlyweight extends Flyweight { // 具体享元角色
-    private $_intrinsicState = null; 
+    private $_intrinsicState = null;
     public function __construct($state) {
         $this->_intrinsicState = $state;
     }
     public function operation($state) {}
 }
- 
+
 class UnsharedConcreteFlyweight extends Flyweight { // 不共享的具体享元，客户端直接调用
     private $_intrinsicState = null;
     public function __construct($state) {
@@ -790,7 +790,7 @@ class UnsharedConcreteFlyweight extends Flyweight { // 不共享的具体享元�
     public function operation($state) {}
 }
 
-class FlyweightFactory { // 享元工厂角色 
+class FlyweightFactory { // 享元工厂角色
     private $_flyweights;
     public function __construct() {
         $this->_flyweights = array();
@@ -803,7 +803,7 @@ class FlyweightFactory { // 享元工厂角色
         }
     }
 }
- 
+
 // client
 $flyweightFactory = new FlyweightFactory();
 $flyweight = $flyweightFactory->getFlyweigth('state A');
@@ -854,7 +854,7 @@ $uflyweight->operation('other state A');
 
 ### 类图
 
-![observer pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-observer-pattern-uml.jpg)
+![observer pattern](http://imgs.yansu.org/tech-observer-pattern-uml.jpg)
 
 ### 实例
 
@@ -867,7 +867,7 @@ interface Subject { // 抽象主题角色
 }
 
 class ConcreteSubject implements Subject { // 具体主题角色
-    private $_observers; 
+    private $_observers;
     public function __construct() { $this->_observers = array(); }
     public function attach(Observer $observer) {
         return array_push($this->_observers, $observer);
@@ -876,30 +876,30 @@ class ConcreteSubject implements Subject { // 具体主题角色
         $index = array_search($observer, $this->_observers);
         if ($index === FALSE || ! array_key_exists($index, $this->_observers)) {
             return FALSE;
-        } 
+        }
         unset($this->_observers[$index]);
         return TRUE;
     }
     public function notifyObservers() {
-        if (!is_array($this->_observers)) { return FALSE; } 
-        foreach ($this->_observers as $observer) { 
-            $observer->update(); 
-        } 
+        if (!is_array($this->_observers)) { return FALSE; }
+        foreach ($this->_observers as $observer) {
+            $observer->update();
+        }
         return TRUE;
     }
- 
+
 }
 
 interface Observer { // 抽象观察者角色
     public function update(); // 更新方法
 }
- 
+
 class ConcreteObserver implements Observer {
-    private $_name; 
+    private $_name;
     public function __construct($name) { $this->_name = $name; }
     public function update() {}
 }
- 
+
 $subject = new ConcreteSubject();
 
 /* 添加第一个观察者 */
@@ -949,7 +949,7 @@ $subject->notifyObservers();
 - 当一个类的实例只能有几个不同状态组合中的一种时。建立相应数目的原型并克隆它们可能比每次用合适的状态手工实例化该类更方便一些
 
 ### 类图
-![prototype pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-prototype-pattern-uml.jpg)
+![prototype pattern](http://imgs.yansu.org/tech-prototype-pattern-uml.jpg)
 
 ### 实例
 
@@ -957,17 +957,17 @@ $subject->notifyObservers();
 <?php
 
 interface Prototype { public function copy(); }
- 
+
 class ConcretePrototype implements Prototype{
     private  $_name;
-    public function __construct($name) { $this->_name = $name; } 
+    public function __construct($name) { $this->_name = $name; }
     public function copy() { return clone $this;}
 }
- 
+
 class Demo {}
- 
+
 // client
- 
+
 $demo = new Demo();
 $object1 = new ConcretePrototype($demo);
 $object2 = $object1->copy();
@@ -1008,7 +1008,7 @@ Prototype模式的最主要缺点就是每一个类必须配备一个克隆方�
 
 ### 类图
 
-![proxy pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-proxy-pattern-uml.png)
+![proxy pattern](http://imgs.yansu.org/tech-proxy-pattern-uml.png)
 
 ### 实例
 
@@ -1068,7 +1068,7 @@ $subject->action();
 
 ### 类图
 
-![strategy pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-strategy-pattern-uml.jpg)
+![strategy pattern](http://imgs.yansu.org/tech-strategy-pattern-uml.jpg)
 
 ### 实例
 
@@ -1078,28 +1078,28 @@ interface Strategy { // 抽象策略角色，以接口实现
     public function algorithmInterface(); // 算法接口
 }
 
-class ConcreteStrategyA implements Strategy { // 具体策略角色A 
+class ConcreteStrategyA implements Strategy { // 具体策略角色A
     public function algorithmInterface() {}
 }
 
-class ConcreteStrategyB implements Strategy { // 具体策略角色B 
+class ConcreteStrategyB implements Strategy { // 具体策略角色B
     public function algorithmInterface() {}
 }
 
 class ConcreteStrategyC implements Strategy { // 具体策略角色C
     public function algorithmInterface() {}
 }
- 
+
 class Context { // 环境角色
     private $_strategy;
     public function __construct(Strategy $strategy) {
         $this->_strategy = $strategy;
-    } 
+    }
     public function contextInterface() {
         $this->_strategy->algorithmInterface();
     }
 }
- 
+
 // client
 $strategyA = new ConcreteStrategyA();
 $context = new Context($strategyA);
@@ -1157,7 +1157,7 @@ $context->contextInterface();
 
 ### 类图
 
-![command pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-command-pattern-uml.jpg)
+![command pattern](http://imgs.yansu.org/tech-command-pattern-uml.jpg)
 
 ### 实例
 
@@ -1167,8 +1167,8 @@ interface Command { // 命令角色
     public function execute(); // 执行方法
 }
 
-class ConcreteCommand implements Command { // 具体命令方法 
-    private $_receiver; 
+class ConcreteCommand implements Command { // 具体命令方法
+    private $_receiver;
     public function __construct(Receiver $receiver) {
         $this->_receiver = $receiver;
     }
@@ -1186,7 +1186,7 @@ class Receiver { // 接收者角色
 }
 
 class Invoker { // 请求者角色
-    private $_command; 
+    private $_command;
     public function __construct(Command $command) {
         $this->_command = $command;
     }
@@ -1194,7 +1194,7 @@ class Invoker { // 请求者角色
         $this->_command->execute();
     }
 }
- 
+
 $receiver = new Receiver('hello world');
 $command = new ConcreteCommand($receiver);
 $invoker = new Invoker($command);
@@ -1225,58 +1225,58 @@ $invoker->action();
 
 ### 类图
 
-![interpreter pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-interpreter-pattern-uml.jpg)
+![interpreter pattern](http://imgs.yansu.org/tech-interpreter-pattern-uml.jpg)
 
 ### 实例
 
 ```php
 <?php
-class Expression { 
-    function interpreter($str) { 
-        return $str; 
-    } 
-} 
+class Expression {
+    function interpreter($str) {
+        return $str;
+    }
+}
 
-class ExpressionNum extends Expression { 
-    function interpreter($str) { 
-        switch($str) { 
-            case "0": return "零"; 
-            case "1": return "一"; 
-            case "2": return "二"; 
-            case "3": return "三"; 
-            case "4": return "四"; 
-            case "5": return "五"; 
-            case "6": return "六"; 
-            case "7": return "七"; 
-            case "8": return "八"; 
-            case "9": return "九"; 
-        } 
-    } 
-} 
+class ExpressionNum extends Expression {
+    function interpreter($str) {
+        switch($str) {
+            case "0": return "零";
+            case "1": return "一";
+            case "2": return "二";
+            case "3": return "三";
+            case "4": return "四";
+            case "5": return "五";
+            case "6": return "六";
+            case "7": return "七";
+            case "8": return "八";
+            case "9": return "九";
+        }
+    }
+}
 
-class ExpressionCharater extends Expression { 
-    function interpreter($str) { 
-        return strtoupper($str); 
-    } 
-} 
+class ExpressionCharater extends Expression {
+    function interpreter($str) {
+        return strtoupper($str);
+    }
+}
 
-class Interpreter { 
-    function execute($string) { 
-        $expression = null; 
-        for($i = 0;$i<strlen($string);$i++) { 
-            $temp = $string[$i]; 
-            switch(true) { 
-                case is_numeric($temp): $expression = new ExpressionNum(); break; 
-                default: $expression = new ExpressionCharater(); 
-            } 
-            echo $expression->interpreter($temp); 
-        } 
-    } 
-} 
+class Interpreter {
+    function execute($string) {
+        $expression = null;
+        for($i = 0;$i<strlen($string);$i++) {
+            $temp = $string[$i];
+            switch(true) {
+                case is_numeric($temp): $expression = new ExpressionNum(); break;
+                default: $expression = new ExpressionCharater();
+            }
+            echo $expression->interpreter($temp);
+        }
+    }
+}
 
 //client
-$obj = new Interpreter(); 
-$obj->execute("12345abc"); 
+$obj = new Interpreter();
+$obj->execute("12345abc");
 ?>
 ```
 
@@ -1297,31 +1297,31 @@ $obj->execute("12345abc");
 <?php
 class sample implements Iterator {
     private $_items ;
- 
+
     public function __construct(&$data) {
         $this->_items = $data;
     }
     public function current() {
         return current($this->_items);
     }
- 
+
     public function next() {
-        next($this->_items);   
+        next($this->_items);
     }
- 
+
     public function key() {
         return key($this->_items);
     }
- 
+
     public function rewind() {
         reset($this->_items);
     }
- 
-    public function valid() {                                                                              
+
+    public function valid() {
         return ($this->current() !== FALSE);
     }
 }
- 
+
 // client
 $data = array(1, 2, 3, 4, 5);
 $sa = new sample($data);
@@ -1349,51 +1349,51 @@ foreach ($sa AS $key => $row) {
 ```php
 <?php
 abstract class Mediator { // 中介者角色
-    abstract public function send($message,$colleague); 
-} 
+    abstract public function send($message,$colleague);
+}
 
 abstract class Colleague { // 抽象对象
-    private $_mediator = null; 
-    public function __construct($mediator) { 
-        $this->_mediator = $mediator; 
-    } 
-    public function send($message) { 
-        $this->_mediator->send($message,$this); 
-    } 
-    abstract public function notify($message); 
-} 
+    private $_mediator = null;
+    public function __construct($mediator) {
+        $this->_mediator = $mediator;
+    }
+    public function send($message) {
+        $this->_mediator->send($message,$this);
+    }
+    abstract public function notify($message);
+}
 
 class ConcreteMediator extends Mediator { // 具体中介者角色
-    private $_colleague1 = null; 
-    private $_colleague2 = null; 
-    public function send($message,$colleague) { 
-        if($colleague == $this->_colleague1) { 
-            $this->_colleague1->notify($message); 
-        } else { 
-            $this->_colleague2->notify($message); 
-        } 
+    private $_colleague1 = null;
+    private $_colleague2 = null;
+    public function send($message,$colleague) {
+        if($colleague == $this->_colleague1) {
+            $this->_colleague1->notify($message);
+        } else {
+            $this->_colleague2->notify($message);
+        }
     }
-    public function set($colleague1,$colleague2) { 
-        $this->_colleague1 = $colleague1; 
-        $this->_colleague2 = $colleague2; 
-    } 
-} 
+    public function set($colleague1,$colleague2) {
+        $this->_colleague1 = $colleague1;
+        $this->_colleague2 = $colleague2;
+    }
+}
 
 class Colleague1 extends Colleague { // 具体对象角色
-    public function notify($message) { } 
-} 
+    public function notify($message) { }
+}
 
 class Colleague2 extends Colleague { // 具体对象角色
-    public function notify($message) { } 
-} 
+    public function notify($message) { }
+}
 
 // client
-$objMediator = new ConcreteMediator(); 
-$objC1 = new Colleague1($objMediator); 
-$objC2 = new Colleague2($objMediator); 
-$objMediator->set($objC1,$objC2); 
-$objC1->send("to c2 from c1"); 
-$objC2->send("to c1 from c2"); 
+$objMediator = new ConcreteMediator();
+$objC1 = new Colleague1($objMediator);
+$objC2 = new Colleague2($objMediator);
+$objMediator->set($objC1,$objC2);
+$objC1->send("to c2 from c1");
+$objC2->send("to c1 from c2");
 ?>
 ```
 
@@ -1416,7 +1416,7 @@ $objC2->send("to c1 from c2");
 
 ### 类图
 
-![memento pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-memento-pattern-uml.jpg)
+![memento pattern](http://imgs.yansu.org/tech-memento-pattern-uml.jpg)
 
 ### 实例
 
@@ -1433,27 +1433,27 @@ class Originator { // 发起人(Originator)角色
     public function restoreMemento(Memento $memento) { // 将发起人恢复到备忘录对象记录的状态上
         $this->_state = $memento->getState();
     }
-    public function setState($state) { $this->_state = $state; } 
+    public function setState($state) { $this->_state = $state; }
     public function getState() { return $this->_state; }
     public function showState() {}
- 
+
 }
 
-class Memento { // 备忘录(Memento)角色 
+class Memento { // 备忘录(Memento)角色
     private $_state;
     public function __construct($state) {
         $this->setState($state);
     }
-    public function getState() { return $this->_state; } 
+    public function getState() { return $this->_state; }
     public function setState($state) { $this->_state = $state;}
 }
 
-class Caretaker { // 负责人(Caretaker)角色 
+class Caretaker { // 负责人(Caretaker)角色
     private $_memento;
-    public function getMemento() { return $this->_memento; } 
+    public function getMemento() { return $this->_memento; }
     public function setMemento(Memento $memento) { $this->_memento = $memento; }
 }
- 
+
 // client
 /* 创建目标对象 */
 $org = new Originator();
@@ -1515,7 +1515,7 @@ $org->showState();
 
 ### 类图
 
-![visitor pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-visitor-pattern-uml.jpg)
+![visitor pattern](http://imgs.yansu.org/tech-visitor-pattern-uml.jpg)
 
 ### 实例
 
@@ -1525,11 +1525,11 @@ interface Visitor { // 抽象访问者角色
     public function visitConcreteElementA(ConcreteElementA $elementA);
     public function visitConcreteElementB(concreteElementB $elementB);
 }
- 
+
 interface Element { // 抽象节点角色
     public function accept(Visitor $visitor);
 }
- 
+
 class ConcreteVisitor1 implements Visitor { // 具体的访问者1
     public function visitConcreteElementA(ConcreteElementA $elementA) {}
     public function visitConcreteElementB(ConcreteElementB $elementB) {}
@@ -1542,7 +1542,7 @@ class ConcreteVisitor2 implements Visitor { // 具体的访问者2
 
 class ConcreteElementA implements Element { // 具体元素A
     private $_name;
-    public function __construct($name) { $this->_name = $name; } 
+    public function __construct($name) { $this->_name = $name; }
     public function getName() { return $this->_name; }
     public function accept(Visitor $visitor) { // 接受访问者调用它针对该元素的新方法
         $visitor->visitConcreteElementA($this);
@@ -1550,7 +1550,7 @@ class ConcreteElementA implements Element { // 具体元素A
 }
 
 class ConcreteElementB implements Element { // 具体元素B
-    private $_name; 
+    private $_name;
     public function __construct($name) { $this->_name = $name;}
     public function getName() { return $this->_name; }
     public function accept(Visitor $visitor) { // 接受访问者调用它针对该元素的新方法
@@ -1559,8 +1559,8 @@ class ConcreteElementB implements Element { // 具体元素B
 }
 
 class ObjectStructure { // 对象结构 即元素的集合
-    private $_collection; 
-    public function __construct() { $this->_collection = array(); } 
+    private $_collection;
+    public function __construct() { $this->_collection = array(); }
     public function attach(Element $element) {
         return array_push($this->_collection, $element);
     }
@@ -1630,7 +1630,7 @@ $os->accept($visitor2);
 
 ### 类图
 
-![state pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-state-pattern-uml.jpg)
+![state pattern](http://imgs.yansu.org/tech-state-pattern-uml.jpg)
 
 ### 实例
 
@@ -1649,11 +1649,11 @@ class ConcreteStateA implements State { // 具体状态角色A
         }
         return self::$_instance;
     }
- 
+
     public function handle(Context $context) {
         $context->setState(ConcreteStateB::getInstance());
     }
- 
+
 }
 
 class ConcreteStateB implements State { // 具体状态角色B
@@ -1665,13 +1665,13 @@ class ConcreteStateB implements State { // 具体状态角色B
         }
         return self::$_instance;
     }
- 
+
     public function handle(Context $context) {
         $context->setState(ConcreteStateA::getInstance());
     }
 }
 
-class Context { // 环境角色 
+class Context { // 环境角色
     private $_state;
     public function __construct() { // 默认为stateA
         $this->_state = ConcreteStateA::getInstance();
@@ -1727,7 +1727,7 @@ $context->request();
 - 提供一个产品类库，而只想显示它们的接口而不是实现时。
 
 ### 类图
-![abstract pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-abstract-pattern-uml.png)
+![abstract pattern](http://imgs.yansu.org/tech-abstract-pattern-uml.png)
 
 ### 实例
 
@@ -1795,7 +1795,7 @@ class WinFactory implements AbstractFactory{
 - 创建对象的生命周期必须集中管理，以保证在整个程序中具有一致的行为。
 
 ### 类图
-![factory method](http://7u2ho6.com1.z0.glb.clouddn.com/tech-factory-method-uml.png)
+![factory method](http://imgs.yansu.org/tech-factory-method-uml.png)
 
 ### 实例
 
@@ -1866,7 +1866,7 @@ class MyButtonFactory implements ButtonFactory{
 
 ### 类图
 
-![template method pattern](http://7u2ho6.com1.z0.glb.clouddn.com/tech-template-method-pattern-uml.jpg)
+![template method pattern](http://imgs.yansu.org/tech-template-method-pattern-uml.jpg)
 
 ### 实例
 
@@ -1884,9 +1884,9 @@ abstract class AbstractClass { // 抽象模板角色
 class ConcreteClass extends AbstractClass { // 具体模板角色
     protected function primitiveOperation1() {}
     protected function primitiveOperation2(){}
- 
+
 }
- 
+
 $class = new ConcreteClass();
 $class->templateMethod();
 ?>
@@ -1912,14 +1912,14 @@ $class->templateMethod();
 <?php
 abstract class Responsibility { // 抽象责任角色
     protected $next; // 下一个责任角色
- 
+
     public function setNext(Responsibility $l) {
         $this->next = $l;
         return $this;
     }
     abstract public function operate(); // 操作方法
 }
- 
+
 class ResponsibilityA extends Responsibility {
     public function __construct() {}
     public function operate(){
@@ -1937,7 +1937,7 @@ class ResponsibilityB extends Responsibility {
         }
     };
 }
- 
+
 $res_a = new ResponsibilityA();
 $res_b = new ResponsibilityB();
 $res_a->setNext($res_b);

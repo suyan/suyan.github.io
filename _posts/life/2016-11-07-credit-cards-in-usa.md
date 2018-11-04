@@ -23,7 +23,7 @@ keywords: 信用卡,生活，美国
 
 #### Citi ThankYou Preferred for College Students
 
-![](http://7u2ho6.com1.z0.glb.clouddn.com/life-citi-thankyou-card.jpg)
+![](http://imgs.yansu.org/life-citi-thankyou-card.jpg)
 
 [申请地址](https://goo.gl/oATrVo)
 
@@ -35,7 +35,7 @@ keywords: 信用卡,生活，美国
 
 ### Discover
 
-![](http://7u2ho6.com1.z0.glb.clouddn.com/life-discover-it.jpg)
+![](http://imgs.yansu.org/life-discover-it.jpg)
 
 [申请地址](https://goo.gl/QELR4c)
 
@@ -63,7 +63,7 @@ UR是Chaes的积分系统。以下所有信用卡的返现，都以积分方式�
 
 #### Chase Freedom
 
-![](http://7u2ho6.com1.z0.glb.clouddn.com/life-chase-freedom.jpg)
+![](http://imgs.yansu.org/life-chase-freedom.jpg)
 
 [申请地址](https://goo.gl/m8ovRp)
 
@@ -74,18 +74,18 @@ Chase Freedom 也是必选之一，因为也是一个5%季度返现卡，配合D
 
 #### Chase Freedom Unlimited
 
-![](http://7u2ho6.com1.z0.glb.clouddn.com/life-cfu.png)
+![](http://imgs.yansu.org/life-cfu.png)
 
 [申请地址](https://goo.gl/KmlL8s)
 
 - 返现: 所有1.5%，无上限
 - 开卡奖励: 开卡三个月消费满500给$150
 
-这个是今年新开的一个卡，这个卡真正算得上懒人用，即所有的消费都是1.5%的返现，而且返现没有上限。我用这个卡付其他一切消费 :D 
+这个是今年新开的一个卡，这个卡真正算得上懒人用，即所有的消费都是1.5%的返现，而且返现没有上限。我用这个卡付其他一切消费 :D
 
 #### Chase Sapphire Preferred (CSP)
 
-![](http://7u2ho6.com1.z0.glb.clouddn.com/life-csp-card.png)
+![](http://imgs.yansu.org/life-csp-card.png)
 
 [申请地址](https://goo.gl/c0cOIk)
 
