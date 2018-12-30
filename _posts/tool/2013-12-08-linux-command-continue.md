@@ -4,14 +4,14 @@ title: Linux下多个命令连续执行方法
 category: 工具
 tags: Linux
 keywords: Linux,连续,命令
-description: 
+description:
 ---
 
 >有的时候执行一些简单指令的时候总不想分好几次输入，利用以下方法可以方便的一次执行多个命令
 
 ### 连续不中断执行
 
-用`;`可以让多个命令连续知行，中间出现错误并不会中断后面命令，如
+用`;`可以让多个命令连续执行，中间出现错误并不会中断后面命令，如
 
     mkdir test; mkdir test; rmdir test;
 
