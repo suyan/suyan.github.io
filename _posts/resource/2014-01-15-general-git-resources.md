@@ -25,11 +25,11 @@ git show xxxx # 查看某次修改
 ```
 
 ### 标签功能
-    
-```bash    
+
+```bash
 git tag # 显示所有标签
 git tag -l 'v1.4.2.*' # 显示 1.4.2 开头标签
-git tag v1.3 # 简单打标签   
+git tag v1.3 # 简单打标签
 git tag -a v1.2 9fceb02 # 后期加注标签
 git tag -a v1.4 -m 'my version 1.4' # 增加标签并注释， -a 为 annotated 缩写
 git show v1.4 # 看某一标签详情
@@ -67,10 +67,10 @@ git mv a.php ./test/a.php
 ### 查看文件修改
 
 ```bash
-git diff          # 查看未暂存的文件更新 
-git diff --cached # 查看已暂存文件的更新 
+git diff          # 查看未暂存的文件更新
+git diff --cached # 查看已暂存文件的更新
 ```
-    
+
 ### 暂存和恢复当前staging
 
 ```bash
@@ -90,7 +90,7 @@ git rebase -i 0580eab8
 ## 分支管理
 
 ### 创建分支
-    
+
 ```bash
 git branch develop # 只创建分支
 git checkout -b master develop # 创建并切换到 develop 分支
@@ -103,6 +103,7 @@ git checkout master # 切换到 master 分支
 git merge --no-ff develop # 把 develop 合并到 master 分支，no-ff 选项的作用是保留原分支记录
 git rebase develop # rebase 当前分支到 develop
 git branch -d develop # 删除 develop 分支
+git rebase origin master # 和远程 master 分支 rebase
 ```
 
 ### 克隆远程分支
@@ -126,6 +127,12 @@ git reset --hard origin/master
 git submodule update --remote -f
 ```
 
+### 删除已经 merge 的分支
+
+```bash
+git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
+```
+
 ## Submodule使用
 
 ### 克隆带submodule的库
@@ -141,7 +148,7 @@ git clone https://github.com/chaconinc/MainProject
 git submodule init
 git submodule update
 ```
-    
+
 ## Git设置
 
 Git的全局设置在`~/.gitconfig`中，单独设置在`project/.git/config`下。
