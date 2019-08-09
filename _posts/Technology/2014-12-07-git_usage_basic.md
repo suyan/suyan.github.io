@@ -19,7 +19,7 @@ commit 为 git 的操作单元。
 * 每个 commit 都会生成一个 snapshot
 * 每个 snapshot 都以 唯一的 hash 表示
 * hash 的生成基于文件夹以及文件夹下地文件信息
-* commit 是个链式结构
+* commit 的数据结构是 有向无环图
 
 
 > [拓展阅读](http://eagain.net/articles/git-for-computer-scientists/)
