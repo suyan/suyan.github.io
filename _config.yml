@@ -25,13 +25,13 @@ avatar: http://imgs.yansu.org/site-avatar.png
 favicon: http://imgs.yansu.org/site-favicon.ico
 
 # disqus config
-disqus:
-  shortname: suyan-zh
+# disqus:
+#  shortname: suyan-zh
 
 # google analytics config
-ga:
-  id: UA-54767140-1
-  url: yansu.org
+# ga:
+#  id: UA-54767140-1
+#  url: yansu.org
 
 # Build settings
 permalink: /:year/:month/:day/:title.html
