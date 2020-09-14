@@ -20,4 +20,4 @@ layout: post
 这个博客通过 [Jekyll](http://jekyllrb.com/) 生成，部署在 [Github](https://pages.github.com)，主题基于 [3-Jekyll](https://github.com/P233/3-Jekyll) 修改生成，非常感谢 [Peiwen Lu](https://github.com/P233) 开发出这么漂亮的主题。
 
 ### 最后放上一张小仙女的照片ヽ(✿ﾟ▽ﾟ)ノ
-![fairy_2](https://raw.githubusercontent.com/lyk7539511/lyk7539511.github.io/master/assets/img/fairy_2.jpg)
+[![luXAZ8.md.jpg](https://s2.ax1x.com/2019/12/29/luXAZ8.md.jpg)](https://imgchr.com/i/luXAZ8)
