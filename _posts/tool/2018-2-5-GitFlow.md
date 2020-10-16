@@ -6,7 +6,7 @@ tags: Tools
 keywords: git,gitflow
 ---
 
-最近在学华为的HCIE认证，开源了我的拓扑及思维导图，供大家一起学习进步。这段时间我使用git的次数明显增多，有些时候会有很多重复的命令啥的，而且一不小心还会出问题，这个时候，我发现了 gitflow 这个强无敌的 git 扩展。
+这段时间我使用git的次数明显增多，有些时候会有很多重复的命令啥的，而且一不小心还会出问题，这个时候，我发现了 gitflow 这个强无敌的 git 扩展。
 
 [GitFlow 的出处在此](http://nvie.com/posts/a-successful-git-branching-model/)
 

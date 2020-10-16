@@ -7,7 +7,7 @@ layout: post
 
 本人目前是一名准研究生，喜欢一些技术类的东西，也喜欢开源。
 
-邮箱：852486850@qq.com/lyk1652@gmail.com
+邮箱：852486850@qq.com | lyk1652@gmail.com
 
 ## 博客平台
 
