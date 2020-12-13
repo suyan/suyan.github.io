@@ -1,8 +1,8 @@
 ---
 layout: post
 title: GitFlow 简介
-category: 工具
-tags: Tools
+category: Code
+tags: Git
 keywords: git,gitflow
 ---
 
